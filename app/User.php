@@ -5,10 +5,13 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Models\Permission;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +39,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getPermissionGroups()
+    {
+        $permission_groups = Permission::select('group_name as name')
+            ->groupBy('group_name')
+            ->get();
+
+        return $permission_groups;
+    }
+
+    public static function getpermissionsByGroupName($group_name)
+    {
+        $permissions = DB::table('permissions')
+            ->select('name', 'id')
+            ->where('group_name', $group_name)
+            ->get();
+        return $permissions;
+    }
+
+    public static function roleHasPermissions($role, $permissions)
+    {
+        $hasPermission = true;
+        foreach ($permissions as $permission) {
+            if (!$role->hasPermissionTo($permission->name)) {
+                $hasPermission = false;
+                return $hasPermission;
+            }
+        }
+        return $hasPermission;
+    }
 }

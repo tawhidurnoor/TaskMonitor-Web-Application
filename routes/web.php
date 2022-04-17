@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('backend.welcome');
+});
+
+Route::get('/welcome', function () {
     return view('frontend.welcome');
 });
+
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::resource('/roles', 'RolesController');
+        Route::resource('/users', 'UserController');
+    }
+);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
