@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             $user = new User();
             $user->name = "Tawhidur Noor";
             $user->email = "tawhidbadhan@gmail.com";
+            $user->user_type = "System Admin";
             $user->password = Hash::make('12345678');
             $user->save();
             $user->assignRole('superadmin');
