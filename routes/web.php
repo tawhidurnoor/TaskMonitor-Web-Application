@@ -20,6 +20,9 @@ Route::get('/home', function () {
 
 Route::get('/', 'Frontend\HomeController@index');
 
+//company module
+Route::get('/company/add', 'Frontend\CompanyController@create');
+
 Route::group(
     ['middleware' => ['auth']],
     function () {
