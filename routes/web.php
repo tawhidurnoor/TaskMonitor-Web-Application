@@ -20,10 +20,15 @@ Route::get('/home', function () {
 
 Route::get('/', 'Frontend\HomeController@index');
 
-//company module
-Route::get('/company/home', 'Frontend\CompanyController@create');
-
-Route::get('/company/create', 'Frontend\CompanyController@create');
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        //company module
+        Route::get('/company/home', 'Frontend\CompanyController@index')->name('company.index');
+        Route::get('/company/create', 'Frontend\CompanyController@create');
+        Route::post('/company/store', 'Frontend\CompanyController@store')->name('company.store');
+    }
+);
 
 Route::group(
     ['middleware' => ['auth']],

@@ -56,24 +56,14 @@
 
                     @include('backend.layouts.partials.messages')
                     <br>
-                    <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('company.store')}}" method="post">
                         @csrf
-
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
                                         <label for="">Company Name</label>
                                         <input type="text" name="name" class="form-control" placeholder="Company Name" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group">
-                                    <div class="nk-int-st">
-                                        <label for="">Company Logo</label>
-                                        <input type="file" name="email" class="form-control" accept=".jpg,.jpeg,.png"
-                                            required>
                                     </div>
                                 </div>
                             </div>
