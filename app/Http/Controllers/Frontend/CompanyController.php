@@ -11,7 +11,8 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies =  Company::all();
+        $user_id = Auth::user()->id;
+        $companies =  Company::where('owner_user_id', $user_id)->get();
         return view('frontend.company.index',[
             'companies' => $companies
         ]);
