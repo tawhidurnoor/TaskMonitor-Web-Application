@@ -1,7 +1,7 @@
 @extends('backend.layouts.full.mainlayout')
 
 @section('head')
-<title>Add Company | Time Tracke Solution</title>
+<title>Edit Company | Time Tracke Solution</title>
 {{--
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> --}}
 @endsection
@@ -21,8 +21,8 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Add Company</h2>
-                                    <p>Add a new <span class="bread-ntd">Cpmpany</span></p>
+                                    <h2>Edit Company</h2>
+                                    <p>Edit <span class="bread-ntd">Cpmpany</span></p>
                                 </div>
                             </div>
                         </div>
@@ -59,14 +59,15 @@
                     <form action="{{route('company.store')}}" method="post">
                         @csrf
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
                                         <label for="">Company Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Company Name" required>
+                                        <input type="text" name="name" class="form-control" placeholder="Company Name" value="{{$company->name}}" required>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
 
                         <div class="form-group">
@@ -89,4 +90,4 @@
 @endsection
 
 @section('scripts')
-@endsection 
+@endsection

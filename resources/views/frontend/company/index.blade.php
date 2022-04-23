@@ -89,6 +89,10 @@
                                     <td> {{Auth::user()->name}} </td>
                                     <td>
                                         <div class="btn-list">
+                                            <a href="{{route('project.create', $company->id)}}"
+                                                class="btn btn-primary notika-btn-info waves-effect">
+                                                <i class="fa fa-plus-square" aria-hidden="true"></i> Add Project
+                                            </a>
                                             <a href="{{route('users.edit', $company->id)}}"
                                                 class="btn btn-info notika-btn-info waves-effect">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit

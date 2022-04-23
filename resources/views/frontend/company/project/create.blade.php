@@ -1,7 +1,7 @@
 @extends('backend.layouts.full.mainlayout')
 
 @section('head')
-<title>Add Company | Time Tracke Solution</title>
+<title>Add Project | Time Tracke Solution</title>
 {{--
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> --}}
 @endsection
@@ -21,8 +21,8 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Add Company</h2>
-                                    <p>Add a new <span class="bread-ntd">Cpmpany</span></p>
+                                    <h2>Add Project</h2>
+                                    <p>Add a new <span class="bread-ntd">Project</span></p>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +62,8 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <label for="">Company Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Company Name" required>
+                                        <label for="">Project Title</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Project Title" required>
                                     </div>
                                 </div>
                             </div>

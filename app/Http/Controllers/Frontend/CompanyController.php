@@ -37,4 +37,11 @@ class CompanyController extends Controller
 
         return redirect()->route('company.index');
     }
+
+    public function edit(Company $company)
+    {
+        return view('frontend.company.edit',[
+            'company' => $company
+        ]);
+    }
 }

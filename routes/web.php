@@ -24,9 +24,13 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         //company module
-        Route::get('/company/home', 'Frontend\CompanyController@index')->name('company.index');
+        Route::get('/company', 'Frontend\CompanyController@index')->name('company.index');
         Route::get('/company/create', 'Frontend\CompanyController@create')->name('company.create');
         Route::post('/company/store', 'Frontend\CompanyController@store')->name('company.store');
+        Route::get('/company/edit/{company}', 'Frontend\CompanyController@edit')->name('company.edit');
+
+        //project module
+        Route::get('/project/create/{company}', 'Frontend\ProjectController@create')->name('project.create');
     }
 );
 
