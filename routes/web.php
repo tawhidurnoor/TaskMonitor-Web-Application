@@ -25,7 +25,7 @@ Route::group(
     function () {
         //company module
         Route::get('/company/home', 'Frontend\CompanyController@index')->name('company.index');
-        Route::get('/company/create', 'Frontend\CompanyController@create');
+        Route::get('/company/create', 'Frontend\CompanyController@create')->name('company.create');
         Route::post('/company/store', 'Frontend\CompanyController@store')->name('company.store');
     }
 );

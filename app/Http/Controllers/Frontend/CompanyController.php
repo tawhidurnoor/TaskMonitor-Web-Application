@@ -27,7 +27,6 @@ class CompanyController extends Controller
         $company = new Company();
         $company->name = $request->name;
         $company->owner_user_id = Auth::user()->id;
-        $company->company_logo = "company_thumbnail.jpg";
 
         if ($company->save()) {
             session()->flash('success', 'Company added successfully.');  

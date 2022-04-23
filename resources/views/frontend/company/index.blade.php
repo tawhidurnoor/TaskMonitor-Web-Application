@@ -29,8 +29,9 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
-                                <a href="{{route('users.create')}}">
-                                    <button data-toggle="tooltip" data-placement="left" title="Add A Company" class="btn">
+                                <a href="{{route('company.create')}}">
+                                    <button data-toggle="tooltip" data-placement="left" title="Add A Company"
+                                        class="btn">
                                         <i class="fa fa-plus-square" aria-hidden="true"></i> Add
                                     </button>
                                 </a>
@@ -66,7 +67,7 @@
                                     <th>SL</th>
                                     <th>Logo</th>
                                     <th>Comany Name</th>
-                                    <th>Ownwe/Creator</th>
+                                    <th>Owner/Creator</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -76,19 +77,24 @@
                                     <td> {{$loop->index+1}} </td>
                                     <td>
                                         @if(isset($company->company_logo))
-                                            <img width="75px" src="{{asset('uploaded_files/companies/'.$company->owner_user_id.'/'.$company->id.'/'.$company->company_logo)}}" alt="{{$company->name}}" class="img-thumbnail">
+                                        <img width="75px"
+                                            src="{{asset('uploaded_files/companies/'.$company->owner_user_id.'/'.$company->id.'/'.$company->company_logo)}}"
+                                            alt="{{$company->name}}" class="img-thumbnail">
                                         @else
-                                            <img width="75px" src="{{asset('static_files/company_thumbnail.jpg')}}" alt="{{$company->name}}" class="img-thumbnail">
+                                        <img width="75px" src="{{asset('static_files/company_thumbnail.jpg')}}"
+                                            alt="{{$company->name}}" class="img-thumbnail">
                                         @endif
                                     </td>
                                     <td> {{$company->name}} </td>
                                     <td> {{Auth::user()->name}} </td>
                                     <td>
                                         <div class="btn-list">
-                                            <a href="{{route('users.edit', $company->id)}}" class="btn btn-info notika-btn-info waves-effect">
+                                            <a href="{{route('users.edit', $company->id)}}"
+                                                class="btn btn-info notika-btn-info waves-effect">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit
                                             </a>
-                                            <button class="btn btn-danger notika-btn-danger waves-effect delete-button" data-id="{{$company->id}}">
+                                            <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
+                                                data-id="{{$company->id}}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                             </button>
                                         </div>
@@ -96,15 +102,6 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>User Name</th>
-                                    <th>Email</th>
-                                    <th>Roles</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
