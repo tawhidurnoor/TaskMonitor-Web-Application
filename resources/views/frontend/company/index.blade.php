@@ -91,10 +91,9 @@
                                                 class="btn btn-primary notika-btn-info waves-effect">
                                                 <i class="fa fa-plus-square" aria-hidden="true"></i> Add Project
                                             </a>
-                                            <a href="{{route('users.edit', $company->id)}}"
-                                                class="btn btn-info notika-btn-info waves-effect">
+                                            <button class="btn btn-info notika-btn-info waves-effect edit-button" data-id="{{$company->id}}">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit
-                                            </a>
+                                            </button>
                                             <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
                                                 data-id="{{$company->id}}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> Delete
@@ -150,6 +149,44 @@
     </div>
 </div>
 
+{{-- edit modal --}}
+<div class="modal fade" id="edit_modal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="" id="edit_form" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+
+                    {{-- <h2>Add a company</h2> --}}
+
+                    <div class="form-group">
+                        <div class="nk-int-st">
+                            <label for="name_edit">Company Name</label>
+                            <input type="text" name="name" id="name_edit" class="form-control" placeholder="Company Name"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="nk-int-st">
+                            <label for="company_logo">Company Logo</label>
+                            <input type="file" name="company_logo" class="form-control-file"
+                                placeholder="Company Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 {{-- delete modal --}}
 <div class="modal fade" id="delete_modal" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -188,8 +225,29 @@
         $('#delete_modal').modal('show');
         var id = $(this).data('id');
         //$('#del_id').val(id);
+        
         document.getElementById("delete_form").action = "users/" + id;
     });
+
+    $(document).on('click', '.edit-button', function(e) {
+        e.preventDefault();
+        $('#edit_modal').modal('show');
+        var id = $(this).data('id');
+        //$('#del_id').val(id);
+        getEditDetails(id)
+    });
+
+    function getEditDetails(id) {
+        $.ajax({
+            type: 'GET',
+            url: 'company/' + id,
+            dataType: 'json',
+            success: function(response) {
+                $('#name_edit').val(response.name);
+            }
+        });
+        document.getElementById("edit_form").action = "company/" + id;
+    }
 </script>
 
 @endsection

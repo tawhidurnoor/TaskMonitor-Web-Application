@@ -27,7 +27,8 @@ Route::group(
         Route::get('/company', 'Frontend\CompanyController@index')->name('company.index');
         Route::get('/company/create', 'Frontend\CompanyController@create')->name('company.create');
         Route::post('/company/store', 'Frontend\CompanyController@store')->name('company.store');
-        Route::get('/company/edit/{company}', 'Frontend\CompanyController@edit')->name('company.edit');
+        Route::get('/company/{company}', 'Frontend\CompanyController@show')->name('company.show');
+        Route::put('/company/{company}', 'Frontend\CompanyController@update')->name('company.update');
 
         //project module
         Route::get('/project/create/{company}', 'Frontend\ProjectController@create')->name('project.create');
