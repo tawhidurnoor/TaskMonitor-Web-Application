@@ -66,28 +66,31 @@ class CompanyController extends Controller
         $company->name = $request->name;
 
         if ($request->hasFile('company_logo')) {
-            if( unlink('uploaded_files/company_logos/'.$company->company_logo) ){
-                $file = $request->file('company_logo');
-                $extention = $file->getClientOriginalExtension();
 
-                $owner_user_id = Auth::user()->id;
-                $owner_name = Auth::user()->name;
-                $single_names = explode(" ", $owner_name);
-                $first_name = $single_names[0];
-                $first_name = strtolower($first_name);
-                $reversed_first_name = strrev($first_name);
-
-                $filename = time(). '_' . $reversed_first_name . '_'. $owner_user_id .'.' . $extention;
-                $file->move('uploaded_files/company_logos/', $filename);
-
-                $company->company_logo = $filename;
+            if(isset($company->company_logo) ){
+                unlink('uploaded_files/company_logos/'.$company->company_logo);
             }
+
+            $file = $request->file('company_logo');
+            $extention = $file->getClientOriginalExtension();
+
+            $owner_user_id = Auth::user()->id;
+            $owner_name = Auth::user()->name;
+            $single_names = explode(" ", $owner_name);
+            $first_name = $single_names[0];
+            $first_name = strtolower($first_name);
+            $reversed_first_name = strrev($first_name);
+
+            $filename = time(). '_' . $reversed_first_name . '_'. $owner_user_id .'.' . $extention;
+            $file->move('uploaded_files/company_logos/', $filename);
+
+            $company->company_logo = $filename;
         }
 
         if ($company->save()) {
-            session()->flash('success', 'Company added successfully.');  
+            session()->flash('success', 'Company updated successfully.');  
         } else {
-            session()->flash('warning', 'Errot adding company!! Please try again later.');  
+            session()->flash('warning', 'Errot updating company!! Please try again later.');  
         }
 
         return redirect()->route('company.index');
