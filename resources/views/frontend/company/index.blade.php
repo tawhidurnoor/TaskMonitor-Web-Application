@@ -29,12 +29,9 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
-                                <a href="{{route('company.create')}}">
-                                    <button data-toggle="tooltip" data-placement="left" title="Add A Company"
-                                        class="btn">
-                                        <i class="fa fa-plus-square" aria-hidden="true"></i> Add
-                                    </button>
-                                </a>
+                                <button class="btn" data-toggle="modal" data-target="#add_modal">
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -115,7 +112,41 @@
 </div>
 <!-- Data Table area End-->
 
+{{-- add modal --}}
+<div class="modal fade" id="add_modal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="" method="post" id="delete_form">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="nk-int-st">
+                            <label for="name">Company Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Company Name"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="nk-int-st">
+                            <label for="company_logo">Company Logo</label>
+                            <input type="file" name="company_logo" id="company_logo" class="form-control-file"
+                                placeholder="Company Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+{{-- delete modal --}}
 <div class="modal fade" id="delete_modal" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
