@@ -27,6 +27,16 @@ class CompanyController extends Controller
     {
         $company = new Company();
         $company->name = $request->name;
+
+        if ($request->hasFile('company_logo')) {
+            $file = $request->file('company_logo');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploaded_files/company_logos/', $filename);
+
+            $company->company_logo = $filename;
+        }
+
         $company->owner_user_id = Auth::user()->id;
 
         if ($company->save()) {

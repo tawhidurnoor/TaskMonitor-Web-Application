@@ -7,6 +7,7 @@
 <!-- Data Table CSS
 ============================================ -->
 <link rel="stylesheet" href="{{asset('assets/css/jquery.dataTables.min.css')}}">
+
 @section('body')
 
 <!-- Breadcomb area Start-->
@@ -30,7 +31,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
                                 <button class="btn" data-toggle="modal" data-target="#add_modal">
-                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add Company
                                 </button>
                             </div>
                         </div>
@@ -75,7 +76,7 @@
                                     <td>
                                         @if(isset($company->company_logo))
                                         <img width="75px"
-                                            src="{{asset('uploaded_files/companies/'.$company->owner_user_id.'/'.$company->id.'/'.$company->company_logo)}}"
+                                            src="{{asset('uploaded_files/company_logos/'.$company->company_logo)}}"
                                             alt="{{$company->name}}" class="img-thumbnail">
                                         @else
                                         <img width="75px" src="{{asset('static_files/company_thumbnail.jpg')}}"
@@ -119,9 +120,12 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form action="" method="post" id="delete_form">
+            <form action="{{route('company.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
+
+                    {{-- <h2>Add a company</h2> --}}
+
                     <div class="form-group">
                         <div class="nk-int-st">
                             <label for="name">Company Name</label>
@@ -139,7 +143,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-success">Add</button>
                 </div>
             </form>
         </div>
