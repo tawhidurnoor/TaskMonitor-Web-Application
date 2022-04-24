@@ -1,7 +1,7 @@
 @extends('backend.layouts.full.mainlayout')
 
 @section('head')
-<title>Your Companies | Time Tracker Solution</title>
+<title>{{$company->name}} - Project List | Time Tracker Solution</title>
 @endsection
 
 <!-- Data Table CSS
@@ -23,15 +23,15 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Companies</h2>
-                                    <p>Manage all <span class="bread-ntd">Companies</span></p>
+                                    <h2>Proejcts</h2>
+                                    <p>Manage all <span class="bread-ntd">Projects</span> of <strong>{{$company->name}}</strong></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
                                 <button class="btn" data-toggle="modal" data-target="#add_modal">
-                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add Company
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add Proejct
                                 </button>
                             </div>
                         </div>
@@ -63,40 +63,29 @@
                             <thead>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Logo</th>
-                                    <th>Comany Name</th>
-                                    <th>Owner/Creator</th>
+                                    <th>Project Title</th>
+                                    <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($companies as $company)
+                                @foreach($projects as $project)
                                 <tr>
                                     <td> {{$loop->index+1}} </td>
-                                    <td>
-                                        @if(isset($company->company_logo))
-                                        <img width="75px"
-                                            src="{{asset('uploaded_files/company_logos/'.$company->company_logo)}}"
-                                            alt="{{$company->name}}" class="img-thumbnail">
-                                        @else
-                                        <img width="75px" src="{{asset('static_files/company_thumbnail.jpg')}}"
-                                            alt="{{$company->name}}" class="img-thumbnail">
-                                        @endif
-                                    </td>
-                                    <td> {{$company->name}} </td>
-                                    <td> {{Auth::user()->name}} </td>
+                                    <td> {{$project->title}} </td>
+                                    <td> 
+                                        <p>
+                                            {!! Str::limit($project->description, 150) !!}
+                                        </p>
+                                     </td>
                                     <td>
                                         <div class="btn-list">
-                                            <a href="{{route('project.index', $company->id)}}"
-                                                class="btn btn-primary notika-btn-info waves-effect">
-                                                <i class="fa fa-users" aria-hidden="true"></i> Projects
-                                            </a>
-                                            <button class="btn btn-info notika-btn-info waves-effect edit-button" data-id="{{$company->id}}">
-                                                <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit
+                                            <button class="btn btn-info notika-btn-info waves-effect edit-button" data-id="{{$project->id}}">
+                                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                             </button>
                                             <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
-                                                data-id="{{$company->id}}">
-                                                <i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                                data-id="{{$project->id}}">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
                                             </button>
                                         </div>
                                     </td>

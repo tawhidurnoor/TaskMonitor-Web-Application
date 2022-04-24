@@ -32,7 +32,8 @@ Route::group(
         Route::delete('/company/{company}', 'Frontend\CompanyController@destroy')->name('company.destroy');
 
         //project module
-        Route::get('/project/create/{company}', 'Frontend\ProjectController@create')->name('project.create');
+        Route::get('/project/{company}', 'Frontend\ProjectController@index')->name('project.index');
+        Route::post('/project/create', 'Frontend\ProjectController@create')->name('project.create');
     }
 );
 
