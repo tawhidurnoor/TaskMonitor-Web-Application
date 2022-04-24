@@ -95,4 +95,19 @@ class CompanyController extends Controller
 
         return redirect()->route('company.index');
     }
+
+    public function destroy(Company $company)
+    {
+        if(isset($company->company_logo) ){
+            unlink('uploaded_files/company_logos/'.$company->company_logo);
+        }
+        
+        if ($company->delete()) {
+            session()->flash('success', 'Company deleted successfully.');  
+        } else {
+            session()->flash('warning', 'Errot deleting company!! Please try again later.');  
+        }
+
+        return redirect()->route('company.index');
+    }
 }

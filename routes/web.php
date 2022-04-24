@@ -29,6 +29,7 @@ Route::group(
         Route::post('/company/store', 'Frontend\CompanyController@store')->name('company.store');
         Route::get('/company/{company}', 'Frontend\CompanyController@show')->name('company.show');
         Route::put('/company/{company}', 'Frontend\CompanyController@update')->name('company.update');
+        Route::delete('/company/{company}', 'Frontend\CompanyController@destroy')->name('company.destroy');
 
         //project module
         Route::get('/project/create/{company}', 'Frontend\ProjectController@create')->name('project.create');
