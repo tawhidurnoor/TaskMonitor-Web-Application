@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Company;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class ProjectController extends Controller
         }
 
         $projects = Project::where('company_id', $company->id)->get();
-        return view('frontend.project.index',[
+        return view('backend.project.index',[
             'projects' => $projects,
             'company' => $company,
         ]);

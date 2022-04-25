@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Company;
 use App\Http\Controllers\Controller;
@@ -13,13 +13,13 @@ class CompanyController extends Controller
     {
         $user_id = Auth::user()->id;
         $companies =  Company::where('owner_user_id', $user_id)->orderBy('id', 'desc')->get();
-        return view('frontend.company.index',[
+        return view('backend.company.index',[
             'companies' => $companies
         ]);
     }
     public function create()
     {
-        return view('frontend.company.create');
+        return view('backend.company.create');
     }
 
     public function store(Request $request)
