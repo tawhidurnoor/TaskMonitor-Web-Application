@@ -26,7 +26,8 @@
                                 <div class="breadcomb-ctn">
                                     <h2>Proejcts</h2>
                                     <p>Manage all <span class="bread-ntd">Projects</span> of
-                                        <strong>{{$company->name}}</strong></p>
+                                        <strong>{{$company->name}}</strong>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -76,9 +77,7 @@
                                     <td> {{$loop->index+1}} </td>
                                     <td> {{$project->title}} </td>
                                     <td>
-                                        <p>
-                                            {!! Str::limit($project->description, 150) !!}
-                                        </p>
+                                        {!! Str::limit($project->description, 150) !!}
                                     </td>
                                     <td>
                                         <div class="btn-list">
@@ -111,11 +110,11 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form action="{{route('company.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('project.store')}}" method="post">
                 @csrf
                 <div class="modal-body">
 
-                    {{-- <h2>Add a company</h2> --}}
+                    <input type="hidden" name="company_id" value="{{$company->id}}">
 
                     <div class="form-group">
                         <div class="nk-int-st">
@@ -127,7 +126,7 @@
                     <div class="form-group">
                         <div class="nk-int-st">
                             <label for="description">Project Description</label>
-                            <textarea name="description" id="description"></textarea>
+                            <textarea name="description" id="description" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -214,7 +213,17 @@
 <script src="{{asset('assets_backend/ckeditor/ckeditor.js')}}"></script>
 
 <script>
-    CKEDITOR.replace( 'description' );
+    // CKEDITOR.replace( 'description' );
+
+    var editor = CKEDITOR.replace( 'description', {
+        language: 'en',
+        extraPlugins: 'notification'
+    });
+    
+    editor.on( 'required', function( evt ) {
+        editor.showNotification( 'This field is required.', 'warning' );
+        evt.cancel();
+    });
 </script>
 
 <script>

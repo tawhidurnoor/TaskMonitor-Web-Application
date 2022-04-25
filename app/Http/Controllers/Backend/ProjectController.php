@@ -23,8 +23,19 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        # code...
+        $project = new Project();
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->company_id = $request->company_id;
+
+        if ($project->save()) {
+            session()->flash('success', 'Project added successfully.');
+        } else {
+            session()->flash('warning', 'Errot adding project!! Please try again later.');
+        }
+
+        return redirect()->route('project.index', $request->company_id);
     }
 }

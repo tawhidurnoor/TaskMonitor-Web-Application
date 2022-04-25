@@ -33,7 +33,8 @@ Route::group(
 
         //project module
         Route::get('/project/{company}', 'Backend\ProjectController@index')->name('project.index');
-        Route::post('/project/create', 'Backend\ProjectController@create')->name('project.create');
+        Route::post('/project/store', 'Backend\ProjectController@store')->name('project.store');
+        Route::get('/project/{project}', 'Backend\ProjectController@show')->name('project.show');
     }
 );
 
