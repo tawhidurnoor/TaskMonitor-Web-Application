@@ -246,7 +246,7 @@
         var id = $(this).data('id');
         //$('#del_id').val(id);
         
-        document.getElementById("delete_form").action = "company/" + id;
+        document.getElementById("delete_form").action = "./" + id;
     });
 
     $(document).on('click', '.edit-button', function(e) {

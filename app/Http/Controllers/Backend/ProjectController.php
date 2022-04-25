@@ -57,4 +57,15 @@ class ProjectController extends Controller
 
         return redirect()->back();    
     }
+
+    public function destroy(Project $project)
+    {
+        if ($project->delete()) {
+            session()->flash('success', 'Project deleted successfully.');
+        } else {
+            session()->flash('warning', 'Errot deleting project!! Please try again later.');
+        }
+
+        return redirect()->back();   
+    }
 }

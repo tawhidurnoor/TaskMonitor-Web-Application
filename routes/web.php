@@ -36,6 +36,7 @@ Route::group(
         Route::post('/project/store', 'Backend\ProjectController@store')->name('project.store');
         Route::get('/project/show/{project}', 'Backend\ProjectController@show')->name('project.show');
         Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');
+        Route::delete('/project/{project}', 'Backend\ProjectController@destroy')->name('project.destroy');
     }
 );
 
