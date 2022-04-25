@@ -141,7 +141,7 @@
 
 {{-- edit modal --}}
 <div class="modal fade" id="edit_modal" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -155,17 +155,17 @@
 
                     <div class="form-group">
                         <div class="nk-int-st">
-                            <label for="name_edit">Company Name</label>
-                            <input type="text" name="name" id="name_edit" class="form-control"
-                                placeholder="Company Name" required>
+                            <label for="title">Project Title</label>
+                            <input type="text" name="title" id="title_edit" class="form-control" placeholder="Company Name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="nk-int-st">
-                            <label for="company_logo">Company Logo</label>
-                            <input type="file" name="company_logo" class="form-control-file" placeholder="Company Logo">
+                            <label for="description">Project Description</label>
+                            <textarea name="description" id="description_edit" required></textarea>
                         </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -215,14 +215,27 @@
 <script>
     // CKEDITOR.replace( 'description' );
 
-    var editor = CKEDITOR.replace( 'description', {
+    //for add
+    var description = CKEDITOR.replace( 'description', {
         language: 'en',
         extraPlugins: 'notification'
     });
     
-    editor.on( 'required', function( evt ) {
-        editor.showNotification( 'This field is required.', 'warning' );
+    description.on( 'required', function( evt ) {
+        description.showNotification( 'This field is required.', 'warning' );
         evt.cancel();
+    });
+
+
+    //for edit
+    var description_edit = CKEDITOR.replace( 'description_edit', {
+    language: 'en',
+    extraPlugins: 'notification'
+    });
+    
+    description_edit.on( 'required', function( evt ) {
+    description_edit.showNotification( 'This field is required.', 'warning' );
+    evt.cancel();
     });
 </script>
 
@@ -247,13 +260,16 @@
     function getEditDetails(id) {
         $.ajax({
             type: 'GET',
-            url: 'company/' + id,
+            url: './show/' + id,
             dataType: 'json',
             success: function(response) {
-                $('#name_edit').val(response.name);
+                console.log(response);
+                $('#title_edit').val(response.title);
+                description_edit.setData( response.description );
+                //$('#description_edit').html(response.description);
             }
         });
-        document.getElementById("edit_form").action = "company/" + id;
+        document.getElementById("edit_form").action = "./" + id;
     }
 </script>
 

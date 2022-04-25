@@ -16,7 +16,7 @@ class ProjectController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        $projects = Project::where('company_id', $company->id)->get();
+        $projects = Project::where('company_id', $company->id)->orderBy('id', 'desc')->get();
         return view('backend.project.index',[
             'projects' => $projects,
             'company' => $company,
@@ -37,5 +37,24 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('project.index', $request->company_id);
+    }
+
+    public function show(Project $project)
+    {
+        return $project;
+    }
+
+    public function update(Request $request, Project $project)
+    {
+        $project->title = $request->title;
+        $project->description = $request->description;
+
+        if ($project->save()) {
+            session()->flash('success', 'Project updated successfully.');
+        } else {
+            session()->flash('warning', 'Errot updating project!! Please try again later.');
+        }
+
+        return redirect()->back();    
     }
 }

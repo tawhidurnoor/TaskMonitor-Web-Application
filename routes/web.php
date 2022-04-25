@@ -34,7 +34,8 @@ Route::group(
         //project module
         Route::get('/project/{company}', 'Backend\ProjectController@index')->name('project.index');
         Route::post('/project/store', 'Backend\ProjectController@store')->name('project.store');
-        Route::get('/project/{project}', 'Backend\ProjectController@show')->name('project.show');
+        Route::get('/project/show/{project}', 'Backend\ProjectController@show')->name('project.show');
+        Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');
     }
 );
 
