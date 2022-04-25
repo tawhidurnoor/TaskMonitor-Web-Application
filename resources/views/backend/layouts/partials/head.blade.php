@@ -52,15 +52,3 @@
 <!-- modernizr JS
 		============================================ -->
 <script src="{{asset('assets_backend/js/vendor/modernizr-2.8.3.min.js')}}"></script>
-
-
-
-
-
-<!-- include libraries(jQuery, bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
-
-<!-- include summernote css/js -->
-<link href="{{asset('assets_backend/summernote-0.8.18-dist/summernote.min.css')}}" rel="stylesheet">
-<script src="{{asset('assets_backend/summernote-0.8.18-dist/summernote.min.js')}}"></script>

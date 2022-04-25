@@ -6,7 +6,8 @@
 
 <!-- Data Table CSS
 ============================================ -->
-<link rel="stylesheet" href="{{asset('assets/css/jquery.dataTables.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets_backend/css/jquery.dataTables.min.css')}}">
+
 
 @section('body')
 
@@ -24,7 +25,8 @@
                                 </div>
                                 <div class="breadcomb-ctn">
                                     <h2>Proejcts</h2>
-                                    <p>Manage all <span class="bread-ntd">Projects</span> of <strong>{{$company->name}}</strong></p>
+                                    <p>Manage all <span class="bread-ntd">Projects</span> of
+                                        <strong>{{$company->name}}</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -73,14 +75,15 @@
                                 <tr>
                                     <td> {{$loop->index+1}} </td>
                                     <td> {{$project->title}} </td>
-                                    <td> 
+                                    <td>
                                         <p>
                                             {!! Str::limit($project->description, 150) !!}
                                         </p>
-                                     </td>
+                                    </td>
                                     <td>
                                         <div class="btn-list">
-                                            <button class="btn btn-info notika-btn-info waves-effect edit-button" data-id="{{$project->id}}">
+                                            <button class="btn btn-info notika-btn-info waves-effect edit-button"
+                                                data-id="{{$project->id}}">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                             </button>
                                             <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
@@ -103,7 +106,7 @@
 
 {{-- add modal --}}
 <div class="modal fade" id="add_modal" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -116,16 +119,15 @@
 
                     <div class="form-group">
                         <div class="nk-int-st">
-                            <label for="name">Company Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Company Name"
+                            <label for="title">Project Title</label>
+                            <input type="text" name="title" id="title" class="form-control" placeholder="Company Name"
                                 required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="nk-int-st">
-                            <label for="company_logo">Company Logo</label>
-                            <input type="file" name="company_logo" id="company_logo" class="form-control-file"
-                                placeholder="Company Logo">
+                            <label for="description">Project Description</label>
+                            <textarea name="description" id="description"></textarea>
                         </div>
                     </div>
                 </div>
@@ -155,15 +157,14 @@
                     <div class="form-group">
                         <div class="nk-int-st">
                             <label for="name_edit">Company Name</label>
-                            <input type="text" name="name" id="name_edit" class="form-control" placeholder="Company Name"
-                                required>
+                            <input type="text" name="name" id="name_edit" class="form-control"
+                                placeholder="Company Name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="nk-int-st">
                             <label for="company_logo">Company Logo</label>
-                            <input type="file" name="company_logo" class="form-control-file"
-                                placeholder="Company Logo">
+                            <input type="file" name="company_logo" class="form-control-file" placeholder="Company Logo">
                         </div>
                     </div>
                 </div>
@@ -204,9 +205,17 @@
 @section('scripts')
 <!-- Data Table JS
 		============================================ -->
-<script src="{{asset('assets/js/data-table/jquery.dataTables.min.js')}}">
+<script src="{{asset('assets_backend/js/data-table/jquery.dataTables.min.js')}}">
 </script>
-<script src="{{asset('assets/js/data-table/data-table-act.js')}}"></script>
+<script src="{{asset('assets_backend/js/data-table/data-table-act.js')}}"></script>
+
+
+{{-- CKEditor --}}
+<script src="{{asset('assets_backend/ckeditor/ckeditor.js')}}"></script>
+
+<script>
+    CKEDITOR.replace( 'description' );
+</script>
 
 <script>
     $(document).on('click', '.delete-button', function(e) {

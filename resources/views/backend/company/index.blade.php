@@ -6,7 +6,7 @@
 
 <!-- Data Table CSS
 ============================================ -->
-<link rel="stylesheet" href="{{asset('assets/css/jquery.dataTables.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets_backend/css/jquery.dataTables.min.css')}}">
 
 @section('body')
 
@@ -215,9 +215,9 @@
 @section('scripts')
 <!-- Data Table JS
 		============================================ -->
-<script src="{{asset('assets/js/data-table/jquery.dataTables.min.js')}}">
+<script src="{{asset('assets_backend/js/data-table/jquery.dataTables.min.js')}}">
 </script>
-<script src="{{asset('assets/js/data-table/data-table-act.js')}}"></script>
+<script src="{{asset('assets_backend/js/data-table/data-table-act.js')}}"></script>
 
 <script>
     $(document).on('click', '.delete-button', function(e) {
