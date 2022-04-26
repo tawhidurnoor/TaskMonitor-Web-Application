@@ -1,7 +1,7 @@
 @extends('backend.layouts.full.mainlayout')
 
 @section('head')
-<title>Your Companies | Time Tracker Solution</title>
+<title>{{$company->name}} - All Staffs | Time Tracker Solution</title>
 @endsection
 
 <!-- Data Table CSS
@@ -23,15 +23,15 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Companies</h2>
-                                    <p>Manage all <span class="bread-ntd">Companies</span></p>
+                                    <h2>Staffs</h2>
+                                    <p>Manage all <span class="bread-ntd">Staffs</span> of <strong>{{$company->name}}</strong></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                             <div class="breadcomb-report">
                                 <button class="btn" data-toggle="modal" data-target="#add_modal">
-                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add Company
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Add Staff
                                 </button>
                             </div>
                         </div>
@@ -63,46 +63,39 @@
                             <thead>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Logo</th>
-                                    <th>Comany Name</th>
-                                    <th>Owner/Creator</th>
-                                    <th>Total Staffs</th>
-                                    <th>Total Projects</th>
+                                    <th>Picture</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($companies as $company)
+                                @foreach($staffs as $staff)
                                 <tr>
                                     <td> {{$loop->index+1}} </td>
                                     <td>
-                                        @if(isset($company->company_logo))
+                                        @if(isset($staff->user->profile_picture))
                                         <img width="75px"
-                                            src="{{asset('uploaded_files/company_logos/'.$company->company_logo)}}"
-                                            alt="{{$company->name}}" class="img-thumbnail">
+                                            src="{{asset('uploaded_files/profile_pictures/'.$staff->user->profile_picture)}}"
+                                            alt="{{$staff->user->name}}" class="img-thumbnail">
                                         @else
-                                        <img width="75px" src="{{asset('static_files/company_thumbnail.jpg')}}"
-                                            alt="{{$company->name}}" class="img-thumbnail">
+                                            @if ($staff->user->gender == 'Male')
+                                                <img width="75px" src="{{asset('static_files/avatar_male_320x320.jpg')}}" alt="{{$staff->user->name}}" class="img-thumbnail">
+                                            @else
+                                                <img width="75px" src="{{asset('static_files/avatar_female_320x320.jpg')}}" alt="{{$staff->user->name}}" class="img-thumbnail">
+                                            @endif
                                         @endif
                                     </td>
-                                    <td> {{$company->name}} </td>
-                                    <td> {{App\User::find($company->owner_user_id)->name}} </td>
-                                    <td> {{count($company->staffs)}} </td>
-                                    <td> {{count($company->projects)}} </td>
+                                    <td> {{$staff->user->name}} </td>
+                                    <td> {{$staff->user->email}} </td>
                                     <td>
                                         <div class="btn-list">
-                                            <a href="{{route('staff.index_company', $company->id)}}" class="btn btn-primary notika-btn-info waves-effect">
-                                                <i class="fa fa-users" aria-hidden="true"></i> Staffs
-                                            </a>
-                                            <a href="{{route('project.index', $company->id)}}"
-                                                class="btn btn-primary notika-btn-info waves-effect">
-                                                <i class="fa fa-laptop" aria-hidden="true"></i> Projects
-                                            </a>
-                                            <button class="btn btn-info notika-btn-info waves-effect edit-button" data-id="{{$company->id}}">
+                                            <button class="btn btn-info notika-btn-info waves-effect edit-button"
+                                                data-id="{{$staff->id}}">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit
                                             </button>
                                             <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
-                                                data-id="{{$company->id}}">
+                                                data-id="{{$staff->id}}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                             </button>
                                         </div>
@@ -173,15 +166,14 @@
                     <div class="form-group">
                         <div class="nk-int-st">
                             <label for="name_edit">Company Name</label>
-                            <input type="text" name="name" id="name_edit" class="form-control" placeholder="Company Name"
-                                required>
+                            <input type="text" name="name" id="name_edit" class="form-control"
+                                placeholder="Company Name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="nk-int-st">
                             <label for="company_logo">Company Logo</label>
-                            <input type="file" name="company_logo" class="form-control-file"
-                                placeholder="Company Logo">
+                            <input type="file" name="company_logo" class="form-control-file" placeholder="Company Logo">
                         </div>
                     </div>
                 </div>

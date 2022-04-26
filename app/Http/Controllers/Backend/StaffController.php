@@ -2,20 +2,36 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Company;
 use App\Http\Controllers\Controller;
 use App\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
+    public function index_company(Company $company)
+    {
+        if (Auth::user()->id != $company->owner_user_id) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $staffs = Staff::where('company_id', $company->id)->get();
+
+        return view('backend.staff.index',[
+            'staffs' => $staffs,
+            'company' => $company,
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Company $company)
     {
-        //
+        return $company;
     }
 
     /**
