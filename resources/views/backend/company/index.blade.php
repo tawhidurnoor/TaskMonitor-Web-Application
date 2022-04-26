@@ -66,6 +66,7 @@
                                     <th>Logo</th>
                                     <th>Comany Name</th>
                                     <th>Owner/Creator</th>
+                                    <th>Total Projects</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -85,6 +86,7 @@
                                     </td>
                                     <td> {{$company->name}} </td>
                                     <td> {{Auth::user()->name}} </td>
+                                    <td> {{count($company->projects)}} </td>
                                     <td>
                                         <div class="btn-list">
                                             <a href="{{route('project.index', $company->id)}}"
