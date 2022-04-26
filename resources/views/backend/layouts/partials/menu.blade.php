@@ -36,6 +36,10 @@
                             <i class="notika-icon notika-house"></i> Home</a>
                     </li>
 
+                    <li class="{{ ( request()->segment(1)=='company' ) ? 'active':'' }}"> <a href="{{route('company.index')}}">
+                            <i class="notika-icon notika-house"></i> Companies</a>
+                    </li>
+
                     <li class="{{ ( request()->segment(1)=='roles' || request()->segment(1)=='users' ) ? 'active':'' }}">
                         <a data-toggle="tab" href="#userManagement"><i class="notika-icon notika-support"></i> User Management</a>
                     </li>

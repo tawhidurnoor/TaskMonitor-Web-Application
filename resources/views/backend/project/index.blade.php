@@ -76,7 +76,7 @@
                                 <tr>
                                     <td> {{$loop->index+1}} </td>
                                     <td> {{$project->title}} </td>
-                                    <td>
+                                    <td style="width: 65%">
                                         {!! Str::limit($project->description, 150) !!}
                                     </td>
                                     <td>
