@@ -85,7 +85,7 @@
                                         @endif
                                     </td>
                                     <td> {{$company->name}} </td>
-                                    <td> {{Auth::user()->name}} </td>
+                                    <td> {{App\User::find($company->owner_user_id)->name}} </td>
                                     <td> {{count($company->projects)}} </td>
                                     <td>
                                         <div class="btn-list">
