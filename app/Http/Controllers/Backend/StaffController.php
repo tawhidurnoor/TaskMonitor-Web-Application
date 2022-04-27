@@ -29,9 +29,9 @@ class StaffController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Company $company)
+    public function index()
     {
-        return $company;
+        // return $company;
     }
 
     /**
