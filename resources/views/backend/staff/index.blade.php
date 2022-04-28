@@ -132,7 +132,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form action="{{route('company.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('staff.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 
@@ -141,30 +141,31 @@
                     <div class="form-element-list">
                         <div class="row">
                             
+                            <input type="hidden" name="company_id" value="{{$company->id}}">
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Name *</label>
                                     <div class="nk-int-st">
-                                        <input type="text" name="name" class="form-control input-sm" placeholder="Enter Staff's Name">
+                                        <input type="text" name="name" class="form-control input-sm" placeholder="Enter Staff's Name" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label>Email Address *</label>
                                     <div class="nk-int-st">
-                                        <input type="email" name="email" class="form-control input-sm" placeholder="Enter Email">
+                                        <input type="email" name="email" class="form-control input-sm" placeholder="Enter Email" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label>Gender *</label>
                                     <div class="nk-int-st">
-                                        <select name="gender" id="" class="form-control">
+                                        <select name="gender" id="" class="form-control" required>
                                             <option value="">Select Gender</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
@@ -179,8 +180,8 @@
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <label>Password *</label>
+                                        <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
                                     </div>
                                 </div>
                             </div>
@@ -188,8 +189,8 @@
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <label>Confirm Password</label>
-                                        <input type="password" class="form-control" placeholder="Confirm Pasword">
+                                        <label>Confirm Password *</label>
+                                        <input type="password" name="confirm_password" class="form-control" placeholder="Reenter Pasword" required>
                                     </div>
                                 </div>
                             </div>
@@ -197,8 +198,8 @@
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <label for="company_logo">Company Logo</label>
-                                        <input type="file" name="company_logo" id="company_logo" class="form-control-file" placeholder="Company Logo">
+                                        <label for="company_logo">Staff Picture</label>
+                                        <input type="file" name="profile_picture" class="form-control-file" placeholder="Company Logo">
                                     </div>
                                 </div>
                             </div>
