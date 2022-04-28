@@ -140,6 +140,14 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff)
     {
-        //
+        $user = User::findOrFail($staff->staff_user_id);
+
+        if($user->delete() && $staff->delete()){
+            session()->flash('success', 'Staff deleted successfully!');
+        }else{
+            session()->flash('warning', 'Error deleting staff!');
+        }
+
+        return redirect()->back();
     }
 }
