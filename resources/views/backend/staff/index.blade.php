@@ -90,12 +90,12 @@
                                         @if(isset($staff->user->profile_picture))
                                         <img width="75px"
                                             src="{{asset('uploaded_files/profile_pictures/'.$staff->user->profile_picture)}}"
-                                            alt="{{$staff->user->name}}" class="img-thumbnail">
+                                            alt="{{$staff->user->name}}" class="rounded">
                                         @else
                                             @if ($staff->user->gender == 'Male')
-                                                <img width="75px" src="{{asset('static_files/avatar_male_320x320.jpg')}}" alt="{{$staff->user->name}}" class="img-thumbnail">
+                                                <img width="75px" src="{{asset('static_files/avatar_male_320x320.jpg')}}" alt="{{$staff->user->name}}" class="rounded">
                                             @else
-                                                <img width="75px" src="{{asset('static_files/avatar_female_320x320.jpg')}}" alt="{{$staff->user->name}}" class="img-thumbnail">
+                                                <img width="75px" src="{{asset('static_files/avatar_female_320x320.jpg')}}" alt="{{$staff->user->name}}" class="rounded">
                                             @endif
                                         @endif
                                     </td>
