@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Company;
 use App\Http\Controllers\Controller;
 use App\Project;
+use App\ProjectStaff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,22 @@ class ProjectController extends Controller
         return view('backend.project.index',[
             'projects' => $projects,
             'company' => $company,
+        ]);
+    }
+
+    public function details(Project $project)
+    {
+        $company = Company::findORFail($project->company_id);
+        if(Auth::user()->id != $company->owner_user_id){
+            abort(403, 'Unauthorized action.');
+        }
+
+        $project_staffs = ProjectStaff::where('project_id', $project->id);
+
+        return view('backend.project.details',[
+            'project' => $project,
+            'company' => $company,
+            'project_staffs' => $project_staffs,
         ]);
     }
 

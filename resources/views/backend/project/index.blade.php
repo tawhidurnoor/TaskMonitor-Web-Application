@@ -76,16 +76,19 @@
                                 <tr>
                                     <td> {{$loop->index+1}} </td>
                                     <td> {{$project->title}} </td>
-                                    <td style="width: 65%">
+                                    <td style="width: 50%">
                                         {!! Str::limit($project->description, 150) !!}
                                     </td>
                                     <td>
                                         <div class="btn-list">
-                                            <button class="btn btn-info notika-btn-info waves-effect edit-button"
+                                            <a href="{{route('project.details', $project->id)}}" class="btn btn-warning waves-effect">
+                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                            </a>
+                                            <button class="btn btn-info waves-effect edit-button"
                                                 data-id="{{$project->id}}">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                             </button>
-                                            <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
+                                            <button class="btn btn-danger waves-effect delete-button"
                                                 data-id="{{$project->id}}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </button>
@@ -105,7 +108,7 @@
 
 {{-- add modal --}}
 <div class="modal fade" id="add_modal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-large">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -141,7 +144,7 @@
 
 {{-- edit modal --}}
 <div class="modal fade" id="edit_modal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-large">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>

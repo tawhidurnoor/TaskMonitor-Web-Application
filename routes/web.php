@@ -37,6 +37,8 @@ Route::group(
         Route::get('/project/show/{project}', 'Backend\ProjectController@show')->name('project.show');
         Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');
         Route::delete('/project/{project}', 'Backend\ProjectController@destroy')->name('project.destroy');
+        //project staff assign module
+        Route::get('/project/{project}/details', 'Backend\ProjectController@details')->name('project.details');
 
         //staff module
         Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');
