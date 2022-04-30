@@ -40,6 +40,7 @@ Route::group(
         //project staff assign module
         Route::get('/project/{project}/details', 'Backend\ProjectController@details')->name('project.details');
         Route::post('/project/staff/store', 'Backend\ProjectController@storeStaff')->name('storeStaff');
+        Route::delete('/project_staff/{project_staff}', 'Backend\ProjectController@project_staff_destroy')->name('project_staff.destroy');
 
         //staff module
         Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');

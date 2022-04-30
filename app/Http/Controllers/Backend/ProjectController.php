@@ -58,6 +58,17 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
+    public function project_staff_destroy(ProjectStaff $project_staff)
+    {
+        if ($project_staff->delete()) {
+            session()->flash('success', 'Staff deleted successfullt.');
+        } else {
+            session()->flash('warning', 'Errot deleting staff!! Please try again later.');
+        }
+
+        return redirect()->back();
+    }
+
     public function store(Request $request)
     {
         $project = new Project();
