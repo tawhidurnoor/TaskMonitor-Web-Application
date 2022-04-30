@@ -91,17 +91,17 @@
                                     <td> {{count($company->projects)}} </td>
                                     <td>
                                         <div class="btn-list">
-                                            <a href="{{route('staff.index_company', $company->id)}}" class="btn btn-primary notika-btn-info waves-effect">
+                                            <a href="{{route('staff.index_company', $company->id)}}" class="btn btn-primary waves-effect">
                                                 <i class="fa fa-users" aria-hidden="true"></i> Staffs
                                             </a>
                                             <a href="{{route('project.index', $company->id)}}"
-                                                class="btn btn-primary notika-btn-info waves-effect">
+                                                class="btn btn-warning waves-effect">
                                                 <i class="fa fa-laptop" aria-hidden="true"></i> Projects
                                             </a>
-                                            <button class="btn btn-info notika-btn-info waves-effect edit-button" data-id="{{$company->id}}">
+                                            <button class="btn btn-info waves-effect edit-button" data-id="{{$company->id}}">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit
                                             </button>
-                                            <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
+                                            <button class="btn btn-danger waves-effect delete-button"
                                                 data-id="{{$company->id}}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                             </button>

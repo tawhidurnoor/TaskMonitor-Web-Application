@@ -6,6 +6,7 @@ use App\Company;
 use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectStaff;
+use App\Staff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,13 +32,30 @@ class ProjectController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        $project_staffs = ProjectStaff::where('project_id', $project->id);
+        $all_staffs = Staff::where('company_id', $company->id)->get();
+        $project_staffs = ProjectStaff::where('project_id', $project->id)->get();
 
         return view('backend.project.details',[
             'project' => $project,
             'company' => $company,
+            'all_staffs' => $all_staffs,
             'project_staffs' => $project_staffs,
         ]);
+    }
+
+    public function storeStaff(Request$request)
+    {
+        $project_staff = New ProjectStaff();
+        $project_staff->staff_id = $request->staff_id;
+        $project_staff->project_id = $request->project_id;
+
+        if ($project_staff->save()) {
+            session()->flash('success', 'Staff added successfullt.');
+        } else {
+            session()->flash('warning', 'Errot adding staff!! Please try again later.');
+        }
+
+        return redirect()->back();
     }
 
     public function store(Request $request)
