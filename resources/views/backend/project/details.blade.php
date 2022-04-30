@@ -38,7 +38,7 @@
                                 <div class="breadcomb-ctn">
                                     <h2>{{$project->title}} -Project details</h2>
                                     <p>Manage all <span class="bread-ntd">Staffs</span> of
-                                        <strong>{{$company->name}}</strong>
+                                        <strong>{{$project->title}}</strong>
                                     </p>
                                 </div>
                             </div>

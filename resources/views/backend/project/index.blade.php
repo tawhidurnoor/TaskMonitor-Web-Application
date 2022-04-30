@@ -68,6 +68,7 @@
                                     <th>SL</th>
                                     <th>Project Title</th>
                                     <th>Description</th>
+                                    <th>Total Staffs</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -78,6 +79,9 @@
                                     <td> {{$project->title}} </td>
                                     <td style="width: 50%">
                                         {!! Str::limit($project->description, 150) !!}
+                                    </td>
+                                    <td>
+                                        {{count($project->staffs)}}
                                     </td>
                                     <td>
                                         <div class="btn-list">
