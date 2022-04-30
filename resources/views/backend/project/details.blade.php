@@ -107,7 +107,11 @@
                                     <td> {{$project_staff->staff->user->email}} </td>
                                     <td>
                                         <div class="btn-list">
-                                            <button class="btn btn-danger notika-btn-danger waves-effect delete-button"
+                                            <a href="#" class="btn btn-info waves-effect delete-button">
+                                                <i class="fa fa-info" aria-hidden="true"></i> Details
+                                            </a>
+
+                                            <button class="btn btn-danger waves-effect delete-button"
                                                 data-id="{{$project_staff->id}}">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                             </button>

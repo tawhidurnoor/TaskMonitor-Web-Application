@@ -32,16 +32,16 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
 
-                    <li class="{{ ( request()->segment(1)=='' ) ? 'active':'' }}"> <a href="/">
-                            <i class="notika-icon notika-house"></i> Home</a>
+                    <li class="{{ ( request()->segment(1)=='' ) ? 'active':'' }}"> <a href="#">
+                            <i class="fa fa-tachometer" aria-hidden="true"></i> Home</a>
                     </li>
 
                     <li class="{{ ( request()->segment(1)=='company' ) ? 'active':'' }}"> <a href="{{route('company.index')}}">
-                            <i class="notika-icon notika-house"></i> Companies</a>
+                            <i class="fa fa-building" aria-hidden="true"></i> Companies</a>
                     </li>
 
                     <li class="{{ ( request()->segment(1)=='roles' || request()->segment(1)=='users' ) ? 'active':'' }}">
-                        <a data-toggle="tab" href="#userManagement"><i class="notika-icon notika-support"></i> User Management</a>
+                        <a data-toggle="tab" href="#userManagement"><i class="fa fa-user" aria-hidden="true"></i> User Management</a>
                     </li>
                 </ul>
 

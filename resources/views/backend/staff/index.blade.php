@@ -33,7 +33,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="breadcomb-wp">
                                 <div class="breadcomb-icon">
-                                    <i class="notika-icon notika-support"></i>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
                                     <h2>Staffs</h2>
