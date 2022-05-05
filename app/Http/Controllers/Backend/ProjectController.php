@@ -43,9 +43,9 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function storeStaff(Request$request)
+    public function storeStaff(Request $request)
     {
-        $project_staff_count = ProjectStaff::where('staff_id', $request->staff_id)->count();
+        $project_staff_count = ProjectStaff::where('staff_id', $request->staff_id)->where('project_id', $request->project_id)->count();
         if($project_staff_count > 0){
             session()->flash('warning', 'Staff already added');
             return redirect()->back();
