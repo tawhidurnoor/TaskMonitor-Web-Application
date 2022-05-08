@@ -18,6 +18,7 @@ class CreateTimeTrackersTable extends Migration
             $table->id();
             $table->bigInteger('project_id');
             $table->bigInteger('staff_id');
+            $table->string('task_title');
             $table->timestamp('start')->useCurrent();
             $table->timestamp('end')->nullable();
             $table->timestamps();

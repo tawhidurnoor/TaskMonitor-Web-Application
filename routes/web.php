@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/dextop_login', function(Request $request){
+    // return $request;
+    return json_encode([$request->email, $request->password]);
+});
 
 Route::get('/home', function () {
     return view('backend.welcome');
