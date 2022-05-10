@@ -1,5 +1,7 @@
 <?php
 
+use App\Project;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +19,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/dextop_login', function(Request $request){
     // return $request;
-    return json_encode([$request->email, $request->password]);
+    // return json_encode([$request->email, $request->password]);
+    return User::where('email', $request->email)->first();
+});
+
+Route::get('/dextop_projects', function (Request $request) {
+    // return $request;
+    // return json_encode([$request->email, $request->password]);
+    $projects = array();
+    $projects = ['TTS', 'BFS', "TEST"];
+
+    // return User::where('email', $request->email)->first();
+
+    $projects = Project::select('title')->get()->pluck('title');
+    return json_encode($projects);
 });
 
 Route::get('/home', function () {
