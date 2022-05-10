@@ -1,9 +1,11 @@
 <?php
 
 use App\Project;
+use App\ProjectStaff;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+$id;
 
 Route::get('/dextop_login', function(Request $request){
     // return $request;
@@ -24,14 +27,21 @@ Route::get('/dextop_login', function(Request $request){
 });
 
 Route::get('/dextop_projects', function (Request $request) {
-    // return $request;
-    // return json_encode([$request->email, $request->password]);
-    $projects = array();
-    $projects = ['TTS', 'BFS', "TEST"];
+    $email = $request->email;
+    // $staff_id = User::where('email', $email)->first()->id;
+    $this->id = '2';
 
-    // return User::where('email', $request->email)->first();
 
-    $projects = Project::select('title')->get()->pluck('title');
+    $project_ids = ProjectStaff::where('staff_id', $this->id)->selectRaw('project_id')->toSql();
+    return $project_ids;
+
+    $project_staff_ids_array = [];
+
+    foreach($project_ids as $id){
+        array_push($project_staff_ids_array, $id->project_id);
+    }
+
+    $projects = Project::whereIn('id', $project_staff_ids_array)->select('title')->get()->pluck('title');
     return json_encode($projects);
 });
 
