@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dextop_login', function(Request $request){
     // return $request;
     // return json_encode([$request->email, $request->password]);
-    return User::where('email', $request->email)->first();
+    return json_encode(User::where('email', $request->email)->get());
 });
 
 Route::get('/dextop_projects', function (Request $request) {
