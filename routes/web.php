@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-$id;
 
 Route::get('/dextop_login', function(Request $request){
     // return $request;
@@ -28,11 +27,13 @@ Route::get('/dextop_login', function(Request $request){
 
 Route::get('/dextop_projects', function (Request $request) {
     $email = $request->email;
-    // $staff_id = User::where('email', $email)->first()->id;
-    $this->id = '2';
+    $staff = User::where('email', $email)->get();
+    foreach($staff as $stf){
+        $staff_id = $stf->id;
+    }
 
 
-    $project_ids = ProjectStaff::where('staff_id', $this->id)->selectRaw('project_id')->toSql();
+    $project_ids = ProjectStaff::where('staff_id', $staff_id)->selectRaw('project_id')->toSql();
     return $project_ids;
 
     $project_staff_ids_array = [];
