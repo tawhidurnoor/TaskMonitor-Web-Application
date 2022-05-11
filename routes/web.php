@@ -25,26 +25,7 @@ Route::get('/dextop_login', function(Request $request){
     return json_encode(User::where('email', $request->email)->get());
 });
 
-Route::get('/dextop_projects', function (Request $request) {
-    $email = $request->email;
-    $staff = User::where('email', $email)->get();
-    foreach($staff as $stf){
-        $staff_id = $stf->id;
-    }
-
-
-    $project_ids = ProjectStaff::where('staff_id', $staff_id)->selectRaw('project_id')->toSql();
-    return $project_ids;
-
-    $project_staff_ids_array = [];
-
-    foreach($project_ids as $id){
-        array_push($project_staff_ids_array, $id->project_id);
-    }
-
-    $projects = Project::whereIn('id', $project_staff_ids_array)->select('title')->get()->pluck('title');
-    return json_encode($projects);
-});
+Route::get('/dextop_projects', 'TestApiController@dextop_projects');
 
 Route::get('/home', function () {
     return view('backend.welcome');
