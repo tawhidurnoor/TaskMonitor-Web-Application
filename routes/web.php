@@ -19,13 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dextop_login', function(Request $request){
-    // return $request;
-    // return json_encode([$request->email, $request->password]);
-    return json_encode(User::where('email', $request->email)->get());
-});
+Route::get('/dextop_login', 'TestApiController@dextop_login');
 
 Route::get('/dextop_projects', 'TestApiController@dextop_projects');
+
+Route::get('/dextop_time_tracker', 'TestApiController@dextop_time_tracker');
 
 Route::get('/home', function () {
     return view('backend.welcome');
