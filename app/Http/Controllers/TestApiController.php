@@ -43,9 +43,13 @@ class TestApiController extends Controller
 
     public function dextop_time_tracker(Request $request)
     {
-        $staff_id = User::where('email', $request->email)->get()[0]->id;
-        $project_id = Project::where('title', $request->project)->get()[0]->id;
+        $email = $request->email;
+        $project = $request->project;
         $task_title = $request->task_title;
+
+
+        $staff_id = User::where('email', $email)->first()->id;
+        $project_id = Project::where('title', $project)->first()->id;
 
         $time_tracker = new TimeTracker();
         $time_tracker->project_id = $project_id;
