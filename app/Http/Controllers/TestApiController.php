@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use App\ProjectStaff;
+use App\Staff;
 use App\TimeTracker;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,7 +20,9 @@ class TestApiController extends Controller
     public function dextop_projects(Request $request)
     {
         $email = $request->email;
-        $staff_id = User::where('email', $email)->value('id');
+        $user_id = User::where('email', $email)->value('id');
+        $staff_id = Staff::where('staff_user_id',$user_id)->value('id');
+
         // $staff_id = null;
         // foreach($staff as $stf){
         //     $staff_id = $stf->id;
