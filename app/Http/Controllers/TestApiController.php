@@ -62,4 +62,9 @@ class TestApiController extends Controller
         return json_encode($time_tracker);
 
     }
+
+    public function dextop_test_upload(Request $request)
+    {
+        # code...
+    }
 }
