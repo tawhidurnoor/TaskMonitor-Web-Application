@@ -59,9 +59,10 @@ class TestApiController extends Controller
         $time_tracker->staff_id = $staff_id;
         $time_tracker->task_title = $task_title;
         $time_tracker->save();
-        $response = array($time_tracker);
-        //$response. array_push($time_tracker);
-        return json_encode($response);
+
+        // $response = array($time_tracker);
+        // return json_encode($response);
+        return $time_tracker->id;
 
     }
 
