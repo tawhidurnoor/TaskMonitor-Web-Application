@@ -68,6 +68,12 @@ class TestApiController extends Controller
 
     public function dextop_test_upload(Request $request)
     {
-        # code...
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $extention = $file->getClientOriginalExtension();
+
+            $filename = time() . '_' . time() . '.' . $extention;
+            $file->move('captured/', $filename);
+        }
     }
 }
