@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectStaff;
 use App\Staff;
+use App\TimeTracker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -119,5 +120,13 @@ class ProjectController extends Controller
         }
 
         return redirect()->back();   
+    }
+
+    public function timeTracker($project, $staff)
+    {
+        $timeTrackers = TimeTracker::where('project_id', $project)
+        ->where('staff_id', $staff)
+        ->get();
+        return $timeTrackers;
     }
 }

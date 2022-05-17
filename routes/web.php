@@ -57,6 +57,9 @@ Route::group(
         Route::post('/project/staff/store', 'Backend\ProjectController@storeStaff')->name('storeStaff');
         Route::delete('/project_staff/{project_staff}', 'Backend\ProjectController@project_staff_destroy')->name('project_staff.destroy');
 
+        //timetracker(project->staff->details)
+        Route::get('/project/{project}/timetracker/{staff}', 'Backend\ProjectController@timeTracker')->name('project.timeTracker');
+
         //staff module
         Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');
         Route::resource('/staff', 'Backend\StaffController');
