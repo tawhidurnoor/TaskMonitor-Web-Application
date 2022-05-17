@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use App\ProjectStaff;
+use App\Screenshot;
 use App\Staff;
 use App\TimeTracker;
 use App\User;
@@ -58,6 +59,7 @@ class TestApiController extends Controller
         $time_tracker->project_id = $project_id;
         $time_tracker->staff_id = $staff_id;
         $time_tracker->task_title = $task_title;
+        $time_tracker->start  = date('Y-m-d H:i:s');
         $time_tracker->save();
 
         // $response = array($time_tracker);
@@ -66,14 +68,44 @@ class TestApiController extends Controller
 
     }
 
+    public function dextop_time_tracker_stop(Request $request)
+    {
+        $timeTrackerId = $request->timeTrackerId;
+
+        $timeTracker = TimeTracker::findOrFail($timeTrackerId);
+        $timeTracker->end  = date('Y-m-d H:i:s');
+        $timeTracker->save();
+
+    }
+
     public function dextop_test_upload(Request $request)
     {
+        $email = $request->email;
+        $timeTrackerId = $request->timeTrackerId;
+
+        $staff_id = User::where('email', $email)->first()->id;
+
+        $screenshot = new Screenshot();
+        $screenshot->time_tracker_id = $timeTrackerId;
+        $screenshot->staff_id = $staff_id;
+
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $extention = $file->getClientOriginalExtension();
 
-            $filename = time() . '_' . time() . '.' . $extention;
+            //naming file
+            $staff_name = User::where('email', $email)->first()->name;
+            $single_names = explode(" ", $staff_name);
+            $first_name = $single_names[0];
+            $first_name = strtolower($first_name);
+            $reversed_first_name = strrev($first_name);
+
+            $filename = time() . '_' . $reversed_first_name . '_time_tracker_no_' . $timeTrackerId . '.' . $extention;
             $file->move('captured/', $filename);
+
+            $screenshot->image = $filename;
         }
+
+        $screenshot->save();
     }
 }
