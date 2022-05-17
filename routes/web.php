@@ -25,7 +25,7 @@ Route::get('/dextop_projects', 'TestApiController@dextop_projects');
 
 Route::get('/dextop_time_tracker', 'TestApiController@dextop_time_tracker');
 
-Route::get('/dextop_test_upload', 'TestApiController@dextop_test_upload');
+Route::post('/dextop_test_upload', 'TestApiController@dextop_test_upload');
 
 Route::get('/home', function () {
     return view('backend.welcome');
