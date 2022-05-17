@@ -108,7 +108,7 @@ class ProjectController extends Controller
             session()->flash('warning', 'Errot updating project!! Please try again later.');
         }
 
-        return redirect()->back();    
+        return redirect()->back();
     }
 
     public function destroy(Project $project)
@@ -119,14 +119,18 @@ class ProjectController extends Controller
             session()->flash('warning', 'Errot deleting project!! Please try again later.');
         }
 
-        return redirect()->back();   
+        return redirect()->back();
     }
 
     public function timeTracker($project, $staff)
     {
-        $timeTrackers = TimeTracker::where('project_id', $project)
+//        $staff_obj = Staff::findOrFail($staff);
+//        $staffUserId= $staff_obj->staff_user_id;
+//
+        $project_id = $project;
+
+        return TimeTracker::where('project_id', $project_id)
         ->where('staff_id', $staff)
         ->get();
-        return $timeTrackers;
     }
 }

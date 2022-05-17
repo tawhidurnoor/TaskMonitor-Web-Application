@@ -107,7 +107,7 @@
                                     <td> {{$project_staff->staff->user->email}} </td>
                                     <td>
                                         <div class="btn-list">
-                                            <a href="#" class="btn btn-info waves-effect delete-button">
+                                            <a href="{{route('project.timeTracker', [$project->id , $project_staff->staff->staff_user_id])}}" class="btn btn-info waves-effect ">
                                                 <i class="fa fa-info" aria-hidden="true"></i> Details
                                             </a>
 
@@ -234,7 +234,7 @@
     $(document).ready(function() {
     $('#staff-table').DataTable();
     });
-    
+
     })(jQuery);
 </script> --}}
 
@@ -244,7 +244,7 @@
         $('#delete_modal').modal('show');
         var id = $(this).data('id');
         //$('#del_id').val(id);
-        
+
         document.getElementById("delete_form").action = "../../project_staff/" + id;
     });
 
