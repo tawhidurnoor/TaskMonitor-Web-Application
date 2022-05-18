@@ -59,6 +59,7 @@ Route::group(
 
         //timetracker(project->staff->details)
         Route::get('/project/{project}/timetracker/{staff}', 'Backend\ProjectController@timeTracker')->name('project.timeTracker');
+        Route::get('/screenshot/{timetracker}', 'Backend\ProjectController@screenShot')->name('project.screenShot');
 
         //staff module
         Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');

@@ -6,8 +6,10 @@ use App\Company;
 use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectStaff;
+use App\Screenshot;
 use App\Staff;
 use App\TimeTracker;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -124,13 +126,27 @@ class ProjectController extends Controller
 
     public function timeTracker($project, $staff)
     {
-//        $staff_obj = Staff::findOrFail($staff);
-//        $staffUserId= $staff_obj->staff_user_id;
-//
         $project_id = $project;
+        $project = Project::findOrFail($project_id);
 
-        return TimeTracker::where('project_id', $project_id)
+        $timeTrackers = TimeTracker::where('project_id', $project_id)
         ->where('staff_id', $staff)
         ->get();
+        
+        $staff = User::findOrFail($staff);
+
+        return view('backend.project.timeTracker',[
+            'timeTrackers' => $timeTrackers,
+            'staff' => $staff,
+            'project' => $project
+        ]);
+    }
+
+    public function screenShot($timetracker)
+    {
+        $screenshots = Screenshot::where('time_tracker_id', $timetracker)->get();
+        return view('backend.project.screenshot', [
+            'screenshots' => $screenshots
+        ]);
     }
 }
