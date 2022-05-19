@@ -1,294 +1,175 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
+<!--begin::Head-->
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Login Register | Notika - Notika Admin Template</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- favicon
-		============================================ -->
-  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-  <!-- Google Fonts
-		============================================ -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-  <!-- Bootstrap CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/bootstrap.min.css">
-  <!-- font awesome CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/font-awesome.min.css">
-  <!-- owl.carousel CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/owl.carousel.css">
-  <link rel="stylesheet" href="assets_backend/css/owl.theme.css">
-  <link rel="stylesheet" href="assets_backend/css/owl.transitions.css">
-  <!-- animate CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/animate.css">
-  <!-- normalize CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/normalize.css">
-  <!-- mCustomScrollbar CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/scrollbar/jquery.mCustomScrollbar.min.css">
-  <!-- wave CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/wave/waves.min.css">
-  <!-- Notika icon CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/notika-custom-icon.css">
-  <!-- main CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/main.css">
-  <!-- style CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/style.css">
-  <!-- responsive CSS
-		============================================ -->
-  <link rel="stylesheet" href="assets_backend/css/responsive.css">
-  <!-- modernizr JS
-		============================================ -->
-  <script src="assets_backend/js/vendor/modernizr-2.8.3.min.js"></script>
-
-  <style>
-    .nk-int-st input[type="email"] {
-      box-shadow: none;
-      border-top: 0px solid #ccc;
-      border-left: 0px solid #ccc;
-      border-right: 0px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      padding: 0px;
-      resize: none;
-      border-radius: 0px;
-    }
-  </style>
+  <title>Login - Timetracker | Project management solution for your organization</title>
+  <meta charset="utf-8" />
+  {{-- <meta name="description"
+    content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
+  <meta name="keywords"
+    content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> --}}
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title"
+    content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+  {{-- <meta property="og:url" content="https://keenthemes.com/metronic" /> --}}
+  {{-- <meta property="og:site_name" content="Keenthemes | Metronic" /> --}}
+  {{-- <link rel="canonical" href="https://preview.keenthemes.com/metronic8" /> --}}
+  <link rel="shortcut icon" href="assets_backend/media/logos/favicon.ico" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="assets_backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="assets_backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
 </head>
+<!--end::Head-->
+<!--begin::Body-->
 
-<body>
-  <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-  <!-- Login Register area Start-->
-  <div class="login-content">
-    <!-- Login -->
-    <div class="nk-block toggled" id="l-login">
-
-      <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <div class="nk-form">
-          <div class="input-group">
-            <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
-            <div class="nk-int-st">
-              <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+<body id="kt_body" class="bg-body">
+  <!--begin::Main-->
+  <!--begin::Root-->
+  <div class="d-flex flex-column flex-root">
+    <!--begin::Authentication - Sign-in -->
+    <div
+      class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
+      style="background-image: url(/metronic8/demo5/assets/media/illustrations/sketchy-1/14.png">
+      <!--begin::Content-->
+      <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+        <!--begin::Logo-->
+        <a href="../../../index.html" class="mb-12">
+          <img alt="Logo" src="assets_backend/media/logos/logo-1.svg" class="h-40px" />
+        </a>
+        <!--end::Logo-->
+        <!--begin::Wrapper-->
+        <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+          <!--begin::Form-->
+          <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
+            method="POST" action="{{ route('login') }}">
+            <!--begin::Heading-->
+            @csrf
+            <div class="text-center mb-10">
+              <!--begin::Title-->
+              <h1 class="text-dark mb-3">Sign In to Metronic</h1>
+              <!--end::Title-->
+              <!--begin::Link-->
+              <div class="text-gray-400 fw-bold fs-4">New Here?
+                <a href="sign-up.html" class="link-primary fw-bolder">Create an Account</a>
+              </div>
+              <!--end::Link-->
+            </div>
+            <!--begin::Heading-->
+            <!--begin::Input group-->
+            <div class="fv-row mb-10">
+              <!--begin::Label-->
+              <label class="form-label fs-6 fw-bolder text-dark">Email</label>
+              <!--end::Label-->
+              <!--begin::Input-->
+              <input class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror" value="{{ old('email') }}" type="text" name="email"
+                autocomplete="off" />
+              <!--end::Input-->
               @error('email')
-              <span class="text-danger" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                  <div class="fv-plugins-message-container invalid-feedback">
+                    <div data-field="email" data-validator="notEmpty">Wrong email address!</div>
+                  </div>
               @enderror
-            </div>
-          </div>
-          <div class="input-group mg-t-15">
-            <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-edit"></i></span>
-            <div class="nk-int-st">
-              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                name="password" placeholder="Password" required autocomplete="current-password">
 
+            </div>
+            <!--end::Input group-->
+            <!--begin::Input group-->
+            <div class="fv-row mb-10">
+              <!--begin::Wrapper-->
+              <div class="d-flex flex-stack mb-2">
+                <!--begin::Label-->
+                <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+                <!--end::Label-->
+                <!--begin::Link-->
+                <a href="password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+                <!--end::Link-->
+              </div>
+              <!--end::Wrapper-->
+              <!--begin::Input-->
+              <input class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror" type="password" name="password"
+                autocomplete="off" />
+              <!--end::Input-->
               @error('password')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+              <div class="fv-plugins-message-container invalid-feedback">
+                <div data-field="password" data-validator="notEmpty">Wrong password!</div>
+              </div>
               @enderror
+
             </div>
-          </div>
-          <div class="fm-checkbox">
-            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked'
-              : '' }}> <label for="#remember"> Keep me signed in</label>
-            {{-- <label><input type="checkbox" class="i-checks" name="remember" id="remember" {{ old('remember')
-                ? 'checked' : '' }}> <i></i> Keep me signed in</label> --}}
-          </div>
-          <button type="submit" class="btn btn-login btn-success btn-float">
-            <i class="notika-icon notika-right-arrow right-arrow-ant"></i>
-          </button>
-          {{-- <a href="#l-register" data-ma-action="nk-login-switch" data-ma-block="#l-register"
-            class="btn btn-login btn-success btn-float"><i
-              class="notika-icon notika-right-arrow right-arrow-ant"></i></a> --}}
+            <!--end::Input group-->
+            <!--begin::Actions-->
+            <div class="text-center">
+              <!--begin::Submit button-->
+              <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
+                <span class="indicator-label">Continue</span>
+                <span class="indicator-progress">Please wait...
+                  <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+              </button>
+              <!--end::Submit button-->
+              <!--begin::Separator-->
+              <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
+              <!--end::Separator-->
+              <!--begin::Google link-->
+              <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+                <img alt="Logo" src="assets_backend/media/svg/brand-logos/google-icon.svg"
+                  class="h-20px me-3" />Continue with Google</a>
+              <!--end::Google link-->
+              <!--begin::Google link-->
+              <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+                <img alt="Logo" src="assets_backend/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue
+                with Facebook</a>
+              <!--end::Google link-->
+              <!--begin::Google link-->
+              <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
+                <img alt="Logo" src="assets_backend/media/svg/brand-logos/apple-black.svg"
+                  class="h-20px me-3" />Continue with Apple</a>
+              <!--end::Google link-->
+            </div>
+            <!--end::Actions-->
+          </form>
+          <!--end::Form-->
         </div>
-      </form>
-
-      <div class="nk-navigation nk-lg-ic">
-        <a href="#" data-ma-action="nk-login-switch" data-ma-block="#l-register"><i
-            class="notika-icon notika-plus-symbol"></i> <span>Register</span></a>
-        <a href="#" data-ma-action="nk-login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot
-            Password</span></a>
+        <!--end::Wrapper-->
       </div>
-    </div>
-
-    <!-- Register -->
-    <div class="nk-block" id="l-register">
-
-      <form method="POST" action="{{ route('register') }}">
-        @csrf
-        <div class="nk-form">
-          <div class="input-group">
-            <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
-            <div class="nk-int-st">
-              <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                value="{{ old('name') }}" required autocomplete="name" placeholder="Name" autofocus>
-
-              @error('name')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-            </div>
-          </div>
-
-          <div class="input-group mg-t-15">
-            <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-mail"></i></span>
-            <div class="nk-int-st">
-              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                value="{{ old('email') }}" placeholder="Email Address" required autocomplete="email">
-
-              @error('email')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-            </div>
-          </div>
-
-          <div class="input-group mg-t-15">
-            <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-edit"></i></span>
-            <div class="nk-int-st">
-              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                name="password" placeholder="Password" required autocomplete="new-password">
-
-              @error('password')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-            </div>
-          </div>
-
-          <div class="input-group mg-t-15">
-            <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-edit"></i></span>
-            <div class="nk-int-st">
-              <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                placeholder="Confirm Password" required autocomplete="new-password">
-            </div>
-          </div>
-
-          <a href="#l-login" data-ma-action="nk-login-switch" data-ma-block="#l-login"
-            class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow"></i></a>
+      <!--end::Content-->
+      <!--begin::Footer-->
+      <div class="d-flex flex-center flex-column-auto p-10">
+        <!--begin::Links-->
+        <div class="d-flex align-items-center fw-bold fs-6">
+          <a href="https://keenthemes.com/" class="text-muted text-hover-primary px-2">About</a>
+          <a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
+          <a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
         </div>
-      </form>
-
-      <div class="nk-navigation rg-ic-stl">
-        <a href="#" data-ma-action="nk-login-switch" data-ma-block="#l-login"><i
-            class="notika-icon notika-right-arrow"></i> <span>Sign in</span></a>
-        <a href="" data-ma-action="nk-login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot
-            Password</span></a>
+        <!--end::Links-->
       </div>
+      <!--end::Footer-->
     </div>
-
-    <!-- Forgot Password -->
-    <div class="nk-block" id="l-forget-password">
-      <div class="nk-form">
-        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur
-          commodo
-          lorem fringilla enim feugiat commodo sed ac lacus.</p>
-
-        <div class="input-group">
-          <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-mail"></i></span>
-          <div class="nk-int-st">
-            <input type="text" class="form-control" placeholder="Email Address">
-          </div>
-        </div>
-
-        <a href="#l-login" data-ma-action="nk-login-switch" data-ma-block="#l-login"
-          class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow"></i></a>
-      </div>
-
-      <div class="nk-navigation nk-lg-ic rg-ic-stl">
-        <a href="" data-ma-action="nk-login-switch" data-ma-block="#l-login"><i
-            class="notika-icon notika-right-arrow"></i> <span>Sign in</span></a>
-        <a href="" data-ma-action="nk-login-switch" data-ma-block="#l-register"><i
-            class="notika-icon notika-plus-symbol"></i> <span>Register</span></a>
-      </div>
-    </div>
+    <!--end::Authentication - Sign-in-->
   </div>
-  <!-- Login Register area End-->
-  <!-- jquery
-		============================================ -->
-  <script src="assets_backend/js/vendor/jquery-1.12.4.min.js"></script>
-  <!-- bootstrap JS
-		============================================ -->
-  <script src="assets_backend/js/bootstrap.min.js"></script>
-  <!-- wow JS
-		============================================ -->
-  <script src="assets_backend/js/wow.min.js"></script>
-  <!-- price-slider JS
-		============================================ -->
-  <script src="assets_backend/js/jquery-price-slider.js"></script>
-  <!-- owl.carousel JS
-		============================================ -->
-  <script src="assets_backend/js/owl.carousel.min.js"></script>
-  <!-- scrollUp JS
-		============================================ -->
-  <script src="assets_backend/js/jquery.scrollUp.min.js"></script>
-  <!-- meanmenu JS
-		============================================ -->
-  <script src="assets_backend/js/meanmenu/jquery.meanmenu.js"></script>
-  <!-- counterup JS
-		============================================ -->
-  <script src="assets_backend/js/counterup/jquery.counterup.min.js"></script>
-  <script src="assets_backend/js/counterup/waypoints.min.js"></script>
-  <script src="assets_backend/js/counterup/counterup-active.js"></script>
-  <!-- mCustomScrollbar JS
-		============================================ -->
-  <script src="assets_backend/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-  <!-- sparkline JS
-		============================================ -->
-  <script src="assets_backend/js/sparkline/jquery.sparkline.min.js"></script>
-  <script src="assets_backend/js/sparkline/sparkline-active.js"></script>
-  <!-- flot JS
-		============================================ -->
-  <script src="assets_backend/js/flot/jquery.flot.js"></script>
-  <script src="assets_backend/js/flot/jquery.flot.resize.js"></script>
-  <script src="assets_backend/js/flot/flot-active.js"></script>
-  <!-- knob JS
-		============================================ -->
-  <script src="assets_backend/js/knob/jquery.knob.js"></script>
-  <script src="assets_backend/js/knob/jquery.appear.js"></script>
-  <script src="assets_backend/js/knob/knob-active.js"></script>
-  <!--  Chat JS
-		============================================ -->
-  <script src="assets_backend/js/chat/jquery.chat.js"></script>
-  <!--  wave JS
-		============================================ -->
-  <script src="assets_backend/js/wave/waves.min.js"></script>
-  <script src="assets_backend/js/wave/wave-active.js"></script>
-  <!-- icheck JS
-		============================================ -->
-  <script src="assets_backend/js/icheck/icheck.min.js"></script>
-  <script src="assets_backend/js/icheck/icheck-active.js"></script>
-  <!--  todo JS
-		============================================ -->
-  <script src="assets_backend/js/todo/jquery.todo.js"></script>
-  <!-- Login JS
-		============================================ -->
-  <script src="assets_backend/js/login/login-action.js"></script>
-  <!-- plugins JS
-		============================================ -->
-  <script src="assets_backend/js/plugins.js"></script>
-  <!-- main JS
-		============================================ -->
-  <script src="assets_backend/js/main.js"></script>
+  <!--end::Root-->
+  <!--end::Main-->
+  <!--begin::Javascript-->
+  <script>
+    var hostUrl = "assets_backend/index.html";
+  </script>
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="assets_backend/plugins/global/plugins.bundle.js"></script>
+  <script src="assets_backend/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Page Custom Javascript(used by this page)-->
+  <script src="assets_backend/js/custom/authentication/sign-in/general.js"></script>
+  <!--end::Page Custom Javascript-->
+  <!--end::Javascript-->
 </body>
+<!--end::Body-->
+
 
 </html>
