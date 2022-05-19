@@ -1,54 +1,27 @@
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- favicon
-		============================================ -->
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets_backend/img/favicon.ico')}}">
-<!-- Google Fonts
-		============================================ -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-<!-- Bootstrap CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/bootstrap.min.css')}}">
-<!-- Bootstrap CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/font-awesome.min.css')}}">
-<!-- owl.carousel CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/owl.carousel.css')}}">
-<link rel="stylesheet" href="{{asset('assets_backend/css/owl.theme.css')}}">
-<link rel="stylesheet" href="{{asset('assets_backend/css/owl.transitions.css')}}">
-<!-- meanmenu CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/meanmenu/meanmenu.min.css')}}">
-<!-- animate CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/animate.css')}}">
-<!-- normalize CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/normalize.css')}}">
-<!-- mCustomScrollbar CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/scrollbar/jquery.mCustomScrollbar.min.css')}}">
-<!-- jvectormap CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/jvectormap/jquery-jvectormap-2.0.3.css')}}">
-<!-- notika icon CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/notika-custom-icon.css')}}">
-<!-- wave CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/wave/waves.min.css')}}">
-<!-- main CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/main.css')}}">
-<!-- style CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/style.css')}}">
-<!-- responsive CSS
-		============================================ -->
-<link rel="stylesheet" href="{{asset('assets_backend/css/responsive.css')}}">
-<!-- modernizr JS
-		============================================ -->
-<script src="{{asset('assets_backend/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel
+	by Keenthemes</title>
+<meta charset="utf-8" />
+<meta name="description"
+	content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
+<meta name="keywords"
+	content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title"
+	content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+<meta property="og:url" content="https://keenthemes.com/metronic" />
+<meta property="og:site_name" content="Keenthemes | Metronic" />
+<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+<link rel="shortcut icon" href="assets_backend/media/logos/favicon.ico" />
+<!--begin::Fonts-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+<!--end::Fonts-->
+<!--begin::Page Vendor Stylesheets(used by this page)-->
+<link href="assets_backend/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+<link href="assets_backend/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css" />
+<!--end::Page Vendor Stylesheets-->
+<!--begin::Global Stylesheets Bundle(used by all pages)-->
+<link href="assets_backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+<link href="assets_backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
+<!--end::Global Stylesheets Bundle-->

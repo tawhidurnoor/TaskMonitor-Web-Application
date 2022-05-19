@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function(){
+    return view('test');
+});
+
 Route::get('/dextop_login', 'TestApiController@dextop_login');
 
 Route::get('/dextop_projects', 'TestApiController@dextop_projects');
@@ -29,15 +33,13 @@ Route::get('/dextop_time_tracker_stop', 'TestApiController@dextop_time_tracker_s
 
 Route::post('/dextop_test_upload', 'TestApiController@dextop_test_upload');
 
-Route::get('/home', function () {
-    return view('backend.welcome');
-});
-
 Route::get('/', 'Frontend\HomeController@index');
 
 Route::group(
     ['middleware' => ['auth']],
     function () {
+        //Dashboard
+        Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard');
         //company module
         Route::get('/company', 'Backend\CompanyController@index')->name('company.index');
         Route::get('/company/create', 'Backend\CompanyController@create')->name('company.create');
