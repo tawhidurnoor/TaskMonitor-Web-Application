@@ -49,17 +49,17 @@ var KTModalNewTarget = function () {
 			form,
 			{
 				fields: {
-					target_title: {
+					project_title: {
 						validators: {
 							notEmpty: {
-								message: 'Target title is required'
+								message: 'Task title is required'
 							}
 						}
 					},
-					target_assign: {
+					project_description: {
 						validators: {
 							notEmpty: {
-								message: 'Target assign is required'
+								message: 'Task is description is required'
 							}
 						}
 					},
@@ -106,34 +106,35 @@ var KTModalNewTarget = function () {
 					console.log('validated!');
 
 					if (status == 'Valid') {
-						submitButton.setAttribute('data-kt-indicator', 'on');
+						document.getElementById('add_project').submit();
+						// submitButton.setAttribute('data-kt-indicator', 'on');
 
-						// Disable button to avoid multiple click 
-						submitButton.disabled = true;
+						// // Disable button to avoid multiple click 
+						// submitButton.disabled = true;
 
-						setTimeout(function() {
-							submitButton.removeAttribute('data-kt-indicator');
+						// setTimeout(function() {
+						// 	submitButton.removeAttribute('data-kt-indicator');
 
-							// Enable button
-							submitButton.disabled = false;
+						// 	// Enable button
+						// 	submitButton.disabled = false;
 							
-							// Show success message. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-							Swal.fire({
-								text: "Form has been successfully submitted!",
-								icon: "success",
-								buttonsStyling: false,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn btn-primary"
-								}
-							}).then(function (result) {
-								if (result.isConfirmed) {
-									modal.hide();
-								}
-							});
+						// 	// Show success message. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+						// 	Swal.fire({
+						// 		text: "Form has been successfully submitted!",
+						// 		icon: "success",
+						// 		buttonsStyling: false,
+						// 		confirmButtonText: "Ok, got it!",
+						// 		customClass: {
+						// 			confirmButton: "btn btn-primary"
+						// 		}
+						// 	}).then(function (result) {
+						// 		if (result.isConfirmed) {
+						// 			modal.hide();
+						// 		}
+						// 	});
 
-							//form.submit(); // Submit form
-						}, 2000);   						
+						// 	//form.submit(); // Submit form
+						// }, 2000);   						
 					} else {
 						// Show error message.
 						Swal.fire({
@@ -187,7 +188,7 @@ var KTModalNewTarget = function () {
 		// Public functions
 		init: function () {
 			// Elements
-			modalEl = document.querySelector('#kt_modal_new_target');
+			modalEl = document.querySelector('#add_project');
 
 			if (!modalEl) {
 				return;
@@ -195,7 +196,7 @@ var KTModalNewTarget = function () {
 
 			modal = new bootstrap.Modal(modalEl);
 
-			form = document.querySelector('#kt_modal_new_target_form');
+			form = document.querySelector('#add_project');
 			submitButton = document.getElementById('kt_modal_new_target_submit');
 			cancelButton = document.getElementById('kt_modal_new_target_cancel');
 

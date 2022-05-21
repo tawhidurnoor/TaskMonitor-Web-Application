@@ -76,9 +76,25 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $project = new Project();
-        $project->title = $request->title;
-        $project->description = $request->description;
-        $project->company_id = $request->company_id;
+        $project->title = $request->project_title;
+        $project->description = $request->project_description;
+        $project->user_id = Auth::user()->id;
+
+        if ($request->hasFile('project_logo')) {
+            $file = $request->file('project_logo');
+            $extention = $file->getClientOriginalExtension();
+
+            //naming file
+            $project_title = $project->title;
+            $project_title = explode(" ", $project_title);
+            $project_title = $project_title[0];
+            $project_title = strtolower($project_title);
+
+            $filename = time() . '_' . $project_title . '_' . Auth::user()->id . '.' . $extention;
+            $file->move('uploaded_files/project_logo/', $filename);
+
+            $project->project_logo = $filename;
+        }
 
         if ($project->save()) {
             session()->flash('success', 'Project added successfully.');
