@@ -15,16 +15,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-    public function index(Company $company)
+    public function index()
     {
-        if(Auth::user()->id != $company->owner_user_id){
-            abort(403, 'Unauthorized action.');
-        }
-
-        $projects = Project::where('company_id', $company->id)->orderBy('id', 'desc')->get();
+        $projects = Project::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('backend.project.index',[
             'projects' => $projects,
-            'company' => $company,
         ]);
     }
 
