@@ -23,7 +23,7 @@
 
             <!--begin::Menu item-->
             <div class="menu-item">
-                <a href="../index.html" class="menu-link active">
+                <a href="{{route('dashboard')}}" class="menu-link active">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
                         <span class="svg-icon svg-icon-2">

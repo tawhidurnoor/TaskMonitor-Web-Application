@@ -39,14 +39,7 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         //Dashboard
-        Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard');
-        //company module
-        Route::get('/company', 'Backend\CompanyController@index')->name('company.index');
-        Route::get('/company/create', 'Backend\CompanyController@create')->name('company.create');
-        Route::post('/company/store', 'Backend\CompanyController@store')->name('company.store');
-        Route::get('/company/{company}', 'Backend\CompanyController@show')->name('company.show');
-        Route::put('/company/{company}', 'Backend\CompanyController@update')->name('company.update');
-        Route::delete('/company/{company}', 'Backend\CompanyController@destroy')->name('company.destroy');
+        Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard'); 
 
         //project module
         Route::get('/project/{company}', 'Backend\ProjectController@index')->name('project.index');

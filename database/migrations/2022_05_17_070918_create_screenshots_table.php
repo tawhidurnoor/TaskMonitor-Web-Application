@@ -16,7 +16,7 @@ class CreateScreenshotsTable extends Migration
         Schema::create('screenshots', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('time_tracker_id');
-            $table->bigInteger('staff_id');
+            $table->bigInteger('user_id');
             $table->string('image');
             $table->timestamps();
         });

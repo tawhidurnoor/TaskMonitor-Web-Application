@@ -17,7 +17,7 @@ class CreateTimeTrackersTable extends Migration
         Schema::create('time_trackers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('project_id');
-            $table->bigInteger('staff_id');
+            $table->bigInteger('user_id');
             $table->string('task_title');
             $table->timestamp('start')->useCurrent();
             $table->timestamp('end')->nullable();
