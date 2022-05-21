@@ -15,14 +15,14 @@ var KTSignupGeneral = function() {
 			form,
 			{
 				fields: {
-					'first-name': {
+					'first_name': {
 						validators: {
 							notEmpty: {
 								message: 'First Name is required'
 							}
 						}
                     },
-                    'last-name': {
+                    'last_name': {
 						validators: {
 							notEmpty: {
 								message: 'Last Name is required'
@@ -54,7 +54,7 @@ var KTSignupGeneral = function() {
                             }
                         }
                     },
-                    'confirm-password': {
+                    'password_confirmation': {
                         validators: {
                             notEmpty: {
                                 message: 'The password confirmation is required'
@@ -98,37 +98,39 @@ var KTSignupGeneral = function() {
 
             validator.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    // Show loading indication
-                    submitButton.setAttribute('data-kt-indicator', 'on');
+                    document.getElementById("kt_sign_up_form").submit();
+                    // // Show loading indication
+                    // submitButton.setAttribute('data-kt-indicator', 'on');
 
-                    // Disable button to avoid multiple click 
-                    submitButton.disabled = true;
+                    // // Disable button to avoid multiple click 
+                    // submitButton.disabled = true;
 
-                    // Simulate ajax request
-                    setTimeout(function() {
-                        // Hide loading indication
-                        submitButton.removeAttribute('data-kt-indicator');
+                    // // Simulate ajax request
+                    // setTimeout(function() {
+                    //     // Hide loading indication
+                    //     submitButton.removeAttribute('data-kt-indicator');
 
-                        // Enable button
-                        submitButton.disabled = false;
+                    //     // Enable button
+                    //     submitButton.disabled = false;
 
-                        // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                        Swal.fire({
-                            text: "You have successfully reset your password!",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        }).then(function (result) {
-                            if (result.isConfirmed) { 
-                                form.reset();  // reset form                    
-                                passwordMeter.reset();  // reset password meter
-                                //form.submit();
-                            }
-                        });
-                    }, 1500);   						
+                    //     // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+                    //     Swal.fire({
+                    //         text: "You have successfully reset your password!",
+                    //         icon: "success",
+                    //         buttonsStyling: false,
+                    //         confirmButtonText: "Ok, got it!",
+                    //         customClass: {
+                    //             confirmButton: "btn btn-primary"
+                    //         }
+                    //     }).then(function (result) {
+                    //         if (result.isConfirmed) { 
+                    //             form.reset();  // reset form                    
+                    //             passwordMeter.reset();  // reset password meter
+                    //             //form.submit();
+                    //         }
+                    //     });
+                    // }, 1500); 
+
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({

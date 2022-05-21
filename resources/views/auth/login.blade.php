@@ -15,7 +15,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
   <meta property="og:title"
-    content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+    content="Login - Timetracker | Project management solution for your organization" />
   {{-- <meta property="og:url" content="https://keenthemes.com/metronic" /> --}}
   {{-- <meta property="og:site_name" content="Keenthemes | Metronic" /> --}}
   {{-- <link rel="canonical" href="https://preview.keenthemes.com/metronic8" /> --}}
@@ -59,7 +59,7 @@
               <!--end::Title-->
               <!--begin::Link-->
               <div class="text-gray-400 fw-bold fs-4">New Here?
-                <a href="sign-up.html" class="link-primary fw-bolder">Create an Account</a>
+                <a href="{{ route('register') }}" class="link-primary fw-bolder">Create an Account</a>
               </div>
               <!--end::Link-->
             </div>
