@@ -45,7 +45,7 @@ Route::group(
         Route::get('/profile', 'Backend\ProfileController@index')->name('profile.index');
 
         //Employee
-        Route::put('/employee/search', 'Backend\EmployeeController@search')->name('employee.search');
+        Route::post('/employee/search', 'Backend\EmployeeController@search')->name('employee.search');
         Route::resource('/employee', 'Backend\EmployeeController');
 
         //project module

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Employee;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -20,7 +21,8 @@ class EmployeeController extends Controller
 
     public function search(Request $request)
     {
-        # code...
+        $users = User::where('email', 'LIKE' ,'%' . $request->email . '%')->get();
+        return $users;
     }
 
     /**

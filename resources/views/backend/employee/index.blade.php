@@ -2240,17 +2240,13 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <!--begin:Form-->
-                <form id="add_project" action="{{route('employee.search')}}" method="POST" class="form">
+                <form id="" action="{{route('employee.search')}}" method="POST" class="form">
                     @csrf
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
                         <h1 class="mb-3">Invite an employee</h1>
                         <!--end::Title-->
-                        <!--begin::Description-->
-                        <div class="text-muted fw-bold fs-5">Invite by email.
-                        </div>
-                        <!--end::Description-->
                     </div>
                     <!--end::Heading-->
 
@@ -2260,11 +2256,11 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Email</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a title for the project"></i>
+                                title="Enter email to sraech"></i>
                         </label>
                         <!--end::Label-->
                         <input type="text" class="form-control form-control-solid" placeholder="Enter email"
-                            name="project_title" required />
+                            name="email" required />
                     </div>
                     <!--end::Input group-->
 
