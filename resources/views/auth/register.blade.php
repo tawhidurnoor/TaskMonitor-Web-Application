@@ -99,6 +99,13 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
+                        <div class="fv-row mb-7">
+                            <label class="form-label fw-bolder text-dark fs-6">Company Name</label>
+                            <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="company_name"
+                                autocomplete="off" />
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
                         <div class="mb-10 fv-row" data-kt-password-meter="true">
                             <!--begin::Wrapper-->
                             <div class="mb-1">
