@@ -4227,7 +4227,7 @@
                             @isset(auth()->user()->profile_picture)
                                 <img alt="Profile Picture" src="uploaded_files/profile_pictures/{{auth()->user()->profile_picture}}" />
                             @else
-                                <img alt="Profile Picture" src="assets_backend/media/svg/avatars/blank.svg" />
+                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->toBase64()}}" />
                             @endisset
                         </div>
                         <!--end::Symbol-->
@@ -4246,7 +4246,7 @@
                                     @isset(auth()->user()->profile_picture)
                                         <img alt="Profile Picture" src="uploaded_files/profile_pictures/{{auth()->user()->profile_picture}}" />
                                     @else
-                                        <img alt="Profile Picture" src="assets_backend/media/svg/avatars/blank.svg" />
+                                        <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->toBase64()}}" />
                                     @endisset
                                 </div>
                                 <!--end::Avatar-->

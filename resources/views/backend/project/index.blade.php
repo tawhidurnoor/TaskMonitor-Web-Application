@@ -74,7 +74,8 @@
                             @isset($project->project_logo)
                                 <img src="uploaded_files/project_logo/{{$project->project_logo}}" alt="{{$project->title}}" class="p-3" />
                             @else
-                                <img src="assets_backend/media/svg/files/ai.svg" alt="{{$project->title}}" class="p-3" />
+                                {{-- <img src="assets_backend/media/svg/files/ai.svg" alt="{{$project->title}}" class="p-3" /> --}}
+                                <img src="{{Avatar::create($project->title)->toBase64()}}" alt="" srcset="">
                             @endisset
                         </div>
                         <!--end::Avatar-->
