@@ -41,8 +41,11 @@ Route::group(
         //Dashboard
         Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard');
 
-        //Dashboard
-        Route::get('/profile', 'Backend\ProfileController@index')->name('profile.index'); 
+        //Profile
+        Route::get('/profile', 'Backend\ProfileController@index')->name('profile.index');
+        
+        //Employee
+        Route::resource('/employee', 'Backend\EmployeeController');
 
         //project module
         Route::get('/project', 'Backend\ProjectController@index')->name('project.index');

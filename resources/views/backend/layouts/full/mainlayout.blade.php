@@ -74,6 +74,8 @@
     @include('backend.layouts.partials.modals')
 
     @include('backend.layouts.partials.scripts')
+
+    @yield('scripts')
 </body>
 <!--end::Body-->
 

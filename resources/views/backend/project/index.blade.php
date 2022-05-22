@@ -1,6 +1,6 @@
 @extends('backend.layouts.full.mainlayout')
 
-@section('name')
+@section('body')
     
 
 <!--begin::Toolbar-->
@@ -16,24 +16,8 @@
         <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
             <!--begin::Item-->
             <li class="breadcrumb-item text-muted">
-                <a href="../../index.html" class="text-muted text-hover-primary">Home</a>
+                <a href="{{route('dashboard')}}" class="text-muted text-hover-primary">Home</a>
             </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-200 w-5px h-2px"></span>
-            </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item text-muted">Apps</li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-200 w-5px h-2px"></span>
-            </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item text-muted">Projects</li>
             <!--end::Item-->
             <!--begin::Item-->
             <li class="breadcrumb-item">
@@ -51,7 +35,7 @@
     <div class="d-flex align-items-center py-1">
         <!--begin::Button-->
         <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
-            data-bs-target="#kt_modal_create_project" id="kt_toolbar_primary_button">Create</a>
+            data-bs-target="#kt_modal_create_project" id="kt_toolbar_primary_button">Create Project</a>
         <!--end::Button-->
     </div>
     <!--end::Actions-->
