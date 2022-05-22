@@ -18,6 +18,11 @@ class EmployeeController extends Controller
         return view('backend.employee.index');
     }
 
+    public function search(Request $request)
+    {
+        # code...
+    }
+
     /**
      * Show the form for creating a new resource.
      *
