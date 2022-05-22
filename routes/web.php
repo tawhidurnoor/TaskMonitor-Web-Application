@@ -39,7 +39,10 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         //Dashboard
-        Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard'); 
+        Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard');
+
+        //Dashboard
+        Route::get('/profile', 'Backend\ProfileController@index')->name('profile.index'); 
 
         //project module
         Route::get('/project', 'Backend\ProjectController@index')->name('project.index');

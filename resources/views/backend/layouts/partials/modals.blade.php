@@ -1,4 +1,6 @@
-<!--begin::Modals-->
+@yield('modals')
+
+{{-- <!--begin::Modals-->
 <!--begin::Modal - Upgrade plan-->
 <div class="modal fade" id="kt_modal_upgrade_plan" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
@@ -5757,4 +5759,4 @@
     <!--end::Modal dialog-->
 </div>
 <!--end::Modal - Invite Friend-->
-<!--end::Modals-->
+<!--end::Modals--> --}}

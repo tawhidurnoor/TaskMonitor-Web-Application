@@ -1,6 +1,7 @@
 @extends('backend.layouts.full.mainlayout')
 
-@section('body')
+@section('name')
+    
 
 <!--begin::Toolbar-->
 <div class="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7" id="kt_toolbar">
@@ -175,7 +176,7 @@
 <!--end::Pagination-->
 @endsection
 
-
+@section('modals')
 <!--begin::Modal - Create Campaign-->
 <!--begin::Modal - New Target-->
 <div class="modal fade" id="kt_modal_create_project" tabindex="-1" aria-hidden="true">
@@ -323,3 +324,4 @@
 </div>
 <!--end::Modal - New Target-->
 <!--end::Modal - Create Campaign-->
+@endsection
