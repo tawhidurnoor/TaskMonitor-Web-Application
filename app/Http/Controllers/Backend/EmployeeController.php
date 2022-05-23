@@ -6,6 +6,7 @@ use App\Employee;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -22,8 +23,10 @@ class EmployeeController extends Controller
     public function search(Request $request)
     {
         $serach_query = $request->email;
-        $users = User::where('email', 'LIKE' ,'%' . $serach_query . '%')->get();
-        return view('backend.employee.search_result',[
+        $users = User::where('email', 'LIKE', '%' . $serach_query . '%')
+            ->where('email', '!=', Auth::user()->email)
+            ->get();
+        return view('backend.employee.search_result', [
             'serach_query' => $serach_query,
             'users' => $users,
         ]);

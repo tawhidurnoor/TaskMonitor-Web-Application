@@ -47,7 +47,8 @@
                     <div class="d-flex align-items-center position-relative my-1">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
                         <span class="svg-icon svg-icon-3 position-absolute ms-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
                                 <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
                                     transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
                                 <path
@@ -56,13 +57,16 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" id="kt_filter_search" class="form-control form-control-sm form-control-solid w-150px ps-10"
-                            placeholder="Search" name="email" value="{{$serach_query}}" />
+                        <input type="text" id="kt_filter_search"
+                            class="form-control form-control-sm form-control-solid w-150px ps-10" placeholder="Search"
+                            name="email" value="{{$serach_query}}" />
                     </div>
                 </form>
                 <!--end::Search-->
             </div>
             <!--end::Title-->
+
+            @if (count($users) > 0)
             <!--begin::Controls-->
             <div class="d-flex flex-wrap my-1">
                 <!--begin::Tab nav-->
@@ -109,52 +113,57 @@
                 <!--end::Tab nav-->
             </div>
             <!--end::Controls-->
+            @endif
+
         </div>
         <!--end::Toolbar-->
         <!--begin::Tab Content-->
         <div class="tab-content">
+            @if(count($users) > 0)
             <!--begin::Tab pane-->
             <div id="kt_project_users_card_pane" class="tab-pane fade show active">
                 <!--begin::Row-->
                 <div class="row g-6 g-xl-9">
                     @foreach ($users as $user)
-                        <!--begin::Col-->
-                        <div class="col-md-6 col-xxl-4">
-                            <!--begin::Card-->
-                            <div class="card">
-                                <!--begin::Card body-->
-                                <div class="card-body d-flex flex-center flex-column pt-12 p-9">
-                                    <!--begin::Avatar-->
-                                    <div class="symbol symbol-65px symbol-circle mb-5">
-                                        @isset($user->profile_picture)
-                                            <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.$user->profile_picture)}}" />
-                                        @else
-                                            <img alt="Profile Picture" src="{{Avatar::create($user->first_name." ".$user->last_name)->toBase64()}}" />
-                                        @endisset
-                                        <div
-                                            class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n3 mt-n3">
-                                        </div>
+                    <!--begin::Col-->
+                    <div class="col-md-6 col-xxl-4">
+                        <!--begin::Card-->
+                        <div class="card">
+                            <!--begin::Card body-->
+                            <div class="card-body d-flex flex-center flex-column pt-12 p-9">
+                                <!--begin::Avatar-->
+                                <div class="symbol symbol-65px symbol-circle mb-5">
+                                    @isset($user->profile_picture)
+                                    <img alt="Profile Picture"
+                                        src="{{asset('uploaded_files/profile_pictures/'.$user->profile_picture)}}" />
+                                    @else
+                                    <img alt="Profile Picture"
+                                        src="{{Avatar::create($user->first_name." ".$user->last_name)->toBase64()}}" />
+                                    @endisset
+                                    <div
+                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n3 mt-n3">
                                     </div>
-                                    <!--end::Avatar-->
-                                    <!--begin::Name-->
-                                    <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">
-                                        {{$user->first_name}} {{$user->last_name}}
-                                    </a>
-                                    <!--end::Name-->
-                                    <!--begin::Position-->
-                                    <div class="fw-bold text-gray-400 mb-6">
-                                        {{$user->email}}
-                                        <br>
-                                        Joined {{ \Carbon\Carbon::parse($user->created_at)->format('d M, Y')}}
-                                    </div>
-                                    <!--end::Position-->
-                                    <!--end::Joined-->
                                 </div>
-                                <!--end::Card body-->
+                                <!--end::Avatar-->
+                                <!--begin::Name-->
+                                <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">
+                                    {{$user->first_name}} {{$user->last_name}}
+                                </a>
+                                <!--end::Name-->
+                                <!--begin::Position-->
+                                <div class="fw-bold text-gray-400 mb-6">
+                                    {{$user->email}}
+                                    <br>
+                                    Joined {{ \Carbon\Carbon::parse($user->created_at)->format('d M, Y')}}
+                                </div>
+                                <!--end::Position-->
+                                <button class="btn btn-light btn-sm">Invite</button>
                             </div>
-                            <!--end::Card-->
+                            <!--end::Card body-->
                         </div>
-                        <!--end::Col-->
+                        <!--end::Card-->
+                    </div>
+                    <!--end::Col-->
                     @endforeach
                 </div>
                 <!--end::Row-->
@@ -211,16 +220,16 @@
                                 <!--begin::Head-->
                                 <thead class="fs-7 text-gray-400 text-uppercase">
                                     <tr>
-                                        <th class="min-w-250px">Manager</th>
-                                        <th class="min-w-150px">Date</th>
-                                        <th class="min-w-90px">Amount</th>
-                                        <th class="min-w-90px">Status</th>
-                                        <th class="min-w-50px text-end">Details</th>
+                                        <th class="min-w-250px">User</th>
+                                        <th class="min-w-150px">Email</th>
+                                        <th class="min-w-90px">Joined</th>
+                                        <th class="min-w-50px text-end">Action</th>
                                     </tr>
                                 </thead>
                                 <!--end::Head-->
                                 <!--begin::Body-->
                                 <tbody class="fs-6">
+                                    @foreach ($users as $user)
                                     <tr>
                                         <td>
                                             <!--begin::User-->
@@ -229,40 +238,13 @@
                                                 <div class="me-5 position-relative">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-6.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Emma
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">smith@kpmg.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Oct 25, 2022</td>
-                                        <td>$718.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-danger text-danger fw-bold">M</span>
+                                                        @isset($user->profile_picture)
+                                                        <img alt="Profile Picture"
+                                                            src="{{asset('uploaded_files/profile_pictures/'.$user->profile_picture)}}" />
+                                                        @else
+                                                        <img alt="Profile Picture"
+                                                            src="{{Avatar::create($user->first_name." ".$user->last_name)->toBase64()}}" />
+                                                        @endisset
                                                     </div>
                                                     <!--end::Avatar-->
                                                     <!--begin::Online-->
@@ -274,984 +256,25 @@
                                                 <!--end::Wrapper-->
                                                 <!--begin::Info-->
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Melody
-                                                        Macy</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">melody@altbox.com</div>
+                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">
+                                                        {{$user->first_name}} {{$user->last_name}}
+                                                    </a>
                                                 </div>
                                                 <!--end::Info-->
                                             </div>
                                             <!--end::User-->
                                         </td>
-                                        <td>Feb 21, 2022</td>
-                                        <td>$574.00</td>
                                         <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
+                                            {{$user->email}}
+                                        </td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($user->created_at)->format('d M, Y')}}
                                         </td>
                                         <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
+                                            <a href="#" class="btn btn-light btn-sm">Invite</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-1.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Max
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">max@kt.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Apr 15, 2022</td>
-                                        <td>$829.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-5.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Sean
-                                                        Bean</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">sean@dellito.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Jun 24, 2022</td>
-                                        <td>$600.00</td>
-                                        <td>
-                                            <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-25.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Brian
-                                                        Cox</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">brian@exchange.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Nov 10, 2022</td>
-                                        <td>$432.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-warning text-warning fw-bold">C</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Mikaela
-                                                        Collins</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">mik@pex.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Sep 22, 2022</td>
-                                        <td>$1000.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-9.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Francis
-                                                        Mitcham</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">f.mit@kpmg.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Jun 20, 2022</td>
-                                        <td>$938.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-danger text-danger fw-bold">O</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Olivia
-                                                        Wild</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">olivia@corpmail.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Dec 20, 2022</td>
-                                        <td>$697.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-primary text-primary fw-bold">N</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Neil
-                                                        Owen</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">owen.neil@gmail.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Oct 25, 2022</td>
-                                        <td>$794.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-23.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Dan
-                                                        Wilson</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">dam@consilting.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Apr 15, 2022</td>
-                                        <td>$844.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-danger text-danger fw-bold">E</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Emma
-                                                        Bold</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">emma@intenso.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>May 05, 2022</td>
-                                        <td>$645.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-12.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Ana
-                                                        Crown</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">ana.cf@limtel.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Dec 20, 2022</td>
-                                        <td>$485.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-info text-info fw-bold">A</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Robert
-                                                        Doe</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">robert@benko.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Mar 10, 2022</td>
-                                        <td>$592.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-13.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">John
-                                                        Miller</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">miller@mapple.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Dec 20, 2022</td>
-                                        <td>$536.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-success text-success fw-bold">L</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Lucy
-                                                        Kunic</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">lucy.m@fentech.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Sep 22, 2022</td>
-                                        <td>$482.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-21.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Ethan
-                                                        Wilder</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">ethan@loop.com.au</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Feb 21, 2022</td>
-                                        <td>$721.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-6.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Emma
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">smith@kpmg.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Jul 25, 2022</td>
-                                        <td>$525.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-23.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Dan
-                                                        Wilson</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">dam@consilting.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Jul 25, 2022</td>
-                                        <td>$859.00</td>
-                                        <td>
-                                            <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-6.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Emma
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">smith@kpmg.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Oct 25, 2022</td>
-                                        <td>$944.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-6.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Emma
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">smith@kpmg.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Feb 21, 2022</td>
-                                        <td>$902.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-1.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Max
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">max@kt.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Jun 24, 2022</td>
-                                        <td>$487.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-6.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Emma
-                                                        Smith</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">smith@kpmg.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Mar 10, 2022</td>
-                                        <td>$547.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-danger text-danger fw-bold">O</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Olivia
-                                                        Wild</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">olivia@corpmail.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Feb 21, 2022</td>
-                                        <td>$669.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-25.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Brian
-                                                        Cox</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">brian@exchange.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Aug 19, 2022</td>
-                                        <td>$656.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-12.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Ana
-                                                        Crown</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">ana.cf@limtel.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Aug 19, 2022</td>
-                                        <td>$839.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-success text-success fw-bold">L</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Lucy
-                                                        Kunic</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">lucy.m@fentech.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Nov 10, 2022</td>
-                                        <td>$895.00</td>
-                                        <td>
-                                            <span class="badge badge-light-success fw-bolder px-4 py-3">Approved</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-warning text-warning fw-bold">C</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Mikaela
-                                                        Collins</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">mik@pex.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Jun 24, 2022</td>
-                                        <td>$891.00</td>
-                                        <td>
-                                            <span class="badge badge-light-info fw-bolder px-4 py-3">In progress</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-12.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Ana
-                                                        Crown</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">ana.cf@limtel.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Feb 21, 2022</td>
-                                        <td>$900.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src="../../assets/media/avatars/300-5.jpg" />
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Sean
-                                                        Bean</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">sean@dellito.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Oct 25, 2022</td>
-                                        <td>$846.00</td>
-                                        <td>
-                                            <span class="badge badge-light-danger fw-bolder px-4 py-3">Rejected</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--begin::User-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Wrapper-->
-                                                <div class="me-5 position-relative">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span
-                                                            class="symbol-label bg-light-info text-info fw-bold">A</span>
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Online-->
-                                                    <div
-                                                        class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
-                                                    </div>
-                                                    <!--end::Online-->
-                                                </div>
-                                                <!--end::Wrapper-->
-                                                <!--begin::Info-->
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <a href="#" class="mb-1 text-gray-800 text-hover-primary">Robert
-                                                        Doe</a>
-                                                    <div class="fw-bold fs-6 text-gray-400">robert@benko.com</div>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                            <!--end::User-->
-                                        </td>
-                                        <td>Mar 10, 2022</td>
-                                        <td>$915.00</td>
-                                        <td>
-                                            <span class="badge badge-light-warning fw-bolder px-4 py-3">Pending</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-sm">View</a>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                                 <!--end::Body-->
                             </table>
@@ -1264,6 +287,14 @@
                 <!--end::Card-->
             </div>
             <!--end::Tab pane-->
+            @else
+
+            <center>
+                <img src="{{asset('assets_backend/media/illustrations/sketchy-1/5.png')}}" width="45%" height="45%">
+                <h2>Oops... we didn't fint anything that matches this search :(</h2>
+            </center>
+
+            @endif
         </div>
         <!--end::Tab Content-->
     </div>
