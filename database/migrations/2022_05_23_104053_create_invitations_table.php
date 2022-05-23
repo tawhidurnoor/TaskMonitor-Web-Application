@@ -15,6 +15,9 @@ class CreateInvitationsTable extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
+            $table->string('employer_id');
+            $table->string('employee_mail');
+            $table->boolean('is_request_accepted')->default(0);
             $table->timestamps();
         });
     }

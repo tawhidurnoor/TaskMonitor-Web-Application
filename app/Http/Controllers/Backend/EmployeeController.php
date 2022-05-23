@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Employee;
 use App\Http\Controllers\Controller;
+use App\Invitation;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,21 @@ class EmployeeController extends Controller
 
     public function invitations()
     {
-        return view('backend.employee.invitations');
+        $invitations = Invitation::where('employer_id', Auth::user()->id)->where('is_request_accepted', 0)->first();
+        return $invitations->userDetails()->email;
+
+        return view('backend.employee.invitations',[
+            'invitations' => $invitations,
+        ]);
+    }
+
+    public function storeInvitation(Request $request)
+    {
+        $invitation = new Invitation();
+        $invitation->employer_id = Auth::user()->id;
+        $invitation->employee_mail = $request->email;
+        $invitation->save();
+        return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 
     /**
@@ -55,12 +70,12 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $employee = new Employee();
-        $employee->employer_id = Auth::user()->id;
-        $employee->employee_id = $request->employee_id;
-        $employee->save();
+        // $employee = new Employee();
+        // $employee->employer_id = Auth::user()->id;
+        // $employee->employee_id = $request->employee_id;
+        // $employee->save();
 
-        return redirect()->route('employee.invitations')->with(["success" => 1]);
+        // return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 
     /**

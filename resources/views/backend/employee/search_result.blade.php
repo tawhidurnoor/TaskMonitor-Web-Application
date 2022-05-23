@@ -157,9 +157,9 @@
                                     Joined {{ \Carbon\Carbon::parse($user->created_at)->format('d M, Y')}}
                                 </div>
                                 <!--end::Position-->
-                                <form action="{{route('employee.store')}}" method="post">
+                                <form action="{{route('employee.store_invitation')}}" method="post">
                                     @csrf
-                                    <input type="hidden" name="employee_id" value="{{$user->id}}">
+                                    <input type="hidden" name="email" value="{{$user->email}}">
                                     <button type="submit" class="btn btn-light btn-sm">Invite</button>
                                 </form>
                             </div>

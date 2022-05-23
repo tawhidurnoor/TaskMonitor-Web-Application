@@ -17,7 +17,6 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('employer_id');
             $table->string('employee_id');
-            $table->boolean('is_request_accepted')->default(0);
             $table->timestamps();
         });
     }
