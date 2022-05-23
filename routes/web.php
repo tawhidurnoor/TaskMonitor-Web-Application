@@ -46,6 +46,7 @@ Route::group(
 
         //Employee
         Route::post('/employee/search', 'Backend\EmployeeController@search')->name('employee.search');
+        Route::get('/employee/invitations', 'Backend\EmployeeController@invitations')->name('employee.invitations');
         Route::resource('/employee', 'Backend\EmployeeController');
 
         //project module

@@ -36,11 +36,8 @@
             <!--begin::Button-->
             <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
                 data-bs-target="#add_employee_modal" id="kt_toolbar_primary_button">Invite an employee</a>
-            <span style="width: 20px"></span>
-            <a href="{{route('employee.invitations')}}" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" >View Sent Invitations</a>
             <!--end::Button-->
         </div>
-        
         <!--end::Actions-->
     </div>
     <!--end::Toolbar-->
@@ -74,7 +71,8 @@
                 <!--begin::Card title-->
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
-                    {{-- <!--begin::Toolbar-->
+                    {{--
+                    <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                         <!--begin::Filter-->
                         <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click"

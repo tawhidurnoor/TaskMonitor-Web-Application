@@ -57,7 +57,7 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" id="kt_filter_search"
+                        <input type="email" id="kt_filter_search"
                             class="form-control form-control-sm form-control-solid w-150px ps-10" placeholder="Search"
                             name="email" value="{{$serach_query}}" />
                     </div>
@@ -157,7 +157,11 @@
                                     Joined {{ \Carbon\Carbon::parse($user->created_at)->format('d M, Y')}}
                                 </div>
                                 <!--end::Position-->
-                                <button class="btn btn-light btn-sm">Invite</button>
+                                <form action="{{route('employee.store')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="employee_id" value="{{$user->id}}">
+                                    <button type="submit" class="btn btn-light btn-sm">Invite</button>
+                                </form>
                             </div>
                             <!--end::Card body-->
                         </div>
@@ -293,6 +297,36 @@
                 <img src="{{asset('assets_backend/media/illustrations/sketchy-1/5.png')}}" width="45%" height="45%">
                 <h2>Oops... we didn't fint anything that matches this search :(</h2>
             </center>
+            <br>
+            @if ($serach_query != auth()->user()->email)
+                <!--begin::Notice-->
+                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                    <!--begin::Icon-->
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+                    <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                            <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor" />
+                            <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <!--end::Icon-->
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-stack flex-grow-1">
+                        <!--begin::Content-->
+                        <div class="fw-bold">
+                            <h4 class="text-gray-900 fw-bolder">Email was not found in our system</h4>
+                            <div class="fs-6 text-gray-700">But you still can ask <b>{{$serach_query}}</b> to
+                                <a class="fw-bolder" href="billing.html">join Timetracker</a>.
+                            </div>
+                        </div>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
+                </div>
+                <!--end::Notice-->
+            @endif
 
             @endif
         </div>

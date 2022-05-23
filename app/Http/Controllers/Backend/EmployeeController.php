@@ -32,6 +32,11 @@ class EmployeeController extends Controller
         ]);
     }
 
+    public function invitations()
+    {
+        return view('backend.employee.invitations');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -50,7 +55,12 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = new Employee();
+        $employee->employer_id = Auth::user()->id;
+        $employee->employee_id = $request->employee_id;
+        $employee->save();
+
+        return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 
     /**
