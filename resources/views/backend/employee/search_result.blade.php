@@ -57,7 +57,7 @@
                         </span>
                         <!--end::Svg Icon-->
                         <input type="text" id="kt_filter_search" class="form-control form-control-sm form-control-solid w-150px ps-10"
-                            placeholder="Search" value="{{$serach_query}}" />
+                            placeholder="Search" name="email" value="{{$serach_query}}" />
                     </div>
                 </form>
                 <!--end::Search-->
