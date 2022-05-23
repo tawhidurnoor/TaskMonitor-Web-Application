@@ -21,8 +21,12 @@ class EmployeeController extends Controller
 
     public function search(Request $request)
     {
-        $users = User::where('email', 'LIKE' ,'%' . $request->email . '%')->get();
-        return $users;
+        $serach_query = $request->email;
+        $users = User::where('email', 'LIKE' ,'%' . $serach_query . '%')->get();
+        return view('backend.employee.search_result',[
+            'serach_query' => $serach_query,
+            'users' => $users,
+        ]);
     }
 
     /**

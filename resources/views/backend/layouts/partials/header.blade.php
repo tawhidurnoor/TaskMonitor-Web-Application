@@ -21,8 +21,8 @@
             <!--end::Aside mobile toggle-->
             <!--begin::Logo-->
             <a href="{{route('dashboard')}}">
-                <img alt="Logo" src="assets_backend/media/logos/logo-demo5.svg" class="d-none d-lg-inline h-30px" />
-                <img alt="Logo" src="assets_backend/media/logos/logo-demo5-mobile.svg" class="d-lg-none h-25px" />
+                <img alt="Logo" src="{{asset('assets_backend/media/logos/logo-demo5.svg')}}" class="d-none d-lg-inline h-30px" />
+                <img alt="Logo" src="{{asset('assets_backend/media/logos/logo-demo5-mobile.svg')}}" class="d-lg-none h-25px" />
             </a>
             <!--end::Logo-->
         </div>
@@ -4225,7 +4225,7 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-30px symbol-md-40px">
                             @isset(auth()->user()->profile_picture)
-                                <img alt="Profile Picture" src="uploaded_files/profile_pictures/{{auth()->user()->profile_picture}}" />
+                                <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
                             @else
                                 <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->toBase64()}}" />
                             @endisset
@@ -4244,7 +4244,7 @@
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
                                     @isset(auth()->user()->profile_picture)
-                                        <img alt="Profile Picture" src="uploaded_files/profile_pictures/{{auth()->user()->profile_picture}}" />
+                                        <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
                                     @else
                                         <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->toBase64()}}" />
                                     @endisset
