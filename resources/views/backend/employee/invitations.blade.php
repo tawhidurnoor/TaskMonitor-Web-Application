@@ -260,16 +260,16 @@
                                 <!--begin::User details-->
                             </td>
                             <!--end::User=-->
-                            <!--begin::Role=-->
+                            <!--begin::Email=-->
                             <td>
                                 {{$invitation->employee_mail}}
                             </td>
-                            <!--end::Role=-->
-                            <!--begin::Last login=-->
+                            <!--end::Email=-->
+                            <!--begin::Invited-->
                             <td>
                                 {{ \Carbon\Carbon::parse($invitation->created_at)->diffForHumans() }}
                             </td>
-                            <!--end::Last login=-->
+                            <!--end::Invited-->
                             <!--begin::Action=-->
                             <td class="text-end">
                                 <!--begin::Menu-->
@@ -432,8 +432,8 @@
 
 
 @section('scripts')
-<script src="assets_backend/js/custom/apps/user-management/users/list/table.js"></script>
-<script src="assets_backend/js/custom/utilities/modals/users-search.js"></script>
+<script src="{{asset('assets_backend/js/custom/apps/user-management/users/list/table.js')}}"></script>
+<script src="{{asset('assets_backend/js/custom/utilities/modals/users-search.js')}}"></script>
 <script>
     $(document).on('click', '.delete_button', function(e) {
     e.preventDefault();

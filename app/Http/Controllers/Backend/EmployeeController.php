@@ -18,7 +18,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('backend.employee.index');
+        $employees = Employee::where('employer_id', Auth::user()->id)->get();
+        return view('backend.employee.index',[
+            'employees' => $employees
+        ]);
     }
 
     public function search(Request $request)
