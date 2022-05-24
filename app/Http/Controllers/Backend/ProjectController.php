@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Company;
 use App\Http\Controllers\Controller;
 use App\Project;
+use App\ProjectPeople;
 use App\ProjectStaff;
 use App\Screenshot;
 use App\Staff;
@@ -23,21 +24,18 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function details(Project $project)
+    public function details($id)
     {
-        $company = Company::findORFail($project->company_id);
-        if(Auth::user()->id != $company->owner_user_id){
-            abort(403, 'Unauthorized action.');
-        }
+        $id = decrypt($id);
+        $project = Project::findOrFail($id);
+        $projectPeople = ProjectPeople::where('project_id', $id)
+        ->join('users', 'users.id', 'project_people.user_id')
+        ->selectRaw('users.first_name, users.last_name, users.profile_picture, project_people.id')
+        ->get();
 
-        $all_staffs = Staff::where('company_id', $company->id)->get();
-        $project_staffs = ProjectStaff::where('project_id', $project->id)->get();
-
-        return view('backend.project.details',[
+        return view('backend.project.details', [
             'project' => $project,
-            'company' => $company,
-            'all_staffs' => $all_staffs,
-            'project_staffs' => $project_staffs,
+            'projectPeople' => $projectPeople
         ]);
     }
 
@@ -103,11 +101,6 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('project.index', $request->company_id);
-    }
-
-    public function show(Project $project)
-    {
-        return $project;
     }
 
     public function update(Request $request, Project $project)

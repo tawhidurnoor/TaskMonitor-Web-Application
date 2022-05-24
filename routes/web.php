@@ -54,9 +54,12 @@ Route::group(
         //project module
         Route::get('/project', 'Backend\ProjectController@index')->name('project.index');
         Route::post('/project/store', 'Backend\ProjectController@store')->name('project.store');
-        Route::get('/project/show/{project}', 'Backend\ProjectController@show')->name('project.show');
+        Route::get('/project/details/{id}', 'Backend\ProjectController@details')->name('project.details');
+
+        //folowing are old, I am working on it
         Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');
         Route::delete('/project/{project}', 'Backend\ProjectController@destroy')->name('project.destroy');
+
         //project staff assign module
         Route::get('/project/{project}/details', 'Backend\ProjectController@details')->name('project.details');
         Route::post('/project/staff/store', 'Backend\ProjectController@storeStaff')->name('storeStaff');

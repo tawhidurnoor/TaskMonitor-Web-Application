@@ -140,9 +140,9 @@
                                     <img alt="Profile Picture"
                                         src="{{Avatar::create($user->first_name." ".$user->last_name)->toBase64()}}" />
                                     @endisset
-                                    <div
+                                    {{-- <div
                                         class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n3 mt-n3">
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Name-->
