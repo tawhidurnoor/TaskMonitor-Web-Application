@@ -35,8 +35,14 @@ class EmployeeController extends Controller
 
     public function invitations()
     {
-        $invitations = Invitation::where('employer_id', Auth::user()->id)->where('is_request_accepted', 0)->first();
-        return $invitations->userDetails()->email;
+        // $invitations = Invitation::where('employer_id', Auth::user()->id)->where('is_request_accepted', 0)->get();
+        $invitations = Invitation::where('employer_id', Auth::user()->id)
+        ->where('is_request_accepted', 0)
+        ->leftJoin('users', 'users.email', 'invitations.employee_mail')
+        ->selectRaw('users.first_name, users.last_name, users.profile_picture, invitations.id, invitations.employee_mail, invitations.created_at')
+        ->orderBy('invitations.id', 'desc')
+        ->get();
+        //return $invitations;
 
         return view('backend.employee.invitations',[
             'invitations' => $invitations,
@@ -50,6 +56,12 @@ class EmployeeController extends Controller
         $invitation->employee_mail = $request->email;
         $invitation->save();
         return redirect()->route('employee.invitations')->with(["success" => 1]);
+    }
+
+    public function destroyInvitation(Request $request)
+    {
+        $invitation = Invitation::findOrFail($request->id);
+        return $invitation;
     }
 
     /**

@@ -48,6 +48,7 @@ Route::group(
         Route::post('/employee/search', 'Backend\EmployeeController@search')->name('employee.search');
         Route::post('/employee/invitation', 'Backend\EmployeeController@storeInvitation')->name('employee.store_invitation');
         Route::get('/employee/invitations', 'Backend\EmployeeController@invitations')->name('employee.invitations');
+        Route::delete('/employee/invitations', 'Backend\EmployeeController@destroyInvitation')->name('employee.invitation.destroy');
         Route::resource('/employee', 'Backend\EmployeeController');
 
         //project module
