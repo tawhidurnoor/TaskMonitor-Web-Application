@@ -61,7 +61,8 @@ class EmployeeController extends Controller
     public function destroyInvitation(Request $request)
     {
         $invitation = Invitation::findOrFail($request->id);
-        return $invitation;
+        $invitation->delete();
+        return redirect()->back();
     }
 
     /**
