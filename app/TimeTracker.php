@@ -9,5 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TimeTracker extends Model
 {
-    //
+    public function screenshots()
+    {
+        return $this->hasMany(Screenshot::class, 'time_tracker_id', 'id');
+    }
 }

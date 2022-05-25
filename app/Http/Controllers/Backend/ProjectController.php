@@ -34,7 +34,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $projectPeople = ProjectPeople::where('project_id', $id)
             ->join('users', 'users.id', 'project_people.user_id')
-            ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id')
+            ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id, project_people.user_id')
             ->get();
 
         return view('backend.project.details', [
@@ -79,37 +79,6 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
-    public function storeStaff(Request $request)
-    {
-        $project_staff_count = ProjectStaff::where('staff_id', $request->staff_id)->where('project_id', $request->project_id)->count();
-        if ($project_staff_count > 0) {
-            session()->flash('warning', 'Staff already added');
-            return redirect()->back();
-        }
-
-        $project_staff = new ProjectStaff();
-        $project_staff->staff_id = $request->staff_id;
-        $project_staff->project_id = $request->project_id;
-
-        if ($project_staff->save()) {
-            session()->flash('success', 'Staff added successfullt.');
-        } else {
-            session()->flash('warning', 'Errot adding staff!! Please try again later.');
-        }
-
-        return redirect()->back();
-    }
-
-    public function project_staff_destroy(ProjectStaff $project_staff)
-    {
-        if ($project_staff->delete()) {
-            session()->flash('success', 'Staff deleted successfullt.');
-        } else {
-            session()->flash('warning', 'Errot deleting staff!! Please try again later.');
-        }
-
-        return redirect()->back();
-    }
 
     public function store(Request $request)
     {
@@ -168,21 +137,28 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
-    public function timeTracker($project, $staff)
+    public function timeTracker($project, $employee)
     {
-        $project_id = $project;
+        $project_id = decrypt($project);
+        $employee_id = decrypt($employee);
+        
         $project = Project::findOrFail($project_id);
 
-        $timeTrackers = TimeTracker::where('project_id', $project_id)
-            ->where('staff_id', $staff)
+        $projectPeople = ProjectPeople::where('project_id', $project_id)
+            ->join('users', 'users.id', 'project_people.user_id')
+            ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id, project_people.user_id')
             ->get();
 
-        $staff = User::findOrFail($staff);
+        $timeTrackers = TimeTracker::where('project_id', $project_id)
+            ->where('user_id', $employee_id)
+            ->get();
+        $user = User::findOrFail($employee_id);
 
         return view('backend.project.timeTracker', [
             'timeTrackers' => $timeTrackers,
-            'staff' => $staff,
-            'project' => $project
+            'user' => $user,
+            'project' => $project,
+            'projectPeople' => $projectPeople
         ]);
     }
 

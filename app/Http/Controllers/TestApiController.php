@@ -22,7 +22,6 @@ class TestApiController extends Controller
     {
         $email = $request->email;
         $user_id = User::where('email', $email)->value('id');
-        $staff_id = Staff::where('staff_user_id',$user_id)->value('id');
 
         // $staff_id = null;
         // foreach($staff as $stf){
@@ -30,8 +29,8 @@ class TestApiController extends Controller
         // }
 
         // $project_ids = ProjectStaff::where('staff_id', $staff_id)->selectRaw('project_id')->toSql();
-        $project_ids = DB::table('project_staff')
-            ->where('staff_id', $staff_id)
+        $project_ids = DB::table('project_people')
+            ->where('user_id', $user_id)
             ->selectRaw('project_id')
             ->get();
 
@@ -52,12 +51,12 @@ class TestApiController extends Controller
         $task_title = $request->task_title;
 
 
-        $staff_id = User::where('email', $email)->first()->id;
+        $user_id = User::where('email', $email)->first()->id;
         $project_id = Project::where('title', $project)->first()->id;
 
         $time_tracker = new TimeTracker();
         $time_tracker->project_id = $project_id;
-        $time_tracker->staff_id = $staff_id;
+        $time_tracker->user_id = $user_id;
         $time_tracker->task_title = $task_title;
         $time_tracker->start  = date('Y-m-d H:i:s');
         $time_tracker->save();
@@ -83,11 +82,11 @@ class TestApiController extends Controller
         $email = $request->email;
         $timeTrackerId = $request->timeTrackerId;
 
-        $staff_id = User::where('email', $email)->first()->id;
+        $user_id = User::where('email', $email)->first()->id;
 
         $screenshot = new Screenshot();
         $screenshot->time_tracker_id = $timeTrackerId;
-        $screenshot->staff_id = $staff_id;
+        $screenshot->user_id = $user_id;
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');

@@ -78,18 +78,12 @@ Route::group(
         Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');
         Route::delete('/project/{project}', 'Backend\ProjectController@destroy')->name('project.destroy');
 
-        //project staff assign module
-        Route::get('/project/{project}/details', 'Backend\ProjectController@details')->name('project.details');
-        Route::post('/project/staff/store', 'Backend\ProjectController@storeStaff')->name('storeStaff');
-        Route::delete('/project_staff/{project_staff}', 'Backend\ProjectController@project_staff_destroy')->name('project_staff.destroy');
 
         //timetracker(project->staff->details)
-        Route::get('/project/{project}/timetracker/{staff}', 'Backend\ProjectController@timeTracker')->name('project.timeTracker');
+        Route::get('/project/{project}/timetracker/{employee}', 'Backend\ProjectController@timeTracker')->name('project.timeTracker');
         Route::get('/screenshot/{timetracker}', 'Backend\ProjectController@screenShot')->name('project.screenShot');
 
-        //staff module
-        // Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');
-        // Route::resource('/staff', 'Backend\StaffController');
+
     }
 );
 
