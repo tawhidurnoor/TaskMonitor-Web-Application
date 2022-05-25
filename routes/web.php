@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,18 @@ Route::get('/dextop_time_tracker', 'TestApiController@dextop_time_tracker');
 Route::get('/dextop_time_tracker_stop', 'TestApiController@dextop_time_tracker_stop');
 
 Route::post('/dextop_test_upload', 'TestApiController@dextop_test_upload');
+
+Route::get('/mail', function(){
+    $to_name = 'Tawhidur Noor';
+    $to_email = 'link2badhan@gmail.com';
+    $data = array('name' => $to_name, "body" => "Test mail");
+
+    Mail::send('backend.email.mail', $data, function ($message) use ($to_name, $to_email) {
+        $message->to($to_email, $to_name)
+            ->subject('Timetracker Web Testing Mail');
+        $message->from('tawhidbadhan@gmail.com', 'Artisans Web');
+    });
+});
 
 Route::get('/', 'Frontend\HomeController@index');
 
@@ -83,6 +96,8 @@ Route::group(
     }
 );
 
-Auth::routes();
+Auth::routes([
+    'verify' => true,
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
