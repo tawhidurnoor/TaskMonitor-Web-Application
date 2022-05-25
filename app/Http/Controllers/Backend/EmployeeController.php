@@ -8,6 +8,7 @@ use App\Invitation;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
@@ -54,6 +55,28 @@ class EmployeeController extends Controller
         return view('backend.employee.invitations',[
             'invitations' => $invitations,
         ]);
+    }
+
+    public function mailInvitations(Request $request)
+    {
+        $email = $request->email;
+        $exploreArr = explode('@', $email);
+        
+        $to_name = $exploreArr[0];
+        $to_email = $email;
+        $data = array('email' => Auth::user()->email);
+
+        Mail::send('backend.email.invitation_mail', $data, function ($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                ->subject('Invitation to join TimeTracker');
+            $message->from('tawhidbadhan@gmail.com', 'Time Tracker Solution');
+        });
+
+        $invitation = new Invitation();
+        $invitation->employer_id = Auth::user()->id;
+        $invitation->employee_mail = $request->email;
+        $invitation->save();
+        return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 
     public function storeInvitation(Request $request)

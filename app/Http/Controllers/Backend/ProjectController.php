@@ -23,7 +23,7 @@ class ProjectController extends Controller
         }
 
         $projects = Project::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
-        return view('backend.project.index',[
+        return view('backend.project.index', [
             'projects' => $projects,
         ]);
     }
@@ -33,9 +33,9 @@ class ProjectController extends Controller
         $id = decrypt($id);
         $project = Project::findOrFail($id);
         $projectPeople = ProjectPeople::where('project_id', $id)
-        ->join('users', 'users.id', 'project_people.user_id')
-        ->selectRaw('users.first_name, users.last_name, users.profile_picture, project_people.id')
-        ->get();
+            ->join('users', 'users.id', 'project_people.user_id')
+            ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id')
+            ->get();
 
         return view('backend.project.details', [
             'project' => $project,
@@ -43,15 +43,51 @@ class ProjectController extends Controller
         ]);
     }
 
+
+    public function searchPeople(Request $request, $id)
+    {
+        $id = decrypt($id);
+        $serach_query = $request->search;
+        $users = User::where('email', 'LIKE', '%' . $serach_query . '%')
+            ->orWhere('first_name', 'LIKE', '%' . $serach_query . '%')
+            ->orWhere('last_name', 'LIKE', '%' . $serach_query . '%')
+            ->get();
+
+        return view('backend.project.add_user', [
+            'users' => $users,
+            'project_id' => $id,
+        ]);
+    }
+
+    public function addPeople(Request $request, $id)
+    {
+        $project_id = decrypt($id);
+        $user_id = $request->usere_id;
+
+        $project_people = new ProjectPeople();
+        $project_people->project_id = $project_id;
+        $project_people->user_id = $user_id;
+        $project_people->save();
+
+        return $this->details($id);
+    }
+
+    public function destroyProjectPeople(Request $request)
+    {
+        $projectPerson = ProjectPeople::findOrFail($request->id);
+        $projectPerson->delete();
+        return redirect()->back();
+    }
+
     public function storeStaff(Request $request)
     {
         $project_staff_count = ProjectStaff::where('staff_id', $request->staff_id)->where('project_id', $request->project_id)->count();
-        if($project_staff_count > 0){
+        if ($project_staff_count > 0) {
             session()->flash('warning', 'Staff already added');
             return redirect()->back();
         }
 
-        $project_staff = New ProjectStaff();
+        $project_staff = new ProjectStaff();
         $project_staff->staff_id = $request->staff_id;
         $project_staff->project_id = $request->project_id;
 
@@ -138,12 +174,12 @@ class ProjectController extends Controller
         $project = Project::findOrFail($project_id);
 
         $timeTrackers = TimeTracker::where('project_id', $project_id)
-        ->where('staff_id', $staff)
-        ->get();
-        
+            ->where('staff_id', $staff)
+            ->get();
+
         $staff = User::findOrFail($staff);
 
-        return view('backend.project.timeTracker',[
+        return view('backend.project.timeTracker', [
             'timeTrackers' => $timeTrackers,
             'staff' => $staff,
             'project' => $project

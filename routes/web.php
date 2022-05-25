@@ -63,11 +63,16 @@ Route::group(
         Route::get('/employee/invitations', 'Backend\EmployeeController@invitations')->name('employee.invitations');
         Route::delete('/employee/invitations', 'Backend\EmployeeController@destroyInvitation')->name('employee.invitation.destroy');
         Route::resource('/employee', 'Backend\EmployeeController');
+        //invitation for non user
+        Route::post('/employee/mailinvitations', 'Backend\EmployeeController@mailInvitations')->name('employee.mailinvitations');
 
         //project module
         Route::get('/project', 'Backend\ProjectController@index')->name('project.index');
         Route::post('/project/store', 'Backend\ProjectController@store')->name('project.store');
         Route::get('/project/details/{id}', 'Backend\ProjectController@details')->name('project.details');
+        Route::delete('/project/people/destroy', 'Backend\ProjectController@destroyProjectPeople')->name('project.people.destroy');
+        Route::post('/project/searchpeople/{id}', 'Backend\ProjectController@searchPeople')->name('project.search.people');
+        Route::post('/project/addpeople/{id}', 'Backend\ProjectController@addPeople')->name('project.add.people');
 
         //folowing are old, I am working on it
         Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');

@@ -91,8 +91,9 @@
                         <!--end::Due-->
                     </div>
                     <!--end::Info-->
+
                     <!--begin::Users-->
-                    <div class="symbol-group symbol-hover">
+                    {{-- <div class="symbol-group symbol-hover">
                         <!--begin::User-->
                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Emma Smith">
                             <img alt="Pic" src="assets_backend/media/avatars/300-6.jpg" />
@@ -108,8 +109,9 @@
                             <span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
                         </div>
                         <!--begin::User-->
-                    </div>
+                    </div> --}}
                     <!--end::Users-->
+
                 </div>
                 <!--end:: Card body-->
             </a>
@@ -122,7 +124,7 @@
 <!--end::Row-->
 
 <!--begin::Pagination-->
-<div class="d-flex flex-stack flex-wrap pt-10">
+{{-- <div class="d-flex flex-stack flex-wrap pt-10">
     <div class="fs-6 fw-bold text-gray-700">Showing 1 to 10 of 50 entries</div>
     <!--begin::Pages-->
     <ul class="pagination">
@@ -156,7 +158,7 @@
         </li>
     </ul>
     <!--end::Pages-->
-</div>
+</div> --}}
 <!--end::Pagination-->
 @endsection
 
@@ -309,3 +311,4 @@
 <!--end::Modal - New Target-->
 <!--end::Modal - Create Campaign-->
 @endsection
+
