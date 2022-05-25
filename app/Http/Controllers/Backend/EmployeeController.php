@@ -18,6 +18,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->email_verified_at == null) {
+            return redirect()->route('profile.index');
+        }
+        
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
         return view('backend.employee.index',[
             'employees' => $employees

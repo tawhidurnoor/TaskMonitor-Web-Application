@@ -83,8 +83,8 @@ Route::group(
         Route::get('/screenshot/{timetracker}', 'Backend\ProjectController@screenShot')->name('project.screenShot');
 
         //staff module
-        Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');
-        Route::resource('/staff', 'Backend\StaffController');
+        // Route::get('/staff/{company}', 'Backend\StaffController@index_company')->name('staff.index_company');
+        // Route::resource('/staff', 'Backend\StaffController');
     }
 );
 

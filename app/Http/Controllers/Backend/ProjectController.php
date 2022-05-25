@@ -18,6 +18,10 @@ class ProjectController extends Controller
 {
     public function index()
     {
+        if (Auth::user()->email_verified_at == null) {
+            return redirect()->route('profile.index');
+        }
+
         $projects = Project::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('backend.project.index',[
             'projects' => $projects,
