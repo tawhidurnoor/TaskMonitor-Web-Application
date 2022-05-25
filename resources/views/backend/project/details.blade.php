@@ -375,7 +375,7 @@
                                             <td>{{$projectPerson->email}}</td>
                                             <td class="text-end">
                                                 <button class="btn btn-light-danger btn-sm remove_project_member" data-id="{{$projectPerson->id}}">Remove</button>
-                                                <a href="" type="submit" class="btn btn-light btn-sm">Time Tracker</a>
+                                                <a href="{{route('project.timeTracker', [encrypt($project->id), encrypt($projectPerson->user_id)] )}}" type="submit" class="btn btn-light btn-sm">Time Tracker</a>
                                             </td>
                                         </tr>
                                     @endforeach

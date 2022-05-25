@@ -210,7 +210,7 @@
                             <th class="min-w-125px">User</th>
                             <th class="min-w-125px">Email</th>
                             <th class="min-w-125px">Joined Date</th>
-                            <th class="text-end min-w-100px">Actions</th>
+                            {{-- <th class="text-end min-w-100px">Actions</th> --}}
                         </tr>
                         <!--end::Table row-->
                     </thead>
@@ -257,7 +257,7 @@
                                 <td>{{ \Carbon\Carbon::parse($employee->created_at)->format('d M, Y')}}</td>
                                 <!--begin::Joined-->
                                 <!--begin::Action=-->
-                                <td class="text-end">
+                                {{-- <td class="text-end">
                                     <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click"
                                         data-kt-menu-placement="bottom-end">Actions
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
@@ -285,7 +285,7 @@
                                         <!--end::Menu item-->
                                     </div>
                                     <!--end::Menu-->
-                                </td>
+                                </td> --}}
                                 <!--end::Action=-->
                             </tr>
                             <!--end::Table row-->
