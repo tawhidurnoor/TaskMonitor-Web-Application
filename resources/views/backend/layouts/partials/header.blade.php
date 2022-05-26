@@ -4274,10 +4274,13 @@
 
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="#" class="menu-link px-5">
-                                <span class="menu-text">My Projects</span>
-                                <span class="menu-badge">
-                                    <span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
+                            <a href="{{route('employee.mode_switcher')}}" class="menu-link px-5">
+                                <span class="menu-text">
+                                    @if (auth()->user()->login_mode == 'employee')
+                                        Switch To Employer
+                                    @else
+                                        Switch To Employee
+                                    @endif
                                 </span>
                             </a>
                         </div>

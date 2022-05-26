@@ -87,7 +87,15 @@ Route::group(
 
         //employee module
         Route::get('/employee_dashboard', 'Backend\DashboardController@employeeIndex')->name('employee.dashboard');
+        //invitations
+        Route::get('/invitations', 'Backend\EmployeeInvitaionController@index')->name('employee.view.invitations');
+        Route::post('/invitations/accept', 'Backend\EmployeeInvitaionController@acceptInvitation')->name('employee.accept.invitations');
 
+        //employers
+        Route::get('/employers',  'Backend\EmployeeEmployerController@index' )->name('employee.employers.index');
+
+        //login mode switcher
+        Route::get('/mode_switcher', 'Backend\DashboardController@modeSwitcher')->name('employee.mode_switcher');
 
     }
 );

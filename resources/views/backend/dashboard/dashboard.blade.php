@@ -9,9 +9,9 @@
         <div class="page-title d-flex flex-column py-1">
             <!--begin::Title-->
             <h1 class="d-flex align-items-center my-1">
-                <span class="text-dark fw-bolder fs-1">Projects Dashboard</span>
+                <span class="text-dark fw-bolder fs-1">Employer Dashboard</span>
                 <!--begin::Description-->
-                <small class="text-muted fs-6 fw-bold ms-1">You have 7
+                <small class="text-muted fs-6 fw-bold ms-1">You have {{count($projects)}}
                     <span class="text-primary fw-bolder">Active Projects</span></small>
                 <!--end::Description-->
             </h1>
@@ -21,8 +21,8 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
-            <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
-                data-bs-target="#kt_modal_new_target" id="kt_toolbar_primary_button">New Project</a>
+            {{-- <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
+                data-bs-target="#kt_modal_new_target" id="kt_toolbar_primary_button">New Project</a> --}}
             <!--end::Button-->
         </div>
         <!--end::Actions-->
