@@ -220,8 +220,8 @@
 </div>
 <!--end::Modal - Accept Invitaiotn-->
 
-<!--begin::Modal - Remove Invitaiotn-->
-<div class="modal fade" id="remove_invitation_modal" tabindex="-1" aria-hidden="true">
+<!--begin::Modal - Reject Invitaiotn-->
+<div class="modal fade" id="reject_invitation_modal" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -249,24 +249,23 @@
                 <!--begin::Heading-->
                 <div class="mb-13 text-center">
                     <!--begin::Title-->
-                    <h1 class="mb-3">Remove Invitation</h1>
+                    <h1 class="mb-3">Reject Invitation</h1>
                     <!--end::Title-->
                 </div>
                 <!--end::Heading-->
 
                 <!--begin::Input group-->
                 <div class="d-flex flex-column mb-8 fv-row">
-                    Are you sure want to remove this invitaiotn? This can't be undone !
+                    Are you sure want to reject this invitaiotn?
                 </div>
                 <!--end::Input group-->
 
                 <!--begin::Actions-->
                 <div class="text-center">
-                    <form action="{{route('employee.invitation.destroy')}}" method="post">
+                    <form action="{{route('employee.reject.invitations')}}" method="post">
                         @csrf
-                        @method('delete')
-                        <input type="hidden" id="invitation_id" name="id">
-                        <button type="submit" class="btn btn-light btn-light-danger btn-sm">Remove</button>
+                        <input type="hidden" id="invitation_id_reject" name="id">
+                        <button type="submit" class="btn btn-light btn-light-danger btn-sm">Reject</button>
                     </form>
                 </div>
                 <!--end::Actions-->
@@ -277,7 +276,7 @@
     </div>
     <!--end::Modal dialog-->
 </div>
-<!--end::Modal - Remove Invitaiotn-->
+<!--end::Modal - Reject Invitaiotn-->
 @endsection
 
 
@@ -290,6 +289,14 @@
     $('#accept_invitation_modal').modal('show');
     var id = $(this).data('id');
     $('#invitation_id').val(id);
+    });
+</script>
+<script>
+    $(document).on('click', '.reject_button', function(e) {
+    e.preventDefault();
+    $('#reject_invitation_modal').modal('show');
+    var id = $(this).data('id');
+    $('#invitation_id_reject').val(id);
     });
 </script>
 @endsection

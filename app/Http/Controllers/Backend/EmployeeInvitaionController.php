@@ -34,4 +34,11 @@ class EmployeeInvitaionController extends Controller
         $invitation->delete();
         return redirect()->route('employee.employers.index');
     }
+
+    public function rejectInvitation(Request $request)
+    {
+        $invitation = Invitation::findOrFail($request->id);
+        $invitation->delete();
+        return redirect()->route('employee.employers.index');
+    }
 }

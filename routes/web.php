@@ -90,6 +90,7 @@ Route::group(
         //invitations
         Route::get('/invitations', 'Backend\EmployeeInvitaionController@index')->name('employee.view.invitations');
         Route::post('/invitations/accept', 'Backend\EmployeeInvitaionController@acceptInvitation')->name('employee.accept.invitations');
+        Route::post('/invitations/reject', 'Backend\EmployeeInvitaionController@rejectInvitation')->name('employee.reject.invitations');
 
         //employers
         Route::get('/employers',  'Backend\EmployeeEmployerController@index' )->name('employee.employers.index');
