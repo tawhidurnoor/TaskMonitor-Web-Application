@@ -84,6 +84,11 @@ Route::group(
         Route::get('/screenshot/{timetracker}', 'Backend\ProjectController@screenShot')->name('project.screenShot');
 
 
+
+        //employee module
+        Route::get('/employee_dashboard', 'Backend\DashboardController@employeeIndex')->name('employee.dashboard');
+
+
     }
 );
 

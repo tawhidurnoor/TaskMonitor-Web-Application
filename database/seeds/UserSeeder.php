@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             $user->first_name = "Tawhidur Noor";
             $user->last_name = "Badhan";
             $user->email = "tawhidbadhan@gmail.com";
-            $user->user_type = "System Admin";
+            $user->login_mode = "System Admin";
             $user->password = Hash::make('12345678');
             $user->save();
             $user->assignRole('superadmin');

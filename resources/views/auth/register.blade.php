@@ -106,6 +106,20 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
+                        <div class="fv-row mb-7">
+                            <label class="form-label fw-bolder text-dark fs-6">Register as</label>
+                            <!--begin::Hint-->
+                            <div class="text-muted">You can switch mode anytime later.</div>
+                            <!--end::Hint-->
+                            <select name="login_mode" class="form-control form-control-lg form-control-solid">
+                                <option value="employer">Employeer</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                            {{-- <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="company_name"
+                                autocomplete="off" /> --}}
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
                         <div class="mb-10 fv-row" data-kt-password-meter="true">
                             <!--begin::Wrapper-->
                             <div class="mb-1">

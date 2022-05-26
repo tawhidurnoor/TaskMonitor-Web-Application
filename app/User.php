@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\CarbonInterval;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,7 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'company_name', 'password', 'user_type',
+        'first_name', 'last_name', 'email', 'company_name', 'password', 'login_mode',
     ];
 
     /**
@@ -68,5 +69,14 @@ class User extends Authenticatable implements MustVerifyEmail
             }
         }
         return $hasPermission;
+    }
+
+    public function workTime($created_at, $updated_at)
+    {
+        $days = $created_at->diffInDays($updated_at);
+        $hours = $created_at->diffInHours($updated_at->subDays($days));
+        $minutes = $created_at->diffInMinutes($updated_at->subHours($hours));
+        $seconds = $created_at->diffInSeconds($updated_at->subMinutes($minutes));
+        return CarbonInterval::days($days)->hours($hours)->minutes($minutes)->seconds($seconds)->forHumans();
     }
 }
