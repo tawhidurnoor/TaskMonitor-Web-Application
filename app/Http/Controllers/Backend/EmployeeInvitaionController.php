@@ -32,5 +32,6 @@ class EmployeeInvitaionController extends Controller
 
         $employee->save();
         $invitation->delete();
+        return redirect()->route('employee.employers.index');
     }
 }
