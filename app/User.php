@@ -75,7 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $hasPermission;
     }
 
-    public static function workTime($user_id)
+    public static function workTime($user_id, $time_dutation)
     {
         $days = 0;
         $hours = 0;
@@ -89,26 +89,31 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($projects as $project) {
             array_push($project_ids_array, $project->id);
         }
-        
+
         $time_trackers = TimeTracker::where('user_id', $user_id)
-        ->whereIn('project_id', $project_ids_array)
-        ->get();
+            ->whereIn('project_id', $project_ids_array);
+
+        if ($time_dutation == 'Month') {
+            $time_trackers->whereMonth('start', date('m'))
+                ->whereYear('start', date('Y'));
+        }
+
+        $time_trackers = $time_trackers->get();
 
         $total_hour = 0;
-        foreach($time_trackers as $time_tracker){
+        foreach ($time_trackers as $time_tracker) {
             $start = new Carbon($time_tracker->start);
 
-            if(isset($time_tracker->end)){
+            if (isset($time_tracker->end)) {
                 $end = new Carbon($time_tracker->end);
-            }else{
+            } else {
                 $end = Carbon::now();
             }
-            
+
 
             $total_hour += $end->diffInHours($start);
         }
 
         return $total_hour;
-        
     }
 }
