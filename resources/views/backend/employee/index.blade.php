@@ -210,6 +210,7 @@
                             <th class="min-w-125px">User</th>
                             <th class="min-w-125px">Email</th>
                             <th class="min-w-125px">Joined Date</th>
+                            <th class="min-w-125px">Worked This Week</th>
                             <th class="min-w-125px">Worked This Month</th>
                             <th class="min-w-125px">Total Worked</th>
                             {{-- <th class="text-end min-w-100px">Actions</th> --}}
@@ -258,9 +259,12 @@
                                 <!--begin::Joined-->
                                 <td>{{ \Carbon\Carbon::parse($employee->created_at)->format('d M, Y')}}</td>
                                 <!--begin::Joined-->
-                                <!--begin::Worked-->
+                                <!--begin::Worked Week-->
+                                <td>{{ App\User::workTime($employee->employee_id, "Week") }} Hours</td>
+                                <!--end::Worked Month-->
+                                <!--begin::Worked Week-->
                                 <td>{{ App\User::workTime($employee->employee_id, "Month") }} Hours</td>
-                                <!--end::Worked-->
+                                <!--end::Worked Month-->
                                 <!--begin::Worked-->
                                 <td>{{ App\User::workTime($employee->employee_id, "All") }} Hours</td>
                                 <!--end::Worked-->

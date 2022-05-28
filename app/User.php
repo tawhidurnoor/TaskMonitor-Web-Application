@@ -96,6 +96,11 @@ class User extends Authenticatable implements MustVerifyEmail
         if ($time_dutation == 'Month') {
             $time_trackers->whereMonth('start', date('m'))
                 ->whereYear('start', date('Y'));
+        }elseif($time_dutation == 'Week'){
+            $time_trackers->whereBetween(
+                'start',
+                [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]
+            );
         }
 
         $time_trackers = $time_trackers->get();
