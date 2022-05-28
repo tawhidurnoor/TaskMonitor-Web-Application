@@ -15,6 +15,10 @@ class CreateGhostEmployeesTable extends Migration
     {
         Schema::create('ghost_employees', function (Blueprint $table) {
             $table->id();
+            $table->string('mac_id_1');
+            $table->string('mac_id_2')->nullable();
+            $table->string('short_info', 50)->nullable();
+            $table->bigInteger('employer_id');
             $table->timestamps();
         });
     }
