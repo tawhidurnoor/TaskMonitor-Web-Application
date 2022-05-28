@@ -97,7 +97,13 @@ class User extends Authenticatable implements MustVerifyEmail
         $total_hour = 0;
         foreach($time_trackers as $time_tracker){
             $start = new Carbon($time_tracker->start);
-            $end = new Carbon($time_tracker->end);
+
+            if(isset($time_tracker->end)){
+                $end = new Carbon($time_tracker->end);
+            }else{
+                $end = Carbon::now();
+            }
+            
 
             $total_hour += $end->diffInHours($start);
         }
