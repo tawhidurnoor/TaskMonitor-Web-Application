@@ -103,11 +103,19 @@ class ProjectController extends Controller
             $project->project_logo = $filename;
         }
 
-        if ($project->save()) {
-            session()->flash('success', 'Project added successfully.');
-        } else {
-            session()->flash('warning', 'Errot adding project!! Please try again later.');
-        }
+        $project->save();
+
+        //Adding creator to project
+        $project_people = new ProjectPeople();
+        $project_people->project_id = $project->id;
+        $project_people->user_id = Auth::user()->id;
+        $project_people->save();
+
+        // if ($project->save()) {
+        //     session()->flash('success', 'Project added successfully.');
+        // } else {
+        //     session()->flash('warning', 'Errot adding project!! Please try again later.');
+        // }
 
         return redirect()->route('project.index', $request->company_id);
     }

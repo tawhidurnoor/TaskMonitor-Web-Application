@@ -123,7 +123,7 @@
                                     title="{{$projectPerson->first_name}} {{$projectPerson->last_name}}">
                                     @isset($projectPerson->profile_picture)
                                     <img alt="Profile Picture"
-                                        src="{{asset('uploaded_files/profile_pictures/'.$user->projectPerson)}}" />
+                                        src="{{asset('uploaded_files/profile_pictures/'.$projectPerson->profile_picture)}}" />
                                     @else
                                     <img alt="Profile Picture"
                                         src="{{Avatar::create($projectPerson->first_name." ".$projectPerson->last_name)->toBase64()}}" />
@@ -248,7 +248,7 @@
                                 <div class="symbol symbol-65px symbol-circle mb-5">
                                     @isset($projectPerson->profile_picture)
                                     <img alt="Profile Picture"
-                                        src="{{asset('uploaded_files/profile_pictures/'.$user->projectPerson)}}" />
+                                        src="{{asset('uploaded_files/profile_pictures/'.$projectPerson->profile_picture)}}" />
                                     @else
                                     <img alt="Profile Picture"
                                         src="{{Avatar::create($projectPerson->first_name." ".$projectPerson->last_name)->toBase64()}}" />
