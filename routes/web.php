@@ -98,6 +98,9 @@ Route::group(
         //login mode switcher
         Route::get('/mode_switcher', 'Backend\DashboardController@modeSwitcher')->name('employee.mode_switcher');
 
+        //seetings
+        Route::resource('/settings', 'Backend\SettingsController');
+
     }
 );
 

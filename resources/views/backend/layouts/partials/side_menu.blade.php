@@ -93,6 +93,26 @@
             </div>
             <!--end::Menu item - Employee-->
 
+            <!--begin::Menu item - Settings-->
+            <div class="menu-item">
+                <a href="{{route('settings.index')}}" class="menu-link {{ ( request()->segment(1)=='settings' ) ? 'active':'' }}">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"
+                                    fill="#A1A5B7" />
+                                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">Settings</span>
+                </a>
+            </div>
+            <!--end::Menu item - Settings-->
+
             @else
 
             <!--begin::Menu item - Employee Dashboard-->
