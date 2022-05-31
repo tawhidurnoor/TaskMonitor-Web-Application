@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Invitation;
+use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +25,10 @@ class EmployeeController extends Controller
         }
         
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
-        
+        $screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
         return view('backend.employee.index',[
-            'employees' => $employees
+            'employees' => $employees,
+            'screenshot_duration' => $screenshot_duration,
         ]);
     }
 

@@ -209,6 +209,7 @@
                             </th> --}}
                             <th class="min-w-125px">User</th>
                             <th class="min-w-125px">Email</th>
+                            <th class="min-w-125px">Screenshot Duration</th>
                             <th class="min-w-125px">Joined Date</th>
                             <th class="min-w-125px">Worked This Week</th>
                             <th class="min-w-125px">Worked This Month</th>
@@ -253,9 +254,18 @@
                                     <!--begin::User details-->
                                 </td>
                                 <!--end::User=-->
-                                <!--begin::Role=-->
+                                <!--begin::Email-->
                                 <td>{{$employee->user->email}}</td>
-                                <!--end::Role=-->
+                                <!--end::Email-->
+                                <!--begin::Screenshot Duration-->
+                                <td>
+                                    @isset($employee->user->screenshot_duration)
+                                        {{$employee->user->screenshot_duration}}
+                                    @else
+                                        {{$screenshot_duration}} minutes
+                                    @endisset
+                                </td>
+                                <!--end::Screenshot Duration-->
                                 <!--begin::Joined-->
                                 <td>{{ \Carbon\Carbon::parse($employee->created_at)->format('d M, Y')}}</td>
                                 <!--begin::Joined-->
