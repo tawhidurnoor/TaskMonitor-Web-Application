@@ -48,9 +48,12 @@ class ProjectController extends Controller
     {
         $id = decrypt($id);
         $serach_query = $request->search;
-        $users = User::where('email', 'LIKE', '%' . $serach_query . '%')
+        $users = User::join('employees', 'employees.employee_id', 'users.id')
+            ->where('employees.employer_id', Auth::user()->id)
+            ->orWhere('email', 'LIKE', '%' . $serach_query . '%')
             ->orWhere('first_name', 'LIKE', '%' . $serach_query . '%')
             ->orWhere('last_name', 'LIKE', '%' . $serach_query . '%')
+            ->selectRaw('users.*')
             ->get();
 
         return view('backend.project.add_user', [
