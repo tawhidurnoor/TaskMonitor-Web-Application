@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends Controller
 {
@@ -15,7 +16,11 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('backend.settings.index');
+        $settings = Setting::where('user_id', Auth::user()->id )->first();
+        
+        return view('backend.settings.index',[
+            'settings' => $settings,
+        ]);
     }
 
     /**
@@ -70,7 +75,9 @@ class SettingsController extends Controller
      */
     public function update(Request $request, Setting $setting)
     {
-        //
+        $setting->screenshot_duration = $request->screenshot_duration;
+        $setting->save();
+        return redirect()->back();
     }
 
     /**

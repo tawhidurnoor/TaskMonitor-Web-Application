@@ -16,7 +16,7 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->integer('duration')->default(5);
+            $table->integer('screenshot_duration')->default(5);
             $table->timestamps();
         });
     }
