@@ -132,7 +132,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return $employee;
     }
 
     /**
@@ -155,7 +155,9 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $employee->screenshot_duration = $request->screenshot_duration;
+        $employee->save();
+        return redirect()->back();
     }
 
     /**

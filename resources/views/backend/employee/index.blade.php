@@ -37,10 +37,11 @@
             <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
                 data-bs-target="#add_employee_modal" id="kt_toolbar_primary_button">Invite an employee</a>
             <span style="width: 20px"></span>
-            <a href="{{route('employee.invitations')}}" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" >View Sent Invitations</a>
+            <a href="{{route('employee.invitations')}}"
+                class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px">View Sent Invitations</a>
             <!--end::Button-->
         </div>
-        
+
         <!--end::Actions-->
     </div>
     <!--end::Toolbar-->
@@ -74,7 +75,8 @@
                 <!--begin::Card title-->
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
-                    {{-- <!--begin::Toolbar-->
+                    {{--
+                    <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                         <!--begin::Filter-->
                         <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click"
@@ -207,13 +209,14 @@
                                         data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                 </div>
                             </th> --}}
-                            <th class="min-w-125px">User</th>
+                            <th class="min-w-150px">User</th>
                             <th class="min-w-125px">Email</th>
-                            <th class="min-w-125px">Screenshot Duration</th>
+                            <th class="min-w-50px">Screenshot Duration</th>
                             <th class="min-w-125px">Joined Date</th>
-                            <th class="min-w-125px">Worked This Week</th>
-                            <th class="min-w-125px">Worked This Month</th>
-                            <th class="min-w-125px">Total Worked</th>
+                            <th class="min-w-50px">Worked This Week</th>
+                            <th class="min-w-50px">Worked This Month</th>
+                            <th class="min-w-50px">Total Worked</th>
+                            <th class="min-w-100px">Action</th>
                             {{-- <th class="text-end min-w-100px">Actions</th> --}}
                         </tr>
                         <!--end::Table row-->
@@ -222,95 +225,99 @@
                     <!--begin::Table body-->
                     <tbody class="text-gray-600 fw-bold">
                         @foreach ($employees as $employee)
-                            <!--begin::Table row-->
-                            <tr>
-                                <!--begin::Checkbox-->
-                                {{-- <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="1" />
-                                    </div>
-                                </td> --}}
-                                <!--end::Checkbox-->
-                                <!--begin::User=-->
-                                <td class="d-flex align-items-center">
-                                    <!--begin:: Avatar -->
-                                    <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                        <a href="view.html">
-                                            <div class="symbol-label">
-                                                @isset($employee->user->profile_picture)
-                                                <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.$employee->user->profile_picture)}}" class="w-100" />
-                                                @else
-                                                <img alt="Profile Picture"
-                                                    src="{{Avatar::create($employee->user->first_name." ".$employee->user->last_name)->toBase64()}}" class="w-100" />
-                                                @endisset
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <!--end::Avatar-->
-                                    <!--begin::User details-->
-                                    <div class="d-flex flex-column">
-                                        {{$employee->user->first_name}} {{$employee->user->last_name}}
-                                    </div>
-                                    <!--begin::User details-->
-                                </td>
-                                <!--end::User=-->
-                                <!--begin::Email-->
-                                <td>{{$employee->user->email}}</td>
-                                <!--end::Email-->
-                                <!--begin::Screenshot Duration-->
-                                <td>
-                                    @isset($employee->user->screenshot_duration)
-                                        {{$employee->user->screenshot_duration}}
-                                    @else
-                                        {{$screenshot_duration}} minutes
-                                    @endisset
-                                </td>
-                                <!--end::Screenshot Duration-->
-                                <!--begin::Joined-->
-                                <td>{{ \Carbon\Carbon::parse($employee->created_at)->format('d M, Y')}}</td>
-                                <!--begin::Joined-->
-                                <!--begin::Worked Week-->
-                                <td>{{ App\User::workTime($employee->employee_id, "Week") }} Hours</td>
-                                <!--end::Worked Month-->
-                                <!--begin::Worked Week-->
-                                <td>{{ App\User::workTime($employee->employee_id, "Month") }} Hours</td>
-                                <!--end::Worked Month-->
-                                <!--begin::Worked-->
-                                <td>{{ App\User::workTime($employee->employee_id, "All") }} Hours</td>
-                                <!--end::Worked-->
-                                <!--begin::Action=-->
-                                {{-- <td class="text-end">
-                                    <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click"
-                                        data-kt-menu-placement="bottom-end">Actions
-                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
-                                        <span class="svg-icon svg-icon-5 m-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <path
-                                                    d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
+                        <!--begin::Table row-->
+                        <tr>
+                            <!--begin::Checkbox-->
+                            {{-- <td>
+                                <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                    <input class="form-check-input" type="checkbox" value="1" />
+                                </div>
+                            </td> --}}
+                            <!--end::Checkbox-->
+                            <!--begin::User=-->
+                            <td class="d-flex align-items-center">
+                                <!--begin:: Avatar -->
+                                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                    <a href="view.html">
+                                        <div class="symbol-label">
+                                            @isset($employee->user->profile_picture)
+                                            <img alt="Profile Picture"
+                                                src="{{asset('uploaded_files/profile_pictures/'.$employee->user->profile_picture)}}"
+                                                class="w-100" />
+                                            @else
+                                            <img alt="Profile Picture"
+                                                src="{{Avatar::create($employee->user->first_name." ".$employee->user->last_name)->toBase64()}}"
+                                                class="w-100" />
+                                            @endisset
+                                        </div>
                                     </a>
-                                    <!--begin::Menu-->
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-                                        data-kt-menu="true">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="view.html" class="menu-link px-3">Edit</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                        </div>
-                                        <!--end::Menu item-->
+                                </div>
+                                <!--end::Avatar-->
+                                <!--begin::User details-->
+                                <div class="d-flex flex-column">
+                                    {{$employee->user->first_name}} {{$employee->user->last_name}}
+                                </div>
+                                <!--begin::User details-->
+                            </td>
+                            <!--end::User=-->
+                            <!--begin::Email-->
+                            <td>{{$employee->user->email}}</td>
+                            <!--end::Email-->
+                            <!--begin::Screenshot Duration-->
+                            <td>
+                                @isset($employee->screenshot_duration)
+                                {{$employee->screenshot_duration}} minutes
+                                @else
+                                Deafult ({{$screenshot_duration}} mins)
+                                @endisset
+                            </td>
+                            <!--end::Screenshot Duration-->
+                            <!--begin::Joined-->
+                            <td>{{ \Carbon\Carbon::parse($employee->created_at)->format('d M, Y')}}</td>
+                            <!--begin::Joined-->
+                            <!--begin::Worked Week-->
+                            <td>{{ App\User::workTime($employee->employee_id, "Week") }} Hours</td>
+                            <!--end::Worked Month-->
+                            <!--begin::Worked Week-->
+                            <td>{{ App\User::workTime($employee->employee_id, "Month") }} Hours</td>
+                            <!--end::Worked Month-->
+                            <!--begin::Worked-->
+                            <td>{{ App\User::workTime($employee->employee_id, "All") }} Hours</td>
+                            <!--end::Worked-->
+                            <!--begin::Action=-->
+                            <td class="text-end">
+                                <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
+                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+                                    <span class="svg-icon svg-icon-5 m-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path
+                                                d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </a>
+                                <!--begin::Menu-->
+                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
+                                    data-kt-menu="true">
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a class="menu-link px-3 edit_button" data-id="{{$employee->id}}">Edit</a>
                                     </div>
-                                    <!--end::Menu-->
-                                </td> --}}
-                                <!--end::Action=-->
-                            </tr>
-                            <!--end::Table row-->
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a class="menu-link px-3">Remove</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                </div>
+                                <!--end::Menu-->
+                            </td>
+                            <!--end::Action=-->
+                        </tr>
+                        <!--end::Table row-->
                         @endforeach
                     </tbody>
                     <!--end::Table body-->
@@ -328,8 +335,7 @@
 
 
 @section('modals')
-<!--begin::Modal - Create Campaign-->
-<!--begin::Modal - New Target-->
+<!--begin::Modal - Invite Employee-->
 <div class="modal fade" id="add_employee_modal" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -399,12 +405,102 @@
     </div>
     <!--end::Modal dialog-->
 </div>
-<!--end::Modal - New Target-->
-<!--end::Modal - Create Campaign-->
+<!--end::Modal - Invite Employee-->
+
+<!--begin::Modal - Edit Employee-->
+<div class="modal fade" id="edit_modal" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+        <!--begin::Modal content-->
+        <div class="modal-content rounded">
+            <!--begin::Modal header-->
+            <div class="modal-header pb-0 border-0 justify-content-end">
+                <!--begin::Close-->
+                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                    <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+                <!--end::Close-->
+            </div>
+            <!--begin::Modal header-->
+            <!--begin::Modal body-->
+            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                <!--begin:Form-->
+                <form id="edit_form" method="POST" class="form">
+                    @csrf
+                    @method('put')
+                    <!--begin::Heading-->
+                    <div class="mb-13 text-center">
+                        <!--begin::Title-->
+                        <h1 class="mb-3">Edit Employee</h1>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">Screenshot Duration (in minutes)</span>
+                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                title="Set the custom duration for taking screenhots."></i>
+                        </label>
+                        <!--end::Label-->
+                        <input type="number" class="form-control form-control-solid" placeholder="Screenshot Duration"
+                            name="screenshot_duration" id="screenshot_duration" required min="5" />
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Actions-->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">
+                            Update
+                        </button>
+                    </div>
+                    <!--end::Actions-->
+                </form>
+                <!--end:Form-->
+            </div>
+            <!--end::Modal body-->
+        </div>
+        <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+</div>
+<!--end::Modal - Edit Employee-->
 @endsection
 
 
 @section('scripts')
 <script src="{{asset('assets_backend/js/custom/apps/user-management/users/list/table.js')}}"></script>
 <script src="{{asset('assets_backend/js/custom/utilities/modals/users-search.js')}}"></script>
+
+<script>
+    $(document).on('click', '.edit_button', function(e) {
+        e.preventDefault();
+        $('#edit_modal').modal('show');
+        var id = $(this).data('id');
+        getEditDetails(id);
+    });
+
+    function getEditDetails(id) {
+        $.ajax({
+        type: 'GET',
+        url: 'employee/' + id,
+        dataType: 'json',
+        success: function(response) {
+        $('#screenshot_duration').val(response.screenshot_duration);
+        }
+        });
+        document.getElementById("edit_form").action = "employee/" + id;
+        }
+</script>
 @endsection
