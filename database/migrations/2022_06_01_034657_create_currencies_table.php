@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSettingsTable extends Migration
+class CreateCurrenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('currencies', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->integer('screenshot_duration')->default(10);
-            $table->bigInteger('currency_id')->default(1);
+            $table->string('name', 50);
+            $table->string('symbol', 5);
+            $table->double('exchange_rate');
+            $table->boolean('status')->default(1);
+            $table->string('code', 15);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('currencies');
     }
 }
