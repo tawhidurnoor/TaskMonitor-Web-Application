@@ -51,6 +51,37 @@
     <!--end::Toolbar-->
     <!--begin::Post-->
     <div class="post" id="kt_post">
+        <!--begin::Navbar-->
+        <div class="card mb-8">
+            <div class="card-body pt-9 pb-0">
+                <!--begin::Details-->
+                <form action="" class="form" method="get">
+                    <!--begin::Input group-->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-2 col-form-label fw-bold fs-6">
+                            Select Date
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-5 fv-row">
+                            <input type="date" name="date"  class="form-control form-control-lg form-control-solid" value="{{auth()->user()->company_name}}"  required />
+                        </div>
+                        <!--end::Col-->
+                        <!--begin::Col-->
+                        <div class="col-lg-5 fv-row">
+                            <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Filter</button>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
+                </form>
+                <!--end::Details-->
+                </ul>
+                <!--end::Nav-->
+            </div>
+        </div>
+        <!--end::Navbar-->
         <!--begin::Toolbar-->
         <div class="d-flex flex-wrap flex-stack pb-7">
             <!--begin::Title-->

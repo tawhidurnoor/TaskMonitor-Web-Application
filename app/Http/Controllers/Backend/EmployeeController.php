@@ -100,7 +100,7 @@ class EmployeeController extends Controller
         return redirect()->back();
     }
 
-    public function timeTracker(Employee $employee)
+    public function timeTracker(Employee $employee, Request $request)
     {
         $project_ids = [];
         $projects = Project::where('user_id', Auth::user()->id)
@@ -112,8 +112,13 @@ class EmployeeController extends Controller
         }
 
         $timeTrackers = TimeTracker::whereIn('project_id', $project_ids)
-            ->where('user_id', $employee->employee_id)
-            ->get();
+            ->where('user_id', $employee->employee_id);
+
+        if (isset($request->date)) {
+            $timeTrackers->whereDate('start', $request->date);
+        }
+
+        $timeTrackers = $timeTrackers->get();
 
         $user = User::findOrFail($employee->employee_id);
 
