@@ -71,6 +71,7 @@
                         <!--begin::Col-->
                         <div class="col-lg-5 fv-row">
                             <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Filter</button>
+                            <button type="submit" class="btn btn-danger" id="kt_account_profile_details_submit">Reset</button>
                         </div>
                         <!--end::Col-->
                     </div>
