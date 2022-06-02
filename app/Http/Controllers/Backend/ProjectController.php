@@ -160,9 +160,15 @@ class ProjectController extends Controller
             ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id, project_people.user_id')
             ->get();
 
-        $timeTrackers = TimeTracker::where('project_id', $project_id)
-            ->where('user_id', $employee_id)
-            ->get();
+        // $timeTrackers = TimeTracker::where('project_id', $project_id)
+        //     ->where('user_id', $employee_id)
+        //     ->get();
+
+        $timeTrackers = TimeTracker::where([
+            'project_id'=> $project_id,
+            'user_id'=> $employee_id
+            ])->get();
+
         $user = User::findOrFail($employee_id);
 
         return view('backend.project.timeTracker', [

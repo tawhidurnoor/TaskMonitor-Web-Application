@@ -238,7 +238,7 @@
                             <td class="d-flex align-items-center">
                                 <!--begin:: Avatar -->
                                 <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                    <a href="view.html">
+                                    <a href="#">
                                         <div class="symbol-label">
                                             @isset($employee->user->profile_picture)
                                             <img alt="Profile Picture"
@@ -305,6 +305,11 @@
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a class="menu-link px-3 edit_button" data-id="{{$employee->id}}">Edit</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="{{route('employee.timetracker', $employee->id)}}" class="menu-link px-3" >Time Tracker</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -445,19 +450,29 @@
                     </div>
                     <!--end::Heading-->
 
-                    <!--begin::Input group-->
-                    <div class="d-flex flex-column mb-8 fv-row">
+
+                    <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Screenshot Duration (in minutes)</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Set the custom duration for taking screenhots."></i>
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Take Screenshot</span>
+                            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                                title="Works only on TimeTracker dextop appplication."></i>
                         </label>
                         <!--end::Label-->
-                        <input type="number" class="form-control form-control-solid" placeholder="Screenshot Duration"
-                            name="screenshot_duration" id="screenshot_duration" required min="5" />
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row">
+                            <select name="screenshot_duration" id="screenshot_duration" aria-label="Take dextop screenshots"
+                                data-control="select2" class="form-select form-select-solid form-select-lg fw-bold">
+                                <option value="2">Every 2 Minutes</option>
+                                <option value="5">Every 5 Minutes</option>
+                                <option value="10">Every 10 Minutes</option>
+                                <option value="20">Every 20 Minutes</option>
+                                <option value="30">Every 30 Minutes</option>
+                                <option value="60">Every 60 Minutes</option>
+                            </select>
+                        </div>
+                        <!--end::Col-->
                     </div>
-                    <!--end::Input group-->
 
                     <!--begin::Actions-->
                     <div class="text-center">
@@ -497,7 +512,7 @@
         url: 'employee/' + id,
         dataType: 'json',
         success: function(response) {
-        $('#screenshot_duration').val(response.screenshot_duration);
+            $('#screenshot_duration').val(response.screenshot_duration);
         }
         });
         document.getElementById("edit_form").action = "employee/" + id;

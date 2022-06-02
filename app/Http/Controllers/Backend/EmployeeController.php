@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Invitation;
+use App\Project;
 use App\Setting;
+use App\TimeTracker;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,10 +25,10 @@ class EmployeeController extends Controller
         if (Auth::user()->email_verified_at == null) {
             return redirect()->route('profile.index');
         }
-        
+
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
         $screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
-        return view('backend.employee.index',[
+        return view('backend.employee.index', [
             'employees' => $employees,
             'screenshot_duration' => $screenshot_duration,
         ]);
@@ -48,14 +50,14 @@ class EmployeeController extends Controller
     {
         // $invitations = Invitation::where('employer_id', Auth::user()->id)->where('is_request_accepted', 0)->get();
         $invitations = Invitation::where('employer_id', Auth::user()->id)
-        ->where('is_request_accepted', 0)
-        ->leftJoin('users', 'users.email', 'invitations.employee_mail')
-        ->selectRaw('users.first_name, users.last_name, users.profile_picture, invitations.id, invitations.employee_mail, invitations.created_at')
-        ->orderBy('invitations.id', 'desc')
-        ->get();
+            ->where('is_request_accepted', 0)
+            ->leftJoin('users', 'users.email', 'invitations.employee_mail')
+            ->selectRaw('users.first_name, users.last_name, users.profile_picture, invitations.id, invitations.employee_mail, invitations.created_at')
+            ->orderBy('invitations.id', 'desc')
+            ->get();
         //return $invitations;
 
-        return view('backend.employee.invitations',[
+        return view('backend.employee.invitations', [
             'invitations' => $invitations,
         ]);
     }
@@ -64,7 +66,7 @@ class EmployeeController extends Controller
     {
         $email = $request->email;
         $exploreArr = explode('@', $email);
-        
+
         $to_name = $exploreArr[0];
         $to_email = $email;
         $data = array('email' => Auth::user()->email);
@@ -96,6 +98,29 @@ class EmployeeController extends Controller
         $invitation = Invitation::findOrFail($request->id);
         $invitation->delete();
         return redirect()->back();
+    }
+
+    public function timeTracker(Employee $employee)
+    {
+        $project_ids = [];
+        $projects = Project::where('user_id', Auth::user()->id)
+            ->selectRaw('id')
+            ->get();
+
+        foreach ($projects as $project) {
+            array_push($project_ids, $project->id);
+        }
+
+        $timeTrackers = TimeTracker::whereIn('project_id', $project_ids)
+            ->where('user_id', $employee->employee_id)
+            ->get();
+
+        $user = User::findOrFail($employee->employee_id);
+
+        return view('backend.employee.timeTracker', [
+            'timeTrackers' => $timeTrackers,
+            'user' => $user,
+        ]);
     }
 
     /**

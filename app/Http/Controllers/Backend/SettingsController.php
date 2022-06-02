@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Setting;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -76,6 +77,11 @@ class SettingsController extends Controller
     public function update(Request $request, Setting $setting)
     {
         $setting->screenshot_duration = $request->screenshot_duration;
+
+        $user = User::findOrFail(Auth::user()->id);
+        $user->company_name = $request->company_name;
+
+        $user->save();
         $setting->save();
         return redirect()->back();
     }

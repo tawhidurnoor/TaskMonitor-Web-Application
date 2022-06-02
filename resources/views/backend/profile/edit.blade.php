@@ -50,8 +50,9 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
-            {{-- <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
-                data-bs-target="#kt_modal_create_campaign" id="kt_toolbar_primary_button">Create</a> --}}
+            {{-- <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px"
+                data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign"
+                id="kt_toolbar_primary_button">Create</a> --}}
             <!--end::Button-->
         </div>
         <!--end::Actions-->
@@ -68,9 +69,11 @@
                     <div class="me-7 mb-4">
                         <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
                             @isset(auth()->user()->profile_picture)
-                                <img alt="Profile Picture" src="uploaded_files/profile_pictures/{{auth()->user()->profile_picture}}" />
+                            <img alt="Profile Picture"
+                                src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
                             @else
-                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->setDimension(500, 500)->setFontSize(250)->toBase64()}}" />
+                            <img alt="Profile Picture"
+                                src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->setDimension(500, 500)->setFontSize(250)->toBase64()}}" />
                             @endisset
                             <div
                                 class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px">
@@ -86,7 +89,8 @@
                             <div class="d-flex flex-column">
                                 <!--begin::Name-->
                                 <div class="d-flex align-items-center mb-2">
-                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1"> {{$user->first_name}} {{$user->last_name}} </a>
+                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">
+                                        {{$user->first_name}} {{$user->last_name}} </a>
                                 </div>
                                 <!--end::Name-->
                                 <!--begin::Info-->
@@ -191,9 +195,9 @@
                     <div class="col-lg-8 fv-row">
                         <span class="fw-bold text-gray-800 fs-6">
                             @isset($user->company_name)
-                             {{$user->company_name}}
+                            {{$user->company_name}}
                             @else
-                                <span class="badge badge-light-danger">Company not added</span>
+                            <span class="badge badge-light-danger">Company not added</span>
                             @endisset
                         </span>
                     </div>
@@ -210,9 +214,9 @@
                         <span class="fw-bolder fs-6 text-gray-800">
                             {{$user->email}}
                             @isset($user->email_verified_at)
-                                <span class="badge badge-success">Verified</span>
+                            <span class="badge badge-success">Verified</span>
                             @else
-                                <span class="badge badge-danger">Not Verified</span>
+                            <span class="badge badge-danger">Not Verified</span>
                             @endisset
                         </span>
                     </div>

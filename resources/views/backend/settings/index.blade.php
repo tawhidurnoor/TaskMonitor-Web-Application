@@ -70,12 +70,14 @@
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-bold fs-6">Workspace name</label>
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Workspace or Company name</span>
+                        </label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="website" class="form-control form-control-lg form-control-solid"
-                                placeholder="Company website" value="{{auth()->user()->company_name}}" />
+                            <input type="text" name="company_name" class="form-control form-control-lg form-control-solid"
+                                placeholder="Workspace or Company Name" value="{{auth()->user()->company_name}}" required/>
                         </div>
                         <!--end::Col-->
                     </div>

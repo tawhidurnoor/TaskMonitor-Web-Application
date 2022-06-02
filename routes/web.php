@@ -56,12 +56,14 @@ Route::group(
 
         //Profile
         Route::get('/profile', 'Backend\ProfileController@index')->name('profile.index');
+        Route::get('/profile/edit', 'Backend\ProfileController@edit')->name('profile.edit');
 
         //Employee
         Route::post('/employee/search', 'Backend\EmployeeController@search')->name('employee.search');
         Route::post('/employee/invitation', 'Backend\EmployeeController@storeInvitation')->name('employee.store_invitation');
         Route::get('/employee/invitations', 'Backend\EmployeeController@invitations')->name('employee.invitations');
         Route::delete('/employee/invitations', 'Backend\EmployeeController@destroyInvitation')->name('employee.invitation.destroy');
+        Route::get('/employee/timetracker/{employee}', 'Backend\EmployeeController@timeTracker')->name('employee.timetracker');
         Route::resource('/employee', 'Backend\EmployeeController');
         //invitation for non user
         Route::post('/employee/mailinvitations', 'Backend\EmployeeController@mailInvitations')->name('employee.mailinvitations');

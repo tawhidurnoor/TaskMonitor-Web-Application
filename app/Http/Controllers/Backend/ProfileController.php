@@ -16,4 +16,12 @@ class ProfileController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function edit()
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        return view('backend.profile.edit', [
+            'user' => $user,
+        ]);
+    }
 }
