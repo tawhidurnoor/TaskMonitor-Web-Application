@@ -102,6 +102,7 @@ class EmployeeController extends Controller
 
     public function timeTracker(Employee $employee, Request $request)
     {
+        $date = null;
         $project_ids = [];
         $projects = Project::where('user_id', Auth::user()->id)
             ->selectRaw('id')
@@ -116,6 +117,7 @@ class EmployeeController extends Controller
 
         if (isset($request->date)) {
             $timeTrackers->whereDate('start', $request->date);
+            $date = $request->date;
         }
 
         $timeTrackers = $timeTrackers->get();
@@ -125,6 +127,7 @@ class EmployeeController extends Controller
         return view('backend.employee.timeTracker', [
             'timeTrackers' => $timeTrackers,
             'user' => $user,
+            'date' => $date,
         ]);
     }
 

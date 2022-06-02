@@ -65,7 +65,7 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-5 fv-row">
-                            <input type="date" name="date"  class="form-control form-control-lg form-control-solid" value="{{auth()->user()->company_name}}"  required />
+                            <input type="date" name="date"  class="form-control form-control-lg form-control-solid" @isset($date) value="{{$date}}" @endisset  required />
                         </div>
                         <!--end::Col-->
                         <!--begin::Col-->
