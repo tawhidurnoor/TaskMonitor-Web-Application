@@ -65,13 +65,16 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-5 fv-row">
-                            <input type="date" name="date"  class="form-control form-control-lg form-control-solid" @isset($date) value="{{$date}}" @endisset  required />
+                            <input type="date" name="date" id="date"
+                                class="form-control form-control-lg form-control-solid" @isset($date) value="{{$date}}"
+                                @endisset required />
                         </div>
                         <!--end::Col-->
                         <!--begin::Col-->
                         <div class="col-lg-5 fv-row">
-                            <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Filter</button>
-                            <button type="submit" class="btn btn-danger" id="kt_account_profile_details_submit">Reset</button>
+                            <button type="submit" class="btn btn-primary"
+                                id="kt_account_profile_details_submit">Filter</button>
+                            <button class="btn btn-danger reset_button">Reset</button>
                         </div>
                         <!--end::Col-->
                     </div>
@@ -185,4 +188,13 @@
     <!--end::Post-->
 </div>
 <!--end::Content-->
+@endsection
+
+@section('scripts')
+<script>
+    $(document).on('click', '.reset_button', function(e) {
+        e.preventDefault();
+        $("input[type=date]").val("")
+    });
+</script>
 @endsection
