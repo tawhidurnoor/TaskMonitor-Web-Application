@@ -154,7 +154,7 @@ class ProjectController extends Controller
         $employee_id = decrypt($employee);
         
         $project = Project::findOrFail($project_id);
-
+        
         $projectPeople = ProjectPeople::where('project_id', $project_id)
             ->join('users', 'users.id', 'project_people.user_id')
             ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id, project_people.user_id')
@@ -168,7 +168,7 @@ class ProjectController extends Controller
             'project_id'=> $project_id,
             'user_id'=> $employee_id
             ])->get();
-
+            
         $user = User::findOrFail($employee_id);
 
         return view('backend.project.timeTracker', [

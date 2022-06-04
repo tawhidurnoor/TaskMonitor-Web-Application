@@ -155,7 +155,7 @@
                                     <div class="overlay me-10">
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
-                                            <img alt="img" class="rounded w-150px"
+                                            <img alt="img" class="rounded w-450px"
                                                 src="{{ asset('captured/'.$screenshot->image) }}" />
                                         </div>
                                         <!--end::Image-->
