@@ -67,7 +67,7 @@
                         <div class="col-lg-5 fv-row">
                             <input type="date" name="date" id="date"
                                 class="form-control form-control-lg form-control-solid" @isset($date) value="{{$date}}"
-                                @endisset required />
+                                @endisset />
                         </div>
                         <!--end::Col-->
                         <!--begin::Col-->
