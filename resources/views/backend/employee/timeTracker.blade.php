@@ -147,9 +147,29 @@
                             </div>
                             <!--end::Timeline heading-->
                             <!--begin::Timeline details-->
-                            <div class="overflow-auto pb-5">
-                                <div
-                                    class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
+                            <div class="row">
+                                @foreach ($timeTracker->screenshots as $screenshot)
+                                <div class="col-4 mb-5">
+                                    <!--begin::Item-->
+                                    <div class="overlay me-10">
+                                        <!--begin::Image-->
+                                        <div class="overlay-wrapper">
+                                            <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
+                                        </div>
+                                        <!--end::Image-->
+                                        <!--begin::Link-->
+                                        <div class="overlay-layer bg-dark bg-opacity-10 rounded">
+                                            <a href="{{ asset('captured/'.$screenshot->image) }}" class="btn btn-sm btn-primary btn-shadow"
+                                                target="_blank">Explore</a>
+                                        </div>
+                                        <!--end::Link-->
+                                    </div>
+                                    <!--end::Item-->
+                                </div>
+                                @endforeach
+                            </div>
+                            {{-- <div class="overflow-auto pb-5">
+                                <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
                                     @foreach ($timeTracker->screenshots as $screenshot)
                                     <!--begin::Item-->
                                     <div class="overlay me-10">
@@ -170,7 +190,7 @@
                                     @endforeach
 
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end::Timeline details-->
                         </div>
                         <!--end::Timeline content-->
