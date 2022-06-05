@@ -5,17 +5,30 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\ProjectStaff;
 use App\Screenshot;
+use App\Setting;
 use App\Staff;
 use App\TimeTracker;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TestApiController extends Controller
 {
     public function dextop_login(Request $request)
     {
-        return json_encode(User::where('email', $request->email)->get());
+        // $user = User::where('email', $request->email)
+        //     ->join('employees', 'employees.employee_id', 'users.id')
+        //     ->selectRaw('users.*, employees.screenshot_duration')
+        //     ->first();
+            
+        // if(!isset($user->screenshot_duration)){
+        //     $default_screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
+        //     $user->screenshot_duration = $default_screenshot_duration;
+        // }
+        
+        $user = User::where('email', $request->email)->get();
+        return json_encode($user);
     }
 
     public function dextop_projects(Request $request)
@@ -63,8 +76,7 @@ class TestApiController extends Controller
 
         // $response = array($time_tracker);
         // return json_encode($response);
-        return $time_tracker->id; 
-
+        return $time_tracker->id;
     }
 
     public function dextop_time_tracker_stop(Request $request)
@@ -74,7 +86,6 @@ class TestApiController extends Controller
         $timeTracker = TimeTracker::findOrFail($timeTrackerId);
         $timeTracker->end  = date('Y-m-d H:i:s');
         $timeTracker->save();
-
     }
 
     public function dextop_test_upload(Request $request)
