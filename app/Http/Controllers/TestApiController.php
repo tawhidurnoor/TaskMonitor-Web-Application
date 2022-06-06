@@ -53,19 +53,26 @@ class TestApiController extends Controller
             array_push($project_staff_ids_array, $id->project_id);
         }
 
-        $projects = Project::whereIn('id', $project_staff_ids_array)->select('title')->get()->pluck('title');
-        return json_encode($projects);
+        // $projects = Project::whereIn('id', $project_staff_ids_array)->select('title')->get()->pluck('title');
+        
+        $project_name_with_id = [];
+        $projects = Project::whereIn('id', $project_staff_ids_array)->get();
+        foreach($projects as $project){
+            array_push($project_name_with_id, $project->id."_".$project->title);
+        }
+
+        return json_encode($project_name_with_id);
     }
 
     public function dextop_time_tracker(Request $request)
     {
         $email = $request->email;
-        $project = $request->project;
+        $project_id = explode("_", $request->project)[0];
         $task_title = $request->task_title;
 
 
         $user_id = User::where('email', $email)->first()->id;
-        $project_id = Project::where('title', $project)->first()->id;
+        // $project_id = Project::where('title', $project)->first()->id;
 
         $time_tracker = new TimeTracker();
         $time_tracker->project_id = $project_id;

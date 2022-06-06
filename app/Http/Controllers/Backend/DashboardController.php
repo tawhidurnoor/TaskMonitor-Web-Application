@@ -8,6 +8,7 @@ use App\Invitation;
 use App\Project;
 use App\ProjectPeople;
 use App\User;
+use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,13 +20,14 @@ class DashboardController extends Controller
             return redirect()->route('profile.index');
         }
 
-        $total_work_hour_this_week = 
+        $default_screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
 
         $projects = Project::where('user_id', Auth::user()->id)->get();
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
         return view('backend.dashboard.dashboard',[
             'projects' => $projects,
-            'employees' => $employees
+            'employees' => $employees,
+            'default_screenshot_duration' => $default_screenshot_duration,
         ]);
     }
 

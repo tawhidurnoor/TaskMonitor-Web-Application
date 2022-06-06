@@ -39,7 +39,7 @@
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
                 <!--begin::Card widget 16-->
                 <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-center h-md-50 mb-5 mb-xl-10"
-                    style="background-color: #080655;background-image:url('assets_backend/media/svg/shapes/wave-bg-dark.svg')">
+                    style="background-color: #ffa596;background-image:url('assets_backend/media/svg/shapes/wave-bg-dark.svg')">
                     <!--begin::Header-->
                     <div class="card-header pt-5">
                         <!--begin::Title-->
@@ -55,24 +55,31 @@
                         <!--end::Title-->
                     </div>
                     <!--end::Header-->
+                    <!--begin::Card body-->
+                    <div class="card-body d-flex flex-column justify-content-end pe-0">
+                        {{-- Here Goes Nothing --}}
+                    </div>
+                    <!--end::Card body-->
                 </div>
                 <!--end::Card widget 16-->
             </div>
             <!--end::Col-->
+            
 
             <!--begin::Col-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
-                <!--begin::Card widget 7-->
-                <div class="card card-flush h-md-50 mb-5 mb-xl-10">
+                <!--begin::Card widget 16-->
+                <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-center h-md-50 mb-5 mb-xl-10"
+                    style="background-color: #54a8ec;background-image:url('assets_backend/media/svg/shapes/wave-bg-dark.svg')">
                     <!--begin::Header-->
                     <div class="card-header pt-5">
                         <!--begin::Title-->
                         <div class="card-title d-flex flex-column">
                             <!--begin::Amount-->
-                            <span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">{{count($employees)}}</span>
+                            <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{count($employees)}}</span>
                             <!--end::Amount-->
                             <!--begin::Subtitle-->
-                            <span class="text-gray-400 pt-1 fw-bold fs-6">Employees</span>
+                            <span class="text-white opacity-50 pt-1 fw-bold fs-6">Employees</span>
                             <!--end::Subtitle-->
                         </div>
                         <!--end::Title-->
@@ -84,7 +91,37 @@
                     </div>
                     <!--end::Card body-->
                 </div>
-                <!--end::Card widget 7-->
+                <!--end::Card widget 16-->
+            </div>
+            <!--end::Col-->
+
+            <!--begin::Col-->
+            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
+                <!--begin::Card widget 16-->
+                <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-center h-md-50 mb-5 mb-xl-10"
+                    style="background-color: #42d3bf;background-image:url('assets_backend/media/svg/shapes/wave-bg-dark.svg')">
+                    <!--begin::Header-->
+                    <div class="card-header pt-5">
+                        <!--begin::Title-->
+                        <div class="card-title d-flex flex-column">
+                            <!--begin::Amount-->
+                            <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{$default_screenshot_duration}} <small style="color: white">Minutes</small> </span>
+                            <!--end::Amount-->
+                            <!--begin::Subtitle-->
+                            <span class="text-white opacity-50 pt-1 fw-bold fs-6">Default Screenshot Duration</span>
+                            <br>
+                            <!--end::Subtitle-->
+                        </div>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Card body-->
+                    <div class="card-body d-flex flex-column justify-content-end pe-0">
+                        {{-- Here Goes Nothing --}}
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Card widget 16-->
             </div>
             <!--end::Col-->
 
