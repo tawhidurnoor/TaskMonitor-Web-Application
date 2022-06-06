@@ -21,8 +21,9 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
-            {{-- <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
-                data-bs-target="#kt_modal_new_target" id="kt_toolbar_primary_button">New Project</a> --}}
+            {{-- <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px"
+                data-bs-toggle="modal" data-bs-target="#kt_modal_new_target" id="kt_toolbar_primary_button">New
+                Project</a> --}}
             <!--end::Button-->
         </div>
         <!--end::Actions-->
@@ -30,8 +31,10 @@
     <!--end::Toolbar-->
     <!--begin::Post-->
     <div class="post" id="kt_post">
+
         <!--begin::Row-->
         <div class="row g-5 g-xl-10 mb-xl-10">
+
             <!--begin::Col-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
                 <!--begin::Card widget 16-->
@@ -56,6 +59,7 @@
                 <!--end::Card widget 16-->
             </div>
             <!--end::Col-->
+
             <!--begin::Col-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
                 <!--begin::Card widget 7-->
@@ -68,7 +72,7 @@
                             <span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">{{count($employees)}}</span>
                             <!--end::Amount-->
                             <!--begin::Subtitle-->
-                            <span class="text-gray-400 pt-1 fw-bold fs-6">Professionals</span>
+                            <span class="text-gray-400 pt-1 fw-bold fs-6">Employees</span>
                             <!--end::Subtitle-->
                         </div>
                         <!--end::Title-->
@@ -76,45 +80,14 @@
                     <!--end::Header-->
                     <!--begin::Card body-->
                     <div class="card-body d-flex flex-column justify-content-end pe-0">
-                        <!--begin::Title-->
-                        <span class="fs-6 fw-boldest text-gray-800 d-block mb-2">Today’s
-                            Heroes</span>
-                        <!--end::Title-->
-                        <!--begin::Users group-->
-                        <div class="symbol-group symbol-hover flex-nowrap">
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                <span class="symbol-label bg-warning text-inverse-warning fw-bolder">A</span>
-                            </div>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                title="Michael Eberon">
-                                <img alt="Pic" src="assets_backend/media/avatars/300-11.jpg" />
-                            </div>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                title="Susan Redwood">
-                                <span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
-                            </div>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Melody Macy">
-                                <img alt="Pic" src="assets_backend/media/avatars/300-2.jpg" />
-                            </div>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                title="Perry Matthew">
-                                <span class="symbol-label bg-danger text-inverse-danger fw-bolder">P</span>
-                            </div>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Barry Walter">
-                                <img alt="Pic" src="assets_backend/media/avatars/300-12.jpg" />
-                            </div>
-                            <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_view_users">
-                                <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bolder">+42</span>
-                            </a>
-                        </div>
-                        <!--end::Users group-->
+                        {{-- Here Goes Nothing --}}
                     </div>
                     <!--end::Card body-->
                 </div>
                 <!--end::Card widget 7-->
             </div>
             <!--end::Col-->
+
         </div>
         <!--end::Row-->
     </div>

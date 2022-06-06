@@ -19,6 +19,8 @@ class DashboardController extends Controller
             return redirect()->route('profile.index');
         }
 
+        $total_work_hour_this_week = 
+
         $projects = Project::where('user_id', Auth::user()->id)->get();
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
         return view('backend.dashboard.dashboard',[
