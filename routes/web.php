@@ -30,6 +30,8 @@ Route::get('/dextop_projects', 'TestApiController@dextop_projects');
 
 Route::get('/dextop_time_tracker', 'TestApiController@dextop_time_tracker');
 
+Route::get('/dextop_screenshot_duration', 'TestApiController@dextop_screenshot_duration');
+
 Route::get('/dextop_time_tracker_stop', 'TestApiController@dextop_time_tracker_stop');
 
 Route::post('/dextop_test_upload', 'TestApiController@dextop_test_upload');
