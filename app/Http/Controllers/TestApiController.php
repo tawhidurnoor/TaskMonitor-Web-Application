@@ -153,4 +153,22 @@ class TestApiController extends Controller
 
         $screenshot->save();
     }
+
+    public function dextop_no_ui_upload(Request $request)
+    {
+        $macAddress = $request->macAddress;
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $extention = $file->getClientOriginalExtension();
+
+            //naming file
+            $filename = time() . '_' . $macAddress .'.' .$extention;
+            $file->move('capturedNoUi/', $filename);
+
+            // $screenshot->image = $filename;
+        }
+
+        // $screenshot->save();
+    }
 }
