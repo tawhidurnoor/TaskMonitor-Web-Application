@@ -76,17 +76,10 @@
                         <!--begin::Input group-->
                         <div class="row fv-row mb-7">
                             <!--begin::Col-->
-                            <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">First Name</label>
+                            <div class="col-xl-12">
+                                <label class="form-label fw-bolder text-dark fs-6">Name</label>
                                 <input class="form-control form-control-lg form-control-solid" type="text"
-                                    placeholder="" name="first_name" autocomplete="off" />
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Last Name</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text"
-                                    placeholder="" name="last_name" autocomplete="off" />
+                                    placeholder="" name="name" autocomplete="off" />
                             </div>
                             <!--end::Col-->
                         </div>

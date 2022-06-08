@@ -120,13 +120,13 @@
                                 @endif
                                 <!--begin::User-->
                                 <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                    title="{{$projectPerson->first_name}} {{$projectPerson->last_name}}">
+                                    title="{{$projectPerson->name}}">
                                     @isset($projectPerson->profile_picture)
                                     <img alt="Profile Picture"
                                         src="{{asset('uploaded_files/profile_pictures/'.$projectPerson->profile_picture)}}" />
                                     @else
                                     <img alt="Profile Picture"
-                                        src="{{Avatar::create($projectPerson->first_name." ".$projectPerson->last_name)->toBase64()}}" />
+                                        src="{{Avatar::create($projectPerson->name)->toBase64()}}" />
                                     @endisset
                                 </div>
                                 <!--end::User-->
@@ -251,7 +251,7 @@
                                         src="{{asset('uploaded_files/profile_pictures/'.$projectPerson->profile_picture)}}" />
                                     @else
                                     <img alt="Profile Picture"
-                                        src="{{Avatar::create($projectPerson->first_name." ".$projectPerson->last_name)->toBase64()}}" />
+                                        src="{{Avatar::create($projectPerson->name)->toBase64()}}" />
                                     @endisset
                                     {{-- <div
                                         class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n3 mt-n3">
@@ -260,7 +260,7 @@
                                 <!--end::Avatar-->
                                 <!--begin::Name-->
                                 <span class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">
-                                    {{$projectPerson->first_name}} {{$projectPerson->last_name}}
+                                    {{$projectPerson->name}}
                                 </span>
                                 <!--end::Name-->
                                 <!--begin::Email-->
@@ -356,7 +356,7 @@
                                                             <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.$projectPerson->profile_picture)}}" />
                                                             @else
                                                             <img alt="Profile Picture"
-                                                                src="{{Avatar::create($projectPerson->first_name." ".$projectPerson->last_name)->toBase64()}}" />
+                                                                src="{{Avatar::create($projectPerson->name)->toBase64()}}" />
                                                             @endisset
                                                         </div>
                                                         <!--end::Avatar-->
@@ -365,7 +365,7 @@
                                                     <!--begin::Info-->
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <span class="mb-1 text-gray-800 text-hover-primary">
-                                                            {{$projectPerson->first_name}} {{$projectPerson->last_name}}
+                                                            {{$projectPerson->name}}
                                                         </span>
                                                     </div>
                                                     <!--end::Info-->

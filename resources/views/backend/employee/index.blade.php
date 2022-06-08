@@ -34,11 +34,14 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
-            <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
+            <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3" data-bs-toggle="modal"
                 data-bs-target="#add_employee_modal" id="kt_toolbar_primary_button">Invite an employee</a>
             <span style="width: 20px"></span>
+            <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3" data-bs-toggle="modal"
+                data-bs-target="#add_employee_modal" id="kt_toolbar_primary_button">Add mac address based employee</a>
+            <span style="width: 20px"></span>
             <a href="{{route('employee.invitations')}}"
-                class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px">View Sent Invitations</a>
+                class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Sent Invitations</a>
             <!--end::Button-->
         </div>
 
@@ -246,7 +249,7 @@
                                                 class="w-100" />
                                             @else
                                             <img alt="Profile Picture"
-                                                src="{{Avatar::create($employee->user->first_name." ".$employee->user->last_name)->toBase64()}}"
+                                                src="{{Avatar::create($employee->user->name)->toBase64()}}"
                                                 class="w-100" />
                                             @endisset
                                         </div>
@@ -255,7 +258,7 @@
                                 <!--end::Avatar-->
                                 <!--begin::User details-->
                                 <div class="d-flex flex-column">
-                                    {{$employee->user->first_name}} {{$employee->user->last_name}}
+                                    {{$employee->user->name}}
                                 </div>
                                 <!--begin::User details-->
                             </td>

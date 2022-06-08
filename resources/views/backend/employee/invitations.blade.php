@@ -231,9 +231,9 @@
                                                 src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}"
                                                 class="w-100" />
                                             @else
-                                            @isset($invitation->first_name)
+                                            @isset($invitation->name)
                                             <img alt="Profile Picture"
-                                                src="{{Avatar::create($invitation->first_name." ".$invitation->last_name)->toBase64()}}"
+                                                src="{{Avatar::create($invitation->name)->toBase64()}}"
                                                 class="w-100" />
                                             @else
                                             <img alt="Profile Picture"
@@ -248,8 +248,8 @@
                                 <!--begin::User details-->
                                 <div class="d-flex flex-column">
                                     <span" class="text-gray-800 text-hover-primary mb-1">
-                                        @isset($invitation->first_name)
-                                        {{$invitation->first_name}} {{$invitation->last_name}}
+                                        @isset($invitation->name)
+                                        {{$invitation->name}}
                                         @else
                                         <span class="text-danger">
                                             Unregistered User

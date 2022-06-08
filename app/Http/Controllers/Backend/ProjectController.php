@@ -34,7 +34,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $projectPeople = ProjectPeople::where('project_id', $id)
             ->join('users', 'users.id', 'project_people.user_id')
-            ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id, project_people.user_id')
+            ->selectRaw('users.name, users.email, users.profile_picture, project_people.id, project_people.user_id')
             ->get();
 
         return view('backend.project.details', [
@@ -51,8 +51,7 @@ class ProjectController extends Controller
         $users = User::join('employees', 'employees.employee_id', 'users.id')
             ->where('employees.employer_id', Auth::user()->id)
             ->orWhere('email', 'LIKE', '%' . $serach_query . '%')
-            ->orWhere('first_name', 'LIKE', '%' . $serach_query . '%')
-            ->orWhere('last_name', 'LIKE', '%' . $serach_query . '%')
+            ->orWhere('name', 'LIKE', '%' . $serach_query . '%')
             ->selectRaw('users.*')
             ->get();
 
@@ -157,7 +156,7 @@ class ProjectController extends Controller
         
         $projectPeople = ProjectPeople::where('project_id', $project_id)
             ->join('users', 'users.id', 'project_people.user_id')
-            ->selectRaw('users.first_name, users.last_name, users.email, users.profile_picture, project_people.id, project_people.user_id')
+            ->selectRaw('users.name, users.email, users.profile_picture, project_people.id, project_people.user_id')
             ->get();
 
         // $timeTrackers = TimeTracker::where('project_id', $project_id)

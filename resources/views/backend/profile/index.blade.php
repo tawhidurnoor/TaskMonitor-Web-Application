@@ -70,7 +70,7 @@
                             @isset(auth()->user()->profile_picture)
                                 <img alt="Profile Picture" src="uploaded_files/profile_pictures/{{auth()->user()->profile_picture}}" />
                             @else
-                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->setDimension(500, 500)->setFontSize(250)->toBase64()}}" />
+                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->name)->setDimension(500, 500)->setFontSize(250)->toBase64()}}" />
                             @endisset
                             <div
                                 class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px">
@@ -86,7 +86,7 @@
                             <div class="d-flex flex-column">
                                 <!--begin::Name-->
                                 <div class="d-flex align-items-center mb-2">
-                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1"> {{$user->first_name}} {{$user->last_name}} </a>
+                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1"> {{$user->name}} </a>
                                 </div>
                                 <!--end::Name-->
                                 <!--begin::Info-->
@@ -176,7 +176,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-8">
                         <span class="fw-bolder fs-6 text-gray-800">
-                            {{$user->first_name}} {{$user->last_name}}
+                            {{$user->name}}
                         </span>
                     </div>
                     <!--end::Col-->

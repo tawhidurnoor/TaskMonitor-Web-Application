@@ -121,13 +121,13 @@
                                     @endif
                                     <!--begin::User-->
                                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="{{ $projectPerson->first_name }} {{ $projectPerson->last_name }}">
+                                        title="{{ $projectPerson->name }}">
                                         @isset($projectPerson->profile_picture)
                                             <img alt="Profile Picture"
                                                 src="{{ asset('uploaded_files/profile_pictures/' . $projectPerson->profile_picture) }}" />
                                         @else
                                             <img alt="Profile Picture"
-                                                src="{{ Avatar::create($projectPerson->first_name . ' ' . $projectPerson->last_name)->toBase64() }}" />
+                                                src="{{ Avatar::create($projectPerson->name )->toBase64() }}" />
                                         @endisset
                                     </div>
                                     <!--end::User-->
@@ -176,7 +176,7 @@
         <div class="d-flex flex-wrap flex-stack pb-7">
             <!--begin::Title-->
             <div class="d-flex flex-wrap align-items-center my-1">
-                <h3 class="fw-bolder me-5 my-1">Time Trackers of {{ $user->first_name }} {{ $user->last_name }}
+                <h3 class="fw-bolder me-5 my-1">Time Trackers of {{ $user->name }}
                 </h3>
             </div>
             <!--end::Title-->

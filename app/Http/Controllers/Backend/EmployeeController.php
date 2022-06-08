@@ -52,7 +52,7 @@ class EmployeeController extends Controller
         $invitations = Invitation::where('employer_id', Auth::user()->id)
             ->where('is_request_accepted', 0)
             ->leftJoin('users', 'users.email', 'invitations.employee_mail')
-            ->selectRaw('users.first_name, users.last_name, users.profile_picture, invitations.id, invitations.employee_mail, invitations.created_at')
+            ->selectRaw('users.name, users.profile_picture, invitations.id, invitations.employee_mail, invitations.created_at')
             ->orderBy('invitations.id', 'desc')
             ->get();
         //return $invitations;

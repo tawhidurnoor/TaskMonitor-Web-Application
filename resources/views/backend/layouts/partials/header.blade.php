@@ -4218,7 +4218,7 @@
                         <div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2">
                             <span class="text-muted fs-7 fw-bold lh-1 mb-2">Hello</span>
                             <span class="text-dark fs-base fw-bolder lh-1">
-                                {{ auth()->user()->first_name }}
+                                {{ auth()->user()->name }}
                             </span>
                         </div>
                         <!--end::Name-->
@@ -4227,7 +4227,7 @@
                             @isset(auth()->user()->profile_picture)
                                 <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
                             @else
-                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->toBase64()}}" />
+                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->name)->toBase64()}}" />
                             @endisset
                         </div>
                         <!--end::Symbol-->
@@ -4246,13 +4246,13 @@
                                     @isset(auth()->user()->profile_picture)
                                         <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
                                     @else
-                                        <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->first_name." ".auth()->user()->last_name)->toBase64()}}" />
+                                        <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->name)->toBase64()}}" />
                                     @endisset
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                                    <div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->name }}
                                         <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
                                     </div>
                                     <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>

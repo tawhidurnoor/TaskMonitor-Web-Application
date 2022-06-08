@@ -80,7 +80,7 @@
                                         src="{{asset('uploaded_files/profile_pictures/'.$user->profile_picture)}}" />
                                     @else
                                     <img alt="Profile Picture"
-                                        src="{{Avatar::create($user->first_name." ".$user->last_name)->toBase64()}}" />
+                                        src="{{Avatar::create($user->name)->toBase64()}}" />
                                     @endisset
                                     {{-- <div
                                         class="bg-success position-absolute border border-4 border-white h-15px w-15px rounded-circle translate-middle start-100 top-100 ms-n3 mt-n3">
@@ -89,7 +89,7 @@
                                 <!--end::Avatar-->
                                 <!--begin::Name-->
                                 <span class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">
-                                    {{$user->first_name}} {{$user->last_name}}
+                                    {{$user->name}}
                                 </span>
                                 <!--end::Name-->
                                 <!--begin::Email-->

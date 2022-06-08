@@ -90,7 +90,7 @@
         <div class="d-flex flex-wrap flex-stack pb-7">
             <!--begin::Title-->
             <div class="d-flex flex-wrap align-items-center my-1">
-                <h3 class="fw-bolder me-5 my-1">Time Trackers of {{ $user->first_name }} {{ $user->last_name }}
+                <h3 class="fw-bolder me-5 my-1">Time Trackers of {{ $user->name }}
                 </h3>
             </div>
             <!--end::Title-->
