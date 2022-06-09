@@ -12,6 +12,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -129,6 +130,25 @@ class EmployeeController extends Controller
             'user' => $user,
             'date' => $date,
         ]);
+    }
+
+
+    public function addMacEmp(Request $request)
+    {
+        $user = new User();
+        $user->name = "NOUI".time();
+        $user->email = $user->name."@noreply.com";
+        $user->login_mode = "no ui";
+        $user->password = Hash::make("000000");
+        $user->save();
+
+        $employee = new Employee();
+        $employee->employer_id = Auth::user()->id;
+        $employee->employee_id = $user->id;
+        $employee->mac_address = $request->mac_address;
+        $employee->save();
+
+        return redirect()->back();
     }
 
     /**

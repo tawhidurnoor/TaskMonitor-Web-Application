@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->bigInteger('employer_id');
             $table->bigInteger('employee_id');
             $table->integer('screenshot_duration')->nullable()->default(null);
+            $table->string('mac_address', 50)->nullable()->default(null);
             $table->timestamps();
         });
     }

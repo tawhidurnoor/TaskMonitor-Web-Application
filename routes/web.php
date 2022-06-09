@@ -68,6 +68,7 @@ Route::group(
         Route::get('/employee/invitations', 'Backend\EmployeeController@invitations')->name('employee.invitations');
         Route::delete('/employee/invitations', 'Backend\EmployeeController@destroyInvitation')->name('employee.invitation.destroy');
         Route::get('/employee/timetracker/{employee}', 'Backend\EmployeeController@timeTracker')->name('employee.timetracker');
+        Route::get('/employee/mac/add', 'Backend\EmployeeController@addMacEmp')->name('employee.add.mac');
         Route::resource('/employee', 'Backend\EmployeeController');
         //invitation for non user
         Route::post('/employee/mailinvitations', 'Backend\EmployeeController@mailInvitations')->name('employee.mailinvitations');
