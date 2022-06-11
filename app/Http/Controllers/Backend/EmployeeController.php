@@ -9,6 +9,7 @@ use App\Project;
 use App\Setting;
 use App\TimeTracker;
 use App\User;
+use App\Screenshot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -128,6 +129,27 @@ class EmployeeController extends Controller
         return view('backend.employee.timeTracker', [
             'timeTrackers' => $timeTrackers,
             'user' => $user,
+            'date' => $date,
+        ]);
+    }
+
+    public function timeTrackerNoUI(Employee $employee, Request $request)
+    {
+        $date = null;
+
+        $screenshots = Screenshot::where('user_id', $employee->employee_id)
+        ->where('employer_id', Auth::user()->id);
+
+        if (isset($request->date)) {
+            $screenshots->whereDate('created_at', $request->date);
+            $date = $request->date;
+        }
+
+        $screenshots = $screenshots->get();
+
+        return view('backend.employee.timeTrackerNoUI', [
+            'screenshots' => $screenshots,
+            'employee' => $employee,
             'date' => $date,
         ]);
     }

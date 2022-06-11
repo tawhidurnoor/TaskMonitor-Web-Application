@@ -315,7 +315,11 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
+                                        @isset ($employee->mac_address)
+                                        <a href="{{route('employee.timetracker.noui', $employee->id)}}" class="menu-link px-3" >Time Tracker</a>
+                                        @else
                                         <a href="{{route('employee.timetracker', $employee->id)}}" class="menu-link px-3" >Time Tracker</a>
+                                        @endisset
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
