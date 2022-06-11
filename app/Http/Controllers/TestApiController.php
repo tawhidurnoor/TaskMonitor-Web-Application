@@ -156,19 +156,25 @@ class TestApiController extends Controller
 
     public function dextop_no_ui_upload(Request $request)
     {
-        $macAddress = $request->macAddress;
+        $mac_address = $request->macAddress;
+
+        $employee = Employee::where('mac_address', $mac_address)->first();
+        
+        //creting screenshot object
+        $screenshot = new Screenshot();
+        $screenshot->user_id = $employee->employee_id;
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $extention = $file->getClientOriginalExtension();
 
             //naming file
-            $filename = time() . '_' . $macAddress .'.' .$extention;
-            $file->move('capturedNoUi/', $filename);
+            $filename = time() . '_' . $mac_address .'.' .$extention;
+            $file->move('captured/', $filename);
 
-            // $screenshot->image = $filename;
+            $screenshot->image = $filename;
         }
 
-        // $screenshot->save();
+        $screenshot->save();
     }
 }

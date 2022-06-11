@@ -137,8 +137,7 @@ class EmployeeController extends Controller
     {
         $date = null;
 
-        $screenshots = Screenshot::where('user_id', $employee->employee_id)
-        ->where('employer_id', Auth::user()->id);
+        $screenshots = Screenshot::where('user_id', $employee->employee_id);
 
         if (isset($request->date)) {
             $screenshots->whereDate('created_at', $request->date);

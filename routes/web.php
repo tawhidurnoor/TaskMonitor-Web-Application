@@ -24,6 +24,10 @@ Route::get('/test', function(){
     return view('test');
 });
 
+Route::get('/mac', function () {
+    return exec('getmac');
+});
+
 Route::get('/dextop_login', 'TestApiController@dextop_login');
 
 Route::get('/dextop_projects', 'TestApiController@dextop_projects');
