@@ -62,7 +62,7 @@
                             </div>
                         </th> --}}
                         <th class="min-w-150px">Project</th>
-                        <th class="min-w-125px">Details</th>
+                        <th class="min-w-125px">Members</th>
                         <th class="min-w-50px">Created at</th>
                         <th class="min-w-100px">Action</th>
                         {{-- <th class="text-end min-w-100px">Actions</th> --}}
@@ -92,7 +92,9 @@
                                 {{$project->title}}
                             </div>
                         </td>
-                        <td>{{$project->description}}</td>
+                        <td>
+                            {{count($project->projectPeople)}}
+                        </td>
                         <td>
                             {{ \Carbon\Carbon::parse($project->created_at)->format('d M, Y')}}
                         </td>

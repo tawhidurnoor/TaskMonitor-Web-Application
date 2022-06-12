@@ -212,10 +212,9 @@
                                         data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                 </div>
                             </th> --}}
-                            <th class="min-w-150px">User</th>
-                            <th class="min-w-125px">Email</th>
+                            <th class="min-w-250px">User</th>
+                            <th class="min-w-125px">Email/Mac Address</th>
                             <th class="min-w-50px">Screenshot Duration</th>
-                            <th class="min-w-125px">Joined Date</th>
                             <th class="min-w-50px">Worked This Week</th>
                             <th class="min-w-50px">Worked This Month</th>
                             <th class="min-w-50px">Total Worked</th>
@@ -260,14 +259,20 @@
                                 <div class="d-flex flex-column">
                                     {{$employee->user->name}}
                                     @isset($employee->mac_address)
-                                        <span class="badge badge-light-danger fw-bolder my-2">NO UI</span>
+                                        <span class="badge badge-light-warning fw-bolder my-2">NO UI</span>
                                     @endisset
                                 </div>
                                 <!--begin::User details-->
                             </td>
                             <!--end::User=-->
                             <!--begin::Email-->
-                            <td>{{$employee->user->email}}</td>
+                            <td>
+                                @isset($employee->mac_address)
+                                    {{$employee->mac_address}}
+                                @else
+                                    {{$employee->user->email}}
+                                @endisset
+                            </td>
                             <!--end::Email-->
                             <!--begin::Screenshot Duration-->
                             <td>
@@ -278,9 +283,6 @@
                                 @endisset
                             </td>
                             <!--end::Screenshot Duration-->
-                            <!--begin::Joined-->
-                            <td>{{ \Carbon\Carbon::parse($employee->created_at)->format('d M, Y')}}</td>
-                            <!--begin::Joined-->
                             <!--begin::Worked Week-->
                             <td>{{ App\User::workTime($employee->employee_id, "Week") }} Hours</td>
                             <!--end::Worked Month-->
@@ -322,6 +324,11 @@
                                         @endisset
                                     </div>
                                     <!--end::Menu item-->
+                                    <!--begin::Report-->
+                                    <div class="menu-item px-3">
+                                        <a href="{{route('employee.report', $employee->id)}}" class="menu-link px-3">Report</a>
+                                    </div>
+                                    <!--end::Report-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a class="menu-link px-3">Remove</a>

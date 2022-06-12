@@ -24,10 +24,6 @@ Route::get('/test', function(){
     return view('test');
 });
 
-Route::get('/mac', function () {
-    return exec('getmac');
-});
-
 Route::get('/dextop_login', 'TestApiController@dextop_login');
 
 Route::get('/dextop_projects', 'TestApiController@dextop_projects');
@@ -74,6 +70,7 @@ Route::group(
         Route::get('/employee/timetracker/{employee}', 'Backend\EmployeeController@timeTracker')->name('employee.timetracker');
         Route::get('/employee/timetracker/noui/{employee}', 'Backend\EmployeeController@timeTrackerNoUI')->name('employee.timetracker.noui');
         Route::get('/employee/mac/add', 'Backend\EmployeeController@addMacEmp')->name('employee.add.mac');
+        Route::get('/employee/report/{employee}', 'Backend\EmployeeController@report')->name('employee.report');
         Route::resource('/employee', 'Backend\EmployeeController');
         //invitation for non user
         Route::post('/employee/mailinvitations', 'Backend\EmployeeController@mailInvitations')->name('employee.mailinvitations');
