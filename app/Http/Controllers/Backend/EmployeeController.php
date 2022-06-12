@@ -172,6 +172,11 @@ class EmployeeController extends Controller
         return redirect()->back();
     }
 
+    public function report(Employee $employee)
+    {
+        return $employee;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
