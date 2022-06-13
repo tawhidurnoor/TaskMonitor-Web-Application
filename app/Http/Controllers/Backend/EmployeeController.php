@@ -115,7 +115,8 @@ class EmployeeController extends Controller
         }
 
         $timeTrackers = TimeTracker::whereIn('project_id', $project_ids)
-            ->where('user_id', $employee->employee_id);
+            ->where('user_id', $employee->employee_id)
+            ->orderBy('id', 'desc');
 
         if (isset($request->date)) {
             $timeTrackers->whereDate('start', $request->date);
@@ -137,7 +138,7 @@ class EmployeeController extends Controller
     {
         $date = null;
 
-        $screenshots = Screenshot::where('user_id', $employee->employee_id);
+        $screenshots = Screenshot::where('user_id', $employee->employee_id)->orderBy('id', 'desc');
 
         if (isset($request->date)) {
             $screenshots->whereDate('created_at', $request->date);

@@ -166,7 +166,9 @@ class ProjectController extends Controller
         $timeTrackers = TimeTracker::where([
             'project_id'=> $project_id,
             'user_id'=> $employee_id
-            ])->get();
+            ])
+            ->orderBy('id', 'desc')
+            ->get();
             
         $user = User::findOrFail($employee_id);
 
