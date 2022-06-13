@@ -212,7 +212,17 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        return $employee;
+        if(isset($employee->mac_address)){
+            $user = User::findOrFail($employee->employee_id);
+            $response = [];
+            $response['id'] = $employee->id;
+            $response['screenshot_duration'] = $employee->screenshot_duration;
+            $response['mac_address'] = $employee->mac_address;
+            $response['name'] = $user->name;
+            return $response;
+        }else{
+            return $employee;
+        }
     }
 
     /**
@@ -235,6 +245,14 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
+        if(isset($request->mac_address)){
+            $user = User::findOrFail($employee->employee_id);
+            $user->name = $request->name;
+            $user->save();
+
+            $employee->mac_address = $request->mac_address;
+        }
+
         $employee->screenshot_duration = $request->screenshot_duration;
         $employee->save();
         return redirect()->back();

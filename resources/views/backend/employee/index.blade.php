@@ -312,7 +312,11 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
+                                        @isset ($employee->mac_address)
+                                        <a class="menu-link px-3 edit_button_no_ui" data-id="{{$employee->id}}">Edit</a>
+                                        @else
                                         <a class="menu-link px-3 edit_button" data-id="{{$employee->id}}">Edit</a>
+                                        @endisset
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -580,6 +584,113 @@
     <!--end::Modal dialog-->
 </div>
 <!--end::Modal - Edit Employee-->
+
+<!--begin::Modal - Edit No UI Employee-->
+<div class="modal fade" id="edit_modal_no_ui" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+        <!--begin::Modal content-->
+        <div class="modal-content rounded">
+            <!--begin::Modal header-->
+            <div class="modal-header pb-0 border-0 justify-content-end">
+                <!--begin::Close-->
+                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                    <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+                <!--end::Close-->
+            </div>
+            <!--begin::Modal header-->
+            <!--begin::Modal body-->
+            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                <!--begin:Form-->
+                <form id="edit_form_no_ui" method="POST" class="form">
+                    @csrf
+                    @method('put')
+                    <!--begin::Heading-->
+                    <div class="mb-13 text-center">
+                        <!--begin::Title-->
+                        <h1 class="mb-3">Edit Employee</h1>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Heading-->
+
+
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">Name</span>
+                        </label>
+                        <!--end::Label-->
+                        <input type="text" class="form-control form-control-solid" placeholder="Enter name"
+                            name="name" id="name" required />
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">Device Mac Address</span>
+                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                title="Enter device mac address"></i>
+                        </label>
+                        <!--end::Label-->
+                        <input type="text" class="form-control form-control-solid" placeholder="Enter device mac address"
+                            name="mac_address" id="mac_address_no_ui" maxlength="17" required />
+                    </div>
+                    <!--end::Input group-->
+                    
+                    <!--begin::Input group-->
+                    <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 col-form-label fw-bold fs-6">
+                                <span class="required">Take Screenshot</span>
+                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                                    title="Works only on TimeTracker dextop appplication."></i>
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row">
+                                <select name="screenshot_duration" id="screenshot_duration_no_ui" aria-label="Take dextop screenshots"
+                                    data-control="select2" class="form-select form-select-solid form-select-lg fw-bold">
+                                    <option value="2">Every 2 Minutes</option>
+                                    <option value="5">Every 5 Minutes</option>
+                                    <option value="10">Every 10 Minutes</option>
+                                    <option value="20">Every 20 Minutes</option>
+                                    <option value="30">Every 30 Minutes</option>
+                                    <option value="60">Every 60 Minutes</option>
+                                </select>
+                            </div>
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Actions-->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">
+                            Update
+                        </button>
+                    </div>
+                    <!--end::Actions-->
+                </form>
+                <!--end:Form-->
+            </div>
+            <!--end::Modal body-->
+        </div>
+        <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+</div>
+<!--end::Modal - Edit No UI Employee-->
 @endsection
 
 
@@ -595,21 +706,53 @@
         getEditDetails(id);
     });
 
+    $(document).on('click', '.edit_button_no_ui', function(e) {
+        e.preventDefault();
+        $('#edit_modal_no_ui').modal('show');
+        var id = $(this).data('id');
+        getNoUiEditDetails(id);
+    });
+
     function getEditDetails(id) {
         $.ajax({
-        type: 'GET',
-        url: 'employee/' + id,
-        dataType: 'json',
-        success: function(response) {
-            $('#screenshot_duration').val(response.screenshot_duration);
-        }
+            type: 'GET',
+            url: 'employee/' + id,
+            dataType: 'json',
+            success: function(response) {
+                $('#screenshot_duration').val(response.screenshot_duration);
+            }
         });
         document.getElementById("edit_form").action = "employee/" + id;
-        }
+    }
+
+    function getNoUiEditDetails(id) {
+        $.ajax({
+            type: 'GET',
+            url: 'employee/' + id,
+            dataType: 'json',
+            success: function(response) {
+                $('#name').val(response.name);
+                $('#mac_address_no_ui').val(response.mac_address);
+                $('#screenshot_duration').val(response.screenshot_duration);
+            }
+        });
+        document.getElementById("edit_form_no_ui").action = "employee/" + id;
+    }
 </script>
 
 <script>
     document.getElementById("mac_address").addEventListener('keyup', function() { 
+  // remove non digits, break it into chunks of 2 and join with a colon
+  this.value = 
+    (this.value.toUpperCase()
+    .replace(/[^\d|A-Z]/g, '')
+    .match(/.{1,2}/g) || [])
+    .join("-")
+});
+</script>
+
+<script>
+    document.getElementById("mac_address_no_ui").addEventListener('keyup', function() { 
   // remove non digits, break it into chunks of 2 and join with a colon
   this.value = 
     (this.value.toUpperCase()
