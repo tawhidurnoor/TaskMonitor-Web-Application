@@ -13,7 +13,7 @@ class EmployeeEmployerController extends Controller
     {
         $employers = Employee::where('employee_id', Auth::user()->id)
         ->join('users', 'users.id', 'employees.employer_id')
-        ->selectRaw('employees.id, users.first_name, users.last_name, users.profile_picture, users.email, users.company_name')
+        ->selectRaw('employees.id, users.name, users.profile_picture, users.email, users.company_name')
         ->get();
         
         return view('backend.employee_module.employer.index', [

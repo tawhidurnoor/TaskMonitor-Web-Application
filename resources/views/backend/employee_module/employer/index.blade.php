@@ -109,7 +109,7 @@
                                                 class="w-100" />
                                             @else
                                             <img alt="Profile Picture"
-                                                src="{{Avatar::create($employer->first_name." ".$employer->last_name)->toBase64()}}"
+                                                src="{{Avatar::create($employer->name)->toBase64()}}"
                                                 class="w-100" />
                                             @endisset
                                         </div>
@@ -118,7 +118,7 @@
                                 <!--end::Avatar-->
                                 <!--begin::User details-->
                                 <div class="d-flex flex-column">
-                                    {{$employer->first_name}} {{$employer->last_name}}
+                                    {{$employer->name}}
                                 </div>
                                 <!--begin::User details-->
                             </td>

@@ -104,7 +104,7 @@
                                                 src="{{asset('uploaded_files/profile_pictures/'.$invitation->profile_picture)}}"
                                                 class="w-100" />
                                             @else
-                                            <img alt="Profile Picture" src="{{Avatar::create($invitation->first_name." ".$invitation->last_name)->toBase64()}}"
+                                            <img alt="Profile Picture" src="{{Avatar::create($invitation->name)->toBase64()}}"
                                                 class="w-100" />
                                             @endisset
                                         </div>
@@ -114,7 +114,7 @@
                                 <!--begin::User details-->
                                 <div class="d-flex flex-column">
                                     <span" class="text-gray-800 text-hover-primary mb-1">
-                                        {{$invitation->first_name}} {{$invitation->last_name}}
+                                        {{$invitation->name}}
                                         </span>
                                 </div>
                                 <!--begin::User details-->

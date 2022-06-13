@@ -14,7 +14,7 @@ class EmployeeInvitaionController extends Controller
     {
         $invitations = Invitation::where('employee_mail', Auth::user()->email)
         ->join('users', 'users.id', 'invitations.employer_id')
-        ->selectRaw('invitations.id, users.first_name, users.last_name, users.profile_picture, users.email, users.company_name, invitations.created_at')
+        ->selectRaw('invitations.id, users.name, users.profile_picture, users.email, users.company_name, invitations.created_at')
         ->get();
 
         return view('backend.employee_module.invitation.index',[
