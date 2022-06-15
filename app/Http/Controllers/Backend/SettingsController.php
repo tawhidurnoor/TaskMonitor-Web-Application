@@ -77,6 +77,7 @@ class SettingsController extends Controller
     public function update(Request $request, Setting $setting)
     {
         $setting->screenshot_duration = $request->screenshot_duration;
+        $setting->keep_screenshots = $request->keep_screenshots;
 
         $user = User::findOrFail(Auth::user()->id);
         $user->company_name = $request->company_name;

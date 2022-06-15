@@ -82,6 +82,21 @@
                         <!--end::Col-->
                     </div>
                     <!--end::Input group-->
+                    <!--begin::Input group-->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Keep Screenshots(in days) </span>
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row">
+                            <input type="number" name="keep_screenshots" class="form-control form-control-lg form-control-solid"
+                                placeholder="Screenshot keeping time" value="{{$settings->keep_screenshots}}" max="60" min="1" required/>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
                 </div>
                 <!--end::Card body-->
                 <!--begin::Actions-->

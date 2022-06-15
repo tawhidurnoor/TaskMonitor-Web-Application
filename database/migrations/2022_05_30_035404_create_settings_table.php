@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->integer('screenshot_duration')->default(10);
+            $table->integer('keep_screenshots')->default(60);
             $table->bigInteger('currency_id')->default(1);
             $table->timestamps();
         });
