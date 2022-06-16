@@ -130,6 +130,29 @@
 
         </div>
         <!--end::Row-->
+        
+        <div class="row">
+            @foreach ($screenshots as $ss)
+            <div class="col-4 mb-5">
+                <!--begin::Item-->
+                <div class="overlay me-10">
+                    <!--begin::Image-->
+                    <div class="overlay-wrapper">
+                        <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$ss->image) }}" />
+                    </div>
+                    <!--end::Image-->
+                    <!--begin::Link-->
+                    <div class="overlay-layer bg-dark bg-opacity-10 rounded">
+                        <a href="{{ asset('captured/'.$ss->image) }}" class="btn btn-sm btn-primary btn-shadow"
+                            target="_blank">Explore</a>
+                    </div>
+                    <!--end::Link-->
+                </div>
+                <!--end::Item-->
+            </div>
+            @endforeach
+        </div>
+
     </div>
     <!--end::Post-->
 </div>

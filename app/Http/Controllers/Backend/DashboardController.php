@@ -8,6 +8,8 @@ use App\Invitation;
 use App\Project;
 use App\ProjectPeople;
 use App\User;
+use App\TimeTracker;
+use App\Screenshot;
 use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,11 +26,26 @@ class DashboardController extends Controller
 
         $projects = Project::where('user_id', Auth::user()->id)->get();
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
+
+        $project_ids = [];
+        foreach ($projects as $p) {
+            array_push($project_ids, $p->id);
+        }
+
+        $time_trackers = TimeTracker::whereIn('project_id', $project_ids)->get();
+        $time_tracker_ids = [];
+        foreach ($time_trackers as $tt) {
+            array_push($time_tracker_ids, $tt->id);
+        }
+
+        $screenshots = Screenshot::whereIn('time_tracker_id', $time_tracker_ids)->limit(6)->get();
+
         return view('backend.dashboard.dashboard',[
             'projects' => $projects,
             'employees' => $employees,
             'default_screenshot_duration' => $default_screenshot_duration,
             'greetings' => $this->getGreeting(),
+            'screenshots' => $screenshots,
         ]);
     }
 
