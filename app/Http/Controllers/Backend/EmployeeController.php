@@ -10,6 +10,7 @@ use App\Setting;
 use App\TimeTracker;
 use App\User;
 use App\Screenshot;
+use App\ProjectPeople;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -175,7 +176,16 @@ class EmployeeController extends Controller
 
     public function report(Employee $employee)
     {
-        return $employee;
+        $user = User::findOrFail($employee->employee_id);
+
+        $project_people = ProjectPeople::where('user_id', $employee->employee_id)->get();        
+        $project_ids = [];
+        foreach($project_people as $pp){
+            array_push($project_ids, $pp->project_id);
+        }
+        $proejcts = Project::whereIn('id', $project_ids)->get();
+        
+        return $proejcts;
     }
 
     /**

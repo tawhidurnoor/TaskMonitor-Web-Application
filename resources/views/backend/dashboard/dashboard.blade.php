@@ -7,12 +7,15 @@
     <div class="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7" id="kt_toolbar">
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column py-1">
+
             <!--begin::Title-->
             <h1 class="d-flex align-items-center my-1">
-                <span class="text-dark fw-bolder fs-1">Employer Dashboard</span>
+                {{-- <span class="text-dark fw-bolder fs-1">Employer Dashboard</span> --}}
+                <span class="text-dark fw-bolder fs-1">Hello {{auth()->user()->name}} ! {{$greetings}}</span>
                 <!--begin::Description-->
-                <small class="text-muted fs-6 fw-bold ms-1">You have {{count($projects)}}
-                    <span class="text-primary fw-bolder">Active Projects</span></small>
+                {{-- <small class="text-muted fs-6 fw-bold ms-1">You have {{count($projects)}}
+                    <span class="text-primary fw-bolder">Active Projects</span>
+                </small> --}}
                 <!--end::Description-->
             </h1>
             <!--end::Title-->
