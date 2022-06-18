@@ -31,7 +31,10 @@ class EmployeeController extends Controller
             return redirect()->route('profile.index');
         }
 
-        $employees = Employee::where('employer_id', Auth::user()->id)->get();
+        $employees = Employee::where('employer_id', Auth::user()->id)
+            ->where('is_archived', 0)
+            ->get();
+
         $screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
         return view('backend.employee.index', [
             'employees' => $employees,
@@ -161,8 +164,8 @@ class EmployeeController extends Controller
     public function addMacEmp(Request $request)
     {
         $user = new User();
-        $user->name = "NOUI".time();
-        $user->email = $user->name."@noreply.com";
+        $user->name = "NOUI" . time();
+        $user->email = $user->name . "@noreply.com";
         $user->login_mode = "no ui";
         $user->password = Hash::make("000000");
         $user->save();
@@ -181,9 +184,9 @@ class EmployeeController extends Controller
         $user = User::findOrFail($employee->employee_id);
 
         //project assigned to this user
-        $project_people = ProjectPeople::where('user_id', $employee->employee_id)->get();        
+        $project_people = ProjectPeople::where('user_id', $employee->employee_id)->get();
         $project_ids = [];
-        foreach($project_people as $pp){
+        foreach ($project_people as $pp) {
             array_push($project_ids, $pp->project_id);
         }
         $proejcts = Project::whereIn('id', $project_ids)->get();
@@ -194,7 +197,7 @@ class EmployeeController extends Controller
 
         $current_work_average = $worked_this_week / 7;
 
-        return view('backend.employee.report',[
+        return view('backend.employee.report', [
             'user' => $user,
             'proejcts' => $proejcts,
             'total_worked' => $total_worked,
@@ -274,7 +277,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        if(isset($employee->mac_address)){
+        if (isset($employee->mac_address)) {
             $user = User::findOrFail($employee->employee_id);
             $response = [];
             $response['id'] = $employee->id;
@@ -282,7 +285,7 @@ class EmployeeController extends Controller
             $response['mac_address'] = $employee->mac_address;
             $response['name'] = $user->name;
             return $response;
-        }else{
+        } else {
             return $employee;
         }
     }
@@ -307,7 +310,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        if(isset($request->mac_address)){
+        if (isset($request->mac_address)) {
             $user = User::findOrFail($employee->employee_id);
             $user->name = $request->name;
             $user->save();

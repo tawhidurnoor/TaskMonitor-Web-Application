@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->bigInteger('employee_id');
             $table->integer('screenshot_duration')->nullable()->default(null);
             $table->string('mac_address', 50)->nullable()->default(null);
+            $table->boolean('is_archived')->default(0);
             $table->timestamps();
         });
     }
