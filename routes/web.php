@@ -71,6 +71,7 @@ Route::group(
         Route::get('/employee/timetracker/noui/{employee}', 'Backend\EmployeeController@timeTrackerNoUI')->name('employee.timetracker.noui');
         Route::get('/employee/mac/add', 'Backend\EmployeeController@addMacEmp')->name('employee.add.mac');
         Route::get('/employee/report/{employee}', 'Backend\EmployeeController@report')->name('employee.report');
+        Route::put('/employee/archive/{employee}', 'Backend\EmployeeController@archive')->name('employee.archive');
         Route::resource('/employee', 'Backend\EmployeeController');
         //invitation for non user
         Route::post('/employee/mailinvitations', 'Backend\EmployeeController@mailInvitations')->name('employee.mailinvitations');

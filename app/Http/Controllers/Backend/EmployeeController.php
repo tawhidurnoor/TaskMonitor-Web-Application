@@ -243,6 +243,13 @@ class EmployeeController extends Controller
         return $total_hour;
     }
 
+    public function archive(Employee $employee)
+    {
+        $employee->is_archived = 1;
+        $employee->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
