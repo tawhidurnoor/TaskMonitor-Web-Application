@@ -82,7 +82,7 @@ class EmployeeController extends Controller
         Mail::send('backend.email.invitation_mail', $data, function ($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
                 ->subject('Invitation to join TimeTracker');
-            $message->from('tawhidbadhan@gmail.com', 'Time Tracker Solution');
+            $message->from('noreply@timetracker.codecloudtech.com', 'Time Tracker Solution');
         });
 
         $invitation = new Invitation();

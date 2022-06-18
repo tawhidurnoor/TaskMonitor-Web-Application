@@ -52,7 +52,15 @@ class DashboardController extends Controller
 
         $work_hour_difference = $work_hour_seven_days - $work_hour_previous_seven_days;
 
-        $percent_difference = $work_hour_difference / $work_hour_previous_seven_days * 100;
+        if ($work_hour_previous_seven_days == 0) {
+            if($work_hour_difference == 0){
+                $percent_difference = 0;
+            }else{
+                $percent_difference = 100;
+            }
+        } else {
+            $percent_difference = $work_hour_difference / $work_hour_previous_seven_days * 100;
+        }
 
         return view('backend.dashboard.dashboard',[
             'projects' => $projects,
