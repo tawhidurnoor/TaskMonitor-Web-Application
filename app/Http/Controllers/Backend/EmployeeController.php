@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 
 class EmployeeController extends Controller
 {
@@ -178,14 +180,64 @@ class EmployeeController extends Controller
     {
         $user = User::findOrFail($employee->employee_id);
 
+        //project assigned to this user
         $project_people = ProjectPeople::where('user_id', $employee->employee_id)->get();        
         $project_ids = [];
         foreach($project_people as $pp){
             array_push($project_ids, $pp->project_id);
         }
         $proejcts = Project::whereIn('id', $project_ids)->get();
-        
-        return $proejcts;
+
+        //workhour_calculation
+        $total_worked =  $this->workTime('all', $user->id);
+        $worked_this_week =  $this->workTime('7', $user->id);
+
+        $current_work_average = $worked_this_week / 7;
+
+        return view('backend.employee.report',[
+            'user' => $user,
+            'proejcts' => $proejcts,
+            'total_worked' => $total_worked,
+            'worked_this_week' => $worked_this_week,
+            'current_work_average' => $current_work_average,
+        ]);
+    }
+
+    public function workTime($time_dutation, $user_id)
+    {
+        //getting project ids of this employee's project
+        $projects = Project::where('user_id', Auth::user()->id)->get();
+
+        $project_ids_array = [];
+
+        foreach ($projects as $project) {
+            array_push($project_ids_array, $project->id);
+        }
+
+
+        if ($time_dutation == 'all') {
+            $time_trackers = TimeTracker::where('user_id', $user_id)->whereIn('project_id', $project_ids_array);
+        } else {
+            $date = Carbon::today()->subDays($time_dutation);
+            $time_trackers = TimeTracker::where('user_id', $user_id)->whereIn('project_id', $project_ids_array)->where('start', '>=', $date);
+        }
+        $time_trackers = $time_trackers->get();
+
+        $total_hour = 0;
+        foreach ($time_trackers as $time_tracker) {
+            $start = new Carbon($time_tracker->start);
+
+            if (isset($time_tracker->end)) {
+                $end = new Carbon($time_tracker->end);
+            } else {
+                $end = Carbon::now();
+            }
+
+
+            $total_hour += $end->diffInHours($start);
+        }
+
+        return $total_hour;
     }
 
     /**
