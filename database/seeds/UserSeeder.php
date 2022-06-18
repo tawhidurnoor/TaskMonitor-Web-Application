@@ -16,8 +16,7 @@ class UserSeeder extends Seeder
         $user = User::where('email', 'tawhidbadhan@gmail.com')->first();
         if (is_null($user)) {
             $user = new User();
-            $user->first_name = "Tawhidur Noor";
-            $user->last_name = "Badhan";
+            $user->name = "Tawhidur Noor Badhan";
             $user->email = "tawhidbadhan@gmail.com";
             $user->login_mode = "System Admin";
             $user->password = Hash::make('12345678');

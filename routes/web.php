@@ -40,7 +40,7 @@ Route::post('/dextop_no_ui_upload', 'TestApiController@dextop_no_ui_upload');
 
 Route::get('/mail', function(){
     $to_name = 'Tawhidur Noor';
-    $to_email = 'link2badhan@gmail.com';
+    $to_email = 'tawhidbadhan@gmail.com';
     $data = array('name' => $to_name, "body" => "Test mail");
 
     Mail::send('backend.email.mail', $data, function ($message) use ($to_name, $to_email) {
