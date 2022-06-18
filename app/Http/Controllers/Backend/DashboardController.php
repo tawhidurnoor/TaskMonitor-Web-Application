@@ -13,6 +13,8 @@ use App\Screenshot;
 use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 
 class DashboardController extends Controller
 {
@@ -27,6 +29,8 @@ class DashboardController extends Controller
         $projects = Project::where('user_id', Auth::user()->id)->get();
         $employees = Employee::where('employer_id', Auth::user()->id)->get();
 
+
+        //screenshots
         $project_ids = [];
         foreach ($projects as $p) {
             array_push($project_ids, $p->id);
@@ -39,14 +43,58 @@ class DashboardController extends Controller
         }
 
         $screenshots = Screenshot::whereIn('time_tracker_id', $time_tracker_ids)->limit(6)->get();
+        //end screenshots
+
+        //start stat
+        $work_hour_seven_days = $this->workTime(7);
+        $work_hour_fourteen_days = $this->workTime(14);
+        $work_hour_previous_seven_days = $work_hour_fourteen_days - $work_hour_seven_days;
+
+        $work_hour_difference = $work_hour_seven_days - $work_hour_previous_seven_days;
+
+        $percent_difference = $work_hour_difference / $work_hour_previous_seven_days * 100;
 
         return view('backend.dashboard.dashboard',[
             'projects' => $projects,
             'employees' => $employees,
+            'work_hour_seven_days' => $work_hour_seven_days,
+            'percent_difference' => $percent_difference,
             'default_screenshot_duration' => $default_screenshot_duration,
             'greetings' => $this->getGreeting(),
             'screenshots' => $screenshots,
         ]);
+    }
+
+    public static function workTime($time_dutation)
+    {
+        //getting project ids of this employee's project
+        $projects = Project::where('user_id', Auth::user()->id)->get();
+
+        $project_ids_array = [];
+
+        foreach ($projects as $project) {
+            array_push($project_ids_array, $project->id);
+        }
+
+        $date = Carbon::today()->subDays($time_dutation);
+
+        $time_trackers = TimeTracker::whereIn('project_id', $project_ids_array)->where('start', '>=', $date)->get();
+
+        $total_hour = 0;
+        foreach ($time_trackers as $time_tracker) {
+            $start = new Carbon($time_tracker->start);
+
+            if (isset($time_tracker->end)) {
+                $end = new Carbon($time_tracker->end);
+            } else {
+                $end = Carbon::now();
+            }
+
+
+            $total_hour += $end->diffInHours($start);
+        }
+
+        return $total_hour;
     }
 
     public function employeeIndex()

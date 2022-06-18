@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'dextop_test_upload',
-        'dextop_no_ui_upload'
+        'dextop_no_ui_upload',
+        'dextop_time_tracker_stop',
     ];
 }

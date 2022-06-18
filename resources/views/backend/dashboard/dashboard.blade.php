@@ -98,6 +98,42 @@
             </div>
             <!--end::Col-->
 
+
+            <!--begin::Col-->
+            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
+                <!--begin::Card widget 16-->
+                <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-center h-md-50 mb-5 mb-xl-10"
+                    style="background-color: {{$percent_difference < 0 ? '#d34242' : '#42d386'}};background-image:url('assets_backend/media/svg/shapes/wave-bg-dark.svg')">
+                    <!--begin::Header-->
+                    <div class="card-header pt-5">
+                        <!--begin::Title-->
+                        <div class="card-title d-flex flex-column">
+                            <!--begin::Amount-->
+                            <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{$work_hour_seven_days}} <small style="color: white">hours work last 7 days</small></span>
+                            <!--end::Amount-->
+                            <!--begin::Subtitle-->
+                            <span class="text-white opacity-50 pt-1 fw-bold fs-6"> 
+                                @if ($percent_difference < 0)
+                                    {{$percent_difference * -1}} % less form last week
+                                @else
+                                    {{$percent_difference}} % more form last week 
+                                @endif
+                            </span>
+                            <!--end::Subtitle-->
+                        </div>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Card body-->
+                    <div class="card-body d-flex flex-column justify-content-end pe-0">
+                        {{-- Here Goes Nothing --}}
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Card widget 16-->
+            </div>
+            <!--end::Col-->
+
             <!--begin::Col-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
                 <!--begin::Card widget 16-->
@@ -132,6 +168,9 @@
         <!--end::Row-->
         
         <div class="row">
+            <h1 class="d-flex align-items-center my-1">
+                <span class="text-dark fw-bolder fs-1">Last Screenshots</span>
+            </h1>
             @foreach ($screenshots as $ss)
             <div class="col-4 mb-5">
                 <!--begin::Item-->

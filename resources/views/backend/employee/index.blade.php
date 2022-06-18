@@ -335,7 +335,7 @@
                                     <!--end::Report-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a class="menu-link px-3">Remove</a>
+                                        <a class="menu-link px-3">Archive</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
