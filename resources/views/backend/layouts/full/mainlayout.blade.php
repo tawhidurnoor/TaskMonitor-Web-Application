@@ -4,6 +4,32 @@
 <!--begin::Head-->
 <head>
     @include('backend.layouts.partials.head')
+    <style>
+        .hour-text{
+            margin: 1rem;
+            padding: 5px 10px 5px 10px;
+            background-color: #2ECD6F;
+            width: fit-content;
+            font-weight: 500;
+            color: whitesmoke;
+            border-radius: 5px;
+        }
+        .left-bar{
+            border-radius: 30px 0px 0px 30px;
+            display: block;
+            content: " ";
+            justify-content: center;
+            position: absolute;
+            z-index: 100;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            transform: translate(50%);
+            border-left-width: 4px;
+            border-left-style: solid;
+            border-left-color: #2ECD6F;
+        }
+    </style>
 </head>
 <!--end::Head-->
 

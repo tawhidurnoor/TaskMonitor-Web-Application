@@ -111,17 +111,23 @@ class EmployeeController extends Controller
     public function timeTracker(Employee $employee, Request $request)
     {
         $date = null;
-        $project_ids = [];
-        $projects = Project::where('user_id', Auth::user()->id)
-            ->selectRaw('id')
-            ->get();
+        // $project_ids = [];
+        // $projects = Project::where('user_id', Auth::user()->id)
+        //     ->selectRaw('id')
+        //     ->get();
 
-        foreach ($projects as $project) {
-            array_push($project_ids, $project->id);
-        }
+        // foreach ($projects as $project) {
+        //     array_push($project_ids, $project->id);
+        // }
 
-        $timeTrackers = TimeTracker::whereIn('project_id', $project_ids)
+        $timeTrackers = TimeTracker::with(['screenshots' => function($q){
+                $q->latest();
+            }])
+            // ->whereIn('project_id', $project_ids)
             ->where('user_id', $employee->employee_id)
+            ->whereHas('project', function($q){
+                $q->where('user_id', Auth::user()->id);
+            })
             ->orderBy('id', 'desc');
 
         if (isset($request->date)) {
