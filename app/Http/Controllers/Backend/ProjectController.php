@@ -49,22 +49,6 @@ class ProjectController extends Controller
     {
         $id = decrypt($id);
         $serach_query = $request->search;
-        // $users = User::join('employees', 'employees.employee_id', 'users.id')
-        //     ->where('employees.employer_id', Auth::user()->id)
-        //     ->where('employees.is_archived', 0)
-        //     ->orWhere('email', 'LIKE', '%' . $serach_query . '%')
-        //     ->orWhere('name', 'LIKE', '%' . $serach_query . '%')
-        //     ->selectRaw('users.*')
-        //     ->get();
-
-
-        // $users = User::join('employees', 'employees.employee_id', 'users.id')
-        //     ->where('employees.employer_id', Auth::user()->id)
-        //     ->where('employees.is_archived', 0);
-        //  $users = $users->orWhere('email', 'LIKE', '%' . $serach_query . '%')
-        //     ->orWhere('name', 'LIKE', '%' . $serach_query . '%')
-        //     ->selectRaw('users.*');
-        //  $users = $users->get();
 
         $users = User::join('employees', 'employees.employee_id', 'users.id')
             ->where('employees.employer_id', Auth::user()->id)
