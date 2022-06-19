@@ -42,6 +42,20 @@ class EmployeeController extends Controller
         ]);
     }
 
+    public function archivedIndex()
+    {
+        $employees = Employee::where('employer_id', Auth::user()->id)
+            ->where('is_archived', 1)
+            ->get();
+
+        $screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
+        return view('backend.employee.index_archive', [
+            'is_archived' => 1,
+            'employees' => $employees,
+            'screenshot_duration' => $screenshot_duration,
+        ]);
+    }
+
     public function search(Request $request)
     {
         $serach_query = $request->email;
@@ -252,6 +266,13 @@ class EmployeeController extends Controller
     public function archive(Employee $employee)
     {
         $employee->is_archived = 1;
+        $employee->save();
+        return redirect()->back();
+    }
+
+    public function unarchive(Employee $employee)
+    {
+        $employee->is_archived = 0;
         $employee->save();
         return redirect()->back();
     }

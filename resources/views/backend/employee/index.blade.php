@@ -34,6 +34,8 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
+            <a href="{{route('employee.archived.index')}}" class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Archived Employees</a>
+            <span style="width: 20px"></span>
             <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3" data-bs-toggle="modal"
                 data-bs-target="#add_employee_modal" id="kt_toolbar_primary_button">Invite an employee</a>
             <span style="width: 20px"></span>
