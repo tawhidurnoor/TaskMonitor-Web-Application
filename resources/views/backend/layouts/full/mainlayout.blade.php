@@ -103,6 +103,5 @@
 
     @yield('scripts')
 </body>
-<!--end::Body-->
 
 </html>

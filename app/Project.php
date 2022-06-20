@@ -18,4 +18,9 @@ class Project extends Model
         // );
         return $this->hasMany(ProjectPeople::class, 'project_id', 'id');
     }
+
+    public function timeTrackers()
+    {
+        return $this->hasMany(TimeTracker::class);
+    }
 }

@@ -121,4 +121,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $total_hour;
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class, 'employee_id');
+    }
 }

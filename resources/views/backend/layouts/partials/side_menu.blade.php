@@ -93,6 +93,26 @@
             </div>
             <!--end::Menu item - Employee-->
 
+            <!--begin::Menu item - Employee-->
+            <div class="menu-item">
+                <a href="{{route('active.project.index')}}" class="menu-link {{ ( request()->segment(1)=='active-projects' ) ? 'active':'' }}">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen025.svg-->
+                        <span class="svg-icon svg-icon-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor"/>
+                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor"/>
+                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor"/>
+                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">Active Projects</span>
+                </a>
+            </div>
+            <!--end::Menu item - Employee-->
+            
+
             <!--begin::Menu item - Settings-->
             <div class="menu-item">
                 <a href="{{route('settings.index')}}" class="menu-link {{ ( request()->segment(1)=='settings' ) ? 'active':'' }}">

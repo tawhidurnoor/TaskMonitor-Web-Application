@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ActiveProjectsController;
 use App\Project;
 use App\ProjectStaff;
 use App\User;
@@ -71,6 +72,10 @@ Route::group(
         Route::delete('/project/people/destroy', 'Backend\ProjectController@destroyProjectPeople')->name('project.people.destroy');
         Route::post('/project/searchpeople/{id}', 'Backend\ProjectController@searchPeople')->name('project.search.people');
         Route::post('/project/addpeople/{id}', 'Backend\ProjectController@addPeople')->name('project.add.people');
+
+        Route::prefix('active-projects')->group(function(){
+            Route::get('/', [ActiveProjectsController::class, 'index'])->name('active.project.index');
+        });
 
         //folowing are old, I am working on it
         Route::put('/project/{project}', 'Backend\ProjectController@update')->name('project.update');
