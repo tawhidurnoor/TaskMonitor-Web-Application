@@ -120,34 +120,37 @@
                                         @php
                                             $totalMinutes = 0;
                                             $todayTotal = 0;
+                                            $tasksToday = false;
                                         @endphp
-                                        @if ($employee->timeTrackers->isEmpty())
-                                            <span class="text-muted fw-bold text-muted d-block fs-7">Today tracker not started!</span>
-                                        @else
-                                            <div class="d-flex flex-column w-100 me-2">
-                                                @foreach ($employee->timeTrackers as $timeTrack)
+                                        <div class="d-flex flex-column w-100 me-2">
+                                            @foreach ($employee->timeTrackers as $timeTrack)
+                                                @php
+                                                    $start = new \Carbon\Carbon($timeTrack->start);
+                                                    if (!is_null($timeTrack->end)){
+                                                        $end = new \Carbon\Carbon($timeTrack->end);
+                                                    }else{
+                                                        $end = now();
+                                                    }
+                                                    $totalMinutes += $end->diffInRealMinutes($start);
+                                                    if($start->isSameDay()){
+                                                        $todayTotal += $end->diffInRealMinutes($start);
+                                                    }                                                        
+                                                @endphp
+                                                @if ($timeTrack->created_at->isSameDay())
                                                     @php
-                                                        $start = new \Carbon\Carbon($timeTrack->start);
-                                                        if (!is_null($timeTrack->end)){
-                                                            $end = new \Carbon\Carbon($timeTrack->end);
-                                                        }else{
-                                                            $end = now();
-                                                        }
-                                                        $totalMinutes += $end->diffInRealMinutes($start);
-                                                        if($start->isSameDay()){
-                                                            $todayTotal += $end->diffInRealMinutes($start);
-                                                        }                                                        
+                                                        $tasksToday = true;
                                                     @endphp
-                                                    @if ($timeTrack->created_at->isSameDay())
-                                                        @if (is_null($timeTrack->end))
-                                                        <span class="me-2 fs-7 fw-bold">{{ $timeTrack->task_title }} - (<span class="text-muted">from:</span> @php $start = new \Carbon\Carbon($timeTrack->start); echo $start->format('h:i a'); @endphp, <span class="text-muted">Currently working</span>)</span>
-                                                        @else                                                        
-                                                        <span class="me-2 fs-7 fw-bold">{{ $timeTrack->task_title }} - (<span class="text-muted">from:</span> @php $start = new \Carbon\Carbon($timeTrack->start); echo $start->format('h:i a'); @endphp, <span class="text-muted">to</span> @php $end = new \Carbon\Carbon($timeTrack->end); echo $end->format('h:i a'); @endphp)</span>
-                                                        @endif
+                                                    @if (is_null($timeTrack->end))
+                                                    <span class="me-2 fs-7 fw-bold">{{ $timeTrack->task_title }} - (<span class="text-muted">from:</span> @php $start = new \Carbon\Carbon($timeTrack->start); echo $start->format('h:i a'); @endphp, <span class="text-muted">Currently working</span>)</span>
+                                                    @else                                                        
+                                                    <span class="me-2 fs-7 fw-bold">{{ $timeTrack->task_title }} - (<span class="text-muted">from:</span> @php $start = new \Carbon\Carbon($timeTrack->start); echo $start->format('h:i a'); @endphp, <span class="text-muted">to</span> @php $end = new \Carbon\Carbon($timeTrack->end); echo $end->format('h:i a'); @endphp)</span>
                                                     @endif
-                                                @endforeach
-                                            </div>                                            
-                                        @endif
+                                                @endif
+                                            @endforeach
+                                            @if (!$tasksToday)
+                                                <span class="text-muted fw-bold text-muted d-block fs-7">Today tracker not started!</span>
+                                            @endif
+                                        </div>
                                     </td>
                                     <td class="text-end">
                                         <div class="d-flex flex-column w-100 me-2">
@@ -414,3 +417,7 @@
 <!--end::Modal - New Target-->
 <!--end::Modal - Create Campaign-->
 @endsection
+
+@push('js')
+    
+@endpush

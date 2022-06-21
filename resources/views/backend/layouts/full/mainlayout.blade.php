@@ -98,8 +98,10 @@
     <!--end::Scrolltop-->
 
     @include('backend.layouts.partials.modals')
-
+    
     @include('backend.layouts.partials.scripts')
+
+    @stack('js')
 
     @yield('scripts')
 </body>

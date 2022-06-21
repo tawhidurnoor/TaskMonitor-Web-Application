@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\Backend\ActiveProjectsController;
+use App\User;
 use App\Project;
 use App\ProjectStaff;
-use App\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\ActiveProjectsController;
+use App\Http\Controllers\Frontend\ChartsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,10 @@ Route::group(
 
         Route::prefix('active-projects')->group(function(){
             Route::get('/', [ActiveProjectsController::class, 'index'])->name('active.project.index');
+        });
+        
+        Route::prefix('charts')->group(function(){
+            Route::get('/time-tracker-heatmap', [ChartsController::class, 'timeTrackerBasedHeatmap'])->name('chart.timetracker.heatmap');
         });
 
         //folowing are old, I am working on it

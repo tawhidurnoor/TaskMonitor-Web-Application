@@ -100,7 +100,7 @@
 
 
             <!--begin::Col-->
-            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
+            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 col-sm-12 col-12 mb-md-5 mb-xl-10">
                 <!--begin::Card widget 16-->
                 <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-center h-md-50 mb-5 mb-xl-10"
                     style="background-color: {{$percent_difference < 0 ? '#d34242' : '#42d386'}};background-image:url('assets_backend/media/svg/shapes/wave-bg-dark.svg')">
@@ -166,13 +166,25 @@
 
         </div>
         <!--end::Row-->
+
+        <div class="card">
+            <div class="card-body">
+                <select class="form-select mb-2" data-control="select2" id="heatmap_projects">
+                    <option value="all" selected>All projects</option>
+                    @foreach ($projects as $item)                        
+                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                    @endforeach
+                </select>
+                <div class="mt-3" id="heatmap"></div>
+            </div>
+        </div>
         
         <div class="row">
             <h1 class="d-flex align-items-center my-1">
                 <span class="text-dark fw-bolder fs-1">Last Screenshots</span>
             </h1>
             @foreach ($screenshots as $ss)
-            <div class="col-4 mb-5">
+            <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-4 col-sm-12 col-12 mb-5">
                 <!--begin::Item-->
                 <div class="overlay me-10">
                     <!--begin::Image-->
@@ -197,3 +209,60 @@
 </div>
 <!--end::Content-->
 @endsection
+
+@push('js')
+    <script>
+
+    var options = {
+        series: [],
+        chart: {
+            height: 300,
+            type: 'heatmap',                        
+        },
+        dataLabels: {
+            enabled: true,
+            formatter: function (val, opts) {
+                let hours = Math.trunc(val/60);
+                return `${hours} Hours`;
+            },
+        },
+        tooltip: {
+            custom: function (opts) {
+                let date = opts.ctx.w.config.series[opts.seriesIndex].data[opts.dataPointIndex].date;
+                let minutes = opts.ctx.w.config.series[opts.seriesIndex].data[opts.dataPointIndex].y;
+                let hours = Math.trunc(minutes/60);
+                let remainingMinutes = minutes%60;
+                return `<p style="margin: 10px">${hours} Hours and ${remainingMinutes} Minutes on ${date}</p>`;
+            }
+        },
+        colors: [
+            "#008FFB"
+        ],
+        title: {
+            text: 'TimeTracker Heatmap for All employee'
+        },                    
+    };
+
+    var chart = new ApexCharts(document.querySelector("#heatmap"), options);
+    chart.render();
+
+    let fetchHeatmap = () => {
+        let type = $("#heatmap_projects").val();
+        console.log(type);
+        $.ajax({
+            type: 'GET',
+            url: "{{ route('chart.timetracker.heatmap') }}",
+            data: {'type': $("#heatmap_projects").val()},
+            dataType: 'json',
+            success: function(response) {
+                chart.updateSeries(response);
+            }
+        });
+    }
+
+    $("#heatmap_projects").on('change', fetchHeatmap);
+    // console.log(heatmap_select);
+    fetchHeatmap();
+        
+    </script>
+@endpush

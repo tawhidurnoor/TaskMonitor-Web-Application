@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TimeTracker extends Model
 {
+    protected $fillable = ['project_id', 'user_id', 'project_people_id', 'task_title', 'start', 'end', 'created_at'];
+
+
     public function screenshots()
     {
         return $this->hasMany(Screenshot::class, 'time_tracker_id', 'id');
