@@ -31,7 +31,7 @@ class TestApiController extends Controller {
             $request_password = $request->password;
             $hashed_password = $user[0]->password;
             
-            if (Hash::check($request->password, $user[0]->password)) {
+            if (Hash::check($request_password, $hashed_password)) {
                 return json_encode($user);
             } else {
                 return json_encode([]);
