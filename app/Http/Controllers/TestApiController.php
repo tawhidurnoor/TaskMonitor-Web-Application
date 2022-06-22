@@ -8,6 +8,7 @@ use App\Setting;
 use App\TimeTracker;
 use App\User;
 use App\Employee;
+use App\ProjectPeople;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -79,6 +80,7 @@ class TestApiController extends Controller {
         $task_title = $request->task_title;
 
         $user_id = User::where('email', $email)->first()->id;
+        $project_people = ProjectPeople::where('user_id', $user_id)->where('project_id', $project_id)->first();
         // $project_id = Project::where('title', $project)->first()->id;
 
         $time_tracker = new TimeTracker();
@@ -86,6 +88,7 @@ class TestApiController extends Controller {
         $time_tracker->user_id = $user_id;
         $time_tracker->task_title = $task_title;
         $time_tracker->start = date('Y-m-d H:i:s');
+        $time_tracker->project_people_id = $project_people->id;
         $time_tracker->save();
 
         // $response = array($time_tracker);
