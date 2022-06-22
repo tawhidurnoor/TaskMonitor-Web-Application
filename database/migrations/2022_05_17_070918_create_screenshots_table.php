@@ -18,6 +18,7 @@ class CreateScreenshotsTable extends Migration
             $table->bigInteger('time_tracker_id')->nullable();
             $table->bigInteger('user_id');
             $table->string('image');
+            $table->string('activity', 25);
             $table->timestamps();
         });
     }

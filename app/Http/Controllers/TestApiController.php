@@ -25,23 +25,24 @@ class TestApiController extends Controller {
         //     $user->screenshot_duration = $default_screenshot_duration;
         // }
 
-        $user = User::where('email', $request->email)->get();
-        
+        $users = User::where('email', $request->email)->get();
 
-        if (count($user) > 0) {
+        if (count($users) > 0) {
+            $user = User::where('email', $request->email)->first();
             $request_password = $request->password;
-            $hashed_password = $user[0]->password;
+            $hashed_password = $user->password;
             
-            if (Hash::check($request_password, $hashed_password)) {
-                return json_encode($user);
+            if (Hash::check($request_password, $hashed_password) == true) {
+                return json_encode($users);
             } else {
                 return json_encode([]);
             }
             
         } else {
-            return json_encode($user);
+            return json_encode($users);
         }
     }
+
 
     public function dextop_projects(Request $request) {
         $email = $request->email;
