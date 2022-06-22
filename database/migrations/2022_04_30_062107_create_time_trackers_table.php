@@ -21,6 +21,7 @@ class CreateTimeTrackersTable extends Migration
             $table->string('task_title');
             $table->timestamp('start')->useCurrent();
             $table->timestamp('end')->nullable();
+            $table->foreignId('project_people_id');
             $table->timestamps();
         });
     }

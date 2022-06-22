@@ -152,9 +152,9 @@
                                     $prev_hour = NULL;
                                 @endphp
                                 @foreach ($timeTracker->screenshots as $screenshot)
-                                @if ($prev_hour == NULL)
+                                @if ($prev_hour === NULL)
                                     {{-- <hr> --}}
-                                    <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }}</p>
+                                    <p class="hour-text">{{ $screenshot->id }} if Hour {{ $screenshot->created_at->format('h:00 a') }}</p>
                                     <div class="col-12 per-hour" style="position: relative">
                                         <div class="left-bar"></div>
                                         <div class="row ms-0">
@@ -165,7 +165,7 @@
                                         </div>
                                     </div>
                                     <hr class="mt-2">
-                                    <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }}</p>
+                                    <p class="hour-text"> {{ $screenshot->id }} elif Hour {{ $screenshot->created_at->format('h:00 a') }}</p>
                                     <div class="col-12 per-hour" style="position: relative">
                                         <div class="left-bar"></div>
                                         <div class="row ms-0">

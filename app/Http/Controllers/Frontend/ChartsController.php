@@ -27,6 +27,15 @@ class ChartsController extends Controller
         # code...
     }
 
+    /**
+     * Heatmap chart for all or indevidual projects!
+     * 
+     * Get TimeTracker history for some specified days and make a JSON data from then to show a heatmap chart using ApexCharts.
+     * Here histories are for entire project. A project can have one or multiple users.
+     * 
+     * @param Request $request Request object containg type of project that can be all or any specified project.
+     * @return String Returns the JSON string that is used by ApexCharts!
+     */
     public function projectBasedHeatmap(Request $request)
     {
         $projects = Project::select('id')->where('user_id', auth()->id())->get()->pluck('id')->toArray();
