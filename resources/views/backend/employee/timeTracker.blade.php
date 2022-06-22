@@ -154,7 +154,7 @@
                                 @foreach ($timeTracker->screenshots as $screenshot)
                                 @if ($prev_hour === NULL)
                                     {{-- <hr> --}}
-                                    <p class="hour-text">{{ $screenshot->id }} if Hour {{ $screenshot->created_at->format('h:00 a') }}</p>
+                                    <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }} </p>
                                     <div class="col-12 per-hour" style="position: relative">
                                         <div class="left-bar"></div>
                                         <div class="row ms-0">
@@ -165,7 +165,7 @@
                                         </div>
                                     </div>
                                     <hr class="mt-2">
-                                    <p class="hour-text"> {{ $screenshot->id }} elif Hour {{ $screenshot->created_at->format('h:00 a') }}</p>
+                                    <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }} </p>
                                     <div class="col-12 per-hour" style="position: relative">
                                         <div class="left-bar"></div>
                                         <div class="row ms-0">
@@ -178,14 +178,14 @@
                                     <div class="overlay me-10">
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
-                                            <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}</p>
+                                            <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}  <span class="badge {{ ($screenshot->status == 'Excellent') ? "badge-success" : ( $screenshot->status == 'Okay' ? "badge-primary" : "badge-danger" ) }}">{{ $screenshot->status }}</span></p>
                                             <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
                                         <div class="overlay-layer bg-dark bg-opacity-10 rounded">
                                             <a href="{{ asset('captured/'.$screenshot->image) }}" class="btn btn-sm btn-primary btn-shadow"
-                                                target="_blank">Explore</a>
+                                                target="_blank">Explore {{ $screenshot->status }}</a>
                                         </div>
                                         <!--end::Link-->
                                     </div>
