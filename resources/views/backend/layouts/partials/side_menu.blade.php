@@ -94,7 +94,7 @@
             <!--end::Menu item - Employee-->
 
             <!--begin::Menu item - Employee-->
-            <div class="menu-item">
+            {{-- <div class="menu-item">
                 <a href="{{route('active.project.index')}}" class="menu-link {{ ( request()->segment(1)=='active-projects' ) ? 'active':'' }}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen025.svg-->
@@ -109,7 +109,7 @@
                     </span>
                     <span class="menu-title">Active Projects</span>
                 </a>
-            </div>
+            </div> --}}
             <!--end::Menu item - Employee-->
             
 

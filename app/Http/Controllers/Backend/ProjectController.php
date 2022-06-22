@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Company;
-use App\Http\Controllers\Controller;
-use App\Project;
-use App\ProjectPeople;
-use App\ProjectStaff;
-use App\Screenshot;
-use App\Staff;
-use App\TimeTracker;
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use DB;
+use App\User;
+use App\Staff;
+use App\Company;
+use App\Project;
+use Carbon\Carbon;
+use App\Screenshot;
+use App\TimeTracker;
+use App\ProjectStaff;
+use App\ProjectPeople;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -23,10 +24,20 @@ class ProjectController extends Controller
             return redirect()->route('profile.index');
         }
 
-        $projects = Project::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
-        return view('backend.project.index', [
-            'projects' => $projects,
+        $lastSunday = new Carbon();
+        $lastSunday = Carbon::createFromTimeStamp(strtotime("last Sunday", $lastSunday->timestamp));
+        $projects = auth()->user()->projects()->with('projectPeople.user.employee')->with(['projectPeople.timeTrackers' => function($q) use($lastSunday){
+            $q->whereDate('start', '>=', $lastSunday)->latest();
+        }])->get();
+        // dd($projects);
+        return view('backend.active_projects.active_project_index')->with([
+            'projects' => $projects
         ]);
+
+        // $projects = Project::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        // return view('backend.project.index', [
+        //     'projects' => $projects,
+        // ]);
     }
 
     public function details($id)

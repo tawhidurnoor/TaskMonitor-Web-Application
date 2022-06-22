@@ -79,7 +79,8 @@ Route::group(
         });
         
         Route::prefix('charts')->group(function(){
-            Route::get('/time-tracker-heatmap', [ChartsController::class, 'timeTrackerBasedHeatmap'])->name('chart.timetracker.heatmap');
+            Route::get('/project-heatmap', [ChartsController::class, 'projectBasedHeatmap'])->name('chart.project.heatmap');
+            Route::get('/employee-heatmap', [ChartsController::class, 'employeeBasedHeatmap'])->name('chart.employee.heatmap');
         });
 
         //folowing are old, I am working on it

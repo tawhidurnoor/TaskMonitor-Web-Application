@@ -27,8 +27,7 @@ class DashboardController extends Controller
         $default_screenshot_duration = Setting::where('user_id', Auth::user()->id)->value('screenshot_duration');
 
         $projects = Project::where('user_id', Auth::user()->id)->get();
-        $employees = Employee::where('employer_id', Auth::user()->id)->get();
-
+        $employees = Employee::with('user')->where('employer_id', Auth::user()->id)->get();
 
         //screenshots
         $project_ids = [];

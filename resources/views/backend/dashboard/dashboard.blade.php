@@ -36,7 +36,7 @@
     <div class="post" id="kt_post">
 
         <!--begin::Row-->
-        <div class="row g-5 g-xl-10 mb-xl-10">
+        <div class="row g-5 g-xl-10">
 
             <!--begin::Col-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
@@ -167,7 +167,7 @@
         </div>
         <!--end::Row-->
 
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <select class="form-select mb-2" data-control="select2" id="heatmap_projects">
                     <option value="all" selected>All projects</option>
@@ -175,11 +175,22 @@
                         <option value="{{ $item->id }}">{{ $item->title }}</option>
                     @endforeach
                 </select>
-                <div class="mt-3" id="heatmap"></div>
+                <div class="mt-3" id="heatmap_project"></div>
+            </div>
+        </div>
+
+        <div class="card mt-5 shadow-sm">
+            <div class="card-body">
+                <select class="form-select mb-2" data-control="select2" id="heatmap_employees">
+                    @foreach ($employees as $item)
+                        <option value="{{ $item->user->id }}">{{ $item->user->name }}</option>
+                    @endforeach
+                </select>
+                <div class="mt-3" id="heatmap_employee"></div>
             </div>
         </div>
         
-        <div class="row">
+        {{-- <div class="row">
             <h1 class="d-flex align-items-center my-1">
                 <span class="text-dark fw-bolder fs-1">Last Screenshots</span>
             </h1>
@@ -202,10 +213,11 @@
                 <!--end::Item-->
             </div>
             @endforeach
-        </div>
+        </div> --}}
 
     </div>
     <!--end::Post-->
+    <div style="margin-bottom: 15rem"></div>
 </div>
 <!--end::Content-->
 @endsection
@@ -239,30 +251,53 @@
             "#008FFB"
         ],
         title: {
-            text: 'TimeTracker Heatmap for All employee'
+            text: ''
         },                    
     };
 
-    var chart = new ApexCharts(document.querySelector("#heatmap"), options);
-    chart.render();
+    var chart_project = new ApexCharts(document.querySelector("#heatmap_project"), options);
+    var chart_employee = new ApexCharts(document.querySelector("#heatmap_employee"), options);
+    chart_project.render();
+    chart_employee.render();
 
-    let fetchHeatmap = () => {
-        let type = $("#heatmap_projects").val();
-        console.log(type);
+    let fetchProjectsHeatmap = () => {
         $.ajax({
             type: 'GET',
-            url: "{{ route('chart.timetracker.heatmap') }}",
+            url: "{{ route('chart.project.heatmap') }}",
             data: {'type': $("#heatmap_projects").val()},
             dataType: 'json',
             success: function(response) {
-                chart.updateSeries(response);
+                chart_project.updateSeries(response);
+                chart_project.updateOptions({
+                    title: {
+                        text: 'Project based heatmap'
+                    }
+                })
+            }
+        });
+    }
+    let fetchEmployeesHeatmap = () => {
+        $.ajax({
+            type: 'GET',
+            url: "{{ route('chart.employee.heatmap') }}",
+            data: {'employee': $("#heatmap_employees").val()},
+            dataType: 'json',
+            success: function(response) {
+                chart_employee.updateSeries(response);
+                chart_employee.updateOptions({
+                    title: {
+                        text: 'Employee based heatmap'
+                    }
+                })
             }
         });
     }
 
-    $("#heatmap_projects").on('change', fetchHeatmap);
+    $("#heatmap_projects").on('change', fetchProjectsHeatmap);
+    $("#heatmap_employees").on('change', fetchEmployeesHeatmap);
     // console.log(heatmap_select);
-    fetchHeatmap();
+    fetchProjectsHeatmap();
+    fetchEmployeesHeatmap();
         
     </script>
 @endpush
