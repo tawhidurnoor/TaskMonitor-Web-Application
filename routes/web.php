@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ActiveProjectsController;
+use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Frontend\ChartsController;
 
 /*
@@ -49,6 +50,7 @@ Route::group(
         //Profile
         Route::get('/profile', 'Backend\ProfileController@index')->name('profile.index');
         Route::get('/profile/edit', 'Backend\ProfileController@edit')->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'patch'])->name('profile.update');
 
         //Employee
         Route::post('/employee/search', 'Backend\EmployeeController@search')->name('employee.search');
