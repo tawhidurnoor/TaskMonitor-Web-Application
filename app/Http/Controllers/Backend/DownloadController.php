@@ -9,6 +9,6 @@ class DownloadController extends Controller
 {
     public function index()
     {
-        # code...
+        return view('backend.downloads.index');
     }
 }
