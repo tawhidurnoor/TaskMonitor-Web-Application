@@ -109,7 +109,7 @@
                                                 @endisset
                                             </div>
                                             <div class="d-flex justify-content-start flex-column">
-                                                <a href="{{ is_null($employee->user->employee) ? "#" : route('employee.timetracker', $employee->user->employee->id) }}" class="text-dark fw-bolder text-hover-primary fs-6">{{ $employee->user->name }}</a>
+                                                <a href="{{ route('project.timeTracker', [encrypt($project->id), encrypt($employee->user->id)]) }}" class="text-dark fw-bolder text-hover-primary fs-6">{{ $employee->user->name }}</a>
                                                 @if ($employee->user->id == $project->user_id)                                                    
                                                     <span class="text-muted fw-bold text-muted d-block fs-7">Co-ordinator</span>
                                                 @endif
