@@ -112,6 +112,8 @@ Route::group(
         //seetings
         Route::resource('/settings', 'Backend\SettingsController');
 
+        Route::get('/downloads', 'Backend\DownloadController@index')->name('downloads.index');
+
     }
 );
 

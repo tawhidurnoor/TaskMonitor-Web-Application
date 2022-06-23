@@ -178,14 +178,14 @@
                                     <div class="overlay me-10">
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
-                                            <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}  <span class="badge {{ ($screenshot->status == 'Excellent') ? "badge-success" : ( $screenshot->status == 'Okay' ? "badge-primary" : "badge-danger" ) }}">{{ $screenshot->status }}</span></p>
+                                            <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}  <span class="badge {{ ($screenshot->activity == 'Excellent') ? "badge-success" : ( $screenshot->activity == 'Okay' ? "badge-primary" : "badge-danger" ) }}">{{ $screenshot->activity }}</span></p>
                                             <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
                                         <div class="overlay-layer bg-dark bg-opacity-10 rounded">
                                             <a href="{{ asset('captured/'.$screenshot->image) }}" class="btn btn-sm btn-primary btn-shadow"
-                                                target="_blank">Explore {{ $screenshot->status }}</a>
+                                                target="_blank">Explore</a>
                                         </div>
                                         <!--end::Link-->
                                     </div>

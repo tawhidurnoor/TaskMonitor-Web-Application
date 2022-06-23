@@ -140,6 +140,7 @@ class TestApiController extends Controller {
         $screenshot = new Screenshot();
         $screenshot->time_tracker_id = $timeTrackerId;
         $screenshot->user_id = $user_id;
+        $screenshot->activity = $request->activity;
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
