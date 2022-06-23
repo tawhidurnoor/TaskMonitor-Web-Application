@@ -234,12 +234,37 @@
                                 <!--end::Timeline heading-->
                                 <!--begin::Timeline details-->
                                 <div class="row">
+                                    @php
+                                        $prev_hour = NULL;
+                                    @endphp
                                     @foreach ($timeTracker->screenshots as $screenshot)
-                                    <div class="col-4 mb-5">
+                                    @if ($prev_hour === NULL)
+                                        {{-- <hr> --}}
+                                        <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }} </p>
+                                        <div class="col-12 per-hour" style="position: relative">
+                                            <div class="left-bar"></div>
+                                            <div class="row ms-0">
+                                        @php
+                                            $prev_hour = $screenshot->created_at->hour;
+                                        @endphp
+                                    @elseif ($prev_hour != $screenshot->created_at->hour)
+                                            </div>
+                                        </div>
+                                        <hr class="mt-2">
+                                        <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }} </p>
+                                        <div class="col-12 per-hour" style="position: relative">
+                                            <div class="left-bar"></div>
+                                            <div class="row ms-0">
+                                        @php
+                                            $prev_hour = $screenshot->created_at->hour;
+                                        @endphp
+                                    @endif
+                                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-12 col-12 mb-5">
                                         <!--begin::Item-->
                                         <div class="overlay me-10">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper">
+                                                <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}  <span class="badge {{ ($screenshot->status == 'Excellent') ? "badge-success" : ( $screenshot->status == 'Okay' ? "badge-primary" : "badge-danger" ) }}">{{ $screenshot->status }}</span></p>
                                                 <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
                                             </div>
                                             <!--end::Image-->
@@ -253,6 +278,8 @@
                                         <!--end::Item-->
                                     </div>
                                     @endforeach
+                                        </div>
+                                    </div>
                                 </div>
                                 {{-- <div class="overflow-auto pb-5">
                                     <div
