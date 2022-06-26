@@ -92,7 +92,7 @@
                     </p>
                     <br>
                     <a class="mx-1 my-3 f3 btn btn-large btn-desktop-purple"
-                    href="{{ URL::to( '/public_downloads/dextop_application/v_1.0/TimeTrackerDextopClient_1.0_Setup.exe')  }}" target="_blank">
+                    href="{{ URL::to( '/public_downloads/dextop_application/v_1.0/TimeTracker_1.0_Setup.exe')  }}" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             style="fill: #24292e;transform: ;msFilter:;">
                             <path

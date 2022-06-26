@@ -8,7 +8,8 @@
             <div class="btn btn-icon btn-active-icon-primary ms-n2 me-2 d-flex d-lg-none" id="kt_aside_toggle">
                 <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
                 <span class="svg-icon svg-icon-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none">
                         <path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
                             fill="currentColor" />
                         <path opacity="0.3"
@@ -20,9 +21,11 @@
             </div>
             <!--end::Aside mobile toggle-->
             <!--begin::Logo-->
-            <a href="{{route('dashboard')}}">
-                <img alt="Logo" src="{{asset('assets_backend/media/logos/logo-demo5.svg')}}" class="d-none d-lg-inline h-30px" />
-                <img alt="Logo" src="{{asset('assets_backend/media/logos/logo-demo5-mobile.svg')}}" class="d-lg-none h-25px" />
+            <a href="{{ route('dashboard') }}">
+                <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5.svg') }}"
+                    class="d-none d-lg-inline h-30px" />
+                <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5-mobile.svg') }}"
+                    class="d-lg-none h-25px" />
             </a>
             <!--end::Logo-->
         </div>
@@ -2573,7 +2576,7 @@
 
             </div>
             <!--end::Navbar-->
-            
+
             <!--begin::Toolbar wrapper-->
             <div class="d-flex align-items-stretch flex-shrink-0">
 
@@ -4209,6 +4212,40 @@
                 <!--begin::Sidebar Toggler-->
                 <!--end::Sidebar Toggler--> --}}
 
+
+
+                <!--begin::Support-->
+                <div class="d-flex align-items-stretch ms-1 ms-lg-2">
+                    <!--begin::Search-->
+                    <div class="d-flex align-items-stretch">
+                        <!--begin::Search toggle-->
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="btn btn-icon btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                                <span class="svg-icon svg-icon-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        {{-- <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546"
+                                            height="2" rx="1" transform="rotate(45 17.0365 15.1223)"
+                                            fill="currentColor" /> --}}
+
+                                        <path
+                                            d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z" fill="currentColor"/>
+                                        <path
+                                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                                <span>
+                            </div>
+                        </div>
+                        <!--end::Search toggle-->
+                    </div>
+                    <!--end::Search-->
+                </div>
+                <!--end::Support-->
+
                 <!--begin::User-->
                 <div class="d-flex align-items-center ms-lg-5" id="kt_header_user_menu_toggle">
                     <!--begin::User info-->
@@ -4225,9 +4262,10 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-30px symbol-md-40px">
                             @isset(auth()->user()->profile_picture)
-                                <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
+                                <img alt="Profile Picture"
+                                    src="{{ asset('uploaded_files/profile_pictures/' . auth()->user()->profile_picture) }}" />
                             @else
-                                <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->name)->toBase64()}}" />
+                                <img alt="Profile Picture" src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" />
                             @endisset
                         </div>
                         <!--end::Symbol-->
@@ -4244,9 +4282,11 @@
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
                                     @isset(auth()->user()->profile_picture)
-                                        <img alt="Profile Picture" src="{{asset('uploaded_files/profile_pictures/'.auth()->user()->profile_picture)}}" />
+                                        <img alt="Profile Picture"
+                                            src="{{ asset('uploaded_files/profile_pictures/' . auth()->user()->profile_picture) }}" />
                                     @else
-                                        <img alt="Profile Picture" src="{{Avatar::create(auth()->user()->name)->toBase64()}}" />
+                                        <img alt="Profile Picture"
+                                            src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" />
                                     @endisset
                                 </div>
                                 <!--end::Avatar-->
@@ -4255,7 +4295,8 @@
                                     <div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->name }}
                                         <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
                                     </div>
-                                    <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
+                                    <a href="#"
+                                        class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                 </div>
                                 <!--end::Username-->
                             </div>
@@ -4268,13 +4309,13 @@
 
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="{{route('profile.index')}}" class="menu-link px-5">My Profile</a>
+                            <a href="{{ route('profile.index') }}" class="menu-link px-5">My Profile</a>
                         </div>
                         <!--end::Menu item-->
 
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="{{route('employee.mode_switcher')}}" class="menu-link px-5">
+                            <a href="{{ route('employee.mode_switcher') }}" class="menu-link px-5">
                                 <span class="menu-text">
                                     @if (auth()->user()->login_mode == 'employee')
                                         Switch To Employer
@@ -4353,7 +4394,8 @@
                                     <span
                                         class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
                                         <img class="w-15px h-15px rounded-1 ms-2"
-                                            src="assets_backend/media/flags/united-states.svg" alt="" /></span></span>
+                                            src="assets_backend/media/flags/united-states.svg"
+                                            alt="" /></span></span>
                             </a>
 
                             <!--begin::Menu sub-->
@@ -4373,7 +4415,8 @@
                                 <div class="menu-item px-3">
                                     <a href="#" class="menu-link d-flex px-5">
                                         <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/bangladesh.svg" alt="" />
+                                            <img class="rounded-1" src="assets_backend/media/flags/bangladesh.svg"
+                                                alt="" />
                                         </span>বাংলা</a>
                                 </div>
                                 <!--end::Menu item-->
@@ -4420,10 +4463,11 @@
 
                         </div>
                         <!--end::Menu item-->
-                        
+
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="{{ route('logout') }}" class="menu-link px-5" onclick="event.preventDefault();
+                            <a href="{{ route('logout') }}" class="menu-link px-5"
+                                onclick="event.preventDefault();
                                                                                  document.getElementById('logout-form').submit();">
                                 Sign Out</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -4461,8 +4505,8 @@
                         id="kt_header_menu_mobile_toggle">
                         <!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
                         <span class="svg-icon svg-icon-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
                                 <path
                                     d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z"
                                     fill="currentColor" />
