@@ -15,5 +15,10 @@ class VerifyCsrfToken extends Middleware
         'dextop_test_upload',
         'dextop_no_ui_upload',
         'dextop_time_tracker_stop',
+        '/pay-via-ajax',
+        '/success',
+        '/cancel',
+        '/fail',
+        '/ipn',
     ];
 }

@@ -10,8 +10,8 @@
             <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1"
                 data-aos="fade-up">
                 <div>
-                    <h1>#1 time tracking solution for your workspace</h1>
-                    <h2>We provide the perfect and minimal solution for your time traking problem.</h2>
+                    <h1>a perfect time tracking solution for your workspace</h1>
+                    <h2>We provide the perfect solution for your time traking problem.</h2>
                     <a href="#" class="download-btn"><i class='bx bxl-microsoft'></i> Microsoft Windows</a>
                     <a href="#" class="download-btn"><i class="bx bxl-apple"></i> Mac OS</a>
                 </div>
