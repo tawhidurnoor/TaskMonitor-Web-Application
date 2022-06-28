@@ -216,11 +216,11 @@
                                 </div>
                             </th> --}}
                                 <th class="min-w-250px">User</th>
-                                <th class="min-w-125px">Email/Mac Address</th>
                                 <th class="min-w-50px">Screenshot Duration</th>
                                 <th class="min-w-50px">Worked This Week</th>
                                 <th class="min-w-50px">Worked This Month</th>
                                 <th class="min-w-50px">Total Worked</th>
+                                <th class="min-w-150px"></th>
                                 <th class="min-w-150px">Action</th>
                                 {{-- <th class="text-end min-w-100px">Actions</th> --}}
                             </tr>
@@ -239,7 +239,7 @@
                                 </div>
                             </td> --}}
                                     <!--end::Checkbox-->
-                                    <!--begin::User=-->
+                                    <!--begin::User-->
                                     <td class="d-flex align-items-center">
                                         <!--begin:: Avatar -->
                                         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
@@ -267,36 +267,39 @@
                                         </div>
                                         <!--begin::User details-->
                                     </td>
-                                    <!--end::User=-->
-                                    <!--begin::Email-->
-                                    <td>
-                                        @isset($employee->mac_address)
-                                            {{ $employee->mac_address }}
-                                        @else
-                                            {{ $employee->user->email }}
-                                        @endisset
-                                    </td>
-                                    <!--end::Email-->
+                                    <!--end::User-->
                                     <!--begin::Screenshot Duration-->
                                     <td>
                                         @isset($employee->screenshot_duration)
-                                            {{ $employee->screenshot_duration }} minutes
+                                            {{ $employee->screenshot_duration }} m
                                         @else
-                                            Deafult ({{ $screenshot_duration }} mins)
+                                            Deafult
+                                            {{-- Deafult ({{ $screenshot_duration }} m) --}}
                                         @endisset
                                     </td>
                                     <!--end::Screenshot Duration-->
                                     <!--begin::Worked Week-->
-                                    <td>{{ App\User::workTime($employee->employee_id, 'Week') }} Hours</td>
+                                    <td>{{ App\User::workTime($employee->employee_id, 'Week') }} H</td>
                                     <!--end::Worked Month-->
                                     <!--begin::Worked Week-->
-                                    <td>{{ App\User::workTime($employee->employee_id, 'Month') }} Hours</td>
+                                    <td>{{ App\User::workTime($employee->employee_id, 'Month') }} H</td>
                                     <!--end::Worked Month-->
                                     <!--begin::Worked-->
-                                    <td>{{ App\User::workTime($employee->employee_id, 'All') }} Hours</td>
+                                    <td>{{ App\User::workTime($employee->employee_id, 'All') }} H</td>
                                     <!--end::Worked-->
                                     <!--begin::Action=-->
-                                    <td class="text-end">
+                                    <td>
+                                        <span>
+                                            @isset($employee->mac_address)
+                                                <a href="{{ route('employee.timetracker.noui', $employee->id) }}"
+                                                    class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
+                                            @else
+                                                <a href="{{ route('employee.timetracker', $employee->id) }}"
+                                                    class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
+                                            @endisset
+                                        </span>
+                                    </td>
+                                    <td>
                                         <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
                                             data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
@@ -337,18 +340,6 @@
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
-
-                                        <br>
-                                        <br>
-                                        <span>
-                                            @isset($employee->mac_address)
-                                                <a href="{{ route('employee.timetracker.noui', $employee->id) }}"
-                                                    class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
-                                            @else
-                                                <a href="{{ route('employee.timetracker', $employee->id) }}"
-                                                    class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
-                                            @endisset
-                                        </span>
                                         <!--end::Menu-->
                                     </td>
                                     <!--end::Action=-->

@@ -41,6 +41,11 @@ Route::get('/mail', function(){
 
 Route::get('/', 'Frontend\HomeController@index');
 
+//google login
+Route::get('/login/google', 'Auth\LoginController@google')->name('login.google');
+
+Route::get('/login/google/redirect', 'Auth\LoginController@googleRedirect');
+
 Route::group(
     ['middleware' => ['auth']],
     function () {
@@ -112,8 +117,11 @@ Route::group(
         //seetings
         Route::resource('/settings', 'Backend\SettingsController');
 
+        //downloads
         Route::get('/downloads', 'Backend\DownloadController@index')->name('downloads.index');
 
+        //pricing
+        Route::get('pricing/employer', 'Backend\PricingController@index')->name('pricing.employer.index');
     }
 );
 

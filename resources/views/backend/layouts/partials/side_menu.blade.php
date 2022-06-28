@@ -238,18 +238,9 @@
             </div>
             <!--end::Menu item - Downloads-->
 
-
-            <!--begin::Heading-->
-            <div class="menu-item">
-                <div class="menu-content pb-2">
-                    <span class="menu-section text-muted text-uppercase fs-7 fw-bolder">Others</span>
-                </div>
-            </div>
-            <!--end::Heading-->
-
             <!--begin::Menu item - Pricing-->
             <div class="menu-item">
-                <a href="#" class="menu-link {{ request()->segment(1) == 'pricing' ? 'active' : '' }}">
+                <a href="{{route('pricing.employer.index')}}" class="menu-link {{ request()->segment(1) == 'pricing' ? 'active' : '' }}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
                         <span class="svg-icon svg-icon-2">
@@ -268,7 +259,7 @@
             <!--end::Menu item - Pricing-->
 
             <!--begin::Menu item - Team-->
-            <div class="menu-item">
+            {{-- <div class="menu-item">
                 <a href="#" class="menu-link {{ request()->segment(1) == 'team' ? 'active' : '' }}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
@@ -287,7 +278,7 @@
                     </span>
                     <span class="menu-title">Our Team</span>
                 </a>
-            </div>
+            </div> --}}
             <!--end::Menu item - Team-->
 
         </div>
