@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Socialite;
 use Hash;
 use Str;
+use Carbon;
 
 class LoginController extends Controller
 {
@@ -59,8 +60,8 @@ class LoginController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'login_mode' => 'employer',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => Hash::make(Str::random(24)),
-            'email_verified_at' => time()
         ]);
 
         Auth::login($user, true);
