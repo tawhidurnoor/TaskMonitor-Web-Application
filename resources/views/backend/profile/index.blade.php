@@ -209,8 +209,10 @@
                     <div class="col-lg-8">
                         <span class="fw-bolder fs-6 text-gray-800">
                             {{$user->email}}
-                            @isset($user->email_verified_at)
+                            @if(isset($user->email_verified_at) && $user->login_method == 'email')
                                 <span class="badge badge-success">Verified</span>
+                            @elseif($user->login_method == 'gmail')
+                            <span class="badge badge-success">Google Login</span>
                             @else
                                 <span class="badge badge-danger">Not Verified</span>
                             @endisset

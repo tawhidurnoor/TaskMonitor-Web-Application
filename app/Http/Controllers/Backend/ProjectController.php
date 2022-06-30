@@ -20,7 +20,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->email_verified_at == null) {
+        if (Auth::user()->email_verified_at == null && Auth::user()->login_method == 'email') {
             return redirect()->route('profile.index');
         }
 

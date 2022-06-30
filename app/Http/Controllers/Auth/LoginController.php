@@ -60,7 +60,7 @@ class LoginController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'login_mode' => 'employer',
-            'email_verified_at' => date('Y-m-d H:i:s'),
+            'login_method' => 'gmail',
             'password' => Hash::make(Str::random(24)),
         ]);
 

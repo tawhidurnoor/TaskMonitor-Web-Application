@@ -1,4 +1,4 @@
-@if(!isset(auth()->user()->email_verified_at))
+@if(!isset(auth()->user()->email_verified_at) && auth()->user()->login_method == 'email')
 <!--begin::Notice-->
 <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
     <!--begin::Icon-->

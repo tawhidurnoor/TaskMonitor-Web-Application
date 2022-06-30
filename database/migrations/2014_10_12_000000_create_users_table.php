@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('otp')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('login_mode');
+            $table->string('login_method', 50)->default('email');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
