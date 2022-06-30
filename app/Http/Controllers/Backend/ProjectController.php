@@ -46,7 +46,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $projectPeople = ProjectPeople::where('project_id', $id)
             ->join('users', 'users.id', 'project_people.user_id')
-            ->selectRaw('users.name, users.email, users.profile_picture, project_people.id, project_people.user_id')
+            ->selectRaw('users.name, users.email, users.profile_picture, project_people.id, project_people.user_id, project_people.is_active')
             ->get();
 
         return view('backend.project.details', [
@@ -92,7 +92,8 @@ class ProjectController extends Controller
     public function destroyProjectPeople(Request $request)
     {
         $projectPerson = ProjectPeople::findOrFail($request->id);
-        $projectPerson->delete();
+        $projectPerson->is_active = false;
+        $projectPerson->save();
         return redirect()->back();
     }
 
