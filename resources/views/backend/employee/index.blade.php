@@ -555,7 +555,7 @@
                             <label class="col-lg-4 col-form-label fw-bold fs-6">
                                 <span class="required">Take Screenshot</span>
                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
-                                    title="Works only on TimeTracker dextop appplication."></i>
+                                    title="Works only on TaskMonitor dextop appplication."></i>
                             </label>
                             <!--end::Label-->
                             <!--begin::Col-->
@@ -665,7 +665,7 @@
                             <label class="col-lg-4 col-form-label fw-bold fs-6">
                                 <span class="required">Take Screenshot</span>
                                 <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
-                                    title="Works only on TimeTracker dextop appplication."></i>
+                                    title="Works only on TaskMonitor dextop appplication."></i>
                             </label>
                             <!--end::Label-->
                             <!--begin::Col-->
