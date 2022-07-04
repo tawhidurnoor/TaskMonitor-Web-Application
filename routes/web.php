@@ -77,7 +77,8 @@ Route::group(
         Route::get('/project', 'Backend\ProjectController@index')->name('project.index');
         Route::post('/project/store', 'Backend\ProjectController@store')->name('project.store');
         Route::get('/project/details/{id}', 'Backend\ProjectController@details')->name('project.details');
-        Route::delete('/project/people/destroy', 'Backend\ProjectController@destroyProjectPeople')->name('project.people.destroy');
+        Route::put('/project/people/remove', 'Backend\ProjectController@removeProjectPeople')->name('project.people.remove');
+        Route::put('/project/people/reassign', 'Backend\ProjectController@reassignProjectPeople')->name('project.people.reassign');
         Route::post('/project/searchpeople/{id}', 'Backend\ProjectController@searchPeople')->name('project.search.people');
         Route::post('/project/addpeople/{id}', 'Backend\ProjectController@addPeople')->name('project.add.people');
 

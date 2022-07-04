@@ -89,10 +89,18 @@ class ProjectController extends Controller
         return $this->details($id);
     }
 
-    public function destroyProjectPeople(Request $request)
+    public function removeProjectPeople(Request $request)
     {
         $projectPerson = ProjectPeople::findOrFail($request->id);
         $projectPerson->is_active = false;
+        $projectPerson->save();
+        return redirect()->back();
+    }
+
+    public function reassignProjectPeople(Request $request)
+    {
+        $projectPerson = ProjectPeople::findOrFail($request->id);
+        $projectPerson->is_active = true;
         $projectPerson->save();
         return redirect()->back();
     }
