@@ -24,7 +24,7 @@
                 <div class="card-header border-0 pt-6">
                     <!--begin::Card title-->
                     <div class="card-title">
-                        <h1>Download Our Dextop Application</h1>
+                        <h1>Download Our Desktop Application</h1>
                     </div>
                     <!--begin::Card title-->
                 </div>
@@ -33,25 +33,25 @@
                 <div class="card-body py-4">
 
                     <style>
-                        .btn-desktop-purple {
+                        .down_b.btn-desktop-purple {
                             background-image: linear-gradient(to bottom, #8241f9, #4e277b);
                             border-color: #150a27;
                             color: #fff;
                         }
 
-                        .btn-large {
+                        .down_b .btn-large {
                             padding: 0.75em 1.25em;
                             font-size: inherit;
                             border-radius: 6px;
                         }
 
-                        .btn {
+                        .down_b .btn {
                             color: #24292e;
                             background-color: #eff3f6;
                             background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
                         }
 
-                        .btn {
+                        .down_b .btn {
                             position: relative;
                             display: inline-block;
                             padding: 6px 12px;
@@ -74,16 +74,35 @@
                         For tracking your employee and maintain project progress download our dextop apllication.
                     </p>
                     <br>
-                    <a class="mx-1 my-3 f3 btn btn-large btn-desktop-purple"
-                    href="{{ URL::to( '/public_downloads/dextop_application/v_1.0/TimeTracker_1.0_Setup.exe')  }}" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            style="fill: #24292e;transform: ;msFilter:;">
-                            <path
-                                d="m3 5.557 7.357-1.002.004 7.097-7.354.042L3 5.557zm7.354 6.913.006 7.103-7.354-1.011v-6.14l7.348.048zm.892-8.046L21.001 3v8.562l-9.755.077V4.424zm9.758 8.113-.003 8.523-9.755-1.378-.014-7.161 9.772.016z">
-                            </path>
-                        </svg>
-                        Download for Windows (64bit)
-                    </a>
+                    <div class="down_b">
+                        <span>
+                            <a class="mx-1 my-3 f3 btn btn-large btn-desktop-purple"
+                                href="{{ URL::to('/public_downloads/dextop_application/v_1.0/TimeTracker_1.0_Setup.exe') }}"
+                                target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    style="fill: #24292e;transform: ;msFilter:;">
+                                    <path
+                                        d="m3 5.557 7.357-1.002.004 7.097-7.354.042L3 5.557zm7.354 6.913.006 7.103-7.354-1.011v-6.14l7.348.048zm.892-8.046L21.001 3v8.562l-9.755.077V4.424zm9.758 8.113-.003 8.523-9.755-1.378-.014-7.161 9.772.016z">
+                                    </path>
+                                </svg>
+                                Download Latest Version
+                            </a>
+                        </span>
+
+                        <span>
+                            <a class="mx-1 my-3 f3 btn btn-large btn-desktop-purple"
+                                href="{{ URL::to('/public_downloads/dextop_application/v_1.0/TimeTracker_1.0_Setup.exe') }}"
+                                target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    style="fill: #24292e;transform: ;msFilter:;">
+                                    <path
+                                        d="m3 5.557 7.357-1.002.004 7.097-7.354.042L3 5.557zm7.354 6.913.006 7.103-7.354-1.011v-6.14l7.348.048zm.892-8.046L21.001 3v8.562l-9.755.077V4.424zm9.758 8.113-.003 8.523-9.755-1.378-.014-7.161 9.772.016z">
+                                    </path>
+                                </svg>
+                                Download Old Version
+                            </a>
+                        </span>
+                    </div>
 
                 </div>
                 <!--end::Card body-->

@@ -9,7 +9,7 @@
             <div class="page-title d-flex flex-column py-1">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center my-1">
-                    <span class="text-dark fw-bolder fs-1">Employee List</span>
+                    <span class="text-dark fw-bolder fs-1">All Employees</span>
                 </h1>
                 <!--end::Title-->
             </div>

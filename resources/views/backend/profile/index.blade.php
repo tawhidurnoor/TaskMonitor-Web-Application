@@ -11,7 +11,7 @@
             <h1 class="d-flex align-items-center my-1">
                 <span class="text-dark fw-bolder fs-1">Account Overview</span>
             </h1>
-            <!--end::Title-->
+            <!--end::Title--> 
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
