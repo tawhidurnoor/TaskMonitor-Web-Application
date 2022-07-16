@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Setting;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -64,6 +65,10 @@ class LoginController extends Controller
             'password' => Hash::make(Str::random(24)),
         ]);
 
+        $setting = new Setting();
+        $setting->user_id = $user->id;
+        $setting->save();
+        
         Auth::login($user, true);
         return redirect('/dashboard');
     }
