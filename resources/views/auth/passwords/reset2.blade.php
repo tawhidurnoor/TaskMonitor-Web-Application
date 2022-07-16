@@ -97,47 +97,101 @@ License: For each use you must have a valid license purchased only from above li
                         @endif
                         <!--end::Message-->
                         <!--begin::Form-->
-                        <form method="POST" action="{{ route('password.email') }}" class="form w-100"
-                            novalidate="novalidate">
+                        <form class="form w-100" method="POST" action="{{ route('password.update') }}">
                             @csrf
+
                             <!--begin::Heading-->
                             <div class="text-center mb-10">
                                 <!--begin::Title-->
-                                <h1 class="text-dark fw-bolder mb-3">Forgot Password ?</h1>
+                                <h1 class="text-dark fw-bolder mb-3">Setup New Password</h1>
                                 <!--end::Title-->
                                 <!--begin::Link-->
-                                <div class="text-gray-500 fw-semibold fs-6">Enter your email to reset your password.
+                                <div class="text-gray-500 fw-semibold fs-6">Have you already reset the password ?
+                                    <a href="{{ route('login') }}" class="link-primary fw-bold">Sign in</a>
                                 </div>
                                 <!--end::Link-->
                             </div>
                             <!--begin::Heading-->
+
+
+                            <input id="email" type="hidden"
+                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-8" data-kt-password-meter="true">
+                                <!--begin::Wrapper-->
+                                <div class="mb-1">
+                                    <!--begin::Input wrapper-->
+                                    <div class="position-relative mb-3">
+                                        <input class="form-control bg-transparent" id="password" type="password"
+                                            placeholder="Password" @error('password') is-invalid @enderror"
+                                            name="password" required autocomplete="new-password" />
+                                        <span
+                                            class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
+                                            data-kt-password-meter-control="visibility">
+                                            <i class="bi bi-eye-slash fs-2"></i>
+                                            <i class="bi bi-eye fs-2 d-none"></i>
+                                        </span>
+                                    </div>
+
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
+                                    <!--end::Input wrapper-->
+                                    <!--begin::Meter-->
+                                    <div class="d-flex align-items-center mb-3"
+                                        data-kt-password-meter-control="highlight">
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
+                                        </div>
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
+                                        </div>
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
+                                        </div>
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                    </div>
+                                    <!--end::Meter-->
+                                </div>
+                                <!--end::Wrapper-->
+                                <!--begin::Hint-->
+                                <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp;
+                                    symbols.</div>
+                                <!--end::Hint-->
+                            </div>
+                            <!--end::Input group=-->
+                            <!--end::Input group=-->
+                            <div class="fv-row mb-8">
+                                <!--begin::Repeat Password-->
+                                <input id="password-confirm" type="password" placeholder="Repeat Password"  name="password_confirmation" required autocomplete="new-password" class="form-control bg-transparent" />
+                                <!--end::Repeat Password-->
+                            </div>
+                            <!--end::Input group=-->
                             <!--begin::Input group=-->
                             <div class="fv-row mb-8">
-                                <!--begin::Email-->
-                                <input type="email" placeholder="Email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="form-control bg-transparent" />
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-                                <!--end::Email-->
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="toc" value="1" />
+                                    <span class="form-check-label fw-semibold text-gray-700 fs-6 ms-1">I Agree &amp;
+                                        <a href="#" class="ms-1 link-primary">Terms and conditions</a>.</span>
+                                </label>
                             </div>
-                            <!--begin::Actions-->
-                            <div class="d-flex flex-wrap justify-content-center pb-lg-0">
-                                <button type="submit" class="btn btn-primary me-4">
+                            <!--end::Input group=-->
+                            <!--begin::Action-->
+                            <div class="d-grid mb-10">
+                                <button type="submit" class="btn btn-primary">
                                     <!--begin::Indicator label-->
                                     <span class="indicator-label">Submit</span>
                                     <!--end::Indicator label-->
-                                    <!--begin::Indicator progress-->
-                                    <span class="indicator-progress">Please wait...
-                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                    <!--end::Indicator progress-->
                                 </button>
-                                <a href="{{ route('login') }}" class="btn btn-light">Cancel</a>
                             </div>
-                            <!--end::Actions-->
+                            <!--end::Action-->
                         </form>
                         <!--end::Form-->
                     </div>
@@ -159,7 +213,7 @@ License: For each use you must have a valid license purchased only from above li
             <!--end::Body-->
             <!--begin::Aside-->
             <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2"
-                style="background-image: url(../assets_backend/media/misc/auth-bg.png)">
+                style="background-image: url(../../assets_backend/media/misc/auth-bg.png)">
                 <!--begin::Content-->
                 <div class="d-flex flex-column flex-center py-15 px-5 px-md-15 w-100">
                     <!--begin::Logo-->
@@ -192,6 +246,8 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{ asset('assets_backend/js/custom/authentication/reset-password/reset-password.js') }}"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
+    <!--begin::Custom Javascript(used by this page)-->
+    <script src="{{ asset('assets_backend/js/custom/authentication/password-reset/new-password.js') }}"></script>
 </body>
 <!--end::Body-->
 

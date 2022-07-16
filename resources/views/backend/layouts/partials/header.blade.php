@@ -4255,7 +4255,7 @@
                         <div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2">
                             <span class="text-muted fs-7 fw-bold lh-1 mb-2">Hello</span>
                             <span class="text-dark fs-base fw-bolder lh-1">
-                                {{ auth()->user()->name }}
+                                {{ explode(' ', auth()->user()->name)[0] }}
                             </span>
                         </div>
                         <!--end::Name-->

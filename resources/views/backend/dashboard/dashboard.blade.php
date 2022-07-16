@@ -11,7 +11,8 @@
             <!--begin::Title-->
             <h1 class="d-flex align-items-center my-1">
                 {{-- <span class="text-dark fw-bolder fs-1">Employer Dashboard</span> --}}
-                <span class="text-dark fw-bolder fs-1">Hello {{auth()->user()->name}} ! {{$greetings}}</span>
+                {{-- <span class="text-dark fw-bolder fs-1">Hello {{auth()->user()->name}} ! {{$greetings}}</span> --}}
+                <span class="text-dark fw-bolder fs-1">Hello {{auth()->user()->name}}!</span>
                 <!--begin::Description-->
                 {{-- <small class="text-muted fs-6 fw-bold ms-1">You have {{count($projects)}}
                     <span class="text-primary fw-bolder">Active Projects</span>
