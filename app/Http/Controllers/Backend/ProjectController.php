@@ -26,7 +26,7 @@ class ProjectController extends Controller
 
         $lastSunday = new Carbon();
         $lastSunday = Carbon::createFromTimeStamp(strtotime("last Sunday", $lastSunday->timestamp));
-        $projects = auth()->user()->projects()->with('projectPeople.user.employee')->with(['projectPeople.timeTrackers' => function($q) use($lastSunday){
+        $projects = auth()->user()->projects()->with('projectPeople.user.employee')->with(['projectPeople.timeTrackers' => function ($q) use ($lastSunday) {
             $q->whereDate('start', '>=', $lastSunday)->latest();
         }])->get();
         // dd($projects);
@@ -64,12 +64,18 @@ class ProjectController extends Controller
         $users = User::join('employees', 'employees.employee_id', 'users.id')
             ->where('employees.employer_id', Auth::user()->id)
             ->where('employees.is_archived', 0)
-            ->where(function($q) use($serach_query){
+            ->where(function ($q) use ($serach_query) {
                 $q->where('email', 'LIKE', '%' . $serach_query . '%')->orWhere('name', 'LIKE', '%' . $serach_query . '%');
             })
             ->selectRaw('users.*')
             ->get();
 
+        foreach($users as $u => $user) {
+            if(ProjectPeople::where('user_id', $user->id)->where('project_id', $id)->count() > 0) {
+                unset($users[$u]);
+            }
+        }
+        
         return view('backend.project.add_user', [
             'users' => $users,
             'project_id' => $id,
@@ -175,9 +181,9 @@ class ProjectController extends Controller
     {
         $project_id = decrypt($project);
         $employee_id = decrypt($employee);
-        
+
         $project = Project::findOrFail($project_id);
-        
+
         $projectPeople = ProjectPeople::where('project_id', $project_id)
             ->join('users', 'users.id', 'project_people.user_id')
             ->selectRaw('users.name, users.email, users.profile_picture, project_people.id, project_people.user_id')
@@ -188,12 +194,12 @@ class ProjectController extends Controller
         //     ->get();
 
         $timeTrackers = TimeTracker::where([
-            'project_id'=> $project_id,
-            'user_id'=> $employee_id
-            ])
+            'project_id' => $project_id,
+            'user_id' => $employee_id
+        ])
             ->orderBy('id', 'desc')
             ->get();
-            
+
         $user = User::findOrFail($employee_id);
 
         return view('backend.project.timeTracker', [
