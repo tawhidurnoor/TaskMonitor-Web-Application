@@ -451,7 +451,7 @@
                         <!--end::Svg Icon-->
                         <!--end::Icon-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-lg form-control-solid px-15"
+                        <input type="email" class="form-control form-control-lg form-control-solid px-15"
                             name="search" value="" placeholder="Search by email, or name..."
                             data-kt-search-element="input" />
                         <!--end::Input-->

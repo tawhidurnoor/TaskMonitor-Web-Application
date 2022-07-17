@@ -58,6 +58,8 @@ class ProjectController extends Controller
 
     public function searchPeople(Request $request, $id)
     {
+        $is_project_member = 0;
+        $is_registered = 0;
         $id = decrypt($id);
         $serach_query = $request->search;
 
@@ -65,20 +67,32 @@ class ProjectController extends Controller
             ->where('employees.employer_id', Auth::user()->id)
             ->where('employees.is_archived', 0)
             ->where(function ($q) use ($serach_query) {
-                $q->where('email', 'LIKE', '%' . $serach_query . '%')->orWhere('name', 'LIKE', '%' . $serach_query . '%');
+                $q->where('email', 'LIKE', '%' . $serach_query . '%');
+                    // ->orWhere('name', 'LIKE', '%' . $serach_query . '%');
             })
             ->selectRaw('users.*')
             ->get();
 
-        foreach($users as $u => $user) {
-            if(ProjectPeople::where('user_id', $user->id)->where('project_id', $id)->count() > 0) {
+        foreach ($users as $u => $user) {
+            if (ProjectPeople::where('user_id', $user->id)->where('project_id', $id)->count() > 0) {
+                $is_project_member = 1;
                 unset($users[$u]);
             }
         }
-        
+
+        if( count($users) == 0 ){
+            $user_counter = User::where('email', $serach_query)->where('login_mode', '!=', 'admin')->where('email', '!=', Auth::user()->email)->count();
+            if($user_counter>0){
+                $is_registered = 1;
+            }
+        }
+
         return view('backend.project.add_user', [
             'users' => $users,
             'project_id' => $id,
+            'serach_query' => $serach_query,
+            'is_project_member' => $is_project_member,
+            'is_registered' => $is_registered,
         ]);
     }
 
