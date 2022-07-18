@@ -37,14 +37,8 @@
                     </h3>
                     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
                         title="" data-bs-original-title="Click to assign an employee">
-                        <a href="{{ route('project.details', encrypt($project->id)) }}"
-                            class="btn btn-sm btn-light btn-active-primary">
-                            {{-- <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px"
-                            data-bs-toggle="modal" data-bs-target="#kt_modal_users_search"
-                            id="kt_modal_users_search_button">Assign Employee</a> --}}
-                            <!--end::Svg Icon-->
-                            {{-- Add Employee --}}
-                        </a>
+                        {{-- <a href="{{ route('project.details', encrypt($project->id)) }}"
+                            class="btn btn-sm btn-light btn-active-primary">Details</a> --}}
                         <button
                             class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px assign-employee-button"
                             data-id="{{ encrypt($project->id) }}">Assign Employee</button>
