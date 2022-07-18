@@ -112,6 +112,11 @@ class EmployeeController extends Controller
         $invitation->employer_id = Auth::user()->id;
         $invitation->employee_mail = $request->email;
         $invitation->save();
+
+        if(isset($request->project_id)){
+            return decrypt($request->project_id);
+        }
+
         return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 
