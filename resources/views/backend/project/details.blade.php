@@ -547,7 +547,7 @@
 </div>
 <!--end::Modal - Remove Project Member-->
 
-<!--begin::Modal - Remove Project Member-->
+<!--begin::Modal - Reassign Project Member-->
 <div class="modal fade" id="reassign_project_member_modal" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -605,7 +605,7 @@
     </div>
     <!--end::Modal dialog-->
 </div>
-<!--end::Modal - Remove Project Member-->
+<!--end::Modal - Reassign Project Member-->
 
 <!--end::Modals-->
 @endsection

@@ -106,7 +106,8 @@ class ProjectController extends Controller
         $project_people->user_id = $user_id;
         $project_people->save();
 
-        return $this->details($id);
+        // return $this->details($id);
+        return redirect()->route('project.index');
     }
 
     public function removeProjectPeople(Request $request)
