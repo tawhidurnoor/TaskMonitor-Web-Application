@@ -109,7 +109,7 @@
                                                 list</h4>
                                             <div class="fs-6 text-gray-700">But you still can ask
                                                 <b>{{ $serach_query }}</b> to
-                                                <form class="d-inline" action="{{ route('employee.mailinvitations') }}"
+                                                <form class="d-inline" action="{{ route('employee.store_invitation', 'project_id='.encrypt($project_id)) }}"
                                                     method="post">
                                                     @csrf
                                                     <input type="hidden" value="{{ $serach_query }}" name="email">

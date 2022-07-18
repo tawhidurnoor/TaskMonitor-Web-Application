@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Invitation;
+use App\PreInvitation;
 use App\Project;
 use App\Setting;
 use App\TimeTracker;
@@ -112,6 +113,14 @@ class EmployeeController extends Controller
         $invitation->employer_id = Auth::user()->id;
         $invitation->employee_mail = $request->email;
         $invitation->save();
+
+        if(isset($request->project_id)){
+            $pre_invitation = new PreInvitation();
+            $pre_invitation->email = $request->email;
+            $pre_invitation->project_id = decrypt($request->project_id);
+            $pre_invitation->save();
+        }
+
         return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 

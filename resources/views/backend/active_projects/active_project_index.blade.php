@@ -36,21 +36,12 @@
                             {{ $project->created_at->format('d M, Y') }}</span>
                     </h3>
                     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
-                        title="" data-bs-original-title="Click to add a project">
-                        {{-- <a href="{{route('project.details', encrypt($project->id))}}" class="btn btn-sm btn-light btn-active-primary"> --}}
-                        <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px"
-                            data-bs-toggle="modal" data-bs-target="#kt_modal_users_search"
-                            id="kt_modal_users_search_button">Add Employee</a>
-                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                        {{-- <span class="svg-icon svg-icon-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="currentColor"></rect>
-                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
-                        </svg>
-                    </span> --}}
-                        <!--end::Svg Icon-->
-                        {{-- Add Employee --}}
-                        </a>
+                        title="" data-bs-original-title="Click to assign an employee">
+                        {{-- <a href="{{ route('project.details', encrypt($project->id)) }}"
+                            class="btn btn-sm btn-light btn-active-primary">Details</a> --}}
+                        <button
+                            class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px assign-employee-button"
+                            data-id="{{ encrypt($project->id) }}">Assign Employee</button>
                     </div>
                 </div>
                 <!--begin::Card body-->
@@ -263,7 +254,7 @@
 
 
     <!--begin::Modal - Users Search-->
-    <div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="employee_search" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <!--begin::Modal content-->
@@ -299,8 +290,8 @@
                     <div id="kt_modal_users_search_handler" data-kt-search-keypress="true" data-kt-search-min-length="2"
                         data-kt-search-enter="enter" data-kt-search-layout="inline">
                         <!--begin::Form-->
-                        <form action="" method="post" data-kt-search-element="form"
-                            class="w-100 position-relative mb-5" autocomplete="off">
+                        <form action="" method="post" id="search-form" class="w-100 position-relative mb-5"
+                            autocomplete="off">
                             @csrf
                             <!--begin::Hidden input(Added to disable form autocomplete)-->
                             <!--end::Hidden input-->
@@ -511,7 +502,157 @@
     </div>
     <!--end::Modal - New Target-->
     <!--end::Modal - Create Campaign-->
+
+
+    <!--begin::Modal - Remove Project Member-->
+    <div class="modal fade" id="remove_project_member_modal" tabindex="-1" aria-hidden="true">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content rounded">
+                <!--begin::Modal header-->
+                <div class="modal-header pb-0 border-0 justify-content-end">
+                    <!--begin::Close-->
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                        <span class="svg-icon svg-icon-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
+                                    rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                    transform="rotate(45 7.41422 6)" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Close-->
+                </div>
+                <!--begin::Modal header-->
+                <!--begin::Modal body-->
+                <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                    <!--begin::Heading-->
+                    <div class="mb-13 text-center">
+                        <!--begin::Title-->
+                        <h1 class="mb-3">Remove Member</h1>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        Are you sure want to remove this member from this project?
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Actions-->
+                    <div class="text-center">
+                        <form action="{{ route('project.people.remove') }}" method="post">
+                            @csrf
+                            @method('put')
+                            <input type="hidden" id="project_people_id" name="id">
+                            <button type="submit" class="btn btn-light btn-light-danger btn-sm">Remove</button>
+                        </form>
+                    </div>
+                    <!--end::Actions-->
+                </div>
+                <!--end::Modal body-->
+            </div>
+            <!--end::Modal content-->
+        </div>
+        <!--end::Modal dialog-->
+    </div>
+    <!--end::Modal - Remove Project Member-->
+
+    <!--begin::Modal - Reassign Project Member-->
+    <div class="modal fade" id="reassign_project_member_modal" tabindex="-1" aria-hidden="true">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content rounded">
+                <!--begin::Modal header-->
+                <div class="modal-header pb-0 border-0 justify-content-end">
+                    <!--begin::Close-->
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                        <span class="svg-icon svg-icon-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
+                                    rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                    transform="rotate(45 7.41422 6)" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Close-->
+                </div>
+                <!--begin::Modal header-->
+                <!--begin::Modal body-->
+                <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                    <!--begin::Heading-->
+                    <div class="mb-13 text-center">
+                        <!--begin::Title-->
+                        <h1 class="mb-3">Reassign Member</h1>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Heading-->
+
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        Are you sure want to reassign this member from this project?
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Actions-->
+                    <div class="text-center">
+                        <form action="{{ route('project.people.reassign') }}" method="post">
+                            @csrf
+                            @method('put')
+                            <input type="hidden" id="project_people_id_reassign" name="id">
+                            <button type="submit" class="btn btn-light btn-light-success btn-sm">Reassign</button>
+                        </form>
+                    </div>
+                    <!--end::Actions-->
+                </div>
+                <!--end::Modal body-->
+            </div>
+            <!--end::Modal content-->
+        </div>
+        <!--end::Modal dialog-->
+    </div>
+    <!--end::Modal - Reassign Project Member-->
 @endsection
 
 @push('js')
 @endpush
+
+@section('scripts')
+    <script>
+        $(document).on('click', '.assign-employee-button', function(e) {
+            e.preventDefault();
+            $('#employee_search').modal('show');
+            var id = $(this).data('id');
+            document.getElementById("search-form").action = "/project/searchpeople/" + id;
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.remove_project_member', function(e) {
+            e.preventDefault();
+            $('#remove_project_member_modal').modal('show');
+            var id = $(this).data('id');
+            $('#project_people_id').val(id);
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.reassign_project_member_button', function(e) {
+            e.preventDefault();
+            $('#reassign_project_member_modal').modal('show');
+            var id = $(this).data('id');
+            $('#project_people_id_reassign').val(id);
+        });
+    </script>
+@endsection
