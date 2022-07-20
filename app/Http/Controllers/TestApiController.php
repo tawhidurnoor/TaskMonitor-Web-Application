@@ -160,6 +160,10 @@ class TestApiController extends Controller {
         }
 
         $screenshot->save();
+
+        $timeTracker = TimeTracker::findOrFail($timeTrackerId);
+        $timeTracker->end = date('Y-m-d H:i:s');
+        $timeTracker->save();
     }
 
     public function dextop_no_ui_upload(Request $request) {
