@@ -92,18 +92,30 @@ class EmployeeController extends Controller
 
         $to_name = $exploreArr[0];
         $to_email = $email;
-        $data = array('email' => Auth::user()->email);
+        if (isset($request->project_id)) {
+            $data = array('email' => Auth::user()->email, 'to_email' => $to_email, 'has_project_invitation' => 1);
+        } else {
+            $data = array('email' => Auth::user()->email, 'to_email' => $to_email,);
+        }
 
         Mail::send('backend.email.invitation_mail', $data, function ($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-                ->subject('Invitation to join TimeTracker');
-            $message->from('noreply@timetracker.codecloudtech.com', 'Time Tracker Solution');
+                ->subject('Invitation to join TaskMonitor');
+            $message->from('noreply@taskmonitor.xyz', 'TaskMonitor');
         });
 
         $invitation = new Invitation();
         $invitation->employer_id = Auth::user()->id;
         $invitation->employee_mail = $request->email;
         $invitation->save();
+
+        if (isset($request->project_id)) {
+            $pre_invitation = new PreInvitation();
+            $pre_invitation->email = $request->email;
+            $pre_invitation->project_id = decrypt($request->project_id);
+            $pre_invitation->save();
+        }
+
         return redirect()->route('employee.invitations')->with(["success" => 1]);
     }
 
@@ -114,7 +126,7 @@ class EmployeeController extends Controller
         $invitation->employee_mail = $request->email;
         $invitation->save();
 
-        if(isset($request->project_id)){
+        if (isset($request->project_id)) {
             $pre_invitation = new PreInvitation();
             $pre_invitation->email = $request->email;
             $pre_invitation->project_id = decrypt($request->project_id);
@@ -143,12 +155,12 @@ class EmployeeController extends Controller
         //     array_push($project_ids, $project->id);
         // }
 
-        $timeTrackers = TimeTracker::with(['screenshots' => function($q){
-                $q->latest();
-            }])
+        $timeTrackers = TimeTracker::with(['screenshots' => function ($q) {
+            $q->latest();
+        }])
             // ->whereIn('project_id', $project_ids)
             ->where('user_id', $employee->employee_id)
-            ->whereHas('project', function($q){
+            ->whereHas('project', function ($q) {
                 $q->where('user_id', Auth::user()->id);
             })
             ->orderBy('id', 'desc');

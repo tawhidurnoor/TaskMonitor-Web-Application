@@ -23,28 +23,27 @@
                         style="text-align:left; margin: 0 20px; padding: 40px; background-color:#ffffff; border-radius: 6px">
                         <!--begin:Email content-->
                         <div style="padding-bottom: 30px; font-size: 17px;">
-                            <strong>Welcome to Time Tracker!</strong>
+                            <strong>Welcome to TaskMonitor!</strong>
                         </div>
-                        <div style="padding-bottom: 30px">You have been invited to join Time Tracker from
-                            <a href="{{$email}}" rel="noopener" target="_blank"
-                                style="text-decoration:none;color: #009EF7">{{$email}}</a>. To get started,
-                            accept the invite below:
+                        <div style="padding-bottom: 30px">You have been invited to join TaskMonitor from 
+                            {{auth()->user()->name}} @isset($has_project_invitation) in his project @endisset .
+                            To get started, accept the invite below:
                         </div>
                         <div style="padding-bottom: 40px; text-align:center;">
-                            <a href="{{route('register')}}"
+                            <a href="{{route('register' , 'email='.$to_email)}}"
                                 rel="noopener"
                                 style="text-decoration:none;display:inline-block;text-align:center;padding:0.75575rem 1.3rem;font-size:0.925rem;line-height:1.5;border-radius:0.35rem;color:#ffffff;background-color:#009EF7;border:0px;margin-right:0.75rem!important;font-weight:600!important;outline:none!important;vertical-align:middle"
                                 target="_blank">Accept Invite</a>
                         </div>
                         <!--end:Email content-->
                         <div style="padding-bottom: 10px">Kind regards,
-                            <br>The Time Tracker Team.
+                            <br>The TaskMonitor Team.
             <tr>
                 <td align="center" valign="center"
                     style="font-size: 13px; text-align:center;padding: 20px; color: #6d6e7c;">
                     <p>154, RK Mission Road, Motijheel, Dhaka, Bangladesh.</p>
                     <p>Copyright ©
-                        <a href="https://timetracker.com/" rel="noopener" target="_blank">Time Tracker</a>.
+                        <a href="https://taskmonitor.xyz/" rel="noopener" target="_blank">TaskMonitor</a>.
                     </p>
                 </td>
             </tr></br>

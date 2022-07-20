@@ -15,20 +15,20 @@
             </div>
             <!--end::Page title-->
             <!--begin::Actions-->
-            <div class="d-flex align-items-center py-1">
+            <div class="d-flex align-items-center py-1" style="margin-top:35px">
                 <!--begin::Button-->
-                <a href="{{ route('employee.archived.index') }}"
-                    class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Archived Employees</a>
-                <span style="width: 20px"></span>
-                <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3" data-bs-toggle="modal"
+                <a href="#" class="btn btn-sm btn-bg-light btn-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#add_employee_modal" id="kt_toolbar_primary_button">Invite an employee</a>
                 <span style="width: 20px"></span>
-                <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3" data-bs-toggle="modal"
+                <a href="#" class="btn btn-sm btn-bg-light btn-primary me-3" data-bs-toggle="modal"
                     data-bs-target="#add_mac_employee_modal" id="kt_toolbar_primary_button">Add mac address based
                     employee</a>
                 <span style="width: 20px"></span>
-                <a href="{{ route('employee.invitations') }}"
-                    class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Sent Invitations</a>
+                <a href="{{ route('employee.invitations') }}" class="btn btn-sm btn-bg-light btn-primary me-3">View Sent
+                    Invitations</a>
+                <a href="{{ route('employee.archived.index') }}" class="btn btn-sm btn-bg-light btn-primary me-3">View
+                    Archived Employees</a>
+                <span style="width: 20px"></span>
                 <!--end::Button-->
             </div>
 
@@ -198,12 +198,12 @@
                                         data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                 </div>
                             </th> --}}
-                                <th class="min-w-250px">User</th>
-                                <th class="min-w-50px">Screenshot Duration</th>
-                                <th class="min-w-50px">Worked This Week</th>
-                                <th class="min-w-50px">Worked This Month</th>
-                                <th class="min-w-50px">Total Worked</th>
-                                <th class="min-w-150px"></th>
+                                <th class="min-w-250px">Employee</th>
+                                <th class="min-w-50px">SS Duration</th>
+                                <th class="min-w-50px">This Week</th>
+                                <th class="min-w-50px">This Month</th>
+                                <th class="min-w-50px">Total Hours</th>
+                                <th class="min-w-150px" ></th>
                                 <th class="min-w-150px">Action</th>
                                 {{-- <th class="text-end min-w-100px">Actions</th> --}}
                             </tr>
@@ -214,7 +214,7 @@
                         <tbody class="text-gray-600 fw-bold">
                             @foreach ($employees as $employee)
                                 <!--begin::Table row-->
-                                <tr>
+                                <tr style="text-align: center">
                                     <!--begin::Checkbox-->
                                     {{-- <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -303,18 +303,18 @@
                                             <div class="menu-item px-3">
                                                 @isset($employee->mac_address)
                                                     <a class="menu-link px-3 edit_button_no_ui"
-                                                        data-id="{{ $employee->id }}">Edit</a>
+                                                        data-id="{{ $employee->id }}">Settings</a>
                                                 @else
                                                     <a class="menu-link px-3 edit_button"
-                                                        data-id="{{ $employee->id }}">Edit</a>
+                                                        data-id="{{ $employee->id }}">Settings</a>
                                                 @endisset
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Report-->
-                                            <div class="menu-item px-3">
+                                            {{-- <div class="menu-item px-3">
                                                 <a href="{{ route('employee.report', $employee->id) }}"
                                                     class="menu-link px-3">Report</a>
-                                            </div>
+                                            </div> --}}
                                             <!--end::Report-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
