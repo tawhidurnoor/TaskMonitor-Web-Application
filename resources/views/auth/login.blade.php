@@ -55,7 +55,7 @@
             @csrf
             <div class="text-center mb-10">
               <!--begin::Title-->
-              <h1 class="text-dark mb-3">Sign In to Timetracker</h1>
+              <h1 class="text-dark mb-3">Sign In to TaskMonitor</h1>
               <!--end::Title-->
               <!--begin::Link-->
               <div class="text-gray-400 fw-bold fs-4">New Here?
