@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ActiveProjectsController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\EmployeeProjectController;
 use App\Http\Controllers\Frontend\ChartsController;
 
 /*
@@ -105,6 +106,10 @@ Route::group(
 
         //employee module
         Route::get('/employee_dashboard', 'Backend\DashboardController@employeeIndex')->name('employee.dashboard');
+
+
+        Route::get('/employee_project', 'Backend\EmployeeProjectController@Index')->name('employee.project');
+
         //invitations
         Route::get('/invitations', 'Backend\EmployeeInvitaionController@index')->name('employee.view.invitations');
         Route::post('/invitations/accept', 'Backend\EmployeeInvitaionController@acceptInvitation')->name('employee.accept.invitations');

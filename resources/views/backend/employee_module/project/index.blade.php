@@ -9,13 +9,13 @@
             <div class="page-title d-flex flex-column py-1">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center my-1">
-                    <span class="text-dark fw-bolder fs-1">All Employees</span>
+                    <span class="text-dark fw-bolder fs-1">My Projects</span>
                 </h1>
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
             <!--begin::Actions-->
-            <div class="d-flex align-items-center py-1">
+            {{--  <div class="d-flex align-items-center py-1">
                 <!--begin::Button-->
                 <a href="{{ route('employee.archived.index') }}"
                     class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Archived Employees</a>
@@ -30,7 +30,7 @@
                 <a href="{{ route('employee.invitations') }}"
                     class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Sent Invitations</a>
                 <!--end::Button-->
-            </div>
+            </div>  --}}
 
             <!--end::Actions-->
         </div>
@@ -198,12 +198,9 @@
                                         data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                 </div>
                             </th> --}}
-                                <th class="min-w-250px">Employee</th>
-                                <th class="min-w-50px">Screenshot Duration</th>
-                                <th class="min-w-50px">Worked This Week</th>
-                                <th class="min-w-50px">Worked This Month</th>
-                                <th class="min-w-50px">Total Worked</th>
-                                <th class="min-w-150px"></th>
+                                <th class="min-w-200px">Project</th>
+                                <th class="min-w-50px">Description</th>
+                                <th class="min-w-50px"></th>
                                 <th class="min-w-150px">Action</th>
                                 {{-- <th class="text-end min-w-100px">Actions</th> --}}
                             </tr>
@@ -212,7 +209,7 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="text-gray-600 fw-bold">
-                            @foreach ($employees as $employee)
+                            @foreach ($projects as $project)
                                 <!--begin::Table row-->
                                 <tr>
                                     <!--begin::Checkbox-->
@@ -228,13 +225,11 @@
                                         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                             <a href="#">
                                                 <div class="symbol-label">
-                                                    @isset($employee->user->profile_picture)
-                                                        <img alt="Profile Picture"
-                                                            src="{{ asset('uploaded_files/profile_pictures/' . $employee->user->profile_picture) }}"
-                                                            class="w-100" />
+                                                    @isset($project->project_logo)
+                                                        <img src="uploaded_files/project_logo/{{$project->project_logo}}" alt="{{$project->title}}"class="p-3" />
                                                     @else
                                                         <img alt="Profile Picture"
-                                                            src="{{ Avatar::create($employee->user->name)->toBase64() }}"
+                                                            src="{{ Avatar::create($project->title)->toBase64() }}"
                                                             class="w-100" />
                                                     @endisset
                                                 </div>
@@ -243,41 +238,22 @@
                                         <!--end::Avatar-->
                                         <!--begin::User details-->
                                         <div class="d-flex flex-column">
-                                            {{ $employee->user->name }}
-                                            @isset($employee->mac_address)
-                                                <span class="badge badge-light-warning fw-bolder my-2">NO UI</span>
-                                            @endisset
+                                            {{ $project->title }}
                                         </div>
                                         <!--begin::User details-->
                                     </td>
                                     <!--end::User-->
-                                    <!--begin::Screenshot Duration-->
                                     <td>
-                                        @isset($employee->screenshot_duration)
-                                            {{ $employee->screenshot_duration }} m
-                                        @else
-                                            Deafult
-                                            {{-- Deafult ({{ $screenshot_duration }} m) --}}
-                                        @endisset
+                                       {{ $project->description }}
                                     </td>
-                                    <!--end::Screenshot Duration-->
-                                    <!--begin::Worked Week-->
-                                    <td>{{ App\User::workTime($employee->employee_id, 'Week') }} H</td>
-                                    <!--end::Worked Month-->
-                                    <!--begin::Worked Week-->
-                                    <td>{{ App\User::workTime($employee->employee_id, 'Month') }} H</td>
-                                    <!--end::Worked Month-->
-                                    <!--begin::Worked-->
-                                    <td>{{ App\User::workTime($employee->employee_id, 'All') }} H</td>
-                                    <!--end::Worked-->
-                                    <!--begin::Action=-->
+                                    
                                     <td>
-                                        <span>
+                                         <span>
                                             @isset($employee->mac_address)
-                                                <a href="{{ route('employee.timetracker.noui', $employee->id) }}"
+                                                <a href="{{ route('employee.timetracker.noui', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
                                             @else
-                                                <a href="{{ route('employee.timetracker', $employee->id) }}"
+                                                <a href="{{ route('employee.timetracker', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
                                             @endisset
                                         </span>
@@ -301,25 +277,19 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                @isset($employee->mac_address)
-                                                    <a class="menu-link px-3 edit_button_no_ui"
-                                                        data-id="{{ $employee->id }}">Edit</a>
-                                                @else
-                                                    <a class="menu-link px-3 edit_button"
-                                                        data-id="{{ $employee->id }}">Edit</a>
-                                                @endisset
+                                               
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Report-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('employee.report', $employee->id) }}"
-                                                    class="menu-link px-3">Report</a>
+                                                {{--  <a href="{{ route('employee.report', $employee->id) }}"
+                                                    class="menu-link px-3">Report</a>  --}}
                                             </div>
                                             <!--end::Report-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a class="menu-link px-3 archive_button"
-                                                    data-id="{{ $employee->id }}">Archive</a>
+                                                {{--  <a class="menu-link px-3 archive_button"
+                                                    data-id="{{ $employee->id }}">Archive</a>  --}}
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
