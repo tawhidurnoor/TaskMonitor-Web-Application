@@ -26,9 +26,9 @@
                 <span style="width: 20px"></span>
                 <a href="{{ route('employee.invitations') }}" class="btn btn-sm btn-bg-light btn-primary me-3">View Sent
                     Invitations</a>
+                <span style="width: 20px"></span>
                 <a href="{{ route('employee.archived.index') }}" class="btn btn-sm btn-bg-light btn-primary me-3">View
                     Archived Employees</a>
-                <span style="width: 20px"></span>
                 <!--end::Button-->
             </div>
 
@@ -203,7 +203,7 @@
                                 <th class="min-w-50px">This Week</th>
                                 <th class="min-w-50px">This Month</th>
                                 <th class="min-w-50px">Total Hours</th>
-                                <th class="min-w-150px" ></th>
+                                <th class="min-w-150px"></th>
                                 <th class="min-w-150px">Action</th>
                                 {{-- <th class="text-end min-w-100px">Actions</th> --}}
                             </tr>
