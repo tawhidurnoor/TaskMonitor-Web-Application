@@ -24,3 +24,4 @@
 <link href="{{asset('assets_backend/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets_backend/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
 <!--end::Global Stylesheets Bundle-->
+@yield('meta')
