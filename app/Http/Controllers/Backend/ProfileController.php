@@ -13,7 +13,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = User::findOrFail(Auth::user()->id);
-        return view('backend.profile.index',[
+        return view('backend.profile.index', [
             'user' => $user,
         ]);
     }
@@ -36,16 +36,17 @@ class ProfileController extends Controller
         $user = auth()->user();
         $user->name = $request->name;
         $user->company_name = $request->company;
-        if($user->email != $request->email){
+        if ($user->email != $request->email) {
             $user->email = $request->email;
             $user->email = $request->email;
-            $user->email_verified_at = NULL;            
+            $user->email_verified_at = NULL;
             $user->save();
             $user->sendEmailVerificationNotification();
             redirect()->route('profile.index');
             return back();
         }
         $user->save();
+        session()->flash('success', 'Updated successfully.');
         return back();
     }
 }

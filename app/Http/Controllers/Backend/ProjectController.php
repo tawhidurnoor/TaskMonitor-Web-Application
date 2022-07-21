@@ -106,6 +106,8 @@ class ProjectController extends Controller
         $project_people->user_id = $user_id;
         $project_people->save();
 
+        session()->flash('success', 'Employee added successfully.');
+
         // return $this->details($id);
         return redirect()->route('project.index');
     }
@@ -169,6 +171,8 @@ class ProjectController extends Controller
         // } else {
         //     session()->flash('warning', 'Errot adding project!! Please try again later.');
         // }
+
+        session()->flash('success', 'Project added successfully.');
 
         return redirect()->route('project.index', $request->company_id);
     }
