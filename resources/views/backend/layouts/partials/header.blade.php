@@ -26,7 +26,7 @@
                     class="d-none d-lg-inline h-30px" />
                 <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5-mobile.svg') }}"
                     class="d-lg-none h-25px" /> --}}
-                    <h3>TaskMonitor</h3>
+                <h3>TaskMonitor</h3>
             </a>
             <!--end::Logo-->
         </div>
@@ -4232,9 +4232,11 @@
                                             fill="currentColor" /> --}}
 
                                         <path
-                                            d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z" fill="currentColor"/>
+                                            d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"
+                                            fill="currentColor" />
                                         <path
-                                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" fill="currentColor" />
+                                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+                                            fill="currentColor" />
                                     </svg>
                                 </span>
                                 <!--end::Svg Icon-->
@@ -4315,7 +4317,7 @@
                         <!--end::Menu item-->
 
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5">
+                        {{-- <div class="menu-item px-5">
                             <a href="{{ route('employee.mode_switcher') }}" class="menu-link px-5">
                                 <span class="menu-text">
                                     @if (auth()->user()->login_mode == 'employee')
@@ -4325,7 +4327,7 @@
                                     @endif
                                 </span>
                             </a>
-                        </div>
+                        </div> --}}
                         <!--end::Menu item-->
 
                         <!--begin::Menu item-->
@@ -4389,80 +4391,7 @@
                         <!--end::Menu separator-->
 
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-                            <a href="#" class="menu-link px-5">
-                                <span class="menu-title position-relative">Language
-                                    <span
-                                        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                                        <img class="w-15px h-15px rounded-1 ms-2"
-                                            src="assets_backend/media/flags/united-states.svg"
-                                            alt="" /></span></span>
-                            </a>
 
-                            <!--begin::Menu sub-->
-                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="#" class="menu-link d-flex px-5 active">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/united-states.svg"
-                                                alt="" />
-                                        </span>English</a>
-                                </div>
-                                <!--end::Menu item-->
-
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="#" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/bangladesh.svg"
-                                                alt="" />
-                                        </span>বাংলা</a>
-                                </div>
-                                <!--end::Menu item-->
-
-                                {{-- <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/spain.svg" alt="" />
-                                        </span>Spanish</a>
-                                </div>
-                                <!--end::Menu item-->
-
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/germany.svg"
-                                                alt="" />
-                                        </span>German</a>
-                                </div>
-                                <!--end::Menu item-->
-
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/japan.svg" alt="" />
-                                        </span>Japanese</a>
-                                </div>
-                                <!--end::Menu item-->
-
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets_backend/media/flags/france.svg" alt="" />
-                                        </span>French</a>
-                                </div>
-                                <!--end::Menu item--> --}}
-
-                            </div>
-                            <!--end::Menu sub-->
-
-                        </div>
                         <!--end::Menu item-->
 
                         <!--begin::Menu item-->
@@ -4506,8 +4435,8 @@
                         id="kt_header_menu_mobile_toggle">
                         <!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
                         <span class="svg-icon svg-icon-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
                                 <path
                                     d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z"
                                     fill="currentColor" />
