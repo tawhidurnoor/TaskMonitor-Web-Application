@@ -275,6 +275,27 @@
             </div>
             <!--end::Menu item - Pricing-->
 
+            <!--begin::Menu item - My Subscription-->
+            <div class="menu-item">
+                <a href="{{ route('subscription.index') }}"
+                    class="menu-link {{ request()->segment(1) == 'subscription' ? 'active' : '' }}">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                style="transform: ;msFilter:;" fill="currentColor">
+                                <path
+                                    d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 8.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-2zm6 7.5H5v-2h6v2zm8 0h-6v-2h6v2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">My Subscription</span>
+                </a>
+            </div>
+            <!--end::Menu item - My Subscription-->
+
             <!--begin::Menu item - Team-->
             {{-- <div class="menu-item">
                 <a href="#" class="menu-link {{ request()->segment(1) == 'team' ? 'active' : '' }}">

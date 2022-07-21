@@ -131,4 +131,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Employee::class, 'employee_id');
     }
+
+    public function subscriptionPriceTier()
+    {
+        return $this->belongsTo(SubscriptionPriceTier::class);
+    }
 }
