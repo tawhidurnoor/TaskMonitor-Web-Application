@@ -116,7 +116,9 @@ class EmployeeController extends Controller
             $pre_invitation->save();
         }
 
-        return redirect()->route('employee.invitations')->with(["success" => 1]);
+        session()->flash('success', 'Invitation sent successfully.');
+
+        return redirect()->route('employee.invitations');
     }
 
     public function storeInvitation(Request $request)
@@ -133,13 +135,18 @@ class EmployeeController extends Controller
             $pre_invitation->save();
         }
 
-        return redirect()->route('employee.invitations')->with(["success" => 1]);
+        session()->flash('success', 'Invitation sent successfully.');
+
+        return redirect()->route('employee.invitations');
     }
 
     public function destroyInvitation(Request $request)
     {
         $invitation = Invitation::findOrFail($request->id);
         $invitation->delete();
+
+        session()->flash('success', 'Invitation removed successfully.');
+
         return redirect()->back();
     }
 
@@ -217,6 +224,8 @@ class EmployeeController extends Controller
         $employee->mac_address = $request->mac_address;
         $employee->save();
 
+        session()->flash('success', 'Mac address stored successfully.');
+
         return redirect()->back();
     }
 
@@ -288,6 +297,9 @@ class EmployeeController extends Controller
     {
         $employee->is_archived = 1;
         $employee->save();
+
+        session()->flash('success', 'Employee archived successfully.');
+
         return redirect()->back();
     }
 
@@ -295,6 +307,9 @@ class EmployeeController extends Controller
     {
         $employee->is_archived = 0;
         $employee->save();
+
+        session()->flash('success', 'Employee unarchived successfully.');
+
         return redirect()->back();
     }
 
@@ -375,6 +390,9 @@ class EmployeeController extends Controller
 
         $employee->screenshot_duration = $request->screenshot_duration;
         $employee->save();
+
+        session()->flash('success', 'Updated successfully.');
+
         return redirect()->back();
     }
 
