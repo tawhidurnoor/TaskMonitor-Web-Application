@@ -31,7 +31,7 @@
         <div class="post" id="kt_post">
             <!--begin::Card-->
             @foreach ($projects as $project)
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4">
                     <div class="card-header border-0 pt-5">
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label fw-bolder fs-3 mb-1">{{ $project->title }}</span>
