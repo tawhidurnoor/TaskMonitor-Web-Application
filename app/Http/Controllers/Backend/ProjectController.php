@@ -68,7 +68,7 @@ class ProjectController extends Controller
             ->where('employees.is_archived', 0)
             ->where(function ($q) use ($serach_query) {
                 $q->where('email', 'LIKE', '%' . $serach_query . '%');
-                    // ->orWhere('name', 'LIKE', '%' . $serach_query . '%');
+                // ->orWhere('name', 'LIKE', '%' . $serach_query . '%');
             })
             ->selectRaw('users.*')
             ->get();
@@ -80,9 +80,9 @@ class ProjectController extends Controller
             }
         }
 
-        if( count($users) == 0 ){
+        if (count($users) == 0) {
             $user_counter = User::where('email', $serach_query)->where('login_mode', '!=', 'admin')->where('email', '!=', Auth::user()->email)->count();
-            if($user_counter>0){
+            if ($user_counter > 0) {
                 $is_registered = 1;
             }
         }
@@ -115,6 +115,9 @@ class ProjectController extends Controller
         $projectPerson = ProjectPeople::findOrFail($request->id);
         $projectPerson->is_active = false;
         $projectPerson->save();
+
+        session()->flash('success', 'Employee removed successfully.');
+
         return redirect()->back();
     }
 
@@ -123,6 +126,9 @@ class ProjectController extends Controller
         $projectPerson = ProjectPeople::findOrFail($request->id);
         $projectPerson->is_active = true;
         $projectPerson->save();
+
+        session()->flash('success', 'Employee reassigned successfully.');
+
         return redirect()->back();
     }
 
