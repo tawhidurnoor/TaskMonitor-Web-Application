@@ -13,7 +13,7 @@
             </h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+            {{--  <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
                     <a href="{{route('dashboard')}}" class="text-muted text-hover-primary">Home</a>
@@ -35,7 +35,7 @@
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-dark">Invitation List</li>
                 <!--end::Item-->
-            </ul>
+            </ul>  --}}
             <!--end::Breadcrumb-->
         </div>
         <!--end::Page title-->
