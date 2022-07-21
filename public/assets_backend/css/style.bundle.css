@@ -39700,7 +39700,8 @@ code:not([class*=language-]) {
   background-color: #ffffff;
 }
 .form-control.form-control-solid {
-  background-color: #F5F8FA;
+  /* background-color: #F5F8FA; */
+  background-color: #fbfbfb;
   border-color: #F5F8FA;
   color: #5E6278;
   transition: color 0.2s ease, background-color 0.2s ease;

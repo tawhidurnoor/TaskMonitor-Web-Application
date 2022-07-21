@@ -414,7 +414,7 @@
                         <!--end::Input group-->
 
                         <!--begin::Input group-->
-                        <div class="fv-row mb-10">
+                        {{-- <div class="fv-row mb-10">
                             <!--begin::Label-->
                             <label class="d-block fw-bold fs-6 mb-5">
                                 <span class="required">Project Logo</span>
@@ -456,7 +456,7 @@
                             <!--begin::Hint-->
                             <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                             <!--end::Hint-->
-                        </div>
+                        </div> --}}
                         <!--end::Input group-->
 
                         {{-- <!--begin::Input group-->
