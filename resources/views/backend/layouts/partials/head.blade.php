@@ -1,4 +1,4 @@
-<title>Timetracker - #1 time tracking solution for your work</title>
+<title>TaskMonitor - #1 time tracking solution for your work</title>
 <meta charset="utf-8" />
 {{-- <meta name="description"
 	content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -12,15 +12,22 @@
 <meta property="og:url" content="https://keenthemes.com/metronic" />
 <meta property="og:site_name" content="Keenthemes | Metronic" />
 <link rel="canonical" href="https://preview.keenthemes.com/metronic8" /> --}}
-<link rel="shortcut icon" href="{{asset('assets_backend/media/logos/favicon.ico')}}" />
+<link rel="shortcut icon" href="{{ asset('assets_backend/media/logos/favicon.ico') }}" />
 <!--begin::Fonts-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 <!--end::Fonts-->
 <!--begin::Page Vendor Stylesheets(used by this page)-->
-<link href="{{asset('assets_backend/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets_backend/plugins/custom/vis-timeline/vis-timeline.bundle.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets_backend/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+    type="text/css" />
+<link href="{{ asset('assets_backend/plugins/custom/vis-timeline/vis-timeline.bundle.css') }}" rel="stylesheet"
+    type="text/css" />
 <!--end::Page Vendor Stylesheets-->
 <!--begin::Global Stylesheets Bundle(used by all pages)-->
-<link href="{{asset('assets_backend/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets_backend/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets_backend/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets_backend/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 <!--end::Global Stylesheets Bundle-->
+
+<!--begin::Toaster JS-->
+<link href="{{ asset('assets_backend/toastr/build/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+<!--end::Toaster JS-->
+@yield('meta')

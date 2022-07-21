@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Invitation;
+use App\PreInvitation;
 use App\Project;
 use App\Setting;
 use App\TimeTracker;
@@ -91,19 +92,33 @@ class EmployeeController extends Controller
 
         $to_name = $exploreArr[0];
         $to_email = $email;
-        $data = array('email' => Auth::user()->email);
+        if (isset($request->project_id)) {
+            $data = array('email' => Auth::user()->email, 'to_email' => $to_email, 'has_project_invitation' => 1);
+        } else {
+            $data = array('email' => Auth::user()->email, 'to_email' => $to_email,);
+        }
 
         Mail::send('backend.email.invitation_mail', $data, function ($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-                ->subject('Invitation to join TimeTracker');
-            $message->from('noreply@timetracker.codecloudtech.com', 'Time Tracker Solution');
+                ->subject('Invitation to join TaskMonitor');
+            $message->from('noreply@taskmonitor.xyz', 'TaskMonitor');
         });
 
         $invitation = new Invitation();
         $invitation->employer_id = Auth::user()->id;
         $invitation->employee_mail = $request->email;
         $invitation->save();
-        return redirect()->route('employee.invitations')->with(["success" => 1]);
+
+        if (isset($request->project_id)) {
+            $pre_invitation = new PreInvitation();
+            $pre_invitation->email = $request->email;
+            $pre_invitation->project_id = decrypt($request->project_id);
+            $pre_invitation->save();
+        }
+
+        session()->flash('success', 'Invitation sent successfully.');
+
+        return redirect()->route('employee.invitations');
     }
 
     public function storeInvitation(Request $request)
@@ -112,13 +127,26 @@ class EmployeeController extends Controller
         $invitation->employer_id = Auth::user()->id;
         $invitation->employee_mail = $request->email;
         $invitation->save();
-        return redirect()->route('employee.invitations')->with(["success" => 1]);
+
+        if (isset($request->project_id)) {
+            $pre_invitation = new PreInvitation();
+            $pre_invitation->email = $request->email;
+            $pre_invitation->project_id = decrypt($request->project_id);
+            $pre_invitation->save();
+        }
+
+        session()->flash('success', 'Invitation sent successfully.');
+
+        return redirect()->route('employee.invitations');
     }
 
     public function destroyInvitation(Request $request)
     {
         $invitation = Invitation::findOrFail($request->id);
         $invitation->delete();
+
+        session()->flash('success', 'Invitation removed successfully.');
+
         return redirect()->back();
     }
 
@@ -134,12 +162,12 @@ class EmployeeController extends Controller
         //     array_push($project_ids, $project->id);
         // }
 
-        $timeTrackers = TimeTracker::with(['screenshots' => function($q){
-                $q->latest();
-            }])
+        $timeTrackers = TimeTracker::with(['screenshots' => function ($q) {
+            $q->latest();
+        }])
             // ->whereIn('project_id', $project_ids)
             ->where('user_id', $employee->employee_id)
-            ->whereHas('project', function($q){
+            ->whereHas('project', function ($q) {
                 $q->where('user_id', Auth::user()->id);
             })
             ->orderBy('id', 'desc');
@@ -195,6 +223,8 @@ class EmployeeController extends Controller
         $employee->employee_id = $user->id;
         $employee->mac_address = $request->mac_address;
         $employee->save();
+
+        session()->flash('success', 'Mac address stored successfully.');
 
         return redirect()->back();
     }
@@ -267,6 +297,9 @@ class EmployeeController extends Controller
     {
         $employee->is_archived = 1;
         $employee->save();
+
+        session()->flash('success', 'Employee archived successfully.');
+
         return redirect()->back();
     }
 
@@ -274,6 +307,9 @@ class EmployeeController extends Controller
     {
         $employee->is_archived = 0;
         $employee->save();
+
+        session()->flash('success', 'Employee unarchived successfully.');
+
         return redirect()->back();
     }
 
@@ -354,6 +390,9 @@ class EmployeeController extends Controller
 
         $employee->screenshot_duration = $request->screenshot_duration;
         $employee->save();
+
+        session()->flash('success', 'Updated successfully.');
+
         return redirect()->back();
     }
 

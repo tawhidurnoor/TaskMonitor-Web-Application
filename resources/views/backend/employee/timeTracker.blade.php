@@ -1,5 +1,9 @@
 @extends('backend.layouts.full.mainlayout')
 
+@section('meta')
+<link rel="stylesheet" href="{{asset('assets_backend/lightbox2/dist/css/lightbox.min.css')}}">
+@endsection
+
 @section('body')
 <!--begin::Content-->
 <div class="content flex-column-fluid" id="kt_content">
@@ -12,39 +16,6 @@
                 <span class="text-dark fw-bolder fs-1">Time Tracker</span>
             </h1>
             <!--end::Title-->
-            <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">
-                    <a href="../../index.html" class="text-muted text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Apps</li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Projects</li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-dark">Users</li>
-                <!--end::Item-->
-            </ul>
-            <!--end::Breadcrumb-->
         </div>
         <!--end::Page title-->
     </div>
@@ -179,14 +150,16 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}  <span class="badge {{ ($screenshot->activity == 'Excellent') ? "badge-success" : ( $screenshot->activity == 'Okay' ? "badge-primary" : "badge-danger" ) }}">{{ $screenshot->activity }}</span></p>
-                                            <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
+                                            <a href="{{ asset('captured/'.$screenshot->image) }}" data-lightbox="mygallery">
+                                                <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
+                                            </a>
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
-                                        <div class="overlay-layer bg-dark bg-opacity-10 rounded">
+                                        {{-- <div class="overlay-layer bg-dark bg-opacity-10 rounded">
                                             <a href="{{ asset('captured/'.$screenshot->image) }}" class="btn btn-sm btn-primary btn-shadow"
                                                 target="_blank">Explore</a>
-                                        </div>
+                                        </div> --}}
                                         <!--end::Link-->
                                     </div>
                                     <!--end::Item-->
@@ -238,6 +211,7 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('assets_backend/lightbox2/dist/js/lightbox.min.js')}}"></script>
 <script>
     $(document).on('click', '.reset_button', function(e) {
         e.preventDefault();

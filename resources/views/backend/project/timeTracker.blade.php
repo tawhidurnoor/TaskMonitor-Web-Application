@@ -1,5 +1,11 @@
 @extends('backend.layouts.full.mainlayout')
 
+
+@section('meta')
+    <link rel="stylesheet" href="{{ asset('assets_backend/lightbox2/dist/css/lightbox.min.css') }}">
+@endsection
+
+
 @section('body')
     <!--begin::Content-->
     <div class="content flex-column-fluid" id="kt_content">
@@ -94,7 +100,7 @@
                                                 src="{{ asset('uploaded_files/profile_pictures/' . $projectPerson->profile_picture) }}" />
                                         @else
                                             <img alt="Profile Picture"
-                                                src="{{ Avatar::create($projectPerson->name )->toBase64() }}" />
+                                                src="{{ Avatar::create($projectPerson->name)->toBase64() }}" />
                                         @endisset
                                     </div>
                                     <!--end::User-->
@@ -202,53 +208,56 @@
                                 <!--begin::Timeline details-->
                                 <div class="row">
                                     @php
-                                        $prev_hour = NULL;
+                                        $prev_hour = null;
                                     @endphp
                                     @foreach ($timeTracker->screenshots as $screenshot)
-                                    @if ($prev_hour === NULL)
-                                        {{-- <hr> --}}
-                                        <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }} </p>
-                                        <div class="col-12 per-hour" style="position: relative">
-                                            <div class="left-bar"></div>
-                                            <div class="row ms-0">
-                                        @php
-                                            $prev_hour = $screenshot->created_at->hour;
-                                        @endphp
-                                    @elseif ($prev_hour != $screenshot->created_at->hour)
+                                        @if ($prev_hour === null)
+                                            {{-- <hr> --}}
+                                            <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }}
+                                            </p>
+                                            <div class="col-12 per-hour" style="position: relative">
+                                                <div class="left-bar"></div>
+                                                <div class="row ms-0">
+                                                    @php
+                                                        $prev_hour = $screenshot->created_at->hour;
+                                                    @endphp
+                                                @elseif ($prev_hour != $screenshot->created_at->hour)
+                                                </div>
                                             </div>
+                                            <hr class="mt-2">
+                                            <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }}
+                                            </p>
+                                            <div class="col-12 per-hour" style="position: relative">
+                                                <div class="left-bar"></div>
+                                                <div class="row ms-0">
+                                                    @php
+                                                        $prev_hour = $screenshot->created_at->hour;
+                                                    @endphp
+                                        @endif
+                                        <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-12 col-12 mb-5">
+                                            <!--begin::Item-->
+                                            <div class="overlay me-10">
+                                                <!--begin::Image-->
+                                                <div class="overlay-wrapper">
+                                                    <p class="screenshot-time">
+                                                        {{ $screenshot->created_at->format('h:i a') }} <span
+                                                            class="badge {{ $screenshot->status == 'Excellent' ? 'badge-success' : ($screenshot->status == 'Okay' ? 'badge-primary' : 'badge-danger') }}">{{ $screenshot->status }}</span>
+                                                    </p>
+                                                    <a href="{{ asset('captured/' . $screenshot->image) }}"
+                                                        data-lightbox="mygallery">
+                                                        <img alt="img" class="rounded w-300px"
+                                                            src="{{ asset('captured/' . $screenshot->image) }}" />
+                                                    </a>
+                                                </div>
+                                                <!--end::Image-->
+                                            </div>
+                                            <!--end::Item-->
                                         </div>
-                                        <hr class="mt-2">
-                                        <p class="hour-text">Hour {{ $screenshot->created_at->format('h:00 a') }} </p>
-                                        <div class="col-12 per-hour" style="position: relative">
-                                            <div class="left-bar"></div>
-                                            <div class="row ms-0">
-                                        @php
-                                            $prev_hour = $screenshot->created_at->hour;
-                                        @endphp
-                                    @endif
-                                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-12 col-12 mb-5">
-                                        <!--begin::Item-->
-                                        <div class="overlay me-10">
-                                            <!--begin::Image-->
-                                            <div class="overlay-wrapper">
-                                                <p class="screenshot-time">{{ $screenshot->created_at->format('h:i a') }}  <span class="badge {{ ($screenshot->status == 'Excellent') ? "badge-success" : ( $screenshot->status == 'Okay' ? "badge-primary" : "badge-danger" ) }}">{{ $screenshot->status }}</span></p>
-                                                <img alt="img" class="rounded w-300px" src="{{ asset('captured/'.$screenshot->image) }}" />
-                                            </div>
-                                            <!--end::Image-->
-                                            <!--begin::Link-->
-                                            <div class="overlay-layer bg-dark bg-opacity-10 rounded">
-                                                <a href="{{ asset('captured/'.$screenshot->image) }}" class="btn btn-sm btn-primary btn-shadow"
-                                                    target="_blank">Explore</a>
-                                            </div>
-                                            <!--end::Link-->
-                                        </div>
-                                        <!--end::Item-->
-                                    </div>
                                     @endforeach
-                                        </div>
-                                    </div>
                                 </div>
-                                {{-- <div class="overflow-auto pb-5">
+                            </div>
+                        </div>
+                        {{-- <div class="overflow-auto pb-5">
                                     <div
                                         class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
                                         @foreach ($timeTracker->screenshots as $screenshot)
@@ -271,21 +280,25 @@
 
                                     </div>
                                 </div> --}}
-                                <!--end::Timeline details-->
-                            </div>
-                            <!--end::Timeline content-->
-                        </div>
-                        <!--end::Timeline item-->
-                    @endforeach
+                        <!--end::Timeline details-->
                 </div>
-                <!--end::Timeline-->
+                <!--end::Timeline content-->
             </div>
-            <!--end::Tab panel-->
+            <!--end::Timeline item-->
+            @endforeach
         </div>
-        <!--end::Tab Content-->
-
+        <!--end::Timeline-->
     </div>
-    <!--end::Post-->
+    <!--end::Tab panel-->
+</div>
+<!--end::Tab Content-->
+
+</div>
+<!--end::Post-->
 </div>
 <!--end::Content-->
+@endsection
+
+@section('scripts')
+<script src="{{ asset('assets_backend/lightbox2/dist/js/lightbox.min.js') }}"></script>
 @endsection

@@ -68,7 +68,7 @@ class ProjectController extends Controller
             ->where('employees.is_archived', 0)
             ->where(function ($q) use ($serach_query) {
                 $q->where('email', 'LIKE', '%' . $serach_query . '%');
-                    // ->orWhere('name', 'LIKE', '%' . $serach_query . '%');
+                // ->orWhere('name', 'LIKE', '%' . $serach_query . '%');
             })
             ->selectRaw('users.*')
             ->get();
@@ -80,9 +80,9 @@ class ProjectController extends Controller
             }
         }
 
-        if( count($users) == 0 ){
+        if (count($users) == 0) {
             $user_counter = User::where('email', $serach_query)->where('login_mode', '!=', 'admin')->where('email', '!=', Auth::user()->email)->count();
-            if($user_counter>0){
+            if ($user_counter > 0) {
                 $is_registered = 1;
             }
         }
@@ -106,7 +106,10 @@ class ProjectController extends Controller
         $project_people->user_id = $user_id;
         $project_people->save();
 
-        return $this->details($id);
+        session()->flash('success', 'Employee added successfully.');
+
+        // return $this->details($id);
+        return redirect()->route('project.index');
     }
 
     public function removeProjectPeople(Request $request)
@@ -114,6 +117,9 @@ class ProjectController extends Controller
         $projectPerson = ProjectPeople::findOrFail($request->id);
         $projectPerson->is_active = false;
         $projectPerson->save();
+
+        session()->flash('success', 'Employee removed successfully.');
+
         return redirect()->back();
     }
 
@@ -122,6 +128,9 @@ class ProjectController extends Controller
         $projectPerson = ProjectPeople::findOrFail($request->id);
         $projectPerson->is_active = true;
         $projectPerson->save();
+
+        session()->flash('success', 'Employee reassigned successfully.');
+
         return redirect()->back();
     }
 
@@ -162,6 +171,8 @@ class ProjectController extends Controller
         // } else {
         //     session()->flash('warning', 'Errot adding project!! Please try again later.');
         // }
+
+        session()->flash('success', 'Project added successfully.');
 
         return redirect()->route('project.index', $request->company_id);
     }

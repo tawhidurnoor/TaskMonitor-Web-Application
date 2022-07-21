@@ -88,7 +88,7 @@
                         <div class="fv-row mb-7">
                             <label class="form-label fw-bolder text-dark fs-6">Email</label>
                             <input class="form-control form-control-lg form-control-solid" type="email" placeholder=""
-                                name="email" autocomplete="off" />
+                                name="email" autocomplete="off"/>
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->

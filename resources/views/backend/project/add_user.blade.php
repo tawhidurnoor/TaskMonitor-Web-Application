@@ -109,12 +109,12 @@
                                                 list</h4>
                                             <div class="fs-6 text-gray-700">But you still can ask
                                                 <b>{{ $serach_query }}</b> to
-                                                <form class="d-inline" action="{{ route('employee.mailinvitations') }}"
+                                                <form class="d-inline" action="{{ route('employee.store_invitation', 'project_id='.encrypt($project_id)) }}"
                                                     method="post">
                                                     @csrf
                                                     <input type="hidden" value="{{ $serach_query }}" name="email">
                                                     <button type="submit" class="btn btn-link p-0 m-0 align-baseline">join
-                                                        Your team</button>
+                                                        Your team and this project</button>
                                                 </form>.
                                             </div>
                                         @elseif ($serach_query == auth()->user()->email)
@@ -124,12 +124,12 @@
                                             <h4 class="text-gray-900 fw-bolder">Email was not found in our system</h4>
                                             <div class="fs-6 text-gray-700">But you still can ask
                                                 <b>{{ $serach_query }}</b> to
-                                                <form class="d-inline" action="{{ route('employee.mailinvitations') }}"
+                                                <form class="d-inline" action="{{ route('employee.mailinvitations', 'project_id='.encrypt($project_id) ) }}"
                                                     method="post">
                                                     @csrf
                                                     <input type="hidden" value="{{ $serach_query }}" name="email">
                                                     <button type="submit" class="btn btn-link p-0 m-0 align-baseline">join
-                                                        Timetracker</button>
+                                                        Timetracker and this project.</button>
                                                 </form>.
                                             </div>
                                         @endif
