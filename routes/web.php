@@ -123,6 +123,14 @@ Route::group(
 
         //pricing
         Route::get('pricing/employer', 'Backend\PricingController@index')->name('pricing.employer.index');
+        Route::post('pricing/employer', 'Backend\PricingController@store')->name('pricing.employer.store');
+        Route::get('pricing/{tier}', 'Backend\PricingController@fetchPricingTier')->name('pricing.employer.price.tier');
+
+        //employee subscription
+        Route::prefix('subscription')->group(function(){
+            Route::get('/', 'Backend\SubscriptionController@index')->name('subscription.index');
+            Route::delete('/', 'Backend\SubscriptionController@destroy')->name('subscription.destroy');
+        });
     }
 );
 

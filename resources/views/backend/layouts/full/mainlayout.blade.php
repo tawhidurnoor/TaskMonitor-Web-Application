@@ -30,6 +30,7 @@
             border-left-color: #2ECD6F;
         }
     </style>
+    @stack('css')
 </head>
 <!--end::Head-->
 

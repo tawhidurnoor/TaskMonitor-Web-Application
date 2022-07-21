@@ -20,6 +20,7 @@ class CreateSubscriptionPriceTiersTable extends Migration
             $table->foreignIdFor(Subscription::class);
             $table->foreignIdFor(PriceTier::class);
             $table->double("tier_price", 6,1);
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

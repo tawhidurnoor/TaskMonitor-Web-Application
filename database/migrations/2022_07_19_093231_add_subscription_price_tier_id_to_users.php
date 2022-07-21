@@ -15,7 +15,7 @@ class AddSubscriptionPriceTierIdToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignIdFor(SubscriptionPriceTier::class);
+            $table->foreignIdFor(SubscriptionPriceTier::class)->nullable();
         });
     }
 
