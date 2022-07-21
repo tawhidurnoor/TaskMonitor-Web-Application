@@ -9,9 +9,9 @@
         <div class="page-title d-flex flex-column py-1">
             <!--begin::Title-->
             <h1 class="d-flex align-items-center my-1">
-                <span class="text-dark fw-bolder fs-1">Employee Dashboard</span>
+                <span class="text-dark fw-bolder fs-1">Dashboard</span>
                 <!--begin::Description-->
-                <small class="text-muted fs-6 fw-bold ms-1">You have 7
+                <small class="text-muted fs-6 fw-bold ms-1"> You have 7
                     <span class="text-primary fw-bolder">Active Projects</span></small>
                 <!--end::Description-->
             </h1>
