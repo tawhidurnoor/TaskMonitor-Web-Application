@@ -55,19 +55,20 @@
                             <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                 <!--begin::Table head-->
                                 <thead>
-                                    <tr class="fw-bolder text-muted">
+                                    <tr class="fw-bolder">
                                         <th class="min-w-200px">Employee</th>
                                         <th class="min-w-150px">Today's tasks</th>
                                         <th class="min-w-150px">Today total time</th>
                                         <th class="min-w-150px">
-                                            <div class="d-flex flex-column w-100 me-2">
+                                            {{-- <div class="d-flex flex-column w-100 me-2">
                                                 <div class="d-flex flex-stack mb-2">
                                                     Total Time This Week
                                                 </div>
                                                 <div class="w-100">
                                                     <span class="me-2 fs-7 fw-bold"> Week: (Sunday) </span>
                                                 </div>
-                                            </div>
+                                            </div> --}}
+                                            Total Time This Week
                                         </th>
                                         <th class="min-w-100px">Action</th>
                                         {{-- <th class="min-w-100px text-end">Actions</th> --}}
@@ -171,7 +172,7 @@
                                                 <div class="d-flex flex-column w-100 me-2">
                                                     <div class="d-flex flex-stack mb-2">
                                                         <span
-                                                            class="me-2 fs-7 fw-bold">{{ sprintf('%02d', intdiv($todayTotal, 60)) . ' Hours, ' . sprintf('%02d', $todayTotal % 60) . ' Minutes' }}</span>
+                                                            class="me-2 fs-7 fw-bold">{{ sprintf('%02d', intdiv($todayTotal, 60)) . ' : ' . sprintf('%02d', $todayTotal % 60) . ' H' }}</span>
                                                     </div>
                                                     {{-- <div class="progress h-6px w-100">
                                                 <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -182,7 +183,7 @@
                                                 <div class="d-flex flex-column w-100 me-2">
                                                     <div class="d-flex flex-stack mb-2">
                                                         <span
-                                                            class="me-2 fs-7 fw-bold">{{ sprintf('%02d', intdiv($totalMinutes, 60)) . ' Hours, ' . sprintf('%02d', $totalMinutes % 60) . ' Minutes' }}</span>
+                                                            class="me-2 fs-7 fw-bold">{{ sprintf('%02d', intdiv($totalMinutes, 60)) . ' : ' . sprintf('%02d', $totalMinutes % 60) . ' H' }}</span>
                                                     </div>
                                                     {{-- <div class="progress h-6px w-100">
                                                 <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -392,9 +393,9 @@
                                 <h1 class="mb-3">Add a project</h1>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-bold fs-5">If you need more info, please check
+                                {{--  <div class="text-muted fw-bold fs-5">If you need more info, please check
                                     <a href="#" class="fw-bolder link-primary">Project Guidelines</a>.
-                                </div>
+                                </div>  --}}
                                 <!--end::Description-->
                             </div>
                             <!--end::Heading-->

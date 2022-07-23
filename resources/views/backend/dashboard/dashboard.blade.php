@@ -49,10 +49,10 @@
                             <!--begin::Title-->
                             <div class="card-title d-flex flex-column">
                                 <!--begin::Amount-->
-                                <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{ count($projects) }}</span>
+                                <span class="fs-2hx fw-bolder text-black me-2 lh-1 ls-n2">{{ count($projects) }}</span>
                                 <!--end::Amount-->
                                 <!--begin::Subtitle-->
-                                <span class="text-white opacity-50 pt-1 fw-bold fs-6">Active
+                                <span class="text-black opacity-100 pt-1 fw-bold fs-6">Active
                                     Projects</span>
                                 <!--end::Subtitle-->
                             </div>
@@ -80,10 +80,10 @@
                             <!--begin::Title-->
                             <div class="card-title d-flex flex-column">
                                 <!--begin::Amount-->
-                                <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{ count($employees) }}</span>
+                                <span class="fs-2hx fw-bolder text-black me-2 lh-1 ls-n2">{{ count($employees) }}</span>
                                 <!--end::Amount-->
                                 <!--begin::Subtitle-->
-                                <span class="text-white opacity-50 pt-1 fw-bold fs-6">Employees</span>
+                                <span class="text-black opacity-100 pt-1 fw-bold fs-6">Employees</span>
                                 <!--end::Subtitle-->
                             </div>
                             <!--end::Title-->
@@ -110,16 +110,19 @@
                             <!--begin::Title-->
                             <div class="card-title d-flex flex-column">
                                 <!--begin::Amount-->
-                                <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{ $work_hour_seven_days }} <small
-                                        style="color: white">hours work last 7 days</small></span>
+                                <span class="fs-2hx fw-bolder text-black me-2 lh-1 ls-n2">{{ $work_hour_seven_days }}
+                                </span>
                                 <!--end::Amount-->
                                 <!--begin::Subtitle-->
-                                <span class="text-white opacity-50 pt-1 fw-bold fs-6">
+                                {{-- <span class="text-black opacity-50 pt-1 fw-bold fs-6">
                                     @if ($percent_difference < 0)
                                         {{ $percent_difference * -1 }} % less form last week
                                     @else
                                         {{ $percent_difference }} % more form last week
                                     @endif
+                                </span> --}}
+                                <span class="text-black opacity-100 pt-1 fw-bold fs-6">
+                                    hours work last 7 days
                                 </span>
                                 <!--end::Subtitle-->
                             </div>
@@ -146,11 +149,11 @@
                             <!--begin::Title-->
                             <div class="card-title d-flex flex-column">
                                 <!--begin::Amount-->
-                                <span class="fs-2hx fw-bolder text-white me-2 lh-1 ls-n2">{{ $default_screenshot_duration }}
-                                    <small style="color: white">Minutes</small> </span>
+                                <span class="fs-2hx fw-bolder text-black me-2 lh-1 ls-n2">{{ $default_screenshot_duration }}
+                                    <small style="color: black">Minutes</small> </span>
                                 <!--end::Amount-->
                                 <!--begin::Subtitle-->
-                                <span class="text-white opacity-50 pt-1 fw-bold fs-6">Default Screenshot Duration</span>
+                                <span class="text-black opacity-100 pt-1 fw-bold fs-6">Screenshot Duration</span>
                                 <br>
                                 <!--end::Subtitle-->
                             </div>

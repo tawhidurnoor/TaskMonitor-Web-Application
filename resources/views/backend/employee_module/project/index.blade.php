@@ -15,7 +15,7 @@
             </div>
             <!--end::Page title-->
             <!--begin::Actions-->
-            {{--  <div class="d-flex align-items-center py-1">
+            {{-- <div class="d-flex align-items-center py-1">
                 <!--begin::Button-->
                 <a href="{{ route('employee.archived.index') }}"
                     class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Archived Employees</a>
@@ -30,7 +30,7 @@
                 <a href="{{ route('employee.invitations') }}"
                     class="btn btn-sm btn-bg-light btn-active-color-primary me-3">View Sent Invitations</a>
                 <!--end::Button-->
-            </div>  --}}
+            </div> --}}
 
             <!--end::Actions-->
         </div>
@@ -58,7 +58,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-user-table-filter="search"
-                                class="form-control form-control-solid w-950px ps-14" placeholder="Search user" />
+                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employee" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -226,7 +226,8 @@
                                             <a href="#">
                                                 <div class="symbol-label">
                                                     @isset($project->project_logo)
-                                                        <img src="uploaded_files/project_logo/{{$project->project_logo}}" alt="{{$project->title}}"class="p-3" />
+                                                        <img src="uploaded_files/project_logo/{{ $project->project_logo }}"
+                                                            alt="{{ $project->title }}"class="p-3" />
                                                     @else
                                                         <img alt="Profile Picture"
                                                             src="{{ Avatar::create($project->title)->toBase64() }}"
@@ -244,11 +245,11 @@
                                     </td>
                                     <!--end::User-->
                                     <td>
-                                       {{ $project->description }}
+                                        {{ $project->description }}
                                     </td>
-                                    
+
                                     <td>
-                                         <span>
+                                        <span>
                                             @isset($employee->mac_address)
                                                 <a href="{{ route('employee.timetracker.noui', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
@@ -277,19 +278,19 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                               
+
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Report-->
                                             <div class="menu-item px-3">
-                                                {{--  <a href="{{ route('employee.report', $employee->id) }}"
-                                                    class="menu-link px-3">Report</a>  --}}
+                                                {{-- <a href="{{ route('employee.report', $employee->id) }}"
+                                                    class="menu-link px-3">Report</a> --}}
                                             </div>
                                             <!--end::Report-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                {{--  <a class="menu-link px-3 archive_button"
-                                                    data-id="{{ $employee->id }}">Archive</a>  --}}
+                                                {{-- <a class="menu-link px-3 archive_button"
+                                                    data-id="{{ $employee->id }}">Archive</a> --}}
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
