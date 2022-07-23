@@ -392,9 +392,9 @@
                                 <h1 class="mb-3">Add a project</h1>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-bold fs-5">If you need more info, please check
+                                {{--  <div class="text-muted fw-bold fs-5">If you need more info, please check
                                     <a href="#" class="fw-bolder link-primary">Project Guidelines</a>.
-                                </div>
+                                </div>  --}}
                                 <!--end::Description-->
                             </div>
                             <!--end::Heading-->
