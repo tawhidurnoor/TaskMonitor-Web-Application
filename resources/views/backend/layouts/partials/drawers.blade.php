@@ -1,7 +1,7 @@
 <!--begin::Drawers-->
 
 <!--begin::Activities drawer-->
-<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities"
+{{-- <div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities"
     data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}"
     data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_activities_toggle"
     data-kt-drawer-close="#kt_activities_close">
@@ -715,11 +715,11 @@
         </div>
         <!--end::Footer-->
     </div>
-</div>
+</div> --}}
 <!--end::Activities drawer-->
 
 <!--begin::Chat drawer-->
-<div id="kt_drawer_chat" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat" data-kt-drawer-activate="true"
+{{-- <div id="kt_drawer_chat" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat" data-kt-drawer-activate="true"
     data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}" data-kt-drawer-direction="end"
     data-kt-drawer-toggle="#kt_drawer_chat_toggle" data-kt-drawer-close="#kt_drawer_chat_close">
     <!--begin::Messenger-->
@@ -1124,7 +1124,7 @@
         <!--end::Card footer-->
     </div>
     <!--end::Messenger-->
-</div>
+</div> --}}
 <!--end::Chat drawer-->
 
 <!--end::Drawers-->
