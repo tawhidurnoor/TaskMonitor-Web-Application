@@ -45,6 +45,28 @@ class ProfileController extends Controller
             redirect()->route('profile.index');
             return back();
         }
+
+        if ($request->hasFile('profile_picture')) {
+            $file = $request->file('profile_picture');
+            $extention = $file->getClientOriginalExtension();
+
+            //naming file
+            $user_name = Auth::user()->name;
+            $user_name = str_replace(" ", "_", $user_name);
+            $user_name = strtolower($user_name);
+            $user_name = strrev($user_name);
+
+            $filename = time() . '_' . $user_name . '_' . Auth::user()->id . '.' . $extention;
+
+            if (isset(Auth::user()->profile_picture)) {
+                unlink('uploaded_files/profile_pictures/' . Auth::user()->profile_picture);
+            }
+
+            $file->move('uploaded_files/profile_pictures/', $filename);
+
+            $user->profile_picture = $filename;
+        }
+
         $user->save();
         session()->flash('success', 'Updated successfully.');
         return back();
