@@ -58,7 +58,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-user-table-filter="search"
-                                class="form-control form-control-solid w-950px ps-14" placeholder="Search user" />
+                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employee" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -191,7 +191,7 @@
                         <!--begin::Table head-->
                         <thead>
                             <!--begin::Table row-->
-                            <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+                            <tr class="text-start fw-bolder fs-7 gs-0">
                                 {{-- <th class="w-10px pe-2">
                                 <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                     <input class="form-check-input" type="checkbox" data-kt-check="true"
