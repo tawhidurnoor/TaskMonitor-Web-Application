@@ -53,22 +53,23 @@ class LoginController extends Controller
     public function googleRedirect()
     {
         $user = Socialite::driver('google')->user();
-        
-        $user = User::firstOrCreate([
-            'email' => $user->email
-        ],
-        [
-            'name' => $user->name,
-            'email' => $user->email,
-            'login_mode' => 'employer',
-            'login_method' => 'gmail',
-            'password' => Hash::make(Str::random(24)),
-        ]);
+
+        $user = User::firstOrCreate(
+            [
+                'email' => $user->email
+            ],
+            [
+                'name' => $user->name,
+                'email' => $user->email,
+                'login_method' => 'gmail',
+                'password' => Hash::make(Str::random(24)),
+            ]
+        );
 
         $setting = new Setting();
         $setting->user_id = $user->id;
         $setting->save();
-        
+
         Auth::login($user, true);
         return redirect('/dashboard');
     }
