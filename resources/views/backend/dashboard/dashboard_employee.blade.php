@@ -11,20 +11,20 @@
             <h1 class="d-flex align-items-center my-1">
                 <span class="text-dark fw-bolder fs-1">Dashboard</span>
                 <!--begin::Description-->
-                <small class="text-muted fs-6 fw-bold ms-1"> You have 7
-                    <span class="text-primary fw-bolder">Active Projects</span></small>
+                <small class="text-muted fs-6 fw-bold ms-1"> You have
+                    <span class="text-primary fw-bolder">{{count($invitations)}} Active Projects</span></small>
                 <!--end::Description-->
             </h1>
             <!--end::Title-->
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
-        <div class="d-flex align-items-center py-1">
+        {{--  <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
             <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px" data-bs-toggle="modal"
                 data-bs-target="#kt_modal_new_target" id="kt_toolbar_primary_button">New Project</a>
             <!--end::Button-->
-        </div>
+        </div>  --}}
         <!--end::Actions-->
     </div>
     <!--end::Toolbar-->
@@ -76,11 +76,11 @@
                     <!--begin::Card body-->
                     <div class="card-body d-flex flex-column justify-content-end pe-0">
                         <!--begin::Title-->
-                        <span class="fs-6 fw-boldest text-gray-800 d-block mb-2">Today’s
-                            Heroes</span>
+                        {{--  <span class="fs-6 fw-boldest text-gray-800 d-block mb-2">Today’s
+                            Heroes</span>  --}}
                         <!--end::Title-->
                         <!--begin::Users group-->
-                        <div class="symbol-group symbol-hover flex-nowrap">
+                        {{--  <div class="symbol-group symbol-hover flex-nowrap">
                             <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
                                 <span class="symbol-label bg-warning text-inverse-warning fw-bolder">A</span>
                             </div>
@@ -106,7 +106,7 @@
                                 data-bs-target="#kt_modal_view_users">
                                 <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bolder">+42</span>
                             </a>
-                        </div>
+                        </div>  --}}
                         <!--end::Users group-->
                     </div>
                     <!--end::Card body-->
