@@ -22,11 +22,11 @@
             <!--end::Aside mobile toggle-->
             <!--begin::Logo-->
             <a href="{{ route('dashboard') }}">
-                {{-- <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5.svg') }}"
+                <img alt="Logo" src="{{ asset('assets_backend/media/logos/' . get_logo()) }}"
                     class="d-none d-lg-inline h-30px" />
-                <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5-mobile.svg') }}"
+                {{-- <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5-mobile.svg') }}"
                     class="d-lg-none h-25px" /> --}}
-                <h3>TaskMonitor</h3>
+                {{-- <h3>TaskMonitor</h3> --}}
             </a>
             <!--end::Logo-->
         </div>

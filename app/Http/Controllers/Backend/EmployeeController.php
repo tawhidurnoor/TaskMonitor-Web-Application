@@ -104,38 +104,66 @@ class EmployeeController extends Controller
             $message->from('noreply@taskmonitor.xyz', 'TaskMonitor');
         });
 
-        $invitation = new Invitation();
-        $invitation->employer_id = Auth::user()->id;
-        $invitation->employee_mail = $request->email;
-        $invitation->save();
+        //
+        $invitation_counter = Invitation::where('employee_mail', $request->email)->count();
 
-        if (isset($request->project_id)) {
-            $pre_invitation = new PreInvitation();
-            $pre_invitation->email = $request->email;
-            $pre_invitation->project_id = decrypt($request->project_id);
-            $pre_invitation->save();
+        if ($invitation_counter == 0) {
+            $invitation = new Invitation();
+            $invitation->employer_id = Auth::user()->id;
+            $invitation->employee_mail = $request->email;
+            $invitation->save();
+
+            if (isset($request->project_id)) {
+                $pre_invitation = new PreInvitation();
+                $pre_invitation->email = $request->email;
+                $pre_invitation->project_id = decrypt($request->project_id);
+                $pre_invitation->save();
+            }
+
+            session()->flash('success', 'Invitation sent successfully.');
+        } else {
+            $invitation = Invitation::where('employee_mail', $request->email)->first();
+            $invitation = Invitation::findOrFail($invitation->id);
+
+            $invitation->employer_id = Auth::user()->id;
+            $invitation->employee_mail = $request->email;
+            $invitation->save();
+
+            session()->flash('success', 'Invitation resent successfully.');
         }
-
-        session()->flash('success', 'Invitation sent successfully.');
+        //
 
         return redirect()->route('employee.invitations');
     }
 
     public function storeInvitation(Request $request)
     {
-        $invitation = new Invitation();
-        $invitation->employer_id = Auth::user()->id;
-        $invitation->employee_mail = $request->email;
-        $invitation->save();
+        $invitation_counter = Invitation::where('employee_mail', $request->email)->count();
 
-        if (isset($request->project_id)) {
-            $pre_invitation = new PreInvitation();
-            $pre_invitation->email = $request->email;
-            $pre_invitation->project_id = decrypt($request->project_id);
-            $pre_invitation->save();
+        if ($invitation_counter == 0) {
+            $invitation = new Invitation();
+            $invitation->employer_id = Auth::user()->id;
+            $invitation->employee_mail = $request->email;
+            $invitation->save();
+
+            if (isset($request->project_id)) {
+                $pre_invitation = new PreInvitation();
+                $pre_invitation->email = $request->email;
+                $pre_invitation->project_id = decrypt($request->project_id);
+                $pre_invitation->save();
+            }
+
+            session()->flash('success', 'Invitation sent successfully.');
+        } else {
+            $invitation = Invitation::where('employee_mail', $request->email)->first();
+            $invitation = Invitation::findOrFail($invitation->id);
+
+            $invitation->employer_id = Auth::user()->id;
+            $invitation->employee_mail = $request->email;
+            $invitation->save();
+
+            session()->flash('success', 'Invitation resent successfully.');
         }
-
-        session()->flash('success', 'Invitation sent successfully.');
 
         return redirect()->route('employee.invitations');
     }
