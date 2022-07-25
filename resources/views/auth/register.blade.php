@@ -4,7 +4,7 @@
 <!--begin::Head-->
 
 <head>
-    <title>Register - Timetracker | Project management solution for your organization</title>
+    <title>Register - TaskMonitor | Project management solution for your organization</title>
     <meta charset="utf-8" />
     {{-- <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -13,8 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" /> --}}
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title"
-        content="Register - Timetracker | Project management solution for your organization" />
+    <meta property="og:title" content="Register - Timetracker | Project management solution for your organization" />
     {{-- <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" /> --}}
@@ -47,7 +46,8 @@
                 <!--begin::Wrapper-->
                 <div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
-                    <form action="{{ route('register') }}" method="POST" class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
+                    <form action="{{ route('register') }}" method="POST" class="form w-100" novalidate="novalidate"
+                        id="kt_sign_up_form">
                         @csrf
                         <!--begin::Heading-->
                         <div class="mb-10 text-center">
@@ -56,13 +56,13 @@
                             <!--end::Title-->
                             <!--begin::Link-->
                             <div class="text-gray-400 fw-bold fs-4">Already have an account?
-                                <a href="{{route('login')}}" class="link-primary fw-bolder">Sign in here</a>
+                                <a href="{{ route('login') }}" class="link-primary fw-bolder">Sign in here</a>
                             </div>
                             <!--end::Link-->
                         </div>
                         <!--end::Heading-->
                         <!--begin::Action-->
-                        <a href="{{route('login.google')}}" class="btn btn-light-primary fw-bolder w-100 mb-10">
+                        <a href="{{ route('login.google') }}" class="btn btn-light-primary fw-bolder w-100 mb-10">
                             <img alt="Logo" src="assets_backend/media/svg/brand-logos/google-icon.svg"
                                 class="h-20px me-3" />Sign in with Google</a>
                         <!--end::Action-->
@@ -88,7 +88,7 @@
                         <div class="fv-row mb-7">
                             <label class="form-label fw-bolder text-dark fs-6">Email</label>
                             <input class="form-control form-control-lg form-control-solid" type="email" placeholder=""
-                                name="email" autocomplete="off"/>
+                                name="email" autocomplete="off" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
@@ -104,11 +104,12 @@
                             {{-- <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="company_name"
                                 autocomplete="off" /> --}}
                         </div>
-                        <!--end::Input group--><!--begin::Input group-->
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
                         <div class="fv-row mb-7">
                             <label class="form-label fw-bolder text-dark fs-6">Company Name</label>
-                            <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="company_name"
-                                autocomplete="off" />
+                            <input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
+                                name="company_name" autocomplete="off" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
