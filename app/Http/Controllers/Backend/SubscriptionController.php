@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Currency;
 use App\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,8 @@ class SubscriptionController extends Controller
         }
         return view('backend.subscription.index')->with([
             'subscribed' => $subscribed,
-            'subscription' => $subscription
+            'subscription' => $subscription,
+            'currencies' => Currency::where('status', 1)->get()
         ]);
     }
 

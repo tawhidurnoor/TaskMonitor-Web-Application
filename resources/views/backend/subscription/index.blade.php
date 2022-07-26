@@ -11,7 +11,7 @@
     <!--begin::Content-->
     <div class="content flex-column-fluid" id="kt_content">
         <!--begin::Toolbar-->
-        <div class="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7" id="kt_toolbar">
+        <div class="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7" id="kt_toolbar">            
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column py-1">
                 <!--begin::Title-->
@@ -21,6 +21,13 @@
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
+            <!--begin::Actions-->
+            <div class="d-flex align-items-center py-1">
+                <!--begin::Button-->
+                <x-currency-select :currencies="$currencies"/>
+                <!--end::Button-->
+            </div>
+            <!--end::Actions-->        
         </div>
         <!--end::Toolbar-->
         <!--begin::Post-->

@@ -74,4 +74,16 @@
 @endif
 <!--end::Toaster JS-->
 
+<script>
+    $("#currency_changer").on("change", (e) => {
+        $.ajax({
+            type: 'GET',
+            url: `{{ url('change-currency') }}/${e.currentTarget.value}`,
+            success: function(response) {
+                location.reload();
+            }
+        });
+    });
+</script>
+
 <!--end::Javascript-->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Currency;
 use App\PriceTier;
 use App\Subscription;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class PricingController extends Controller
             'subscriptions' => Subscription::with(['priceTiers' => function($q) use ($price_tiers){
                 return $q->where('price_tier_id', $price_tiers[0]->id);
             }])->get(),
-            'price_tier' => $price_tiers[0]->id
+            'price_tier' => $price_tiers[0]->id,
+            'currencies' => Currency::where('status', 1)->get()
         ]);
     }
 
