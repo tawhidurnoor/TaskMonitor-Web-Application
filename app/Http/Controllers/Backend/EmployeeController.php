@@ -178,7 +178,7 @@ class EmployeeController extends Controller
         return redirect()->back();
     }
 
-    public function timeTracker(Employee $employee, Request $request)
+    public function timeTracker(Employee $employee, Project $project, Request $request)
     {
         $date = null;
         // $project_ids = [];

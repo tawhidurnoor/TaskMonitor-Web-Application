@@ -58,7 +58,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-user-table-filter="search"
-                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employee" />
+                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Project" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -253,7 +253,7 @@
                                                 <a href="{{ route('employee.timetracker.noui', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
                                             @else
-                                                <a href="{{ route('employee.timetracker', $project->id) }}"
+                                                <a href="{{ route('employee_module.timetracker', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
                                             @endisset
                                         </span>

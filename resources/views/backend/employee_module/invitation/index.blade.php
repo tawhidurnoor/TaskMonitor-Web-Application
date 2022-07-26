@@ -64,7 +64,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-user-table-filter="search"
-                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employee" />
+                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Invitation" />
                         </div>
                         <!--end::Search-->
                     </div>
