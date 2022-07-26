@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Project;
+use App\TimeTracker;
 use Illuminate\Support\Facades\Auth;
 
 class EmployeeProjectController extends Controller
@@ -16,11 +17,47 @@ class EmployeeProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::where('project_people.user_id','=', Auth::user()->id)
-        ->join('project_people', 'project_people.project_id','=','projects.id')
-        ->get();
-         return view('backend.employee_module.project.index', [
-             'projects' => $projects,
+        $projects = Project::where('project_people.user_id', '=', Auth::user()->id)
+            ->join('project_people', 'project_people.project_id', '=', 'projects.id')
+            ->selectRaw('projects.*')
+            ->get();
+        return view('backend.employee_module.project.index', [
+            'projects' => $projects,
+        ]);
+    }
+
+    public function timeTracker(Project $project, Request $request)
+    {
+        $date = null;
+
+        // $timeTrackers = TimeTracker::with(['screenshots' => function ($q) {
+        //     $q->latest();
+        // }])
+        //     // ->whereIn('project_id', $project_ids)
+        //     ->where('user_id', Auth::user()->id)
+        //     ->whereHas('project', function ($q) {
+        //         $q->where('user_id', Auth::user()->id);
+        //     })
+        //     ->orderBy('id', 'desc');
+
+        $timeTrackers = TimeTracker::where('project_id', $project->id)
+            ->where('user_id', Auth::user()->id)
+            ->orderBy('id', 'desc');
+
+        if (isset($request->date)) {
+            $timeTrackers->whereDate('start', $request->date);
+            $date = $request->date;
+        }
+
+        $timeTrackers = $timeTrackers->get();
+
+        // $user = User::findOrFail($employee->employee_id);
+        $user = Auth::user();
+
+        return view('backend.employee.timeTracker', [
+            'timeTrackers' => $timeTrackers,
+            'user' => $user,
+            'date' => $date,
         ]);
     }
 

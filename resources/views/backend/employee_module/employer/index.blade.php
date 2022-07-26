@@ -56,7 +56,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-user-table-filter="search"
-                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employee" />
+                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employer" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -101,7 +101,7 @@
                                     <td class="d-flex align-items-center">
                                         <!--begin:: Avatar -->
                                         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                            <a href="view.html">
+                                            <a href="#">
                                                 <div class="symbol-label">
                                                     @isset($employer->profile_picture)
                                                         <img alt="Profile Picture"

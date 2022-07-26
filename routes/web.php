@@ -25,11 +25,11 @@ use App\Http\Controllers\Backend\EmployeeProjectController;
 |
 */
 
-Route::get('/test', function(){
+Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/mail', function(){
+Route::get('/mail', function () {
     $to_name = 'Tawhidur Noor';
     $to_email = 'tawhidbadhan@gmail.com';
     $data = array('name' => $to_name, "body" => "Test mail");
@@ -85,11 +85,11 @@ Route::group(
         Route::post('/project/searchpeople/{id}', 'Backend\ProjectController@searchPeople')->name('project.search.people');
         Route::post('/project/addpeople/{id}', 'Backend\ProjectController@addPeople')->name('project.add.people');
 
-        Route::prefix('active-projects')->group(function(){
+        Route::prefix('active-projects')->group(function () {
             Route::get('/', [ActiveProjectsController::class, 'index'])->name('active.project.index');
         });
-        
-        Route::prefix('charts')->group(function(){
+
+        Route::prefix('charts')->group(function () {
             Route::get('/project-heatmap', [ChartsController::class, 'projectBasedHeatmap'])->name('chart.project.heatmap');
             Route::get('/employee-heatmap', [ChartsController::class, 'employeeBasedHeatmap'])->name('chart.employee.heatmap');
         });
@@ -108,8 +108,11 @@ Route::group(
         //employee module
         Route::get('/employee_dashboard', 'Backend\DashboardController@employeeIndex')->name('employee.dashboard');
 
-
+        //projects
         Route::get('/employee_project', 'Backend\EmployeeProjectController@Index')->name('employee.project');
+
+        //project wise time tracker
+        Route::get('/employeee_tt/{project}', 'Backend\EmployeeProjectController@timeTracker')->name('employee_module.timetracker');
 
         //invitations
         Route::get('/invitations', 'Backend\EmployeeInvitaionController@index')->name('employee.view.invitations');
@@ -117,7 +120,7 @@ Route::group(
         Route::post('/invitations/reject', 'Backend\EmployeeInvitaionController@rejectInvitation')->name('employee.reject.invitations');
 
         //employers
-        Route::get('/employers',  'Backend\EmployeeEmployerController@index' )->name('employee.employers.index');
+        Route::get('/employers',  'Backend\EmployeeEmployerController@index')->name('employee.employers.index');
 
         //login mode switcher
         Route::get('/mode_switcher', 'Backend\DashboardController@modeSwitcher')->name('employee.mode_switcher');
@@ -134,7 +137,7 @@ Route::group(
         Route::get('pricing/{tier}', 'Backend\PricingController@fetchPricingTier')->name('pricing.employer.price.tier');
 
         //employee subscription
-        Route::prefix('subscription')->group(function(){
+        Route::prefix('subscription')->group(function () {
             Route::get('/', 'Backend\SubscriptionController@index')->name('subscription.index');
             Route::delete('/', 'Backend\SubscriptionController@destroy')->name('subscription.destroy');
         });

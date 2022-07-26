@@ -4,8 +4,7 @@
 <!--begin::Head-->
 
 <head>
-    <title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel
-        by Keenthemes</title>
+    <title>TaskMonitor - How you want to use TaskMonitor? </title>
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -20,7 +19,7 @@
 <!--end::Head-->
 <!--begin::Body-->
 
-<body data-kt-name="metronic" id="kt_body" class="app-blank">
+<body data-kt-name="taskmonitor" id="kt_body" class="app-blank">
     <!--begin::Main-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root">

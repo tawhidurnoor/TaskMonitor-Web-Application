@@ -3,7 +3,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
         <div class="logo">
-            <h1><a href="/"> <strong>Time</strong>tracker</a></h1>
+            <h1><a href="/"> <strong>Task</strong>monitor</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets_landing_page/assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -34,7 +34,7 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                <li><a class="getstarted scrollto" href="{{route('login')}}">Login</a></li>
+                <li><a class="getstarted scrollto" href="{{ route('login') }}">Login</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

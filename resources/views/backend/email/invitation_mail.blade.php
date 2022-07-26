@@ -12,8 +12,8 @@
         <tbody>
             <tr>
                 <td align="center" valign="center" style="text-align:center; padding: 40px">
-                    <a href="https://timetracker.com/" rel="noopener" target="_blank">
-                        <img alt="Logo" src="{{asset('assets_backend/media/logos/logo-1.svg')}}" />
+                    <a href="https://taskmonitor.xyz/" rel="noopener" target="_blank">
+                        <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-1.svg') }}" />
                     </a>
                 </td>
             </tr>
@@ -25,13 +25,14 @@
                         <div style="padding-bottom: 30px; font-size: 17px;">
                             <strong>Welcome to TaskMonitor!</strong>
                         </div>
-                        <div style="padding-bottom: 30px">You have been invited to join TaskMonitor from 
-                            {{auth()->user()->name}} @isset($has_project_invitation) in his project @endisset .
+                        <div style="padding-bottom: 30px">You have been invited to join TaskMonitor from
+                            {{ auth()->user()->name }} @isset($has_project_invitation)
+                                in his project
+                            @endisset .
                             To get started, accept the invite below:
                         </div>
                         <div style="padding-bottom: 40px; text-align:center;">
-                            <a href="{{route('register' , 'email='.$to_email)}}"
-                                rel="noopener"
+                            <a href="{{ route('register', 'email=' . $to_email) }}" rel="noopener"
                                 style="text-decoration:none;display:inline-block;text-align:center;padding:0.75575rem 1.3rem;font-size:0.925rem;line-height:1.5;border-radius:0.35rem;color:#ffffff;background-color:#009EF7;border:0px;margin-right:0.75rem!important;font-weight:600!important;outline:none!important;vertical-align:middle"
                                 target="_blank">Accept Invite</a>
                         </div>

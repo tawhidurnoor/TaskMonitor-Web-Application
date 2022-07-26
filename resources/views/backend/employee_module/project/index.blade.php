@@ -58,7 +58,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-user-table-filter="search"
-                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Employee" />
+                                class="form-control form-control-solid w-950px ps-14" placeholder="Search Project" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -191,7 +191,7 @@
                         <!--begin::Table head-->
                         <thead>
                             <!--begin::Table row-->
-                            <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+                            <tr class="text-start fw-bolder fs-7 gs-0">
                                 {{-- <th class="w-10px pe-2">
                                 <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                     <input class="form-check-input" type="checkbox" data-kt-check="true"
@@ -200,7 +200,6 @@
                             </th> --}}
                                 <th class="min-w-200px">Project</th>
                                 <th class="min-w-50px">Description</th>
-                                <th class="min-w-50px"></th>
                                 <th class="min-w-150px">Action</th>
                                 {{-- <th class="text-end min-w-100px">Actions</th> --}}
                             </tr>
@@ -254,49 +253,11 @@
                                                 <a href="{{ route('employee.timetracker.noui', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
                                             @else
-                                                <a href="{{ route('employee.timetracker', $project->id) }}"
+                                                <a href="{{ route('employee_module.timetracker', $project->id) }}"
                                                     class="btn btn-sm btn-bg-light btn-active-color-primary">Time Tracker</a>
                                             @endisset
                                         </span>
                                     </td>
-                                    <td>
-                                        <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
-                                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
-                                            <span class="svg-icon svg-icon-5 m-0">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none">
-                                                    <path
-                                                        d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->
-                                        </a>
-                                        <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-                                            data-kt-menu="true">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Report-->
-                                            <div class="menu-item px-3">
-                                                {{-- <a href="{{ route('employee.report', $employee->id) }}"
-                                                    class="menu-link px-3">Report</a> --}}
-                                            </div>
-                                            <!--end::Report-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                {{-- <a class="menu-link px-3 archive_button"
-                                                    data-id="{{ $employee->id }}">Archive</a> --}}
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu-->
-                                    </td>
-                                    <!--end::Action=-->
                                 </tr>
                                 <!--end::Table row-->
                             @endforeach
