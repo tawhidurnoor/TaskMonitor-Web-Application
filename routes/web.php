@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Backend\ChangeCurrencyController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\ActiveProjectsController;
 use App\Http\Controllers\Backend\ProfileController;
-use App\Http\Controllers\Backend\EmployeeProjectController;
 use App\Http\Controllers\Frontend\ChartsController;
+use App\Http\Controllers\Backend\ActiveProjectsController;
+use App\Http\Controllers\Backend\EmployeeProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,6 +141,8 @@ Route::group(
             Route::get('/', 'Backend\SubscriptionController@index')->name('subscription.index');
             Route::delete('/', 'Backend\SubscriptionController@destroy')->name('subscription.destroy');
         });
+
+        Route::get('change-currency/{currency}', 'ChangeCurrencyController@store')->name('change.currency.store');
     }
 );
 

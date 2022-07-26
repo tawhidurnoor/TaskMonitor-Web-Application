@@ -10,7 +10,6 @@
 @section('body')
     <!--begin::Content-->
     <div class="content flex-column-fluid" id="kt_content">
-        <!--begin::Toolbar-->
         <div class="toolbar d-flex flex-stack flex-wrap mb-5 mb-lg-7" id="kt_toolbar">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column py-1">
@@ -21,8 +20,14 @@
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
+            <!--begin::Actions-->
+            <div class="d-flex align-items-center py-1">
+                <!--begin::Button-->
+                <x-currency-select :currencies="$currencies"/>
+                <!--end::Button-->
+            </div>
+            <!--end::Actions-->
         </div>
-        <!--end::Toolbar-->
         <!--begin::Post-->
         <div class="post" id="kt_post">
             <!--begin::Pricing card-->
@@ -52,7 +57,7 @@
                         </div>
                         <!--end::Heading-->
                         <!--begin::Row-->
-                        <div class="row justify-content-center" id="pricing_models">
+                        <div class="row justify-content-evenly" id="pricing_models">
                             <div class="col-xl-4">
                                 <div class="d-flex h-100 align-items-center subscription">
                                     <!--begin::Option-->

@@ -18,8 +18,8 @@
             <div class="text-center">
                 <span class="mb-2 me-5 text-primary">{{$subscription->priceTiers[0]->tier_name}}</span>
                 @if ($subscription->priceTiers[0]->pivot->tier_price)                                        
-                    <span class="mb-2 text-primary">$</span>
-                    <span class="fs-3x fw-bolder text-primary" data-kt-plan-price-month="{{ $subscription->priceTiers[0]->pivot->tier_price }}" data-kt-plan-price-annual="{{ $subscription->priceTiers[0]->pivot->tier_price }}">{{ (int)$subscription->priceTiers[0]->pivot->tier_price }}</span>
+                    <span class="mb-2 text-primary">{{ currency_symbol() }}</span>
+                    <span class="fs-3x fw-bolder text-primary" data-kt-plan-price-month="{{ $subscription->priceTiers[0]->pivot->tier_price }}" data-kt-plan-price-annual="{{ $subscription->priceTiers[0]->pivot->tier_price }}">{{ covertPrice($subscription->priceTiers[0]->pivot->tier_price) }}</span>
                     <span class="fs-7 fw-bold opacity-50">/ <span data-kt-element="period">
                         @switch($subscription->priceTiers[0]->payment_interval)
                             @case(1)
