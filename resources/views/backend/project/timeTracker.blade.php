@@ -2,7 +2,11 @@
 
 
 @section('meta')
+    {{-- lightbox --}}
     <link rel="stylesheet" href="{{ asset('assets_backend/lightbox2/dist/css/lightbox.min.css') }}">
+
+    {{-- daterangepicker --}}
+    <link rel="stylesheet" href="{{ asset('assets_backend/daterangepicker/daterangepicker.css') }}">
 @endsection
 
 
@@ -155,8 +159,47 @@
             <!--end::Title-->
         </div>
         <!--end::Toolbar-->
+
         <!--begin::Tab Content-->
         <div class="tab-content">
+
+
+            <!--begin::Navbar-->
+            <div class="card mb-8">
+                <div class="card-body pt-9 pb-0">
+                    <!--begin::Details-->
+                    <form action="" class="form" method="get">
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">
+                                Select Date
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-5 fv-row">
+                                <input type="text" name="date" id="config-demo"
+                                    class="form-control form-control-lg form-control-solid"
+                                    @isset($date) value="{{ $date }}" @endisset />
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-lg-5 fv-row">
+                                <button type="submit" class="btn btn-primary"
+                                    id="kt_account_profile_details_submit">Filter</button>
+                                <button class="btn btn-danger reset_button">Reset</button>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                    </form>
+                    <!--end::Details-->
+                    </ul>
+                    <!--end::Nav-->
+                </div>
+            </div>
+            <!--end::Navbar-->
+
             <!--begin::Tab panel-->
             <div id="kt_activity_today" class="card-body p-0 tab-pane fade show active" role="tabpanel"
                 aria-labelledby="kt_activity_today_tab">
@@ -300,5 +343,41 @@
 @endsection
 
 @section('scripts')
+{{-- lightbox --}}
 <script src="{{ asset('assets_backend/lightbox2/dist/js/lightbox.min.js') }}"></script>
+
+{{-- daterangerpicker --}}
+<script src="{{ asset('assets_backend/daterangepicker/daterangepicker.js') }}"></script>
+
+<script>
+    $(document).on('click', '.reset_button', function(e) {
+        e.preventDefault();
+        $("input[type=date]").val("")
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var options = {};
+        options.ranges = {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+                .endOf('month')
+            ]
+        };
+
+        options.locale = {
+            format: 'YYYY/MM/DD'
+        };
+
+        $('#config-demo').daterangepicker(options, function(start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format(
+                'YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        }).click();
+    });
+</script>
 @endsection

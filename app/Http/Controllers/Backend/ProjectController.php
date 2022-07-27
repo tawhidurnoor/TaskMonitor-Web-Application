@@ -202,7 +202,7 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
-    public function timeTracker($project, $employee)
+    public function timeTracker($project, $employee, Request $request)
     {
         $project_id = decrypt($project);
         $employee_id = decrypt($employee);
@@ -221,9 +221,23 @@ class ProjectController extends Controller
         $timeTrackers = TimeTracker::where([
             'project_id' => $project_id,
             'user_id' => $employee_id
-        ])
-            ->orderBy('id', 'desc')
-            ->get();
+        ])->orderBy('id', 'desc');
+
+        if (isset($request->date)) {
+
+            $from = explode(' - ', $request->date)[1];
+            $to = explode(' - ', $request->date)[1];
+
+            // $timeTrackers->whereDate('start', $request->date);
+
+            $timeTrackers->whereDate('start', '>=', $from);
+            $timeTrackers->whereDate('start', '<=', $to);
+
+            // $timeTrackers->whereBetween('start', [$from, $to]);
+            $date = $request->date;
+        }
+
+        $timeTrackers = $timeTrackers->get();
 
         $user = User::findOrFail($employee_id);
 
@@ -231,7 +245,8 @@ class ProjectController extends Controller
             'timeTrackers' => $timeTrackers,
             'user' => $user,
             'project' => $project,
-            'projectPeople' => $projectPeople
+            'projectPeople' => $projectPeople,
+            'date' => $date
         ]);
     }
 
