@@ -211,13 +211,6 @@
                             @foreach ($projects as $project)
                                 <!--begin::Table row-->
                                 <tr>
-                                    <!--begin::Checkbox-->
-                                    {{-- <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                </div>
-                            </td> --}}
-                                    <!--end::Checkbox-->
                                     <!--begin::User-->
                                     <td class="d-flex align-items-center">
                                         <!--begin:: Avatar -->

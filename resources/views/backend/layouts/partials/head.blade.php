@@ -30,4 +30,5 @@
 <!--begin::Toaster JS-->
 <link href="{{ asset('assets_backend/toastr/build/toastr.min.css') }}" rel="stylesheet" type="text/css" />
 <!--end::Toaster JS-->
+
 @yield('meta')

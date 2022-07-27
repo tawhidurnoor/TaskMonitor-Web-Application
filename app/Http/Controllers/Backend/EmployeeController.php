@@ -201,7 +201,16 @@ class EmployeeController extends Controller
             ->orderBy('id', 'desc');
 
         if (isset($request->date)) {
-            $timeTrackers->whereDate('start', $request->date);
+
+            $from = explode(' - ', $request->date)[1];
+            $to = explode(' - ', $request->date)[1];
+
+            // $timeTrackers->whereDate('start', $request->date);
+
+            $timeTrackers->whereDate('start', '>=', $from);
+            $timeTrackers->whereDate('start', '<=', $to);
+
+            // $timeTrackers->whereBetween('start', [$from, $to]);
             $date = $request->date;
         }
 
