@@ -204,6 +204,8 @@ class ProjectController extends Controller
 
     public function timeTracker($project, $employee, Request $request)
     {
+        $date = null;
+
         $project_id = decrypt($project);
         $employee_id = decrypt($employee);
 
