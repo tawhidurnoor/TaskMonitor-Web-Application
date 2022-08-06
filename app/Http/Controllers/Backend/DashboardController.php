@@ -20,7 +20,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->login_mode == "employee") {
+        if (Auth::user()->login_mode != "employer") {
             abort(401);
         }
 
@@ -110,7 +110,7 @@ class DashboardController extends Controller
 
     public function employeeIndex()
     {
-        if (Auth::user()->login_mode == "employer") {
+        if (Auth::user()->login_mode != "employee") {
             abort(401);
         }
 

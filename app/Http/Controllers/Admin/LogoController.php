@@ -26,7 +26,7 @@ class LogoController extends Controller
             $logo = Logo::findOrFail($logo->id);
 
             if (File::exists(public_path('assets_backend/media/logos/', $logo->image))) {
-                dd('File does exists.');
+                // dd('File does exists.');
                 File::delete(public_path('assets_backend/media/logos/', $logo->image));
             } else {
                 dd('File does not exists.');
