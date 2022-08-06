@@ -25,7 +25,15 @@ class LogoController extends Controller
             $logo = Logo::where('logo_name', $request->logo_name)->first();
             $logo = Logo::findOrFail($logo->id);
 
-            File::delete('assets_backend/media/logos/', $logo->image);
+            if (File::exists(public_path('assets_backend/media/logos/', $logo->image))) {
+                dd('File does exists.');
+                File::delete(public_path('assets_backend/media/logos/', $logo->image));
+            } else {
+                dd('File does not exists.');
+            }
+
+            // File::delete('assets_backend/media/logos/', $logo->image);
+            // unlink('../../assets_backend/media/logos/', $logo->image);
 
             $file = $request->file('logo');
             $extention = $file->getClientOriginalExtension();

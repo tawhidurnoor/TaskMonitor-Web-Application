@@ -17,10 +17,10 @@ Route::group(
         Route::get('/users/{user}/employee', [App\Http\Controllers\Admin\UserController::class, 'employeeList'])->name('employee.list');
 
         //FAQ
-        Route::resource('/faq', 'App\Http\Controllers\FaqController');
+        Route::resource('/faq', '\App\Http\Controllers\Admin\FaqController');
         Route::delete('/faq/delete/{faq}', [App\Http\Controllers\Admin\FaqController::class, 'destroy']);
         //Meta
-        Route::resource('/metainfo', 'App\Http\Controllers\MetaController');
+        Route::resource('/metainfo', '\App\Http\Controllers\Admin\MetaController');
 
         //logo
         Route::get('/logos', [App\Http\Controllers\Admin\LogoController::class, 'index'])->name('logos.index');
@@ -35,17 +35,17 @@ Route::group(
         //Profile
         Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'index'])->name('profile.index');
         Route::get('/profile/edit', [App\Http\Controllers\Admin\ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'patch'])->name('profile.update');
+        Route::patch('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'patch'])->name('profile.update');
 
         Route::prefix('subscription')->group(function () {
-            Route::get('/', [SubscriptionController::class, 'index'])->name('subscription.index');
-            Route::post('/', [SubscriptionController::class, 'store'])->name('subscription.store');
-            Route::delete('/{subscription}', [SubscriptionController::class, 'destroy'])->name('subscription.destroy');
+            Route::get('/', [App\Http\Controllers\Admin\SubscriptionController::class, 'index'])->name('subscription.index');
+            Route::post('/', [App\Http\Controllers\Admin\SubscriptionController::class, 'store'])->name('subscription.store');
+            Route::delete('/{subscription}', [App\Http\Controllers\Admin\SubscriptionController::class, 'destroy'])->name('subscription.destroy');
         });
 
         Route::prefix('price-tier')->group(function () {
-            Route::get('/', [PriceTierController::class, 'index'])->name('price.tier.index');
-            Route::post('/', [PriceTierController::class, 'store'])->name('price.tier.store');
+            Route::get('/', [App\Http\Controllers\Admin\PriceTierController::class, 'index'])->name('price.tier.index');
+            Route::post('/', [App\Http\Controllers\Admin\PriceTierController::class, 'store'])->name('price.tier.store');
         });
     }
 );

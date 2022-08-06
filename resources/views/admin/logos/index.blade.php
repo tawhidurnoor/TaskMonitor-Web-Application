@@ -26,9 +26,10 @@
                     <div class="card-body border-top p-9">
 
                         @foreach ($logos as $logo)
-                            <form action="{{route('logos.update')}}" method="POST" class="form" enctype="multipart/form-data">
+                            <form action="{{ route('logos.update') }}" method="POST" class="form"
+                                enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="logo_name" value="{{$logo->logo_name}}">
+                                <input type="hidden" name="logo_name" value="{{ $logo->logo_name }}">
                                 <!--begin::Input group-->
                                 <div class="row mb-12">
                                     <!--begin::Label-->
@@ -38,10 +39,10 @@
                                     <div class="col-lg-8">
                                         <!--begin::Image input-->
                                         <div class="image-input image-input-outline" data-kt-image-input="true"
-                                            style="background-image: url('assets_backend/media/logos/{{ $logo->image }}')">
+                                            style="background-image: url('../assets_backend/media/logos/{{ $logo->image }}')">
                                             <!--begin::Preview existing avatar-->
                                             <div class="image-input-wrapper {{ $logo->logo_name == 'main_logo' ? 'w-600px h-125px' : 'w-300px h-200px' }}"
-                                                style="background-image: url(assets_backend/media/logos/{{ $logo->image }})">
+                                                style="background-image: url(../assets_backend/media/logos/{{ $logo->image }})">
                                             </div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
