@@ -20,6 +20,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        if (Auth::user()->login_mode == "employee") {
+            abort(401);
+        }
+
         if (Auth::user()->email_verified_at == null && Auth::user()->login_method == 'email') {
             return redirect()->route('profile.index');
         }
@@ -52,16 +56,16 @@ class DashboardController extends Controller
         $work_hour_difference = $work_hour_seven_days - $work_hour_previous_seven_days;
 
         if ($work_hour_previous_seven_days == 0) {
-            if($work_hour_difference == 0){
+            if ($work_hour_difference == 0) {
                 $percent_difference = 0;
-            }else{
+            } else {
                 $percent_difference = 100;
             }
         } else {
             $percent_difference = $work_hour_difference / $work_hour_previous_seven_days * 100;
         }
 
-        return view('backend.dashboard.dashboard',[
+        return view('backend.dashboard.dashboard', [
             'projects' => $projects,
             'employees' => $employees,
             'work_hour_seven_days' => $work_hour_seven_days,
@@ -106,6 +110,10 @@ class DashboardController extends Controller
 
     public function employeeIndex()
     {
+        if (Auth::user()->login_mode == "employer") {
+            abort(401);
+        }
+
         if (Auth::user()->email_verified_at == null && Auth::user()->login_method == 'email') {
             return redirect()->route('profile.index');
         }
@@ -113,7 +121,7 @@ class DashboardController extends Controller
         $invitations = Invitation::where('employee_mail', Auth::user()->email)->get();
         $projects = ProjectPeople::where('user_id', Auth::user()->id)->get();
 
-        return view('backend.dashboard.dashboard_employee',[
+        return view('backend.dashboard.dashboard_employee', [
             'invitations' => $invitations,
             'projects' => $projects,
         ]);
@@ -127,7 +135,7 @@ class DashboardController extends Controller
             $user->login_mode = 'employer';
             $user->save();
             return redirect()->route('dashboard');
-        }else{
+        } else {
             $user->login_mode = 'employee';
             $user->save();
             return redirect()->route('employee.dashboard');
@@ -149,22 +157,21 @@ class DashboardController extends Controller
             $greetings = "Good morning";
         } else
 
-        /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
-        if ($time >= "12" && $time < "17") {
-            $greetings = "Good afternoon";
-        } else
+            /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
+            if ($time >= "12" && $time < "17") {
+                $greetings = "Good afternoon";
+            } else
 
-        /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
-        if ($time >= "17" && $time < "19") {
-            $greetings = "Good evening";
-        } else
+                /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
+                if ($time >= "17" && $time < "19") {
+                    $greetings = "Good evening";
+                } else
 
-        /* Finally, show good night if the time is greater than or equal to 1900 hours */
-        if ($time >= "19") {
-            $greetings = "Good night";
-        }
+                    /* Finally, show good night if the time is greater than or equal to 1900 hours */
+                    if ($time >= "19") {
+                        $greetings = "Good night";
+                    }
 
         return $greetings;
-
     }
 }
