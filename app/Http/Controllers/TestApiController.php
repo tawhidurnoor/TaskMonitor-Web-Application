@@ -13,9 +13,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class TestApiController extends Controller {
+class TestApiController extends Controller
+{
 
-    public function dextop_login(Request $request) {
+    public function dextop_login(Request $request)
+    {
         // $user = User::where('email', $request->email)
         //     ->join('employees', 'employees.employee_id', 'users.id')
         //     ->selectRaw('users.*, employees.screenshot_duration')
@@ -31,20 +33,20 @@ class TestApiController extends Controller {
             $user = User::where('email', $request->email)->first();
             $request_password = $request->password;
             $hashed_password = $user->password;
-            
+
             if (Hash::check($request_password, $hashed_password) == true) {
                 return json_encode($users);
             } else {
                 return json_encode([]);
             }
-            
         } else {
             return json_encode($users);
         }
     }
 
 
-    public function dextop_projects(Request $request) {
+    public function dextop_projects(Request $request)
+    {
         $email = $request->email;
         $user_id = User::where('email', $email)->value('id');
 
@@ -54,9 +56,9 @@ class TestApiController extends Controller {
         // }
         // $project_ids = ProjectStaff::where('staff_id', $staff_id)->selectRaw('project_id')->toSql();
         $project_ids = DB::table('project_people')
-                ->where('user_id', $user_id)
-                ->selectRaw('project_id')
-                ->get();
+            ->where('user_id', $user_id)
+            ->selectRaw('project_id')
+            ->get();
 
         $project_staff_ids_array = [];
 
@@ -75,7 +77,8 @@ class TestApiController extends Controller {
         return json_encode($project_name_with_id);
     }
 
-    public function dextop_time_tracker(Request $request) {
+    public function dextop_time_tracker(Request $request)
+    {
         $email = $request->email;
         $project_id = explode("_", $request->project)[0];
         $task_title = $request->task_title;
@@ -98,7 +101,8 @@ class TestApiController extends Controller {
         return $time_tracker->id;
     }
 
-    public function dextop_screenshot_duration(Request $request) {
+    public function dextop_screenshot_duration(Request $request)
+    {
         //getting screenshot duration
         $project_id = Timetracker::findOrFail($request->time_tracker_id)->project_id;
 
@@ -108,9 +112,9 @@ class TestApiController extends Controller {
         $employee_id = User::where('email', $request->email)->first()->id;
 
         $employee = Employee::where([
-                    'employer_id' => $employer_id,
-                    'employee_id' => $employee_id
-                ])->first();
+            'employer_id' => $employer_id,
+            'employee_id' => $employee_id
+        ])->first();
 
         if (isset($employee->screenshot_duration)) {
             $screenshot_duration = $employee->screenshot_duration;
@@ -121,7 +125,8 @@ class TestApiController extends Controller {
         return $screenshot_duration;
     }
 
-    public function dextop_time_tracker_stop(Request $request) {
+    public function dextop_time_tracker_stop(Request $request)
+    {
         $timeTrackerId = $request->timeTrackerId;
 
         $timeTracker = TimeTracker::findOrFail($timeTrackerId);
@@ -131,7 +136,8 @@ class TestApiController extends Controller {
         return $timeTracker;
     }
 
-    public function dextop_test_upload(Request $request) {
+    public function dextop_test_upload(Request $request)
+    {
         $email = $request->email;
         $timeTrackerId = $request->timeTrackerId;
 
@@ -166,7 +172,8 @@ class TestApiController extends Controller {
         $timeTracker->save();
     }
 
-    public function dextop_no_ui_upload(Request $request) {
+    public function dextop_no_ui_upload(Request $request)
+    {
         $mac_address = $request->macAddress;
 
         $employee = Employee::where('mac_address', $mac_address)->first();
@@ -188,5 +195,4 @@ class TestApiController extends Controller {
 
         $screenshot->save();
     }
-
 }
