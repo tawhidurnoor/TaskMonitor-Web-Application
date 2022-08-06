@@ -12,14 +12,14 @@ class InquiryController extends Controller
     public function index()
     {
         $inquiries = Inquiry::all();
-        return view('inquiries.index', [
+        return view('admin.inquiries.index', [
             'inquiries' => $inquiries,
         ]);
     }
 
     public function composeMail(Inquiry $inquiry)
     {
-        return view('inquiries.compose_mail', [
+        return view('admin.inquiries.compose_mail', [
             'inquiry' => $inquiry,
         ]);
     }

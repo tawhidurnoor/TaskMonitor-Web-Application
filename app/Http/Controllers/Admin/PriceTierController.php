@@ -15,7 +15,7 @@ class PriceTierController extends Controller
      */
     public function index()
     {
-        return view('price_tier.index')->with([
+        return view('admin.price_tier.index')->with([
             'price_tiers' => PriceTier::get()
         ]);
     }

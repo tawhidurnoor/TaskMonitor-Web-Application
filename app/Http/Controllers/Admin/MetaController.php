@@ -16,7 +16,7 @@ class MetaController extends Controller
     public function index()
     {
         $meta = Meta::first();
-        return view('meta.index', [
+        return view('admin.meta.index', [
             'meta' => $meta,
         ]);
     }

@@ -13,7 +13,7 @@ class LogoController extends Controller
     public function index()
     {
         $logos = Logo::all();
-        return view('logos.index', [
+        return view('admin.logos.index', [
             'logos' => $logos,
         ]);
     }

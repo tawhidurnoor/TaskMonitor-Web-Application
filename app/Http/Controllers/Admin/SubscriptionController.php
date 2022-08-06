@@ -18,7 +18,7 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        return view('subscription.index')->with([
+        return view('admin.subscription.index')->with([
             'price_tiers' => PriceTier::get(),
             'subscriptions' => Subscription::with('priceTiers')->get()
         ]);

@@ -17,7 +17,7 @@ class UserController extends Controller
             ->where('login_mode', '!=', 'employee')
             ->where('email', '!=', Auth::user()->email)
             ->get();
-        return view('users.index', [
+        return view('admin.users.index', [
             'users' => $users,
         ]);
     }
@@ -31,7 +31,7 @@ class UserController extends Controller
             ->selectRaw('projects.*')
             ->get();
 
-        return view('users.details', [
+        return view('admin.users.details', [
             'user' => $user,
             'created_projects' => $created_projects,
             'assigned_projects' => $assigned_projects
@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function composeMail(User $user)
     {
-        return view('users.compose_mail', [
+        return view('admin.users.compose_mail', [
             'user' => $user,
         ]);
     }
@@ -73,7 +73,7 @@ class UserController extends Controller
         $user = User::findOrfail($id);
         //echo $employee;
 
-        return view('users.employee_list', [
+        return view('admin.users.employee_list', [
             'users' => $users,
             'user' => $user,
         ]);

@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = User::findOrFail(Auth::user()->id);
-        return view('profile.index', [
+        return view('admin.profile.index', [
             'user' => $user,
         ]);
     }
@@ -20,7 +20,7 @@ class ProfileController extends Controller
     public function edit()
     {
         $user = User::findOrFail(Auth::user()->id);
-        return view('profile.edit', [
+        return view('admin.profile.edit', [
             'user' => $user,
         ]);
     }
