@@ -1,140 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('frontend.layouts.full.frontend')
 
-<head>
-    <!-- Metas -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="keywords" content="HTML5 Template Iteck Multi-Purpose themeforest" />
-    <meta name="description" content="Iteck - Multi-Purpose HTML5 Template" />
-    <meta name="author" content="" />
-
+@section('title')
     <!-- Title  -->
-    <title>Iteck</title>
+    <title>TaskMonitor | Timetracking solution for your organization</title>
+@endsection
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets_frontend/img/fav.png" title="Favicon" sizes="16x16" />
-
-    <!-- ====== bootstrap icons cdn ====== -->
-    <link rel="stylesheet" href="assets_frontend/bootstrap-icons%401.7.2/font/bootstrap-icons.css">
-
-    <!-- bootstrap 5 -->
-    <link rel="stylesheet" href="assets_frontend/css/lib/bootstrap.min.css">
-
-    <!-- ====== font family ====== -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="assets_frontend/css/lib/all.min.css" />
-    <link rel="stylesheet" href="assets_frontend/css/lib/animate.css" />
-    <link rel="stylesheet" href="assets_frontend/css/lib/jquery.fancybox.css" />
-    <link rel="stylesheet" href="assets_frontend/css/lib/lity.css" />
-    <link rel="stylesheet" href="assets_frontend/css/lib/swiper.min.css" />
-    <!-- ====== global style ====== -->
-    <link rel="stylesheet" href="assets_frontend/css/style.css" />
-</head>
-
-<body>
-
-    <!-- ====== start loading page ====== -->
-    <div id="preloader">
-    </div>
-    <!-- ====== end loading page ====== -->
-
-    <!-- ====== start top navbar ====== -->
-    <div class="top-navbar style-4">
-        <div class="container">
-            <div class="content text-white">
-                <span class="btn sm-butn bg-white py-0 px-2 me-2 fs-10px">
-                    <small class="fs-10px">Special</small>
-                </span>
-                <img src="assets_frontend/img/icons/nav_icon/imoj_heart.png" alt="" class="icon-15">
-                <span class="fs-10px op-6">Get </span>
-                <small class="op-10 fs-10px">20% Discount</small>
-                <span class="fs-10px op-6">Get for New Account</span>
-                <a href="page-contact-5.html" class="fs-10px text-decoration-underline ms-2">Register Now</a>
-            </div>
-        </div>
-    </div>
-    <!-- ====== end top navbar ====== -->
-
-    <!-- ====== start navbar ====== -->
-    <nav class="navbar navbar-expand-lg navbar-light style-4">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets_frontend/img/logo_lgr.png" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto mb-2 mb-lg-0 text-uppercase">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Homes
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="home-app-landing.html"> App Landing </a></li>
-                            <li><a class="dropdown-item" href="home-saas-technology.html"> Saas Technology </a></li>
-                            <li><a class="dropdown-item" href="home-marketing-startup.html"> Marketing Startup </a></li>
-                            <li><a class="dropdown-item" href="home-it-solutions.html"> It Solution </a></li>
-                            <li><a class="dropdown-item" href="home-software-company.html"> Software Company </a></li>
-                            <li><a class="dropdown-item" href="home-digital-agency.html"> Digital Agency </a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            pages
-                            <small class="hot alert-danger text-danger">hot</small>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="page-about-app.html">about</a></li>
-                            <li><a class="dropdown-item" href="page-product-app.html">product</a></li>
-                            <li><a class="dropdown-item" href="page-services-app.html">services</a></li>
-                            <li><a class="dropdown-item" href="page-shop-app.html">shop</a></li>
-                            <li><a class="dropdown-item" href="page-single-project-app.html">single project</a></li>
-                            <li><a class="dropdown-item" href="page-single-post-app.html">single post</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="page-portfolio-app.html">
-                            portfolio
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="page-blog-app.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="page-contact-app.html">
-                            <img src="assets_frontend/img/icons/nav_icon/price.png" alt=""
-                                class="icon-15 me-1">
-                            contact
-                        </a>
-                    </li>
-                </ul>
-                <div class="nav-side">
-                    <div class="d-flex align-items-center">
-                        <a href="#" class="search-icon me-4">
-                            <i class="bi bi-person"></i>
-                        </a>
-                        <a href="page-contact-app.html" class="btn rounded-pill brd-gray hover-blue4 sm-butn fw-bold">
-                            <span>Join iteck Hub <i class="bi bi-arrow-right ms-1"></i> </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- ====== end navbar ====== -->
-
+@section('body')
     <!-- ====== start header ====== -->
     <header class="style-4">
         <div class="content">
@@ -326,8 +197,7 @@
                                         <h6 class="fw-bold">Complete note editor with rich text options</h6>
                                     </li>
                                 </ul>
-                                <a href="page-contact-5.html"
-                                    class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">
+                                <a href="page-contact-5.html" class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">
                                     <small> Free Register </small>
                                 </a>
                             </div>
@@ -354,9 +224,9 @@
                                     <div class="accordion" id="accordionExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="heading1">
-                                                <button class="accordion-button" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse1"
-                                                    aria-expanded="true" aria-controls="collapse1">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse1" aria-expanded="true"
+                                                    aria-controls="collapse1">
                                                     Create and Save your notes with multi-media
                                                 </button>
                                             </h2>
@@ -462,8 +332,7 @@
                                         <h6 class="fw-bold">Easy to switch between light and dark mode</h6>
                                     </li>
                                 </ul>
-                                <a href="page-services-5.html"
-                                    class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">
+                                <a href="page-services-5.html" class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">
                                     <small> Discovery Now </small>
                                 </a>
                             </div>
@@ -1016,111 +885,4 @@
         <!-- ====== end community ====== -->
     </main>
     <!--End-Contents-->
-
-    <!-- ====== start footer ====== -->
-    <footer class="style-4">
-        <div class="container">
-            <div class="section-head text-center style-4">
-                <h2 class="mb-10"> Ready To <span> Download </span> </h2>
-                <p>Discover your new favorite spaces, from Sao Paulo to Seoul. Download from App Store or Google Play.
-                </p>
-                <div class="d-flex align-items-center justify-content-center mt-50">
-                    <a href="https://www.apple.com/app-store/"
-                        class="btn rounded-pill bg-blue4 fw-bold text-white me-4" target="_blank">
-                        <small> <i class="fab fa-apple me-2 pe-2 border-end"></i> Download On App Store </small>
-                    </a>
-                    <a href="https://play.google.com/store/apps"
-                        class="btn rounded-pill hover-blue4 fw-bold border-blue4" target="_blank">
-                        <small> <i class="fab fa-google-play me-2 pe-2 border-end"></i> Download On Google Play
-                        </small>
-                    </a>
-                </div>
-            </div>
-            <div class="foot mt-80">
-                <div class="row align-items-center">
-                    <div class="col-lg-2">
-                        <div class="logo">
-                            <img src="assets_frontend/img/logo_lgr.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <ul class="links">
-                            <li>
-                                <a href="home-app-landing.html" class="active">Home</a>
-                            </li>
-                            <li>
-                                <a href="page-about-5.html">about</a>
-                            </li>
-                            <li>
-                                <a href="page-product-5.html">product</a>
-                            </li>
-                            <li>
-                                <a href="page-portfolio-5.html">portfolio</a>
-                            </li>
-                            <li>
-                                <a href="page-services-5.html">services</a>
-                            </li>
-                            <li>
-                                <a href="page-shop-5.html">shop</a>
-                            </li>
-                            <li>
-                                <a href="page-blog-5.html">blog</a>
-                            </li>
-                            <li>
-                                <a href="page-contact-5.html">contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="dropdown">
-                            <button
-                                class="icon-25 dropdown-toggle p-0 border-0 bg-transparent rounded-circle img-cover"
-                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <img src="assets_frontend/img/lang.png" alt="" class="me-2">
-                                <small>English</small>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">English</a></li>
-                                <li><a class="dropdown-item" href="#">Arabic</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copywrite text-center">
-                <small class="small">
-                    © 2022 Copyrights by <a href="#" class="fw-bold text-decoration-underline">Iteck Co.</a> All
-                    Rights Reserved. Designed by <a href="https://themeforest.net/user/themescamp"
-                        class="fw-bold text-decoration-underline">ThemesCamp</a>
-                </small>
-            </div>
-        </div>
-        <img src="assets_frontend/img/footer/footer_4_wave.png" alt="" class="wave">
-    </footer>
-    <!-- ====== end footer ====== -->
-
-    <!-- ====== start to top button ====== -->
-    <a href="#"
-        class="to_top bg-gray rounded-circle icon-40 d-inline-flex align-items-center justify-content-center">
-        <i class="bi bi-chevron-up fs-6 text-dark"></i>
-    </a>
-    <!-- ====== end to top button ====== -->
-
-    <!-- ====== request ====== -->
-    <script src="assets_frontend/js/lib/jquery-3.0.0.min.js"></script>
-    <script src="assets_frontend/js/lib/jquery-migrate-3.0.0.min.js"></script>
-    <script src="assets_frontend/js/lib/bootstrap.bundle.min.js"></script>
-    <script src="assets_frontend/js/lib/wow.min.js"></script>
-    <script src="assets_frontend/js/lib/jquery.fancybox.js"></script>
-    <script src="assets_frontend/js/lib/lity.js"></script>
-    <script src="assets_frontend/js/lib/swiper.min.js"></script>
-    <script src="assets_frontend/js/lib/jquery.waypoints.min.js"></script>
-    <script src="assets_frontend/js/lib/jquery.counterup.js"></script>
-    <script src="assets_frontend/js/lib/pace.js"></script>
-    <script src="assets_frontend/js/lib/scrollIt.min.js"></script>
-    <script src="assets_frontend/js/main.js"></script>
-
-</body>
-
-</html>
+@endsection

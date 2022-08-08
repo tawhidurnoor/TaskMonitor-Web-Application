@@ -3,22 +3,24 @@
 
 <head>
 
-  @include('frontend.layouts.partial.meta')
+    @include('frontend.layouts.partial.meta')
 
-  @include('frontend.layouts.partial.styles')
+    @yield('title')
 
+    @include('frontend.layouts.partial.styles')
 </head>
-
 
 <body>
 
-  @include('frontend.layouts.partial.header')
+    @include('frontend.layouts.partial.placeholder')
 
-  @yield('body')
+    @include('frontend.layouts.partial.navbar')
 
-  @include('frontend.layouts.partial.footer')
+    @yield('body')
 
-  @include('frontend.layouts.partial.scripts')
+    @include('frontend.layouts.partial.footer')
+
+    @include('frontend.layouts.partial.scripts')
 
 </body>
 
