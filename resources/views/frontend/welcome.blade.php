@@ -1,618 +1,1123 @@
-@extends('frontend.layouts.full.frontend')
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="HTML5 Template Iteck Multi-Purpose themeforest" />
+    <meta name="description" content="Iteck - Multi-Purpose HTML5 Template" />
+    <meta name="author" content="" />
 
-@section('body')
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
+    <!-- Title  -->
+    <title>Iteck</title>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1"
-                data-aos="fade-up">
-                <div>
-                    <h1>a perfect time tracking solution for your workspace</h1>
-                    <h2>We provide the perfect solution for your time traking problem.</h2>
-                    <a href="#" class="download-btn"><i class='bx bxl-microsoft'></i> Microsoft Windows</a>
-                    <a href="#" class="download-btn"><i class="bx bxl-apple"></i> Mac OS</a>
-                </div>
-            </div>
-            <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img"
-                data-aos="fade-up">
-                <img src="assets_landing_page/assets/img/hero-img.png" class="img-fluid" alt="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/fav.png" title="Favicon" sizes="16x16" />
+
+    <!-- ====== bootstrap icons cdn ====== -->
+    <link rel="stylesheet" href="../../../../cdn.jsdelivr.net/npm/bootstrap-icons%401.7.2/font/bootstrap-icons.css">
+
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+
+    <!-- ====== font family ====== -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/lib/all.min.css" />
+    <link rel="stylesheet" href="assets/css/lib/animate.css" />
+    <link rel="stylesheet" href="assets/css/lib/jquery.fancybox.css" />
+    <link rel="stylesheet" href="assets/css/lib/lity.css" />
+    <link rel="stylesheet" href="assets/css/lib/swiper.min.css" />
+    <!-- ====== global style ====== -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+    <!-- ====== start loading page ====== -->
+    <div id="preloader">
+    </div>
+    <!-- ====== end loading page ====== -->
+
+    <!-- ====== start top navbar ====== -->
+    <div class="top-navbar style-4">
+        <div class="container">
+            <div class="content text-white">
+                <span class="btn sm-butn bg-white py-0 px-2 me-2 fs-10px">
+                    <small class="fs-10px">Special</small>
+                </span>
+                <img src="assets/img/icons/nav_icon/imoj_heart.png" alt="" class="icon-15">
+                <span class="fs-10px op-6">Get </span>
+                <small class="op-10 fs-10px">20% Discount</small>
+                <span class="fs-10px op-6">Get for New Account</span>
+                <a href="page-contact-5.html" class="fs-10px text-decoration-underline ms-2">Register Now</a>
             </div>
         </div>
     </div>
+    <!-- ====== end top navbar ====== -->
 
-</section><!-- End Hero -->
-
-<main id="main">
-
-    <!-- ======= App Features Section ======= -->
-    <section id="features" class="features">
+    <!-- ====== start navbar ====== -->
+    <nav class="navbar navbar-expand-lg navbar-light style-4">
         <div class="container">
-
-            <div class="section-title">
-                <h2>App Features</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="row no-gutters">
-                <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
-                    <div class="content d-flex flex-column justify-content-center">
-                        <div class="row">
-                            <div class="col-md-6 icon-box" data-aos="fade-up">
-                                <i class="bx bx-receipt"></i>
-                                <h4>Corporis voluptates sit</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip
-                                </p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <i class="bx bx-cube-alt"></i>
-                                <h4>Ullamco laboris nisi</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                </p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                                <i class="bx bx-images"></i>
-                                <h4>Labore consequatur</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                                <i class="bx bx-shield"></i>
-                                <h4>Beatae veritatis</h4>
-                                <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                                <i class="bx bx-atom"></i>
-                                <h4>Molestiae dolor</h4>
-                                <p>Et fuga et deserunt et enim. Dolorem architecto ratione tensa raptor marte</p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                                <i class="bx bx-id-card"></i>
-                                <h4>Explicabo consectetur</h4>
-                                <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image col-xl-5 d-flex align-items-stretch justify-content-center order-1 order-lg-2"
-                    data-aos="fade-left" data-aos-delay="100">
-                    <img src="assets_landing_page/assets/img/features.svg" class="img-fluid" alt="">
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End App Features Section -->
-
-    <!-- ======= Details Section ======= -->
-    <section id="details" class="details">
-        <div class="container">
-
-            <div class="row content">
-                <div class="col-md-4" data-aos="fade-right">
-                    <img src="assets_landing_page/assets/img/details-1.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8 pt-4" data-aos="fade-up">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore
-                        magna aliqua.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="bi bi-check"></i> Iure at voluptas aspernatur dignissimos doloribus repudiandae.
-                        </li>
-                        <li><i class="bi bi-check"></i> Est ipsa assumenda id facilis nesciunt placeat sed doloribus
-                            praesentium.
-                        </li>
-                    </ul>
-                    <p>
-                        Voluptas nisi in quia excepturi nihil voluptas nam et ut. Expedita omnis eum consequatur non.
-                        Sed in
-                        asperiores aut repellendus. Error quisquam ab maiores. Quibusdam sit in officia
-                    </p>
-                </div>
-            </div>
-
-            <div class="row content">
-                <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                    <img src="assets_landing_page/assets/img/details-2.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                    <h3>Corporis temporibus maiores provident</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore
-                        magna aliqua.
-                    </p>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in
-                        voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                    <p>
-                        Inventore id enim dolor dicta qui et magni molestiae. Mollitia optio officia illum ut cupiditate
-                        eos
-                        autem. Soluta dolorum repellendus repellat amet autem rerum illum in. Quibusdam occaecati est
-                        nisi esse.
-                        Saepe aut dignissimos distinctio id enim.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row content">
-                <div class="col-md-4" data-aos="fade-right">
-                    <img src="assets_landing_page/assets/img/details-3.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8 pt-5" data-aos="fade-up">
-                    <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-                    <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit
-                        aut
-                        quia voluptatem hic voluptas dolor doloremque.</p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
-                    </ul>
-                    <p>
-                        Qui consequatur temporibus. Enim et corporis sit sunt harum praesentium suscipit ut voluptatem.
-                        Et nihil
-                        magni debitis consequatur est.
-                    </p>
-                    <p>
-                        Suscipit enim et. Ut optio esse quidem quam reiciendis esse odit excepturi. Vel dolores rerum
-                        soluta
-                        explicabo vel fugiat eum non.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row content">
-                <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                    <img src="assets_landing_page/assets/img/details-4.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                    <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore
-                        magna aliqua.
-                    </p>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in
-                        voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> Et praesentium laboriosam architecto nam .</li>
-                        <li><i class="bi bi-check"></i> Eius et voluptate. Enim earum tempore aliquid. Nobis et sunt
-                            consequatur.
-                            Aut repellat in numquam velit quo dignissimos et.</li>
-                        <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End Details Section -->
-
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Gallery</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-        </div>
-
-        <div class="container-fluid" data-aos="fade-up">
-            <div class="gallery-slider swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-1.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-1.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-2.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-2.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-3.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-3.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-4.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-4.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-5.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-5.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-6.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-6.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-7.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-7.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-8.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-8.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-9.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-9.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-10.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-10.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-11.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-11.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                    <div class="swiper-slide"><a href="assets_landing_page/assets/img/gallery/gallery-12.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel"><img src="assets_landing_page/assets/img/gallery/gallery-12.png" class="img-fluid"
-                                alt=""></a>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
-        </div>
-    </section><!-- End Gallery Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Testimonials</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets_landing_page/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                rhoncus. Accusantium
-                                quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets_landing_page/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                            <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                cillum eram malis
-                                quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets_landing_page/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                            <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
-                                duis minim
-                                tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets_landing_page/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                            <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat
-                                minim velit
-                                minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum
-                                veniam.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets_landing_page/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                            <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                veniam enim culpa
-                                labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi
-                                cillum quid.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
-        </div>
-    </section><!-- End Testimonials Section -->
-
-    <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Pricing</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="row no-gutters">
-
-                <div class="col-lg-4 box" data-aos="fade-right">
-                    <h3>Free</h3>
-                    <h4>$0<span>per month</span></h4>
-                    <ul>
-                        <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                        <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                        <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                    </ul>
-                    <a href="#" class="get-started-btn">Get Started</a>
-                </div>
-
-                <div class="col-lg-4 box featured" data-aos="fade-up">
-                    <h3>Business</h3>
-                    <h4>$29<span>per month</span></h4>
-                    <ul>
-                        <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="get-started-btn">Get Started</a>
-                </div>
-
-                <div class="col-lg-4 box" data-aos="fade-left">
-                    <h3>Developer</h3>
-                    <h4>$49<span>per month</span></h4>
-                    <ul>
-                        <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="get-started-btn">Get Started</a>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End Pricing Section -->
-
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-
-                <h2>Frequently Asked Questions</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="accordion-list">
-                <ul>
-                    <li data-aos="fade-up">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                            data-bs-target="#accordion-list-1">Non consectetur a erat nam at lectus urna duis? <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                            <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                                curabitur
-                                gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                            </p>
-                        </div>
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo_lgr.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0 text-uppercase">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Homes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="home-app-landing.html"> App Landing </a></li>
+                            <li><a class="dropdown-item" href="home-saas-technology.html"> Saas Technology </a></li>
+                            <li><a class="dropdown-item" href="home-marketing-startup.html"> Marketing Startup </a></li>
+                            <li><a class="dropdown-item" href="home-it-solutions.html"> It Solution </a></li>
+                            <li><a class="dropdown-item" href="home-software-company.html"> Software Company </a></li>
+                            <li><a class="dropdown-item" href="home-digital-agency.html"> Digital Agency </a></li>
+                        </ul>
                     </li>
-
-                    <li data-aos="fade-up" data-aos-delay="100">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#accordion-list-2" class="collapsed">Feugiat scelerisque varius morbi enim
-                            nunc? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                            <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                velit laoreet id
-                                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est
-                                pellentesque elit
-                                ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                            </p>
-                        </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            pages
+                            <small class="hot alert-danger text-danger">hot</small>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="page-about-app.html">about</a></li>
+                            <li><a class="dropdown-item" href="page-product-app.html">product</a></li>
+                            <li><a class="dropdown-item" href="page-services-app.html">services</a></li>
+                            <li><a class="dropdown-item" href="page-shop-app.html">shop</a></li>
+                            <li><a class="dropdown-item" href="page-single-project-app.html">single project</a></li>
+                            <li><a class="dropdown-item" href="page-single-post-app.html">single post</a></li>
+                        </ul>
                     </li>
-
-                    <li data-aos="fade-up" data-aos-delay="200">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#accordion-list-3" class="collapsed">Dolor sit amet consectetur adipiscing
-                            elit? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                            <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                pulvinar elementum
-                                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque
-                                eu tincidunt.
-                                Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed
-                                odio morbi
-                                quis
-                            </p>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="page-portfolio-app.html">
+                            portfolio
+                        </a>
                     </li>
-
-                    <li data-aos="fade-up" data-aos-delay="300">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#accordion-list-4" class="collapsed">Tempus quam pellentesque nec nam
-                            aliquam sem et
-                            tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
-                            <p>
-                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                ante in. Nunc
-                                vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum
-                                est. Purus
-                                gravida quis blandit turpis cursus in.
-                            </p>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="page-blog-app.html">
+                            blog
+                        </a>
                     </li>
-
-                    <li data-aos="fade-up" data-aos-delay="400">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#accordion-list-5" class="collapsed">Tortor vitae purus faucibus ornare.
-                            Varius vel
-                            pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
-                                integer malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed.
-                                Ut venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="page-contact-app.html">
+                            <img src="assets/img/icons/nav_icon/price.png" alt="" class="icon-15 me-1">
+                            contact
+                        </a>
                     </li>
-
                 </ul>
+                <div class="nav-side">
+                    <div class="d-flex align-items-center">
+                        <a href="#" class="search-icon me-4">
+                            <i class="bi bi-person"></i>
+                        </a>
+                        <a href="page-contact-app.html" class="btn rounded-pill brd-gray hover-blue4 sm-butn fw-bold">
+                            <span>Join iteck Hub <i class="bi bi-arrow-right ms-1"></i> </span>
+                        </a>
+                    </div>
+                </div>
             </div>
-
         </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </nav>
+    <!-- ====== end navbar ====== -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-6 info">
-                            <i class="bx bx-map"></i>
-                            <h4>Address</h4>
-                            <p>A108 Adam Street,<br>New York, NY 535022</p>
+    <!-- ====== start header ====== -->
+    <header class="style-4">
+        <div class="content">
+            <div class="container">
+                <div class="row gx-0">
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <small class="mb-50 title_small">Notero - Easy Notes App</small>
+                            <h1 class="mb-30">Note <span> Your Everything </span> In One App </h1>
+                            <p class="text">No coding required to make customizations. The live customizer <br> has
+                                everything you need.</p>
+                            <div class="d-flex align-items-center mt-50">
+                                <a href="https://www.apple.com/app-store/"
+                                    class="btn rounded-pill bg-blue4 fw-bold text-white me-4" target="_blank">
+                                    <small> <i class="fab fa-apple me-2 pe-2 border-end"></i> Download App </small>
+                                </a>
+                                <a href="https://youtu.be/pGbIOC83-So?t=21" data-lity class="play-btn">
+                                    <span class="icon me-2">
+                                        <i class="fas fa-play ms-1"></i>
+                                    </span>
+                                    <strong class="small">View <br> Promotion</strong>
+                                </a>
+                            </div>
+                            <span class="mt-100 me-5">
+                                <small
+                                    class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-1">
+                                    <i class="fas fa-sync"></i>
+                                </small>
+                                <small class="text-uppercase">Free 14 Days Trial</small>
+                            </span>
+                            <span class="mt-100">
+                                <small
+                                    class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-1">
+                                    <i class="fas fa-credit-card"></i>
+                                </small>
+                                <small class="text-uppercase">One time payment</small>
+                            </span>
                         </div>
-                        <div class="col-lg-6 info">
-                            <i class="bx bx-phone"></i>
-                            <h4>Call Us</h4>
-                            <p>+1 5589 55488 55<br>+1 5589 22548 64</p>
-                        </div>
-                        <div class="col-lg-6 info">
-                            <i class="bx bx-envelope"></i>
-                            <h4>Email Us</h4>
-                            <p>contact@example.com<br>info@example.com</p>
-                        </div>
-                        <div class="col-lg-6 info">
-                            <i class="bx bx-time-five"></i>
-                            <h4>Working Hours</h4>
-                            <p>Mon - Fri: 9AM to 5PM<br>Sunday: 9AM to 1PM</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="img">
+                            <img src="assets/img/header/header_4.png" alt="">
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6">
-                    <form action="{{ route('guest.contact')}}" method="post" role="form" class="php-email-form"
-                        data-aos="fade-up">
-                        @csrf
-                        <div class="form-group">
-                            <input placeholder="Your Name" type="text" name="name" class="form-control" id="name"
-                                required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input placeholder="Your Email" type="email" class="form-control" name="email" id="email"
-                                required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input placeholder="Subject" type="text" class="form-control" name="subject" id="subject"
-                                required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <textarea placeholder="Message" class="form-control" name="message" rows="5"
-                                required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
-                </div>
-
             </div>
-
+            <img src="assets/img/header/header_4_bubble.png" alt="" class="bubble">
         </div>
-    </section><!-- End Contact Section -->
+        <img src="assets/img/header/header_4_wave.png" alt="" class="wave">
+    </header>
+    <!-- ====== end header ====== -->
 
-</main><!-- End #main -->
-@endsection
+    <!--Contents-->
+    <main>
+
+        <!-- ====== start clients ====== -->
+        <section class="clients style-4">
+            <div class="container">
+                <div class="text-center">
+                    <h5 class="fw-bold mb-60"><span class="color-blue4">25K+ Installation</span> and Featured on</h5>
+                </div>
+                <div class="client-logos pb-70">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-2">
+                            <a href="#" class="img d-block">
+                                <img src="assets/img/logos/1.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <a href="#" class="img d-block">
+                                <img src="assets/img/logos/2.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <a href="#" class="img d-block">
+                                <img src="assets/img/logos/3.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <a href="#" class="img d-block">
+                                <img src="assets/img/logos/4.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <a href="#" class="img d-block">
+                                <img src="assets/img/logos/5.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <a href="#" class="img d-block">
+                                <img src="assets/img/logos/6.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end clients ====== -->
+
+        <!-- ====== start features ====== -->
+        <section class="features pt-70 pb-70 style-4">
+            <div class="container">
+                <div class="section-head text-center style-4">
+                    <small class="title_small bg-white">Notero - Easy Notes App</small>
+                    <h2 class="mb-70">Awesome <span> Features </span> </h2>
+                </div>
+                <div class="content">
+                    <div class="features-card">
+                        <div class="icon img-contain">
+                            <img src="assets/img/icons/fe1.png" alt="">
+                        </div>
+                        <h6>Notes Powerful <br> and Security</h6>
+                    </div>
+                    <div class="features-card">
+                        <div class="icon img-contain">
+                            <img src="assets/img/icons/fe2.png" alt="">
+                        </div>
+                        <h6>Easy Sort, Classify <br> and Search</h6>
+                    </div>
+                    <div class="features-card">
+                        <div class="icon img-contain">
+                            <img src="assets/img/icons/fe3.png" alt="">
+                            <span
+                                class="label icon-40 alert-success text-success rounded-circle small text-uppercase fw-bold">
+                                new
+                            </span>
+                        </div>
+                        <h6>Collaboration and <br> Share</h6>
+                    </div>
+                    <div class="features-card">
+                        <div class="icon img-contain">
+                            <img src="assets/img/icons/fe4.png" alt="">
+                        </div>
+                        <h6>Quick Note In <br> Everywhere</h6>
+                    </div>
+                    <div class="features-card">
+                        <div class="icon img-contain">
+                            <img src="assets/img/icons/fe5.png" alt="">
+                        </div>
+                        <h6>Write and Draw <br> on Ipad</h6>
+                    </div>
+                </div>
+            </div>
+            <img src="assets/img/feat_circle.png" alt="" class="img-circle">
+        </section>
+        <!-- ====== end features ====== -->
+
+        <!-- ====== start about ====== -->
+        <section class="about section-padding style-4">
+            <div class="content frs-content">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-6">
+                            <div class="img mb-30 mb-lg-0">
+                                <img src="assets/img/about/ipad.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="info">
+                                <div class="section-head style-4">
+                                    <small class="title_small">Notero - Easy Notes App</small>
+                                    <h2 class="mb-30">The Notero For <span> Creatives </span> </h2>
+                                </div>
+                                <p class="text mb-40">
+                                    Stay focused and productive with a clean and clutter-free note <br> space. The
+                                    flexible ways to organize your notes: hashtags, nested notebooks, pinning notes to
+                                    the top of the note list, etc
+                                </p>
+                                <ul>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <small
+                                            class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-3">
+                                            <i class="fas fa-tag"></i>
+                                        </small>
+                                        <h6 class="fw-bold">Filtering notes using matched keywords</h6>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <small
+                                            class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-3">
+                                            <i class="fas fa-sync"></i>
+                                        </small>
+                                        <h6 class="fw-bold">Automatically sync in real time</h6>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <small
+                                            class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-3">
+                                            <i class="fas fa-text-width"></i>
+                                        </small>
+                                        <h6 class="fw-bold">Complete note editor with rich text options</h6>
+                                    </li>
+                                </ul>
+                                <a href="page-contact-5.html"
+                                    class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">
+                                    <small> Free Register </small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/img/about/about_s4_lines.png" alt="" class="lines">
+                <img src="assets/img/about/about_s4_bubble.png" alt="" class="bubble">
+            </div>
+            <div class="content sec-content">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-5 order-2 order-lg-0">
+                            <div class="info">
+                                <div class="section-head style-4">
+                                    <small class="title_small">Better Note Management</small>
+                                    <h2 class="mb-30">Your Notes <span> Security </span> </h2>
+                                </div>
+                                <p class="text mb-40">
+                                    Automatically syncs across all your devices. You can also access and write notes
+                                    without internet connection.
+                                </p>
+                                <div class="faq style-3 style-4">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="heading1">
+                                                <button class="accordion-button" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse1"
+                                                    aria-expanded="true" aria-controls="collapse1">
+                                                    Create and Save your notes with multi-media
+                                                </button>
+                                            </h2>
+                                            <div id="collapse1" class="accordion-collapse collapse show"
+                                                aria-labelledby="heading1" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Images, videos, PDFs and audio files are supported. Create math
+                                                    expressions and diagrams directly from the app. Take photos with the
+                                                    mobile app and save them to a note.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="heading2">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                                    aria-expanded="false" aria-controls="collapse2">
+                                                    Web Clipper Extension
+                                                </button>
+                                            </h2>
+                                            <div id="collapse2" class="accordion-collapse collapse"
+                                                aria-labelledby="heading2" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Images, videos, PDFs and audio files are supported. Create math
+                                                    expressions and diagrams directly from the app. Take photos with the
+                                                    mobile app and save them to a note.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="heading3">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse3"
+                                                    aria-expanded="false" aria-controls="collapse3">
+                                                    Protect your note with lock
+                                                </button>
+                                            </h2>
+                                            <div id="collapse3" class="accordion-collapse collapse"
+                                                aria-labelledby="heading3" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Images, videos, PDFs and audio files are supported. Create math
+                                                    expressions and diagrams directly from the app. Take photos with the
+                                                    mobile app and save them to a note.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="https://chrome.google.com/webstore/category/extensions"
+                                    class="btn btn-img mt-40 rounded-pill" target="_blank">
+                                    <div class="icon img-contain">
+                                        <img src="assets/img/icons/chrome_icon.png" alt="">
+                                    </div>
+                                    <div class="inf">
+                                        <small> Available in the </small>
+                                        <h6>Chrome Web Store</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-0 order-lg-2">
+                            <div class="img mb-30 mb-lg-0">
+                                <img src="assets/img/about/2mobiles.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/img/about/about_s4_bubble2.png" alt="" class="bubble2">
+            </div>
+            <div class="content trd-content">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-6">
+                            <div class="img mb-30 mb-lg-0">
+                                <img src="assets/img/about/about_s4_img3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="info">
+                                <div class="section-head style-4">
+                                    <small class="title_small">Beautiful Themes</small>
+                                    <h2 class="mb-30">Focus More With <span> Dark Theme </span> </h2>
+                                </div>
+                                <p class="text mb-40">
+                                    Apply Notero’s elegant themes to your taste. Dark themes work excellently for those
+                                    who prefer distraction-free mode.
+                                </p>
+                                <ul>
+                                    <li class="d-flex align-items-center op-4">
+                                        <i class="bi bi-dot fs-2 me-2 lh-1 color-blue4"></i>
+                                        <h6 class="fw-bold">Filtering notes using matched keywords</h6>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <i class="bi bi-dot fs-2 me-2 lh-1 color-blue4"></i>
+                                        <h6 class="fw-bold">8 Beautiful themes for you select</h6>
+                                    </li>
+                                    <li class="d-flex align-items-center op-4">
+                                        <i class="bi bi-dot fs-2 me-2 lh-1 color-blue4"></i>
+                                        <h6 class="fw-bold">Save energy for your device</h6>
+                                    </li>
+                                    <li class="d-flex align-items-center op-4">
+                                        <i class="bi bi-dot fs-2 me-2 lh-1 color-blue4"></i>
+                                        <h6 class="fw-bold">Easy to switch between light and dark mode</h6>
+                                    </li>
+                                </ul>
+                                <a href="page-services-5.html"
+                                    class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">
+                                    <small> Discovery Now </small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/img/about/about_s4_bubble.png" alt="" class="bubble">
+            </div>
+            <div class="integration pt-60">
+                <div class="section-head text-center style-4">
+                    <small class="title_small">One-Time Payment</small>
+                    <h2 class="mb-20">Integration With <span> Popular Apps </span> </h2>
+                    <p>Notero intergrate with popular apps. Help you easy to connect and collaboration</p>
+                </div>
+                <div class="container">
+                    <div class="content">
+                        <div class="img">
+                            <img src="assets/img/about/intg1.png" alt="" class="mt-30">
+                        </div>
+                        <div class="img">
+                            <img src="assets/img/about/intg5.png" alt="" class="mt-60">
+                        </div>
+                        <div class="img">
+                            <img src="assets/img/about/intg4.png" alt="" class="mt-20">
+                        </div>
+                        <div class="img">
+                            <img src="assets/img/about/intg3.png" alt="" class="mt-80">
+                        </div>
+                        <div class="img">
+                            <img src="assets/img/about/intg2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/img/about/intg_back.png" alt="" class="intg-back">
+            </div>
+            <img src="assets/img/about/about_s4_wave.png" alt="" class="top-wave">
+            <img src="assets/img/about/about_s4_wave.png" alt="" class="bottom-wave">
+        </section>
+        <!-- ====== end about ====== -->
+
+        <!-- ====== start screenshots  ====== -->
+        <div class="screenshots style-4">
+            <div class="screenshots-slider style-4">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="assets/img/screenshots/1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="assets/img/screenshots/2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="assets/img/screenshots/3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="assets/img/screenshots/4.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="assets/img/screenshots/5.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="assets/img/screenshots/hand.png" alt="" class="mob-hand">
+        </div>
+        <!-- ====== end screenshots  ====== -->
+
+        <!-- ====== start testimonials ====== -->
+        <section class="testimonials style-4 pt-70">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="section-head style-4">
+                                <small class="title_small">Testimonials</small>
+                                <h2 class="mb-30">Loved From <span> Customers </span> </h2>
+                            </div>
+                            <p class="text mb-40">
+                                Notero loved from thoudsands customer worldwide and get trusted from big companies.
+                            </p>
+                            <div class="numbs">
+                                <div class="num-card">
+                                    <div class="icon img-contain">
+                                        <img src="assets/img/icons/testi_s4_ic1.png" alt="">
+                                    </div>
+                                    <h2>2,5M+</h2>
+                                    <p>Downloaded and <br> Installation</p>
+                                </div>
+                                <div class="num-card">
+                                    <div class="icon img-contain">
+                                        <img src="assets/img/icons/testi_s4_ic2.png" alt="">
+                                    </div>
+                                    <h2>4.8/5</h2>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Based on 1,258 reviews</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mt-70">
+                                <a href="https://www.apple.com/app-store/"
+                                    class="btn rounded-pill bg-blue4 fw-bold text-white me-4" target="_blank">
+                                    <small> See Reviews On App Store </small>
+                                </a>
+                                <a href="https://youtu.be/pGbIOC83-So?t=21" data-lity class="play-btn">
+                                    <span class="icon me-2">
+                                        <i class="fas fa-play ms-1"></i>
+                                    </span>
+                                    <strong class="small">View <br> Promotion</strong>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="testi-cards">
+                                <div class="client_card">
+                                    <div class="user_img">
+                                        <img src="assets/img/testimonials/user4.png" alt="">
+                                    </div>
+                                    <div class="inf_content">
+                                        <div class="stars mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h6>
+                                            “You can even send emails to Evernote and gather <br> all of the things you
+                                            need in a single place.”
+                                        </h6>
+                                        <p>jurgen k. <span class="text-muted"> / Senior Marketing at
+                                                <span>Brator</span> </span></p>
+                                    </div>
+                                </div>
+                                <div class="client_card">
+                                    <div class="user_img">
+                                        <img src="assets/img/testimonials/user5.png" alt="">
+                                    </div>
+                                    <div class="inf_content">
+                                        <div class="stars mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h6>
+                                            “Notero - 1st my choice for notes app. Awesome”
+                                        </h6>
+                                        <p>foden p. <span class="text-muted"> / Director at <span>Ecoland Resort</span>
+                                            </span></p>
+                                    </div>
+                                </div>
+                                <div class="client_card">
+                                    <div class="user_img">
+                                        <img src="assets/img/testimonials/user6.png" alt="">
+                                    </div>
+                                    <div class="inf_content">
+                                        <div class="stars mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h6>
+                                            “.This app is seriously good. It’s simple, clean and <br> a real joy to
+                                            use.” </h6>
+                                        <p>Kerry T. <span class="text-muted"> / Designer at <span>Teckzone Inc</span>
+                                            </span></p>
+                                    </div>
+                                </div>
+                                <img src="assets/img/contact_globe.svg" alt="" class="testi-globe">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end testimonials ====== -->
+
+        <!-- ====== start pricing ====== -->
+        <section class="pricing section-padding style-4 pb-50">
+            <div class="container">
+                <div class="section-head text-center style-4">
+                    <small class="title_small">Pricing Plan</small>
+                    <h2 class="mb-30"> Start With <span> Affordable Price </span> </h2>
+                </div>
+                <div class="content">
+                    <div class="toggle_switch d-flex align-items-center justify-content-center mb-40">
+                        <div class="form-check form-switch p-0">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"><small>Billed
+                                    monthly</small></label>
+                            <input class="form-check-input float-none bg-blue4" type="checkbox"
+                                id="flexSwitchCheckDefault" checked>
+                            <label class="form-check-label" for="flexSwitchCheckDefault"><small>Billed
+                                    annually</small></label>
+                        </div>
+                    </div>
+                    <div class="row gx-0">
+                        <div class="col-lg-6">
+                            <div class="price-card">
+                                <div class="price-header pb-4">
+                                    <h6> <img src="assets/img/icons/price_s4_1.png" alt="" class="icon">
+                                        basic Plan </h6>
+                                    <h2>Free <small> / month</small></h2>
+                                    <p>Free 14 days trial, you can use over 20 basic features</p>
+                                </div>
+                                <div class="price-body py-4">
+                                    <ul>
+                                        <li class="d-flex align-items-center mb-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="far fa-sticky-note"></i>
+                                            </small>
+                                            <p class="fw-bold">Write 5 Notes On Only iOS & Android</p>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-paperclip"></i>
+                                            </small>
+                                            <p class="fw-bold">Add Attachments, Tables, Codes and More To Your Notes
+                                            </p>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-3 op-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-lock"></i>
+                                            </small>
+                                            <p class="fw-bold">Protect Your Notes and Notebooks With Lock</p>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-3 op-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-undo"></i>
+                                            </small>
+                                            <p class="fw-bold">Focus Mode and Dark Theme</p>
+                                        </li>
+                                        <li class="d-flex align-items-center op-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-download"></i>
+                                            </small>
+                                            <p class="fw-bold">Export to Text, PDF, HTML and Markdown formats</p>
+                                        </li>
+                                    </ul>
+                                    <a href="page-contact-5.html"
+                                        class="btn rounded-pill hover-blue4 fw-bold mt-50 px-5 border-blue4">
+                                        <small>Register Now </small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="price-card">
+                                <div class="price-header pb-4">
+                                    <h6> <img src="assets/img/icons/price_s4_2.png" alt="" class="icon">
+                                        premium Plan </h6>
+                                    <h2>$29 <small> / month</small></h2>
+                                    <p>Experience all premium features and only one-time payment</p>
+                                </div>
+                                <div class="price-body py-4">
+                                    <ul>
+                                        <li class="d-flex align-items-center mb-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="far fa-sticky-note"></i>
+                                            </small>
+                                            <p class="fw-bold">Write 5 Notes On Only iOS & Android</p>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-paperclip"></i>
+                                            </small>
+                                            <p class="fw-bold">Add Attachments, Tables, Codes and More To Your Notes
+                                            </p>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-lock"></i>
+                                            </small>
+                                            <p class="fw-bold">Protect Your Notes and Notebooks With Lock</p>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-3">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-undo"></i>
+                                            </small>
+                                            <p class="fw-bold">Focus Mode and Dark Theme</p>
+                                        </li>
+                                        <li class="d-flex align-items-center">
+                                            <small
+                                                class="icon-30 bg-blue4 rounded-circle text-white d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                                                <i class="fas fa-download"></i>
+                                            </small>
+                                            <p class="fw-bold">Export to Text, PDF, HTML and Markdown formats</p>
+                                        </li>
+                                    </ul>
+                                    <a href="page-contact-5.html"
+                                        class="btn rounded-pill bg-blue4 fw-bold text-white px-5 mt-50">
+                                        <small>Register Now </small>
+                                    </a>
+                                </div>
+                                <div class="off">
+                                    <span>
+                                        20% <br> off
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end pricing ====== -->
+
+        <!-- ====== start faq ====== -->
+        <section class="faq section-padding style-4 pt-50">
+            <div class="container">
+                <div class="section-head text-center style-4">
+                    <small class="title_small">Frequently Asked Question</small>
+                    <h2 class="mb-30"> Need A <span> Support? </span> </h2>
+                </div>
+                <div class="content">
+                    <div class="faq style-3 style-4">
+                        <div class="accordion" id="accordionSt4">
+                            <div class="row gx-5">
+                                <div class="col-lg-6">
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading11">
+                                            <button class="accordion-button collapsed rounded-0 py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse11"
+                                                aria-expanded="true" aria-controls="collapse11">
+                                                How Benefit That I Got When Choose Basic Plan?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse11" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading11" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading12">
+                                            <button class="accordion-button py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse12"
+                                                aria-expanded="false" aria-controls="collapse12">
+                                                How Do I Organize My Notes?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse12" class="accordion-collapse collapse show rounded-0"
+                                            aria-labelledby="heading12" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading13">
+                                            <button class="accordion-button collapsed py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse13"
+                                                aria-expanded="false" aria-controls="collapse13">
+                                                How Long For A Standard Project
+                                            </button>
+                                        </h2>
+                                        <div id="collapse13" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading13" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-0 rounded-0">
+                                        <h2 class="accordion-header" id="heading4">
+                                            <button class="accordion-button collapsed rounded-0 py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse4"
+                                                aria-expanded="true" aria-controls="collapse4">
+                                                How About Data Security & NDA Agreement
+                                            </button>
+                                        </h2>
+                                        <div id="collapse4" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading4" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading5">
+                                            <button class="accordion-button collapsed rounded-0 py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse5"
+                                                aria-expanded="true" aria-controls="collapse5">
+                                                How Does Notero Store My Data?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse5" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading5" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading6">
+                                            <button class="accordion-button collapsed py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse6"
+                                                aria-expanded="false" aria-controls="collapse6">
+                                                Does Notero Support Storing Data on iCloud?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse6" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading6" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading7">
+                                            <button class="accordion-button collapsed py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse7"
+                                                aria-expanded="false" aria-controls="collapse7">
+                                                How Do I Change My Email or Password?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse7" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading7" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-bottom rounded-0">
+                                        <h2 class="accordion-header" id="heading8">
+                                            <button class="accordion-button collapsed rounded-0 py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse8"
+                                                aria-expanded="true" aria-controls="collapse8">
+                                                Can My Premium License Be Used For All Devices?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse8" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading8" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-0 rounded-0">
+                                        <h2 class="accordion-header" id="heading9">
+                                            <button class="accordion-button collapsed rounded-0 py-4" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapse9"
+                                                aria-expanded="true" aria-controls="collapse9">
+                                                Can I Lock My Note App?
+                                            </button>
+                                        </h2>
+                                        <div id="collapse9" class="accordion-collapse collapse rounded-0"
+                                            aria-labelledby="heading9" data-bs-parent="#accordionSt4">
+                                            <div class="accordion-body">
+                                                Through the collaboration with customers in discussing needs and demand,
+                                                we're able to attain <br> mutual understanding, gain customer trust to
+                                                offer appropriate advice
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end faq ====== -->
+
+        <!-- ====== start community ====== -->
+        <section class="community section-padding pt-0 style-4">
+            <div class="container">
+                <div class="section-head text-center style-4">
+                    <small class="title_small">Notero Community</small>
+                    <h2 class="mb-30"> Join Into <span> Our Hub </span> </h2>
+                </div>
+                <div class="content">
+                    <a href="#" class="commun-card">
+                        <div class="icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="inf">
+                            <h5>Github</h5>
+                            <p>Open Source & Commnit Code</p>
+                        </div>
+                    </a>
+                    <a href="#" class="commun-card">
+                        <div class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="inf">
+                            <h5>Twitter</h5>
+                            <p>Latest News & Update</p>
+                        </div>
+                    </a>
+                    <a href="#" class="commun-card">
+                        <div class="icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="inf">
+                            <h5>Telegram</h5>
+                            <p>Chanel for Community</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end community ====== -->
+    </main>
+    <!--End-Contents-->
+
+    <!-- ====== start footer ====== -->
+    <footer class="style-4">
+        <div class="container">
+            <div class="section-head text-center style-4">
+                <h2 class="mb-10"> Ready To <span> Download </span> </h2>
+                <p>Discover your new favorite spaces, from Sao Paulo to Seoul. Download from App Store or Google Play.
+                </p>
+                <div class="d-flex align-items-center justify-content-center mt-50">
+                    <a href="https://www.apple.com/app-store/"
+                        class="btn rounded-pill bg-blue4 fw-bold text-white me-4" target="_blank">
+                        <small> <i class="fab fa-apple me-2 pe-2 border-end"></i> Download On App Store </small>
+                    </a>
+                    <a href="https://play.google.com/store/apps"
+                        class="btn rounded-pill hover-blue4 fw-bold border-blue4" target="_blank">
+                        <small> <i class="fab fa-google-play me-2 pe-2 border-end"></i> Download On Google Play
+                        </small>
+                    </a>
+                </div>
+            </div>
+            <div class="foot mt-80">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <img src="assets/img/logo_lgr.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <ul class="links">
+                            <li>
+                                <a href="home-app-landing.html" class="active">Home</a>
+                            </li>
+                            <li>
+                                <a href="page-about-5.html">about</a>
+                            </li>
+                            <li>
+                                <a href="page-product-5.html">product</a>
+                            </li>
+                            <li>
+                                <a href="page-portfolio-5.html">portfolio</a>
+                            </li>
+                            <li>
+                                <a href="page-services-5.html">services</a>
+                            </li>
+                            <li>
+                                <a href="page-shop-5.html">shop</a>
+                            </li>
+                            <li>
+                                <a href="page-blog-5.html">blog</a>
+                            </li>
+                            <li>
+                                <a href="page-contact-5.html">contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="dropdown">
+                            <button
+                                class="icon-25 dropdown-toggle p-0 border-0 bg-transparent rounded-circle img-cover"
+                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="assets/img/lang.png" alt="" class="me-2">
+                                <small>English</small>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                                <li><a class="dropdown-item" href="#">Arabic</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copywrite text-center">
+                <small class="small">
+                    © 2022 Copyrights by <a href="#" class="fw-bold text-decoration-underline">Iteck Co.</a> All
+                    Rights Reserved. Designed by <a href="https://themeforest.net/user/themescamp"
+                        class="fw-bold text-decoration-underline">ThemesCamp</a>
+                </small>
+            </div>
+        </div>
+        <img src="assets/img/footer/footer_4_wave.png" alt="" class="wave">
+    </footer>
+    <!-- ====== end footer ====== -->
+
+    <!-- ====== start to top button ====== -->
+    <a href="#"
+        class="to_top bg-gray rounded-circle icon-40 d-inline-flex align-items-center justify-content-center">
+        <i class="bi bi-chevron-up fs-6 text-dark"></i>
+    </a>
+    <!-- ====== end to top button ====== -->
+
+    <!-- ====== request ====== -->
+    <script src="assets/js/lib/jquery-3.0.0.min.js"></script>
+    <script src="assets/js/lib/jquery-migrate-3.0.0.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/lib/wow.min.js"></script>
+    <script src="assets/js/lib/jquery.fancybox.js"></script>
+    <script src="assets/js/lib/lity.js"></script>
+    <script src="assets/js/lib/swiper.min.js"></script>
+    <script src="assets/js/lib/jquery.waypoints.min.js"></script>
+    <script src="assets/js/lib/jquery.counterup.js"></script>
+    <script src="assets/js/lib/pace.js"></script>
+    <script src="assets/js/lib/scrollIt.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

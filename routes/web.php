@@ -39,6 +39,7 @@ Route::get('/mail', function () {
         $message->from('tawhidbadhan@gmail.com', 'Artisans Web');
     });
 });
+
 //Frontend
 Route::get('/', 'Frontend\HomeController@index');
 Route::post('/contact', 'Frontend\HomeController@contact')->name('guest.contact');
