@@ -14,26 +14,26 @@
     <title>Iteck</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/img/fav.png" title="Favicon" sizes="16x16" />
+    <link rel="shortcut icon" href="assets_frontend/img/fav.png" title="Favicon" sizes="16x16" />
 
     <!-- ====== bootstrap icons cdn ====== -->
-    <link rel="stylesheet" href="../../../../cdn.jsdelivr.net/npm/bootstrap-icons%401.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets_frontend/bootstrap-icons%401.7.2/font/bootstrap-icons.css">
 
     <!-- bootstrap 5 -->
-    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="assets_frontend/css/lib/bootstrap.min.css">
 
     <!-- ====== font family ====== -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/lib/all.min.css" />
-    <link rel="stylesheet" href="assets/css/lib/animate.css" />
-    <link rel="stylesheet" href="assets/css/lib/jquery.fancybox.css" />
-    <link rel="stylesheet" href="assets/css/lib/lity.css" />
-    <link rel="stylesheet" href="assets/css/lib/swiper.min.css" />
+    <link rel="stylesheet" href="assets_frontend/css/lib/all.min.css" />
+    <link rel="stylesheet" href="assets_frontend/css/lib/animate.css" />
+    <link rel="stylesheet" href="assets_frontend/css/lib/jquery.fancybox.css" />
+    <link rel="stylesheet" href="assets_frontend/css/lib/lity.css" />
+    <link rel="stylesheet" href="assets_frontend/css/lib/swiper.min.css" />
     <!-- ====== global style ====== -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets_frontend/css/style.css" />
 </head>
 
 <body>
@@ -50,7 +50,7 @@
                 <span class="btn sm-butn bg-white py-0 px-2 me-2 fs-10px">
                     <small class="fs-10px">Special</small>
                 </span>
-                <img src="assets/img/icons/nav_icon/imoj_heart.png" alt="" class="icon-15">
+                <img src="assets_frontend/img/icons/nav_icon/imoj_heart.png" alt="" class="icon-15">
                 <span class="fs-10px op-6">Get </span>
                 <small class="op-10 fs-10px">20% Discount</small>
                 <span class="fs-10px op-6">Get for New Account</span>
@@ -64,7 +64,7 @@
     <nav class="navbar navbar-expand-lg navbar-light style-4">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="assets/img/logo_lgr.png" alt="">
+                <img src="assets_frontend/img/logo_lgr.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -114,7 +114,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="page-contact-app.html">
-                            <img src="assets/img/icons/nav_icon/price.png" alt="" class="icon-15 me-1">
+                            <img src="assets_frontend/img/icons/nav_icon/price.png" alt=""
+                                class="icon-15 me-1">
                             contact
                         </a>
                     </li>
@@ -175,14 +176,14 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="img">
-                            <img src="assets/img/header/header_4.png" alt="">
+                            <img src="assets_frontend/img/header/header_4.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="assets/img/header/header_4_bubble.png" alt="" class="bubble">
+            <img src="assets_frontend/img/header/header_4_bubble.png" alt="" class="bubble">
         </div>
-        <img src="assets/img/header/header_4_wave.png" alt="" class="wave">
+        <img src="assets_frontend/img/header/header_4_wave.png" alt="" class="wave">
     </header>
     <!-- ====== end header ====== -->
 
@@ -199,32 +200,32 @@
                     <div class="row align-items-center">
                         <div class="col-6 col-lg-2">
                             <a href="#" class="img d-block">
-                                <img src="assets/img/logos/1.png" alt="">
+                                <img src="assets_frontend/img/logos/1.png" alt="">
                             </a>
                         </div>
                         <div class="col-6 col-lg-2">
                             <a href="#" class="img d-block">
-                                <img src="assets/img/logos/2.png" alt="">
+                                <img src="assets_frontend/img/logos/2.png" alt="">
                             </a>
                         </div>
                         <div class="col-6 col-lg-2">
                             <a href="#" class="img d-block">
-                                <img src="assets/img/logos/3.png" alt="">
+                                <img src="assets_frontend/img/logos/3.png" alt="">
                             </a>
                         </div>
                         <div class="col-6 col-lg-2">
                             <a href="#" class="img d-block">
-                                <img src="assets/img/logos/4.png" alt="">
+                                <img src="assets_frontend/img/logos/4.png" alt="">
                             </a>
                         </div>
                         <div class="col-6 col-lg-2">
                             <a href="#" class="img d-block">
-                                <img src="assets/img/logos/5.png" alt="">
+                                <img src="assets_frontend/img/logos/5.png" alt="">
                             </a>
                         </div>
                         <div class="col-6 col-lg-2">
                             <a href="#" class="img d-block">
-                                <img src="assets/img/logos/6.png" alt="">
+                                <img src="assets_frontend/img/logos/6.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -243,19 +244,19 @@
                 <div class="content">
                     <div class="features-card">
                         <div class="icon img-contain">
-                            <img src="assets/img/icons/fe1.png" alt="">
+                            <img src="assets_frontend/img/icons/fe1.png" alt="">
                         </div>
                         <h6>Notes Powerful <br> and Security</h6>
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
-                            <img src="assets/img/icons/fe2.png" alt="">
+                            <img src="assets_frontend/img/icons/fe2.png" alt="">
                         </div>
                         <h6>Easy Sort, Classify <br> and Search</h6>
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
-                            <img src="assets/img/icons/fe3.png" alt="">
+                            <img src="assets_frontend/img/icons/fe3.png" alt="">
                             <span
                                 class="label icon-40 alert-success text-success rounded-circle small text-uppercase fw-bold">
                                 new
@@ -265,19 +266,19 @@
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
-                            <img src="assets/img/icons/fe4.png" alt="">
+                            <img src="assets_frontend/img/icons/fe4.png" alt="">
                         </div>
                         <h6>Quick Note In <br> Everywhere</h6>
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
-                            <img src="assets/img/icons/fe5.png" alt="">
+                            <img src="assets_frontend/img/icons/fe5.png" alt="">
                         </div>
                         <h6>Write and Draw <br> on Ipad</h6>
                     </div>
                 </div>
             </div>
-            <img src="assets/img/feat_circle.png" alt="" class="img-circle">
+            <img src="assets_frontend/img/feat_circle.png" alt="" class="img-circle">
         </section>
         <!-- ====== end features ====== -->
 
@@ -288,7 +289,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-6">
                             <div class="img mb-30 mb-lg-0">
-                                <img src="assets/img/about/ipad.png" alt="">
+                                <img src="assets_frontend/img/about/ipad.png" alt="">
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -333,8 +334,8 @@
                         </div>
                     </div>
                 </div>
-                <img src="assets/img/about/about_s4_lines.png" alt="" class="lines">
-                <img src="assets/img/about/about_s4_bubble.png" alt="" class="bubble">
+                <img src="assets_frontend/img/about/about_s4_lines.png" alt="" class="lines">
+                <img src="assets_frontend/img/about/about_s4_bubble.png" alt="" class="bubble">
             </div>
             <div class="content sec-content">
                 <div class="container">
@@ -407,7 +408,7 @@
                                 <a href="https://chrome.google.com/webstore/category/extensions"
                                     class="btn btn-img mt-40 rounded-pill" target="_blank">
                                     <div class="icon img-contain">
-                                        <img src="assets/img/icons/chrome_icon.png" alt="">
+                                        <img src="assets_frontend/img/icons/chrome_icon.png" alt="">
                                     </div>
                                     <div class="inf">
                                         <small> Available in the </small>
@@ -418,19 +419,19 @@
                         </div>
                         <div class="col-lg-6 order-0 order-lg-2">
                             <div class="img mb-30 mb-lg-0">
-                                <img src="assets/img/about/2mobiles.png" alt="">
+                                <img src="assets_frontend/img/about/2mobiles.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-                <img src="assets/img/about/about_s4_bubble2.png" alt="" class="bubble2">
+                <img src="assets_frontend/img/about/about_s4_bubble2.png" alt="" class="bubble2">
             </div>
             <div class="content trd-content">
                 <div class="container">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-6">
                             <div class="img mb-30 mb-lg-0">
-                                <img src="assets/img/about/about_s4_img3.png" alt="">
+                                <img src="assets_frontend/img/about/about_s4_img3.png" alt="">
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -469,7 +470,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="assets/img/about/about_s4_bubble.png" alt="" class="bubble">
+                <img src="assets_frontend/img/about/about_s4_bubble.png" alt="" class="bubble">
             </div>
             <div class="integration pt-60">
                 <div class="section-head text-center style-4">
@@ -480,26 +481,26 @@
                 <div class="container">
                     <div class="content">
                         <div class="img">
-                            <img src="assets/img/about/intg1.png" alt="" class="mt-30">
+                            <img src="assets_frontend/img/about/intg1.png" alt="" class="mt-30">
                         </div>
                         <div class="img">
-                            <img src="assets/img/about/intg5.png" alt="" class="mt-60">
+                            <img src="assets_frontend/img/about/intg5.png" alt="" class="mt-60">
                         </div>
                         <div class="img">
-                            <img src="assets/img/about/intg4.png" alt="" class="mt-20">
+                            <img src="assets_frontend/img/about/intg4.png" alt="" class="mt-20">
                         </div>
                         <div class="img">
-                            <img src="assets/img/about/intg3.png" alt="" class="mt-80">
+                            <img src="assets_frontend/img/about/intg3.png" alt="" class="mt-80">
                         </div>
                         <div class="img">
-                            <img src="assets/img/about/intg2.png" alt="">
+                            <img src="assets_frontend/img/about/intg2.png" alt="">
                         </div>
                     </div>
                 </div>
-                <img src="assets/img/about/intg_back.png" alt="" class="intg-back">
+                <img src="assets_frontend/img/about/intg_back.png" alt="" class="intg-back">
             </div>
-            <img src="assets/img/about/about_s4_wave.png" alt="" class="top-wave">
-            <img src="assets/img/about/about_s4_wave.png" alt="" class="bottom-wave">
+            <img src="assets_frontend/img/about/about_s4_wave.png" alt="" class="top-wave">
+            <img src="assets_frontend/img/about/about_s4_wave.png" alt="" class="bottom-wave">
         </section>
         <!-- ====== end about ====== -->
 
@@ -510,33 +511,33 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="img">
-                                <img src="assets/img/screenshots/1.png" alt="">
+                                <img src="assets_frontend/img/screenshots/1.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img">
-                                <img src="assets/img/screenshots/2.png" alt="">
+                                <img src="assets_frontend/img/screenshots/2.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img">
-                                <img src="assets/img/screenshots/3.jpg" alt="">
+                                <img src="assets_frontend/img/screenshots/3.jpg" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img">
-                                <img src="assets/img/screenshots/4.png" alt="">
+                                <img src="assets_frontend/img/screenshots/4.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img">
-                                <img src="assets/img/screenshots/5.png" alt="">
+                                <img src="assets_frontend/img/screenshots/5.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="assets/img/screenshots/hand.png" alt="" class="mob-hand">
+            <img src="assets_frontend/img/screenshots/hand.png" alt="" class="mob-hand">
         </div>
         <!-- ====== end screenshots  ====== -->
 
@@ -556,14 +557,14 @@
                             <div class="numbs">
                                 <div class="num-card">
                                     <div class="icon img-contain">
-                                        <img src="assets/img/icons/testi_s4_ic1.png" alt="">
+                                        <img src="assets_frontend/img/icons/testi_s4_ic1.png" alt="">
                                     </div>
                                     <h2>2,5M+</h2>
                                     <p>Downloaded and <br> Installation</p>
                                 </div>
                                 <div class="num-card">
                                     <div class="icon img-contain">
-                                        <img src="assets/img/icons/testi_s4_ic2.png" alt="">
+                                        <img src="assets_frontend/img/icons/testi_s4_ic2.png" alt="">
                                     </div>
                                     <h2>4.8/5</h2>
                                     <div class="stars">
@@ -593,7 +594,7 @@
                             <div class="testi-cards">
                                 <div class="client_card">
                                     <div class="user_img">
-                                        <img src="assets/img/testimonials/user4.png" alt="">
+                                        <img src="assets_frontend/img/testimonials/user4.png" alt="">
                                     </div>
                                     <div class="inf_content">
                                         <div class="stars mb-2">
@@ -613,7 +614,7 @@
                                 </div>
                                 <div class="client_card">
                                     <div class="user_img">
-                                        <img src="assets/img/testimonials/user5.png" alt="">
+                                        <img src="assets_frontend/img/testimonials/user5.png" alt="">
                                     </div>
                                     <div class="inf_content">
                                         <div class="stars mb-2">
@@ -632,7 +633,7 @@
                                 </div>
                                 <div class="client_card">
                                     <div class="user_img">
-                                        <img src="assets/img/testimonials/user6.png" alt="">
+                                        <img src="assets_frontend/img/testimonials/user6.png" alt="">
                                     </div>
                                     <div class="inf_content">
                                         <div class="stars mb-2">
@@ -649,7 +650,7 @@
                                             </span></p>
                                     </div>
                                 </div>
-                                <img src="assets/img/contact_globe.svg" alt="" class="testi-globe">
+                                <img src="assets_frontend/img/contact_globe.svg" alt="" class="testi-globe">
                             </div>
                         </div>
                     </div>
@@ -680,7 +681,8 @@
                         <div class="col-lg-6">
                             <div class="price-card">
                                 <div class="price-header pb-4">
-                                    <h6> <img src="assets/img/icons/price_s4_1.png" alt="" class="icon">
+                                    <h6> <img src="assets_frontend/img/icons/price_s4_1.png" alt=""
+                                            class="icon">
                                         basic Plan </h6>
                                     <h2>Free <small> / month</small></h2>
                                     <p>Free 14 days trial, you can use over 20 basic features</p>
@@ -734,7 +736,8 @@
                         <div class="col-lg-6">
                             <div class="price-card">
                                 <div class="price-header pb-4">
-                                    <h6> <img src="assets/img/icons/price_s4_2.png" alt="" class="icon">
+                                    <h6> <img src="assets_frontend/img/icons/price_s4_2.png" alt=""
+                                            class="icon">
                                         premium Plan </h6>
                                     <h2>$29 <small> / month</small></h2>
                                     <p>Experience all premium features and only one-time payment</p>
@@ -1037,7 +1040,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <img src="assets/img/logo_lgr.png" alt="">
+                            <img src="assets_frontend/img/logo_lgr.png" alt="">
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -1074,7 +1077,7 @@
                                 class="icon-25 dropdown-toggle p-0 border-0 bg-transparent rounded-circle img-cover"
                                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <img src="assets/img/lang.png" alt="" class="me-2">
+                                <img src="assets_frontend/img/lang.png" alt="" class="me-2">
                                 <small>English</small>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -1093,7 +1096,7 @@
                 </small>
             </div>
         </div>
-        <img src="assets/img/footer/footer_4_wave.png" alt="" class="wave">
+        <img src="assets_frontend/img/footer/footer_4_wave.png" alt="" class="wave">
     </footer>
     <!-- ====== end footer ====== -->
 
@@ -1105,18 +1108,18 @@
     <!-- ====== end to top button ====== -->
 
     <!-- ====== request ====== -->
-    <script src="assets/js/lib/jquery-3.0.0.min.js"></script>
-    <script src="assets/js/lib/jquery-migrate-3.0.0.min.js"></script>
-    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/lib/wow.min.js"></script>
-    <script src="assets/js/lib/jquery.fancybox.js"></script>
-    <script src="assets/js/lib/lity.js"></script>
-    <script src="assets/js/lib/swiper.min.js"></script>
-    <script src="assets/js/lib/jquery.waypoints.min.js"></script>
-    <script src="assets/js/lib/jquery.counterup.js"></script>
-    <script src="assets/js/lib/pace.js"></script>
-    <script src="assets/js/lib/scrollIt.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets_frontend/js/lib/jquery-3.0.0.min.js"></script>
+    <script src="assets_frontend/js/lib/jquery-migrate-3.0.0.min.js"></script>
+    <script src="assets_frontend/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="assets_frontend/js/lib/wow.min.js"></script>
+    <script src="assets_frontend/js/lib/jquery.fancybox.js"></script>
+    <script src="assets_frontend/js/lib/lity.js"></script>
+    <script src="assets_frontend/js/lib/swiper.min.js"></script>
+    <script src="assets_frontend/js/lib/jquery.waypoints.min.js"></script>
+    <script src="assets_frontend/js/lib/jquery.counterup.js"></script>
+    <script src="assets_frontend/js/lib/pace.js"></script>
+    <script src="assets_frontend/js/lib/scrollIt.min.js"></script>
+    <script src="assets_frontend/js/main.js"></script>
 
 </body>
 
