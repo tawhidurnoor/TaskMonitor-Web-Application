@@ -8,25 +8,29 @@ use App\Inquiry;
 
 class HomeController extends Controller
 {
-    function index() {
+    function index()
+    {
         return view('frontend.welcome');
     }
 
     public function contact(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
-        ]);
-        $inquiry= new Inquiry();
-        $inquiry->name = $request->name;
-        $inquiry->email = $request->email;
-        $inquiry->subject = $request->subject;
-        $inquiry->message = $request->message;
-        
-        $inquiry->save();
-        echo "OK";
+        if (isset($request->name)) {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'subject' => 'required',
+                'message' => 'required',
+            ]);
+            $inquiry = new Inquiry();
+            $inquiry->name = $request->name;
+            $inquiry->email = $request->email;
+            $inquiry->subject = $request->subject;
+            $inquiry->message = $request->message;
+
+            $inquiry->save();
+        }
+
+        return view('frontend.contact');
     }
 }

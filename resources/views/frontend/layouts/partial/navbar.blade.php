@@ -18,8 +18,8 @@
 <!-- ====== start navbar ====== -->
 <nav class="navbar navbar-expand-lg navbar-light style-4">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="assets_frontend/img/logo_lgr.png" alt="">
+        <a class="navbar-brand" href="{{ route('index') }}">
+            <img src="assets_backend/media/logos/{{ get_logo() }}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,21 +27,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0 text-uppercase">
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Homes
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        <li><a class="dropdown-item" href="home-app-landing.html"> App Landing </a></li>
-                        <li><a class="dropdown-item" href="home-saas-technology.html"> Saas Technology </a></li>
-                        <li><a class="dropdown-item" href="home-marketing-startup.html"> Marketing Startup </a></li>
-                        <li><a class="dropdown-item" href="home-it-solutions.html"> It Solution </a></li>
-                        <li><a class="dropdown-item" href="home-software-company.html"> Software Company </a></li>
-                        <li><a class="dropdown-item" href="home-digital-agency.html"> Digital Agency </a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
+
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         pages
@@ -55,19 +42,23 @@
                         <li><a class="dropdown-item" href="page-single-project-app.html">single project</a></li>
                         <li><a class="dropdown-item" href="page-single-post-app.html">single post</a></li>
                     </ul>
-                </li>
+                </li> --}}
+
                 <li class="nav-item">
-                    <a class="nav-link" href="page-portfolio-app.html">
-                        portfolio
+                    <a class="nav-link {{ request()->segment(1) == '' ? 'active' : '' }}" href="{{ route('index') }}">
+                        home
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="page-blog-app.html">
+                    <a class="nav-link" href="/">
                         blog
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="page-contact-app.html">
+                    <a class="nav-link {{ request()->segment(1) == 'contact' ? 'active' : '' }}"
+                        href="{{ route('contact.index') }}">
                         <img src="assets_frontend/img/icons/nav_icon/price.png" alt="" class="icon-15 me-1">
                         contact
                     </a>
@@ -75,12 +66,15 @@
             </ul>
             <div class="nav-side">
                 <div class="d-flex align-items-center">
-                    <a href="#" class="search-icon me-4">
-                        <i class="bi bi-person"></i>
-                    </a>
-                    <a href="page-contact-app.html" class="btn rounded-pill brd-gray hover-blue4 sm-butn fw-bold">
-                        <span>Join iteck Hub <i class="bi bi-arrow-right ms-1"></i> </span>
-                    </a>
+                    @auth
+                        <a href="#" class="search-icon me-4">
+                            <i class="bi bi-person"></i>
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn rounded-pill brd-gray hover-blue4 sm-butn fw-bold">
+                            <span>Join TaskMonitor <i class="bi bi-arrow-right ms-1"></i> </span>
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>
