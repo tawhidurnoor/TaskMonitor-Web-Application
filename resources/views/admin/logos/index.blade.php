@@ -93,12 +93,6 @@
 
                     </div>
                     <!--end::Card body-->
-                    <!--begin::Actions-->
-                    <div class="card-footer d-flex justify-content-end py-6 px-9">
-                        <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save
-                            Changes</button>
-                    </div>
-                    <!--end::Actions-->
                 </div>
                 <!--end::Content-->
             </div>

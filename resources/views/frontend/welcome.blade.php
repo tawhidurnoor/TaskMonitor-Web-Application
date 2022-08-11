@@ -118,7 +118,7 @@
                         <div class="icon img-contain">
                             <img src="assets_frontend/img/icons/fe1.png" alt="">
                         </div>
-                        <h6>Notes Powerful <br> and Security</h6>
+                        <h6>Track Employees <br> and Manage Workspace</h6>
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
@@ -134,19 +134,19 @@
                                 new
                             </span>
                         </div>
-                        <h6>Collaboration and <br> Share</h6>
+                        <h6>Collaboration and <br> Invite People</h6>
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
                             <img src="assets_frontend/img/icons/fe4.png" alt="">
                         </div>
-                        <h6>Quick Note In <br> Everywhere</h6>
+                        <h6>Quick Track <br> Everyone</h6>
                     </div>
                     <div class="features-card">
                         <div class="icon img-contain">
                             <img src="assets_frontend/img/icons/fe5.png" alt="">
                         </div>
-                        <h6>Write and Draw <br> on Ipad</h6>
+                        <h6>Visually Pleasing <br> accross Devices</h6>
                     </div>
                 </div>
             </div>
@@ -169,12 +169,11 @@
                                 <div class="section-head style-4">
                                     <small class="title_small">TaskMonitor - Timetracking solution for your
                                         organization</small>
-                                    <h2 class="mb-30">The Notero For <span> Creatives </span> </h2>
+                                    <h2 class="mb-30">Perfect solution for <span> Employeers </span> </h2>
                                 </div>
                                 <p class="text mb-40">
-                                    Stay focused and productive with a clean and clutter-free note <br> space. The
-                                    flexible ways to organize your notes: hashtags, nested notebooks, pinning notes to
-                                    the top of the note list, etc
+                                    Easily track your employees. Track what they are doing, how much they are doing using
+                                    our desktop application. Access your dashboard form anywhere.
                                 </p>
                                 <ul>
                                     <li class="d-flex align-items-center mb-3">
@@ -182,21 +181,21 @@
                                             class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-3">
                                             <i class="fas fa-tag"></i>
                                         </small>
-                                        <h6 class="fw-bold">Filtering notes using matched keywords</h6>
+                                        <h6 class="fw-bold">Tracking employees and manage workspace.</h6>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <small
                                             class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-3">
                                             <i class="fas fa-sync"></i>
                                         </small>
-                                        <h6 class="fw-bold">Automatically sync in real time</h6>
+                                        <h6 class="fw-bold">Automatically upload screenshots in real time.</h6>
                                     </li>
                                     <li class="d-flex align-items-center">
                                         <small
                                             class="icon-30 bg-gray rounded-circle color-blue4 d-inline-flex align-items-center justify-content-center me-3">
                                             <i class="fas fa-text-width"></i>
                                         </small>
-                                        <h6 class="fw-bold">Complete note editor with rich text options</h6>
+                                        <h6 class="fw-bold">Accessable from anywhere.</h6>
                                     </li>
                                 </ul>
                                 <a href="page-contact-5.html" class="btn rounded-pill bg-blue4 fw-bold text-white mt-50">

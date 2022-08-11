@@ -1,5 +1,6 @@
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ asset('assets_frontend/img/fav.png') }}" title="Favicon" sizes="16x16" />
+<link rel="shortcut icon" href="{{ asset('assets_backend/media/logos/' . get_favicon()) }}" title="Favicon"
+    sizes="16x16" />
 
 <!-- ====== bootstrap icons cdn ====== -->
 <link rel="stylesheet" href="{{ asset('assets_frontend/bootstrap-icons%401.7.2/font/bootstrap-icons.css') }}">
