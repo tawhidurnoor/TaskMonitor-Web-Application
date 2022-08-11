@@ -13,10 +13,11 @@
                 <div class="row gx-0">
                     <div class="col-lg-6">
                         <div class="info">
-                            <small class="mb-50 title_small">Notero - Easy Notes App</small>
-                            <h1 class="mb-30">Note <span> Your Everything </span> In One App </h1>
-                            <p class="text">No coding required to make customizations. The live customizer <br> has
-                                everything you need.</p>
+                            <small class="mb-50 title_small">TaskMonitor - Timetracking solution for your
+                                organization</small>
+                            <h1 class="mb-30">Easily <span> Track Your Employees </span> In One App </h1>
+                            {{-- <p class="text">No coding required to make customizations. The live customizer <br> has
+                                everything you need.</p> --}}
                             <div class="d-flex align-items-center mt-50">
                                 <a href="https://www.apple.com/app-store/"
                                     class="btn rounded-pill bg-blue4 fw-bold text-white me-4" target="_blank">
@@ -109,7 +110,7 @@
         <section class="features pt-70 pb-70 style-4">
             <div class="container">
                 <div class="section-head text-center style-4">
-                    <small class="title_small bg-white">Notero - Easy Notes App</small>
+                    <small class="title_small bg-white">TaskMonitor - Timetracking solution for your organization</small>
                     <h2 class="mb-70">Awesome <span> Features </span> </h2>
                 </div>
                 <div class="content">
@@ -166,7 +167,8 @@
                         <div class="col-lg-5">
                             <div class="info">
                                 <div class="section-head style-4">
-                                    <small class="title_small">Notero - Easy Notes App</small>
+                                    <small class="title_small">TaskMonitor - Timetracking solution for your
+                                        organization</small>
                                     <h2 class="mb-30">The Notero For <span> Creatives </span> </h2>
                                 </div>
                                 <p class="text mb-40">

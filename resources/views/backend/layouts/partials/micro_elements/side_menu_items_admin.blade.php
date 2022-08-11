@@ -1,6 +1,6 @@
 <!--begin::Menu item - Users-->
 <div class="menu-item">
-    <a href="{{ route('users.index') }}" class="menu-link {{ request()->segment(1) == 'users' ? 'active' : '' }}">
+    <a href="{{ route('users.index') }}" class="menu-link {{ request()->segment(2) == 'users' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
@@ -20,7 +20,7 @@
 
 <!--begin::Menu item - FAQs-->
 <div class="menu-item">
-    <a href="{{ route('faq.index') }}" class="menu-link {{ request()->segment(1) == 'faq' ? 'active' : '' }}">
+    <a href="{{ route('faq.index') }}" class="menu-link {{ request()->segment(2) == 'faq' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
@@ -40,7 +40,7 @@
 
 <!--begin::Menu item - Meta-->
 <div class="menu-item">
-    <a href="{{ route('metainfo.index') }}" class="menu-link {{ request()->segment(1) == 'metainfo' ? 'active' : '' }}">
+    <a href="{{ route('metainfo.index') }}" class="menu-link {{ request()->segment(2) == 'metainfo' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
@@ -60,7 +60,7 @@
 
 <!--begin::Menu item - Logos-->
 <div class="menu-item">
-    <a href="{{ route('logos.index') }}" class="menu-link {{ request()->segment(1) == 'logos' ? 'active' : '' }}">
+    <a href="{{ route('logos.index') }}" class="menu-link {{ request()->segment(2) == 'logos' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
@@ -81,7 +81,7 @@
 <!--begin::Menu item - Inquiries-->
 <div class="menu-item">
     <a href="{{ route('inquiries.index') }}"
-        class="menu-link {{ request()->segment(1) == 'inquiries' ? 'active' : '' }}">
+        class="menu-link {{ request()->segment(2) == 'inquiries' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
@@ -105,7 +105,7 @@
 <!--begin::Menu item - Sebscription -->
 <div class="menu-item">
     <a href="{{ route('subscription.index') }}"
-        class="menu-link {{ request()->segment(1) == 'subscription' ? 'active' : '' }}">
+        class="menu-link {{ request()->segment(2) == 'subscription' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
@@ -129,7 +129,7 @@
 <!--begin::Menu item - Price Tier -->
 <div class="menu-item">
     <a href="{{ route('price.tier.index') }}"
-        class="menu-link {{ request()->segment(1) == 'price-tier' ? 'active' : '' }}">
+        class="menu-link {{ request()->segment(2) == 'price-tier' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">

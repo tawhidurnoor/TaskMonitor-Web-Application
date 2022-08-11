@@ -5,7 +5,7 @@
             <span class="btn sm-butn bg-white py-0 px-2 me-2 fs-10px">
                 <small class="fs-10px">Special</small>
             </span>
-            <img src="assets_frontend/img/icons/nav_icon/imoj_heart.png" alt="" class="icon-15">
+            <img src="{{ asset('assets_frontend/img/icons/nav_icon/imoj_heart.png') }}" alt="" class="icon-15">
             <span class="fs-10px op-6">Get </span>
             <small class="op-10 fs-10px">20% Discount</small>
             <span class="fs-10px op-6">Get for New Account</span>
@@ -19,7 +19,7 @@
 <nav class="navbar navbar-expand-lg navbar-light style-4">
     <div class="container">
         <a class="navbar-brand" href="{{ route('index') }}">
-            <img src="assets_backend/media/logos/{{ get_logo() }}" alt="">
+            <img src="{{ asset('assets_backend/media/logos/' . get_logo()) }}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,8 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->segment(1) == 'contact' ? 'active' : '' }}"
                         href="{{ route('contact.index') }}">
-                        <img src="assets_frontend/img/icons/nav_icon/price.png" alt="" class="icon-15 me-1">
+                        <img src="{{ asset('assets_frontend/img/icons/nav_icon/price.png') }}" alt=""
+                            class="icon-15 me-1">
                         contact
                     </a>
                 </li>
@@ -67,7 +68,7 @@
             <div class="nav-side">
                 <div class="d-flex align-items-center">
                     @auth
-                        <a href="#" class="search-icon me-4">
+                        <a href="{{ route('profile.index') }}" class="search-icon me-4">
                             <i class="bi bi-person"></i>
                         </a>
                     @else

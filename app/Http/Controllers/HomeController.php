@@ -33,6 +33,8 @@ class HomeController extends Controller
             return redirect()->route('dashboard');
         } elseif (Auth::user()->login_mode == 'employee') {
             return redirect()->route('employee.dashboard');
+        } elseif (Auth::user()->login_mode == 'admin') {
+            return redirect()->route('users.index');
         } else {
 
             if (isset($request->login_mode)) {

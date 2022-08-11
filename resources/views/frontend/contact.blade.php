@@ -2,7 +2,7 @@
 
 @section('title')
     <!-- Title  -->
-    <title>TaskMonitor | Timetracking solution for your organization</title>
+    <title>Contact | TaskMonitor</title>
 @endsection
 
 @section('body')
@@ -19,7 +19,7 @@
                 <div class="content rounded-pill">
                     <div class="commun-card">
                         <div class="icon icon-45">
-                            <img src="assets_frontend/img/icons/mail3d.png" alt="">
+                            <img src="{{ asset('assets_frontend/img/icons/mail3d.png') }}" alt="">
                         </div>
                         <div class="inf">
                             <h5>contact@taskmonitor.xyz </h5>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="commun-card">
                         <div class="icon icon-45">
-                            <img src="assets_frontend/img/icons/map3d.png" alt="">
+                            <img src="{{ asset('assets_frontend/img/icons/map3d.png') }}" alt="">
                         </div>
                         <div class="inf">
                             <h5>Motijheel, Dhaka</h5>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="commun-card">
                         <div class="icon icon-45">
-                            <img src="assets_frontend/img/icons/msg3d.png" alt="">
+                            <img src="{{ asset('assets_frontend/img/icons/msg3d.png') }}" alt="">
                         </div>
                         <div class="inf">
                             <h5>(+880) 1787 757 676</h5>
@@ -49,53 +49,61 @@
                 <div class="content">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <form action="https://smartinnovates.com/items/iteck/html/contact.php" class="form"
-                                method="post">
-                                <p class="text-center text-danger fs-12px mb-30">The field is required mark as *</p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-20">
-                                            <input type="text" class="form-control" placeholder="Name *" required>
+                            @isset($name)
+                                <h1>{{ $name }}</h1>
+                            @else
+                                <form action="{{ route('contact.store') }}" class="form" method="post">
+                                    @csrf
+                                    <p class="text-center text-danger fs-12px mb-30">The field is required mark as *</p>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-20">
+                                                <input type="text" class="form-control" name="name" placeholder="Name *"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-20">
+                                                <input type="text" class="form-control" name="email"
+                                                    placeholder="Email Address *" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-20">
+                                                <input type="text" class="form-control" name="subject"
+                                                    placeholder="Subject *" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <textarea rows="10" class="form-control" name="message" placeholder="How can we help you?" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 text-center">
+                                            <div class="form-check d-inline-flex mt-30 mb-30">
+                                                <input class="form-check-input me-2 mt-0" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label small" for="flexCheckDefault">
+                                                    By submitting, i’m agreed to the <a href="#"
+                                                        class="text-decoration-underline">Terms & Conditons</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 text-center">
+                                            <button type="submit" class="btn rounded-pill bg-blue4 fw-bold text-white"
+                                                target="_blank">
+                                                <small> Send Your Request </small>
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-20">
-                                            <input type="text" class="form-control" placeholder="Email Address *"
-                                                required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-20">
-                                            <input type="text" class="form-control" placeholder="Subject *" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <textarea rows="10" class="form-control" placeholder="How can we help you?" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 text-center">
-                                        <div class="form-check d-inline-flex mt-30 mb-30">
-                                            <input class="form-check-input me-2 mt-0" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label small" for="flexCheckDefault">
-                                                By submitting, i’m agreed to the <a href="#"
-                                                    class="text-decoration-underline">Terms & Conditons</a>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 text-center">
-                                        <a href="#" class="btn rounded-pill bg-blue4 fw-bold text-white"
-                                            target="_blank">
-                                            <small> Send Your Request </small>
-                                        </a>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            @endisset
+
                         </div>
                     </div>
-                    <img src="assets_frontend/img/icons/contact_a.png" alt="" class="contact_a">
-                    <img src="assets_frontend/img/icons/contact_message.png" alt="" class="contact_message">
+                    <img src="{{ asset('assets_frontend/img/icons/contact_a.png') }}" alt="" class="contact_a">
+                    <img src="{{ asset('assets_frontend/img/icons/contact_message.png') }}" alt=""
+                        class="contact_message">
                 </div>
             </div>
         </section>

@@ -13,24 +13,33 @@ class HomeController extends Controller
         return view('frontend.welcome');
     }
 
-    public function contact(Request $request)
+    public function contact()
     {
-        if (isset($request->name)) {
-            $request->validate([
-                'name' => 'required',
-                'email' => 'required',
-                'subject' => 'required',
-                'message' => 'required',
-            ]);
-            $inquiry = new Inquiry();
-            $inquiry->name = $request->name;
-            $inquiry->email = $request->email;
-            $inquiry->subject = $request->subject;
-            $inquiry->message = $request->message;
-
-            $inquiry->save();
-        }
-
         return view('frontend.contact');
+    }
+
+    public function stoteContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+        $inquiry = new Inquiry();
+        $inquiry->name = $request->name;
+        $inquiry->email = $request->email;
+        $inquiry->subject = $request->subject;
+        $inquiry->message = $request->message;
+
+        $name = $inquiry->name;
+        // $inquiry->save();
+
+        // session()->flash('success', 'Inquary submitted successfully.');
+
+        // return view('frontend.contact', [
+        //     'name' => $name,
+        // ]);
+        return redirect()->back()->with($name);
     }
 }

@@ -202,7 +202,7 @@ class EmployeeController extends Controller
 
         if (isset($request->date)) {
 
-            $from = explode(' - ', $request->date)[1];
+            $from = explode(' - ', $request->date)[0];
             $to = explode(' - ', $request->date)[1];
 
             // $timeTrackers->whereDate('start', $request->date);

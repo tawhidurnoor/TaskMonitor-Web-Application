@@ -43,6 +43,7 @@ Route::get('/mail', function () {
 //Frontend
 Route::get('/', 'Frontend\HomeController@index')->name('index');
 Route::get('/contact', 'Frontend\HomeController@contact')->name('contact.index');
+Route::post('/contact/store', 'Frontend\HomeController@stoteContact')->name('contact.store');
 
 //google login
 Route::get('/login/google', 'Auth\LoginController@google')->name('login.google');
