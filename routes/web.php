@@ -42,6 +42,7 @@ Route::get('/mail', function () {
 
 //Frontend
 Route::get('/', 'Frontend\HomeController@index')->name('index');
+Route::get('/{page_slug}', 'Frontend\HomeController@page')->name('page');
 Route::get('/contact', 'Frontend\HomeController@contact')->name('contact.index');
 Route::post('/contact/store', 'Frontend\HomeController@stoteContact')->name('contact.store');
 

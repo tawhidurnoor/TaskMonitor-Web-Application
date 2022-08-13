@@ -53,7 +53,7 @@
                         <!--begin::Table head-->
                         <thead>
                             <tr class="text-start text-muted fw-bolder fs-7 gs-0">
-                                <th class="min-w-100px">Title</th>
+                                <th class="min-w-150px">Title</th>
                                 <th class="min-w-150px">Slug</th>
                                 <th class="min-w-150px">Action</th>
                             </tr>
@@ -68,7 +68,8 @@
                                         {{ $page->slug }}
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-light btn-active-light-primary btn-sm">
+                                        <a href="{{ route('pages.edit', $page->id) }}"
+                                            class="btn btn-light btn-active-light-primary btn-sm">
                                             Edit
                                         </a>
                                         <a class="btn btn-light btn-active-light-danger btn-sm delete_button"

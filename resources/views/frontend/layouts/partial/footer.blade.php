@@ -29,27 +29,11 @@
                         <li>
                             <a href="home-app-landing.html" class="active">Home</a>
                         </li>
-                        <li>
-                            <a href="page-about-5.html">about</a>
-                        </li>
-                        <li>
-                            <a href="page-product-5.html">product</a>
-                        </li>
-                        <li>
-                            <a href="page-portfolio-5.html">portfolio</a>
-                        </li>
-                        <li>
-                            <a href="page-services-5.html">services</a>
-                        </li>
-                        <li>
-                            <a href="page-shop-5.html">shop</a>
-                        </li>
-                        <li>
-                            <a href="page-blog-5.html">blog</a>
-                        </li>
-                        <li>
-                            <a href="page-contact-5.html">contact</a>
-                        </li>
+                        @foreach (getPages() as $page)
+                            <li>
+                                <a href="{{ route('page', $page->slug) }}">{{ $page->title }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-lg-2">

@@ -5,12 +5,21 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Inquiry;
+use App\Page;
 
 class HomeController extends Controller
 {
     function index()
     {
         return view('frontend.welcome');
+    }
+
+    public function page($page_slug)
+    {
+        $page = Page::where('slug', $page_slug)->firstOrFail();
+        return view('frontend.page', [
+            'page' => $page
+        ]);
     }
 
     public function contact()

@@ -71,7 +71,9 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        return view('admin.pages.edit', [
+            'page' => $page,
+        ]);
     }
 
     /**
@@ -83,7 +85,15 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+        $page->title = $request->title;
+        $page->slug = Str::slug($request->title, '-');
+        $page->content = $request->content;
+
+        $page->save();
+
+        session()->flash('success', 'Page updated successfully');
+
+        return redirect()->route('pages.index');
     }
 
     /**
