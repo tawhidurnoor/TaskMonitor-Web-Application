@@ -69,9 +69,10 @@
         </div>
         <div class="copywrite text-center">
             <small class="small">
-                © 2022 Copyrights by <a href="#" class="fw-bold text-decoration-underline">Iteck Co.</a> All
+                © 2022 Copyrights by <a href="https://www.codecloudtech.com/" class="fw-bold text-decoration-underline"
+                    target="_blank">CodeCloud Technology</a> All
                 Rights Reserved. Designed by <a href="https://themeforest.net/user/themescamp"
-                    class="fw-bold text-decoration-underline">ThemesCamp</a>
+                    class="fw-bold text-decoration-underline">CodeCloud Technology</a>
             </small>
         </div>
     </div>

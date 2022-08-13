@@ -26,6 +26,9 @@ Route::group(
         Route::get('/logos', [App\Http\Controllers\Admin\LogoController::class, 'index'])->name('logos.index');
         Route::post('/logos/update', [App\Http\Controllers\Admin\LogoController::class, 'update'])->name('logos.update');
 
+        //pages
+        Route::resource('/pages', '\App\Http\Controllers\Admin\PageController');
+
         //inquiries
         Route::get('/inquiries', [App\Http\Controllers\Admin\InquiryController::class, 'index'])->name('inquiries.index');
         Route::get('/inquiries/{inquiry}/compose_mail', [App\Http\Controllers\Admin\InquiryController::class, 'composeMail'])->name('inquiries.compose.mail');
