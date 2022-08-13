@@ -124,7 +124,7 @@
                         <!--begin::Heading-->
                         <div class="mb-13 text-center">
                             <!--begin::Title-->
-                            <h1 class="mb-3">Are you sure want to delete this Inquery?</h1>
+                            <h1 class="mb-3">Are you sure want to delete this Page?</h1>
                             <!--end::Title-->
                         </div>
                         <!--end::Heading-->
@@ -160,7 +160,7 @@
             e.preventDefault();
             $('#delete_modal').modal('show');
             var id = $(this).data('id');
-            document.getElementById("delete_form").action = "inquiry/delete/" + id;
+            document.getElementById("delete_form").action = "pages/" + id;
         });
     </script>
 @endsection

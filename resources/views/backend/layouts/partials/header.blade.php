@@ -21,7 +21,7 @@
             </div>
             <!--end::Aside mobile toggle-->
             <!--begin::Logo-->
-            <a href="{{ route('dashboard') }}">
+            <a href="{{ route('index') }}" target="_blank">
                 <img alt="Logo" src="{{ asset('assets_backend/media/logos/' . get_logo()) }}"
                     class="d-none d-lg-inline h-30px" />
                 {{-- <img alt="Logo" src="{{ asset('assets_backend/media/logos/logo-demo5-mobile.svg') }}"

@@ -104,6 +104,10 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+
+        session()->flash('success', 'Page removed successfully');
+
+        return redirect()->back();
     }
 }
