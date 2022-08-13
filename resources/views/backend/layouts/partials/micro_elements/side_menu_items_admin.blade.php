@@ -80,7 +80,7 @@
 
 <!--begin::Menu item - Pages-->
 <div class="menu-item">
-    <a href="{{ route('pages.index') }}" class="menu-link {{ request()->segment(2) == 'logos' ? 'active' : '' }}">
+    <a href="{{ route('pages.index') }}" class="menu-link {{ request()->segment(2) == 'pages' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -28,7 +29,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.create');
     }
 
     /**
@@ -39,7 +40,16 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $page = new Page();
+        $page->title = $request->title;
+        $page->slug = Str::slug($request->title, '-');
+        $page->content = $request->content;
+
+        $page->save();
+
+        session()->flash('success', 'Page added successfully');
+
+        return redirect()->route('pages.index');
     }
 
     /**

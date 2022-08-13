@@ -13,7 +13,7 @@
                 <!--begin::Button-->
                 <a href="#" class="btn btn-flex btn-sm btn-primary fw-bolder border-0 fs-6 h-40px"
                     data-bs-toggle="modal" data-bs-target="#add_modal" id="kt_toolbar_primary_button">
-                    Add a Faq
+                    Add a FAQ
                 </a>
                 <!--end::Button-->
             </div>
@@ -52,7 +52,7 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <!--begin::Table head-->
                         <thead>
-                            <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+                            <tr class="text-start text-muted fw-bolder fs-7 gs-0">
                                 <th class="min-w-250px">Question</th>
                                 <th class="min-w-150px">Answer</th>
                                 <th class="min-w-150px">Action</th>

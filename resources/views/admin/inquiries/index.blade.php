@@ -43,7 +43,7 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <!--begin::Table head-->
                         <thead>
-                            <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+                            <tr class="text-start text-muted fw-bolder fs-7 gs-0">
                                 <th class="min-w-100px">Name</th>
                                 <th class="min-w-150px">Email</th>
                                 <th class="min-w-150px">Subject</th>

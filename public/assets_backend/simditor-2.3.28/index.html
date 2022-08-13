@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simditor</title>
+
+  <link rel="stylesheet" type="text/css" href="site/assets/styles/simditor.css" />
+</head>
+
+<body>
+  <textarea id="editor" placeholder="Balabala" autofocus></textarea>
+
+  <script type="text/javascript" src="site/assets/scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="site/assets/scripts/module.js"></script>
+  <script type="text/javascript" src="site/assets/scripts/hotkeys.js"></script>
+  <script type="text/javascript" src="site/assets/scripts/uploader.js"></script>
+  <script type="text/javascript" src="site/assets/scripts/simditor.js"></script>
+
+  <script>
+    var editor = new Simditor({
+      textarea: $('#editor')
+      //optional options
+    });
+  </script>
+</body>
+
+</html>
