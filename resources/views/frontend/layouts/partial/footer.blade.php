@@ -21,7 +21,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-2">
                     <div class="logo">
-                        <img src="assets_frontend/img/logo_lgr.png" alt="">
+                        <img src="{{ asset('assets_backend/media/logos/' . get_logo()) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -40,7 +40,7 @@
                     <div class="dropdown">
                         <button class="icon-25 dropdown-toggle p-0 border-0 bg-transparent rounded-circle img-cover"
                             type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets_frontend/img/lang.png" alt="" class="me-2">
+                            <img src="{{ asset('assets_frontend/img/lang.png') }}" alt="" class="me-2">
                             <small>English</small>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -60,7 +60,7 @@
             </small>
         </div>
     </div>
-    <img src="assets_frontend/img/footer/footer_4_wave.png" alt="" class="wave">
+    <img src="{{ asset('assets_frontend/img/footer/footer_4_wave.png') }}" alt="" class="wave">
 </footer>
 <!-- ====== end footer ====== -->
 

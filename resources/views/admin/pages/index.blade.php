@@ -68,6 +68,10 @@
                                         {{ $page->slug }}
                                     </td>
                                     <td>
+                                        <a href="{{ route('page', $page->slug) }}"
+                                            class="btn btn-light btn-active-light-primary btn-sm" target="_blank">
+                                            View Page
+                                        </a>
                                         <a href="{{ route('pages.edit', $page->id) }}"
                                             class="btn btn-light btn-active-light-primary btn-sm">
                                             Edit
