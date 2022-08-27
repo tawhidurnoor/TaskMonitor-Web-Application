@@ -46,10 +46,12 @@
 
                         <select name="employee" data-control="select2"
                             class="form-select form-select-solid form-select fw-bold">
-                            <option value="all">All</option>
                             @foreach ($employees as $e)
                                 <option value="{{ $e->id }}" @if ($employee == $e->id) selected @endif>
-                                    {{ $e->name }}</option>
+
+                                    {{ $e->name }}
+
+                                </option>
                             @endforeach
                         </select>
                     </div>

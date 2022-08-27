@@ -64,6 +64,29 @@
 <!--end::Menu item - Employee-->
 
 
+<!--begin::Menu item - Report-->
+<div class="menu-item">
+    <a href="{{ route('report.index') }}" class="menu-link {{ request()->segment(1) == 'report' ? 'active' : '' }}">
+        <span class="menu-icon">
+            <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+            <span class="svg-icon svg-icon-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none">
+                    <path
+                        d="m20 8-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM9 19H7v-9h2v9zm4 0h-2v-6h2v6zm4 0h-2v-3h2v3zM14 9h-1V4l5 5h-4z"
+                        fill="currentColor" />
+                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
+                        fill="currentColor" />
+                </svg>
+            </span>
+            <!--end::Svg Icon-->
+        </span>
+        <span class="menu-title">Report</span>
+    </a>
+</div>
+<!--end::Menu item - Report-->
+
+
 <!--begin::Menu item - Settings-->
 <div class="menu-item">
     <a href="{{ route('settings.index') }}" class="menu-link {{ request()->segment(1) == 'settings' ? 'active' : '' }}">
