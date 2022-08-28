@@ -156,8 +156,42 @@
                                                     <!--begin::Image-->
                                                     <div class="overlay-wrapper">
                                                         <p class="screenshot-time">
-                                                            {{ $screenshot->created_at->format('h:i a') }} <span
-                                                                class="badge {{ $screenshot->activity == 'Excellent' ? 'badge-success' : ($screenshot->activity == 'Okay' ? 'badge-primary' : 'badge-danger') }}">{{ $screenshot->activity }}</span>
+                                                            {{ $screenshot->created_at->format('h:i a') }}
+                                                            <span style="margin-left: 10px"
+                                                                class="badge 
+                                                            {{ $screenshot->activity == 'Excellent' ? 'badge-success' : ($screenshot->activity == 'Okay' ? 'badge-primary' : 'badge-danger') }}">
+                                                                {{ $screenshot->activity }}
+                                                            </span>
+
+                                                            <span style="margin-left: 10px">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                    height="24" viewBox="0 0 24 24" fill="none">
+                                                                    <path
+                                                                        d="M21 5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-8 2h2v2h-2V7zm0 4h2v2h-2v-2zM9 7h2v2H9V7zm0 4h2v2H9v-2zM5 7h2v2H5V7zm0 4h2v2H5v-2zm12 6H7v-2h10v2zm2-4h-2v-2h2v2zm0-4h-2V7h2v2z"
+                                                                        fill="currentColor">
+                                                                    </path>
+                                                                </svg>
+
+                                                                <span class="text-dark fs-base fw-bolder lh-1">
+                                                                    {{ $screenshot->keystroke }}
+                                                                </span>
+
+                                                            </span>
+
+                                                            <span style="margin-left: 10px">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                    height="24" viewBox="0 0 24 24" fill="none">
+                                                                    <path
+                                                                        d="M13 2v8h6V8c0-3.309-2.691-6-6-6zM5 16c0 3.309 2.691 6 6 6h2c3.309 0 6-2.691 6-6v-4H5v4zm0-8v2h6V2C7.691 2 5 4.691 5 8z"
+                                                                        fill="currentColor">
+                                                                    </path>
+                                                                </svg>
+
+                                                                <span class="text-dark fs-base fw-bolder lh-1">
+                                                                    {{ $screenshot->mouse_click }}
+                                                                </span>
+
+                                                            </span>
                                                         </p>
                                                         <a href="{{ asset('captured/' . $screenshot->image) }}"
                                                             data-lightbox="mygallery">

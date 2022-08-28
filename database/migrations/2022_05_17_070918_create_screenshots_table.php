@@ -19,6 +19,8 @@ class CreateScreenshotsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('image');
             $table->string('activity', 25);
+            $table->integer('keystroke')->default(0);
+            $table->integer('mouse_click')->default(0);
             $table->timestamps();
         });
     }
