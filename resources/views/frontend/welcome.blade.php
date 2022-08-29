@@ -5,6 +5,10 @@
     <title>TaskMonitor | Timetracking solution for your organization</title>
 @endsection
 
+@section('meta')
+    {!! getMeta() !!}
+@endsection
+
 @section('body')
     <!-- ====== start header ====== -->
     <header class="style-4">

@@ -8,6 +8,8 @@
     @yield('title')
 
     @include('frontend.layouts.partial.styles')
+
+    @yield('meta')
 </head>
 
 <body>

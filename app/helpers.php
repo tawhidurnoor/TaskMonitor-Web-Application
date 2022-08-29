@@ -1,6 +1,7 @@
 <?php
 
 use App\Logo;
+use App\Meta;
 use App\Page;
 
 if (!function_exists('get_logo')) {
@@ -20,5 +21,11 @@ if (!function_exists('get_logo')) {
     {
         $pages = Page::all();
         return $pages;
+    }
+
+    function getMeta()
+    {
+        $meta_information = Meta::findOrFail(1);
+        return $meta_information->meta_tags;
     }
 }

@@ -61,6 +61,15 @@
                             <div style="margin: 10px"></div>
 
                             <!--begin::Col-->
+                            <div class="col-lg-12 fv-row">
+                                <textarea type="text" name="meta_tags" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                    placeholder="Meta Tags (Leave empty if you want default meta tags)" rows="5">{{ $page->meta_tags }}</textarea>
+                            </div>
+                            <!--end::Col-->
+
+                            <div style="margin: 10px"></div>
+
+                            <!--begin::Col-->
                             <div class="col-lg-12">
                                 <textarea id="editor" placeholder="Page Content *" name="content" autofocus required>{{ $page->content }}</textarea>
                             </div>

@@ -43,6 +43,7 @@ class PageController extends Controller
         $page = new Page();
         $page->title = $request->title;
         $page->slug = Str::slug($request->title, '-');
+        $page->meta_tags = $request->meta_tags;
         $page->content = $request->content;
 
         $page->save();
@@ -87,6 +88,7 @@ class PageController extends Controller
     {
         $page->title = $request->title;
         $page->slug = Str::slug($request->title, '-');
+        $page->meta_tags = $request->meta_tags;
         $page->content = $request->content;
 
         $page->save();
