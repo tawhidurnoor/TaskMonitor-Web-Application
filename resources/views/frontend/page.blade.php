@@ -5,6 +5,14 @@
     <title>{{ $page->title }} | TaskMonitor</title>
 @endsection
 
+@section('meta')
+    @isset($page->meta_tags)
+        {!! $page->meta_tags !!}
+    @else
+        {!! getMeta() !!}
+    @endisset
+@endsection
+
 @section('body')
     <!--Contents-->
     <main class="about-page style-5">
