@@ -165,6 +165,9 @@ class TestApiController extends Controller
             $screenshot->image = $filename;
         }
 
+        $screenshot->keystroke = $request->keystroke;
+        $screenshot->mouse_click = $request->mouse_click;
+
         $screenshot->save();
 
         $timeTracker = TimeTracker::findOrFail($timeTrackerId);
