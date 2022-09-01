@@ -44,7 +44,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 fv-row">
 
-                        <select name="employee" data-control="select2"
+                        <select name="employee_id" data-control="select2"
                             class="form-select form-select-solid form-select fw-bold">
                             @foreach ($employees as $e)
                                 <option value="{{ $e->id }}" @if ($employee == $e->id) selected @endif>
@@ -58,15 +58,77 @@
                     <!--end::Col-->
                     <!--begin::Col-->
                     <div class="col-lg-4 fv-row">
-                        <button type="submit" class="btn btn-primary"
-                            id="kt_account_profile_details_submit">Filter</button>
-                        <button class="btn btn-danger reset_button">Reset</button>
+                        <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Go</button>
+                        <a href="{{ route('report.index') }}" class="btn btn-danger">Reset</a>
                     </div>
                     <!--end::Col-->
                 </div>
                 <!--end::Input group-->
             </form>
             <!--end::Details-->
+
+
+
+            <div class="card card-xl-stretch mb-xl-8" style="padding: 10px;">
+
+
+                @if ($is_request == 1)
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <script>
+                        const labels = [
+                            @php
+                                foreach ($dates as $key => $dat) {
+                                    echo '"' . $dat . '"' . ',';
+                                }
+                                
+                            @endphp
+                        ];
+
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Hours',
+                                backgroundColor: 'rgb(0, 158, 247)',
+                                borderColor: 'rgb(0, 158, 247)',
+                                data: [
+                                    @php
+                                        foreach ($work_hours as $key => $wh) {
+                                            echo '"' . $wh . '"' . ',';
+                                        }
+                                        
+                                    @endphp
+                                ],
+                            }]
+                        };
+
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            },
+                        };
+                    </script>
+
+                    <script>
+                        const myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                        );
+                    </script>
+                @else
+                    <h3>PLease select your aptions</h3>
+                @endif
+
+            </div>
+
 
         </div>
         <!--end::Post-->

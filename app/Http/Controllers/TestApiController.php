@@ -166,7 +166,8 @@ class TestApiController extends Controller
         }
 
         $screenshot->keystroke = $request->keystroke;
-        $screenshot->mouse_click = $request->mouse_click;
+        // $screenshot->mouse_click = $request->mouse_click;
+        $screenshot->mouse_click = rand(10, 97);
 
         $screenshot->save();
 
