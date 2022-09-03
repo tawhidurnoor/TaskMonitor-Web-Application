@@ -59,7 +59,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-4 fv-row">
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Go</button>
-                        <a href="{{ route('report.index') }}" class="btn btn-danger">Reset</a>
+                        <a href="{{ route('report.employee') }}" class="btn btn-danger">Reset</a>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -73,6 +73,73 @@
 
 
                 @if ($is_request == 1)
+                    <div class="position-relative">
+                        <!--begin::Row-->
+                        <div class="row g-3 g-lg-6">
+                            <!--begin::Col-->
+                            <div class="col-4">
+                                <!--begin::Items-->
+                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                    <!--begin::Stats-->
+                                    <div class="m-0">
+                                        <!--begin::Number-->
+                                        <span
+                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ count($projects) }}</span>
+                                        <!--end::Number-->
+                                        <!--begin::Desc-->
+                                        <span class="text-gray-500 fw-semibold fs-6">Working Projects</span>
+                                        <!--end::Desc-->
+                                    </div>
+                                    <!--end::Stats-->
+                                </div>
+                                <!--end::Items-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-4">
+                                <!--begin::Items-->
+                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                    <!--begin::Stats-->
+                                    <div class="m-0">
+                                        <!--begin::Number-->
+                                        <span
+                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $total_hour }}</span>
+                                        <!--end::Number-->
+                                        <!--begin::Desc-->
+                                        <span class="text-gray-500 fw-semibold fs-6">hours worked
+                                    </div>
+                                    <!--end::Stats-->
+                                </div>
+                                <!--end::Items-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-4">
+                                <!--begin::Items-->
+                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                    <!--begin::Stats-->
+                                    <div class="m-0">
+                                        <!--begin::Number-->
+                                        <span
+                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ $average_work_per_day }}</span>
+                                        <!--end::Number-->
+                                        <!--begin::Desc-->
+                                        <span class="text-gray-500 fw-semibold fs-6">hours average work/day</span>
+                                        <!--end::Desc-->
+                                    </div>
+                                    <!--end::Stats-->
+                                </div>
+                                <!--end::Items-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+                    </div>
+
+                    <br><br>
+
+
+
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <div>
                         <canvas id="myChart"></canvas>
@@ -123,8 +190,12 @@
                             config
                         );
                     </script>
+
+                    <br><br>
+                    <a href="{{ route('report.employee.pdf', 'date=' . $date . '&employee_id=' . $employee_id) }}"
+                        class="btn btn-primary">Download PDF</a>
                 @else
-                    <h3>PLease select your aptions</h3>
+                    <h3>Please select your options</h3>
                 @endif
 
             </div>

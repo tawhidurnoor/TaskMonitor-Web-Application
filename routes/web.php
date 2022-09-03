@@ -88,7 +88,9 @@ Route::group(
         Route::post('/project/addpeople/{id}', 'Backend\ProjectController@addPeople')->name('project.add.people');
 
         //report module
-        Route::get('/report', 'Backend\ReportController@index')->name('report.index');
+        Route::get('/report/employee', 'Backend\ReportController@employeeWiseReport')->name('report.employee');
+        Route::get('/report/employee/pdf', 'Backend\ReportController@employeeWiseReportPDF')->name('report.employee.pdf');
+        Route::get('/report/general', 'Backend\ReportController@generalReport')->name('report.general');
 
         Route::prefix('active-projects')->group(function () {
             Route::get('/', [ActiveProjectsController::class, 'index'])->name('active.project.index');

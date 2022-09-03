@@ -65,31 +65,67 @@
 
 
 <!--begin::Menu item - Report-->
-<div class="menu-item">
-    <a href="{{ route('report.index') }}" class="menu-link {{ request()->segment(1) == 'report' ? 'active' : '' }}">
+<div data-kt-menu-trigger="click"
+    class="menu-item menu-accordion {{ request()->segment(1) == 'report' ? 'hover show' : '' }}">
+    <!--begin:Menu link-->
+    <span class="menu-link">
         <span class="menu-icon">
-            <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
             <span class="svg-icon svg-icon-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none">
-                    <path
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.3"
                         d="m20 8-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM9 19H7v-9h2v9zm4 0h-2v-6h2v6zm4 0h-2v-3h2v3zM14 9h-1V4l5 5h-4z"
-                        fill="currentColor" />
-                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
-                        fill="currentColor" />
+                        fill="currentColor"></path>
                 </svg>
             </span>
             <!--end::Svg Icon-->
         </span>
-        <span class="menu-title">Report</span>
-    </a>
+        <span class="menu-title">Reports</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <!--end:Menu link-->
+    <!--begin:Menu sub-->
+    <div class="menu-sub menu-sub-accordion">
+        <!--begin:Menu item-->
+        <div class="menu-item">
+            <!--begin:Menu link-->
+            <a class="menu-link {{ request()->segment(2) == 'general' ? 'active' : '' }}"
+                href="{{ route('report.general') }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">General</span>
+            </a>
+            <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+        <!--begin:Menu item-->
+        <div class="menu-item">
+            <!--begin:Menu link-->
+            <a class="menu-link {{ request()->segment(2) == 'employee' ? 'active' : '' }}"
+                href="{{ route('report.employee') }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Employee Wise</span>
+            </a>
+            <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+    </div>
+    <!--end:Menu sub-->
 </div>
 <!--end::Menu item - Report-->
 
 
+
+
+
 <!--begin::Menu item - Settings-->
 <div class="menu-item">
-    <a href="{{ route('settings.index') }}" class="menu-link {{ request()->segment(1) == 'settings' ? 'active' : '' }}">
+    <a href="{{ route('settings.index') }}"
+        class="menu-link {{ request()->segment(1) == 'settings' ? 'active' : '' }}">
         <span class="menu-icon">
             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
             <span class="svg-icon svg-icon-2">
