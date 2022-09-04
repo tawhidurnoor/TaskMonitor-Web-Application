@@ -58,7 +58,10 @@
                     <!--end::Col-->
                     <!--begin::Col-->
                     <div class="col-lg-4 fv-row">
-                        <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Go</button>
+                        <button type="submit" class="btn btn-primary"
+                            id="kt_account_profile_details_submit">Visualize</button>
+                        <button value="excel" name="button" class="btn btn-primary"
+                            id="kt_account_profile_details_submit">Excel</button>
                         <a href="{{ route('report.employee') }}" class="btn btn-danger">Reset</a>
                     </div>
                     <!--end::Col-->

@@ -35,6 +35,16 @@ class ReportController extends Controller
         $to_date = null;
         $average_work_per_day = 0;
 
+        //excel
+        if ($request->button == 'excel') {
+
+            $date = $request->date;
+            $from_date = explode(" - ", $date)[0];
+            $to_date = explode(" - ", $date)[1];
+
+            return Excel::download(new TimeTrackersExport($request->employee_id, $from_date, $to_date), str_replace("/", "-", $date) . '_TimeTrackeres.xlsx');
+        }
+
         ///getting day lists based of selected date range
         if (isset($request->date)) {
             $is_request = 1;
@@ -67,7 +77,7 @@ class ReportController extends Controller
             $employee_id = $request->employee_id;
             $user = User::findOrFail($employee_id);
 
-            //getting project ids of this employee's project
+            //getting project ids of this employer's project
             $projects = Project::where('user_id', Auth::user()->id)->get();
 
             $project_ids_array = [];
@@ -124,6 +134,7 @@ class ReportController extends Controller
             $time_trackers = TimeTracker::where('user_id', $request->employee_id)
                 ->whereIn('project_id', $project_ids_array)
                 ->whereDate('start', '>=', $from_date)
+                ->whereDate('start', '<=', $to_date)
                 ->get();
 
             $total_hour = 0;
