@@ -14,6 +14,8 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+use App\Exports\TimeTrackersExport;
+use Excel;
 
 class ReportController extends Controller
 {
@@ -166,6 +168,6 @@ class ReportController extends Controller
 
     public function generalReport()
     {
-        # code...
+        return Excel::download(new TimeTrackersExport, 'TimeTrackeres.xlsx');
     }
 }
