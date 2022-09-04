@@ -89,7 +89,6 @@ Route::group(
 
         //report module
         Route::get('/report/employee', 'Backend\ReportController@employeeWiseReport')->name('report.employee');
-        Route::get('/report/employee/pdf', 'Backend\ReportController@employeeWiseReportPDF')->name('report.employee.pdf');
         Route::get('/report/general', 'Backend\ReportController@generalReport')->name('report.general');
 
         Route::prefix('active-projects')->group(function () {

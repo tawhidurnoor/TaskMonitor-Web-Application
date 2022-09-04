@@ -190,10 +190,6 @@
                             config
                         );
                     </script>
-
-                    <br><br>
-                    <a href="{{ route('report.employee.pdf', 'date=' . $date . '&employee_id=' . $employee_id) }}"
-                        class="btn btn-primary">Download PDF</a>
                 @else
                     <h3>Please select your options</h3>
                 @endif
